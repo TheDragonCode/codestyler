@@ -2,10 +2,9 @@
 
 ![the dragon code php code styler](https://preview.dragon-code.pro/the-dragon-code/php-code-styler.svg?brand=github&invert=1)
 
-[![Stable Version][badge_stable]][link_packagist]
-[![Unstable Version][badge_unstable]][link_packagist]
-[![Total Downloads][badge_downloads]][link_packagist]
-[![Github Workflow Status][badge_build]][link_build]
+[![Stable Version][badge_stable]][link_repo]
+[![Unstable Version][badge_unstable]][link_repo]
+[![Workflow Status][badge_build]][link_build]
 [![License][badge_license]][link_license]
 
 ## Usage
@@ -55,19 +54,16 @@ Default options.
 
 This package is licensed under the [MIT License](LICENSE).
 
+[badge_build]:      https://img.shields.io/github/workflow/status/TheDragonCode/php-codestyler/lint?style=flat-square
 
-[badge_build]:          https://img.shields.io/github/workflow/status/TheDragonCode/php-codestyler/phpunit?style=flat-square
+[badge_license]:    https://img.shields.io/badge/license-MIT-green?style=flat-square
 
-[badge_downloads]:      https://img.shields.io/packagist/dt/dragon-code/codestyler.svg?style=flat-square
+[badge_stable]:     https://img.shields.io/github/v/release/TheDragonCode/php-codestyler?label=stable&style=flat-square
 
-[badge_license]:        https://img.shields.io/packagist/l/dragon-code/codestyler.svg?style=flat-square
+[badge_unstable]:   https://img.shields.io/badge/unstable-dev--main-orange?style=flat-square
 
-[badge_stable]:         https://img.shields.io/github/v/release/TheDragonCode/php-codestyler?label=stable&style=flat-square
+[link_build]:       https://github.com/TheDragonCode/php-codestyler/actions
 
-[badge_unstable]:       https://img.shields.io/badge/unstable-dev--main-orange?style=flat-square
+[link_license]:     LICENSE
 
-[link_build]:           https://github.com/TheDragonCode/php-codestyler/actions
-
-[link_license]:         LICENSE
-
-[link_packagist]:       https://packagist.org/packages/dragon-code/codestyler
+[link_repo]:        https://github.com/TheDragonCode/php-codestyler
