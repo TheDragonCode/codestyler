@@ -1,0 +1,43 @@
+{
+    "name": "dragon-code/codestyler",
+    "description": "A tool to automatically fix PHP Coding Standards issues by Dragon Code.",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "lint",
+        "php",
+        "linter",
+        "phplint",
+        "syntax",
+        "syntax-checker"
+    ],
+    "authors": [
+        {
+            "name": "Andrey Helldar",
+            "email": "helldar@ai-rus.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/TheDragonCode/php-codestyler/issues",
+        "source": "https://github.com/TheDragonCode/php-codestyler"
+    },
+    "require": {
+        "php": "^8.0",
+        "ext-yaml": "*",
+        "friendsofphp/php-cs-fixer": "^3.6"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "DragonCode\\CodeStyler\\": "src"
+        }
+    },
+    "bin": [
+        "bin/codestyler"
+    ],
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}

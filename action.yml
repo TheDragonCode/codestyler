@@ -1,0 +1,25 @@
+name: 'PHP Code Styler'
+description: 'A tool to automatically fix PHP Coding Standards issues by Dragon Code.'
+inputs:
+    path:
+        description: 'path to check'
+        required: false
+        default: '.'
+    exclude:
+        description: 'exclude dirs'
+        required: false
+        default: ''
+    config:
+        description: 'config file'
+        required: false
+        default: '.php-cs.php'
+runs:
+    using: docker
+    image: Dockerfile
+    args:
+        - ${{ inputs.path }}
+        - ${{ inputs.exclude }}
+        - ${{ inputs.config }}
+branding:
+    icon: check
+    color: purple

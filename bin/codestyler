@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+
+<?php
+
+if (PHP_SAPI !== 'cli' && PHP_MAJOR_VERSION < 8) {
+    echo 'Warning: styler should be invoked via the CLI minimum version of PHP 8.0, not the ' . PHP_SAPI . ' SAPI' . PHP_EOL;
+
+    exit(1);
+}
+
+echo "yep";
+
+exit(0);
