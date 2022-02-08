@@ -22,20 +22,12 @@
         "source": "https://github.com/TheDragonCode/php-codestyler"
     },
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-yaml": "*",
         "friendsofphp/php-cs-fixer": "^3.6"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "autoload": {
-        "psr-4": {
-            "DragonCode\\CodeStyler\\": "src"
-        }
-    },
-    "bin": [
-        "bin/codestyler"
-    ],
     "config": {
         "preferred-install": "dist",
         "sort-packages": true

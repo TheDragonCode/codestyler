@@ -1,9 +1,9 @@
 #!/bin/sh -l
 
-set -ex
+canFix=''
 
-if [ ! -z "$INPUT_PATH" ]; then
-  /root/.composer/vendor/bin/codestyler $INPUT_PATH $INPUT_OPTIONS
-else
-  sh -c "/root/.composer/vendor/bin/codestyler $*"
+if [[ "$INPUT_FIX" != 'true' && "$INPUT_FIX" != true ]]; then
+    canFix='--dry-run --diff'
 fi
+
+php-cs-fixer fix $INPUT_PATH --config=/composer/vendor/dragon-code/codestyler/.php-cs.php $canFix -v
