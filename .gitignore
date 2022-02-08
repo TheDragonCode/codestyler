@@ -1,10 +1,6 @@
 .idea/
-vendor/
-build/
 
 *.bak
 *.cache
 *.clover
 *.orig
-
-composer.lock

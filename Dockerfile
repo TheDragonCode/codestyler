@@ -5,9 +5,11 @@ FROM helldar/laravel-gitlab-ci:${PHP_VERSION}
 ARG INPUT_PATH
 ARG INPUT_FIX
 
-RUN composer global require dragon-code/codestyler
+RUN composer global require friendsofphp/php-cs-fixer
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+
+COPY .php-cs.php /.php-cs.php
 
 ENTRYPOINT ["/entrypoint.sh"]
