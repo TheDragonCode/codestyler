@@ -29,40 +29,6 @@ jobs:
 
 That's all. Now, when pushing and pull-requesting, a linter will be triggered, indicating possible errors.
 
-You can also split wokflow into checking PR and applying changes on push.
-
-```yaml
-name: Code Style
-
-on: [ push, pull_request ]
-
-jobs:
-    check:
-        runs-on: ubuntu-latest
-
-        steps:
-            -   name: Checkout code
-                if: github.event_name == 'pull_request'
-                uses: actions/checkout@v2
-
-            -   name: Checking PHP Syntax
-                if: github.event_name == 'pull_request'
-                uses: TheDragonCode/php-codestyler@latest
-
-    fix:
-        runs-on: ubuntu-latest
-
-        steps:
-            -   name: Checkout code
-                if: github.event_name == 'push'
-                uses: actions/checkout@v2
-
-            -   name: Checking PHP Syntax
-                if: github.event_name == 'push'
-                uses: TheDragonCode/php-codestyler@latest
-                with:
-                    fix: true
-```
 
 ## Configuration
 
