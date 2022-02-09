@@ -2,9 +2,10 @@
 
 # Check only
 if [[ "$INPUT_FIX" != 'true' && "$INPUT_FIX" != true ]]; then
-    php-cs-fixer fix --config=/.php-cs.php --dry-run --diff -v
+    php-cs-fixer fix --config=/.php-cs.php --dry-run
+    exitcode=$?
 
-    exit 0;
+    exit $exitcode
 fi
 
 # Check GitHub Token
