@@ -19,6 +19,15 @@ Default options.
         fix: false
 ```
 
+You can also always use the latest version, including major changes:
+
+```yaml
+-   uses: TheDragonCode/php-codestyler@latest
+    with:
+        path: 'src tests'
+        fix: false
+```
+
 ### Can fix
 
 ```yaml
