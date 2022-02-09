@@ -24,12 +24,12 @@ cp -fr /.editorconfig ./.editorconfig
 
 { git add . && git commit -a -m "Update .editorconfig"; } || IS_DIRTY_CONFIG=0
 
-# Copy config file
+# Fix codestyle
 IS_DIRTY_CODE=1
 
 php-cs-fixer fix $INPUT_PATH --config=/.php-cs.php -v
 
 { git add . && git commit -a -m "Update code-style"; } || IS_DIRTY_CODE=0
 
-
+# Push changes
 if [[ "$IS_DIRTY_CONFIG" == 1 || "$IS_DIRTY_CODE" == 1 ]]; then git push; fi
