@@ -15,7 +15,7 @@ fi
 php-cs-fixer fix $INPUT_PATH --config=/.php-cs.php $canFix -v
 
 # Commit and push changes
-if [[ "$INPUT_FIX" = 'true' || "$INPUT_FIX" = true ]]; then
+if [[ "$INPUT_FIX" == 'true' && "$INPUT_FIX" == true ]]; then
     git config --local user.email "action@github.com"
     git config --local user.name "GitHub Action"
 
@@ -23,5 +23,5 @@ if [[ "$INPUT_FIX" = 'true' || "$INPUT_FIX" = true ]]; then
 
     { git add . && git commit -a -m "Codestyle fix"; } || IS_DIRTY=0
 
-    [ $IS_DIRTY = 1 ] && { git push };
+    if [ "$IS_DIRTY" === 1 ]; then git push; fi
 fi
