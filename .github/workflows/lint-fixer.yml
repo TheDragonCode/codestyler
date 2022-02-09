@@ -1,11 +1,11 @@
-name: "Code-Style"
+name: "Code-Style Fixer"
 
 on:
     push:
         branches: [ main ]
 
 jobs:
-    fixer:
+    fix:
         runs-on: ubuntu-latest
 
         steps:
