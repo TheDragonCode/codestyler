@@ -16,7 +16,7 @@ name: Code Style
 on: [ push, pull_request ]
 
 jobs:
-    build:
+    check:
         runs-on: ubuntu-latest
 
         steps:
@@ -28,6 +28,7 @@ jobs:
 ```
 
 That's all. Now, when pushing and pull-requesting, a linter will be triggered, indicating possible errors.
+
 
 ## Configuration
 
