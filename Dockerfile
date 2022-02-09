@@ -12,5 +12,6 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 COPY .php-cs.php /.php-cs.php
+COPY .editorconfig /.editorconfig
 
 ENTRYPOINT ["/entrypoint.sh"]
