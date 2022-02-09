@@ -4,6 +4,7 @@ FROM helldar/laravel-gitlab-ci:${PHP_VERSION}
 
 ARG INPUT_PATH
 ARG INPUT_FIX
+ARG INPUT_GITHUB_TOKEN
 
 RUN composer global require friendsofphp/php-cs-fixer
 
