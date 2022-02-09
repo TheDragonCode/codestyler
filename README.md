@@ -82,7 +82,7 @@ If the `.github/dependabot.yml` file has already been created, we will check it 
 
 > Note
 >
-> Files will be created only if you have specified `fix` = `true`.
+> Files will be created only if you have specified `fix: true`.
 
 ## License
 
