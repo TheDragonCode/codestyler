@@ -1,29 +1,35 @@
 #!/bin/sh -l
 
-canFix=''
-
+# Check only
 if [[ "$INPUT_FIX" != 'true' && "$INPUT_FIX" != true ]]; then
-    canFix='--dry-run --diff'
-else
-    [ -z "${INPUT_GITHUB_TOKEN}" ] && {
-        echo 'Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}".';
-        exit 1;
-    };
+    php-cs-fixer fix $INPUT_PATH --config=/.php-cs.php --dry-run --diff -v
+
+    exit 0;
 fi
 
-## Fix codestyle
-php-cs-fixer fix $INPUT_PATH --config=/.php-cs.php $canFix -v
+# Check GitHub Token
+[ -z "${INPUT_GITHUB_TOKEN}" ] && {
+    echo 'Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}".';
+    exit 1;
+};
 
-# Commit and push changes
-if [[ "$INPUT_FIX" == 'true' && "$INPUT_FIX" == true ]]; then
-    git config --local user.email "action@github.com"
-    git config --local user.name "GitHub Action"
+# Set git config
+git config --local user.email "action@github.com"
+git config --local user.name "GitHub Action"
 
-    IS_DIRTY=1
+# Copy config file
+IS_DIRTY_CONFIG=1
 
-    cp -fr /.editorconfig ./.editorconfig
+cp -fr /.editorconfig ./.editorconfig
 
-    { git add . && git commit -a -m "Codestyle fix"; } || IS_DIRTY=0
+{ git add . && git commit -a -m "Update .editorconfig"; } || IS_DIRTY_CONFIG=0
 
-    if [ "$IS_DIRTY" == 1 ]; then git push; fi
-fi
+# Copy config file
+IS_DIRTY_CODE=1
+
+php-cs-fixer fix $INPUT_PATH --config=/.php-cs.php -v
+
+{ git add . && git commit -a -m "Update code-style"; } || IS_DIRTY_CODE=0
+
+
+if [[ "$IS_DIRTY_CONFIG" == 1 || "$IS_DIRTY_CODE" == 1 ]]; then git push; fi

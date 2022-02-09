@@ -12,7 +12,7 @@ inputs:
         required: false
         default: 'false'
     github_token:
-        description: 'GitHub token or PAT token. Required if "fix" is enabled.'
+        description: 'GitHub token or PAT token.'
         required: false
         default: ${{ github.token }}
 
