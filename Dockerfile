@@ -12,5 +12,6 @@ RUN chmod +x /entrypoint.sh
 
 COPY .php-cs.php /.php-cs.php
 COPY .editorconfig /.editorconfig
+COPY dependabot.php /dependabot.php
 
 ENTRYPOINT ["/entrypoint.sh"]
