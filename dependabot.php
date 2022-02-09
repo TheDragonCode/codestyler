@@ -22,7 +22,7 @@ $updates[] = [
     'schedule' => [
         'interval' => 'daily',
         'time'     => '00:00',
-        'timezone' => 'Etc/GMT'
+        'timezone' => 'Etc/GMT',
     ],
 ];
 
