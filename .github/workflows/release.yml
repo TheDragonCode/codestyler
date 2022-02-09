@@ -21,8 +21,14 @@ jobs:
 
                     echo ::set-output name=major::${VERSION:0:2}
 
-            -   name: Create tag
+            -   name: Create major tag
                 uses: rickstaa/action-create-tag@v1
                 with:
                     tag: ${{ steps.tag.outputs.major }}
+                    force_push_tag: true
+
+            -   name: Create latest tag
+                uses: rickstaa/action-create-tag@v1
+                with:
+                    tag: latest
                     force_push_tag: true
