@@ -8,27 +8,48 @@
 
 ## Usage
 
-### Check Only
+Create a new `.github/workflows/lint.yml` file and add the content to it:
 
-Default options.
+```yaml
+name: Code Style
+
+on: [ push, pull_request ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v2
+
+            -   name: Checking PHP Syntax
+                uses: TheDragonCode/php-codestyler@latest
+```
+
+That's all. Now, when pushing and pull-requesting, a linter will be triggered, indicating possible errors.
+
+## Configuration
+
+By default, the linter scans the `src` and `tests` folders, but you can override them.
 
 ```yaml
 -   uses: TheDragonCode/php-codestyler@v1
     with:
-        path: 'src tests'
-        fix: false
+        path: 'foo bar baz'
 ```
 
-You can also always use the latest version, including major changes:
+or
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@latest
+-   uses: TheDragonCode/php-codestyler@v1
     with:
-        path: 'src tests'
-        fix: false
+        path: '.'
 ```
 
-### Can fix
+Also, by default, the linter only checks for compliance without making changes to the files.
+
+If you want to apply changes, then use the following example:
 
 ```yaml
 -   name: Git setup
@@ -36,7 +57,7 @@ You can also always use the latest version, including major changes:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
 
--   uses: TheDragonCode/php-codestyler@v1
+-   uses: TheDragonCode/php-codestyler@latest
     with:
         path: 'src tests'
         fix: true
@@ -47,7 +68,7 @@ You can also always use the latest version, including major changes:
     run: |
         IS_DIRTY=1
 
-        { git add . && git commit -a -m "Codestyle fixed"; } || IS_DIRTY=0
+        { git add . && git commit -a -m "Codestyle fix"; } || IS_DIRTY=0
 
         echo ::set-output name=is_dirty::${IS_DIRTY}
 
