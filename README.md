@@ -64,11 +64,11 @@ If you want to apply changes to repository, then use the following example:
 
 Since the GitHub Action system requires you to explicitly specify the version of the container you are using, we created two aliases for convenience:
 
-| Tag    | Alias  | Comment                                                                   |
-|--------|--------|---------------------------------------------------------------------------|
-| v1.0.0 | v1.0.0 | Explicitly specifying a specific version.                                 |
-| v1.0.0 | v1     | Binding to the major version.                                             |
-| v1.0.0 | latest | Binding to the most recent release, including changing the major version. |
+| Tag    | Alias  | Comment                                                                     |
+|--------|--------|-----------------------------------------------------------------------------|
+| v1.0.0 | `v1.0.0` | Explicitly specifying a specific version.                                 |
+| v1.0.0 | `v1`     | Binding to the major version.                                             |
+| v1.0.0 | `latest` | Binding to the most recent release, including changing the major version. |
 
 For example:
 
