@@ -2,7 +2,7 @@
 
 # Check only
 if [[ "$INPUT_FIX" != 'true' && "$INPUT_FIX" != true ]]; then
-    php-cs-fixer fix --config=/.php-cs.php --dry-run
+    php-cs-fixer fix --config=/.php-cs.php --dry-run --diff
     exitcode=$?
 
     exit $exitcode
