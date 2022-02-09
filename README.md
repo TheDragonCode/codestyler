@@ -55,7 +55,7 @@ If you want to apply changes to repository, then use the following example:
 ```yaml
 -   uses: TheDragonCode/php-codestyler@latest
     with:
-        path: 'src tests'
+        path: 'src tests config resources'
         fix: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
 ```

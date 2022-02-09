@@ -6,7 +6,7 @@ inputs:
     path:
         description: 'Specifies one or more paths to test.'
         required: false
-        default: 'src tests'
+        default: 'src tests config resources'
     fix:
         description: 'Only shows which files would have been modified.'
         required: false
