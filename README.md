@@ -32,20 +32,10 @@ That's all. Now, when pushing and pull-requesting, a linter will be triggered, i
 
 ## Configuration
 
-By default, the linter scans the `src` and `tests` folders, but you can override them.
+By default, the linter scans the `.` with except `vendor`, `node_modules` and `.github` folders.
 
 ```yaml
 -   uses: TheDragonCode/php-codestyler@v1
-    with:
-        path: 'foo bar baz'
-```
-
-or
-
-```yaml
--   uses: TheDragonCode/php-codestyler@v1
-    with:
-        path: '.'
 ```
 
 Also, by default, the linter only checks for compliance without making changes to the files.
@@ -55,9 +45,7 @@ If you want to apply changes to repository, then use the following example:
 ```yaml
 -   uses: TheDragonCode/php-codestyler@latest
     with:
-        path: 'src tests config resources'
         fix: true
-        github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Versionable

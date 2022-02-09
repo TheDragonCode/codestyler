@@ -3,8 +3,14 @@
 declare(strict_types=1);
 
 use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
+
+$finder = Finder::create()
+                ->exclude(['.git', '.github', 'vendor', 'node_modules'])
+                ->in('.');
 
 return (new Config())
+    ->setFinder($finder)
     ->setUsingCache(false)
     ->setRiskyAllowed(true)
     ->setRules([
