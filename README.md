@@ -1,4 +1,4 @@
-# PHP CodeStyler
+# PHP Code Styler
 
 ![the dragon code php code styler](https://preview.dragon-code.pro/the-dragon-code/php-code-styler.svg?brand=github&invert=1)
 
