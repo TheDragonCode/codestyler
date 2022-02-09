@@ -26,7 +26,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/php-codestyler@v1.5.1
+                uses: TheDragonCode/php-codestyler@v1.5.5
 ```
 
 ### Fixer
@@ -49,7 +49,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/php-codestyler@v1.5.1
+                uses: TheDragonCode/php-codestyler@v1.5.5
                 with:
                     fix: true
 
@@ -60,7 +60,7 @@ jobs:
 By default, the linter scans the `.` with except `vendor`, `node_modules` and `.github` folders.
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@v1.5.1
+-   uses: TheDragonCode/php-codestyler@v1.5.5
 ```
 
 Also, by default, the linter only checks for compliance without making changes to the files.
@@ -68,7 +68,7 @@ Also, by default, the linter only checks for compliance without making changes t
 If you want to apply changes to repository, then use the following example:
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@v1.5.1
+-   uses: TheDragonCode/php-codestyler@v1.5.5
     with:
         fix: true
 ```
