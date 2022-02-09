@@ -1,5 +1,6 @@
 name: 'The Dragon Code Styler'
 description: 'A tool to automatically fix PHP Coding Standards issues by Dragon Code.'
+author: 'Andrey Helldar'
 
 inputs:
     path:
@@ -10,6 +11,10 @@ inputs:
         description: 'Only shows which files would have been modified.'
         required: false
         default: 'false'
+    github_token:
+        description: 'GitHub token or PAT token. Required if "fix" is enabled.'
+        required: false
+        default: ${{ github.token }}
 
 runs:
     using: docker
@@ -17,6 +22,7 @@ runs:
     args:
         - ${{ inputs.path }}
         - ${{ inputs.fix }}
+        - ${{ inputs.github_token }}
 
 branding:
     icon: check
