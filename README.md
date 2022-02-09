@@ -79,6 +79,26 @@ If you want to apply changes, then use the following example:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+## Versionable
+
+Since the GitHub Action system requires you to explicitly specify the version of the container you are using, we created two aliases for convenience:
+
+| Tag    | Alias  | Comment                                                                   |
+|--------|--------|---------------------------------------------------------------------------|
+| v1.0.0 | v1.0.0 | Explicitly specifying a specific version.                                 |
+| v1.0.0 | v1     | Binding to the major version.                                             |
+| v1.0.0 | latest | Binding to the most recent release, including changing the major version. |
+
+For example:
+
+| Tag    | Aliases                  |
+|--------|--------------------------|
+| v2.1.0 | `v2.1.0`, `v2`, `latest` |
+| v2.0.0 | `v2.0.0`                 |
+| v1.1.0 | `v1.1.0`, `v1`           |
+| v1.0.1 | `v1.0.1`                 |
+| v1.0.0 | `v1.0.0`                 |
+
 ## License
 
 This package is licensed under the [MIT License](LICENSE).
