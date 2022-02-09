@@ -11,7 +11,6 @@ class Dependabot
 
         'schedule' => [
             'interval' => 'daily',
-            'time'     => '00:00',
         ],
     ];
 
