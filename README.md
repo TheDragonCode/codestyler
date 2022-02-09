@@ -73,14 +73,16 @@ If you want to apply changes to repository, then use the following example:
         fix: true
 ```
 
-## Versionable
-
 By default, GitHub Action does not allow versioning, so our project will create a configuration file for it, which will check for new versions once a day.
 
 When Dependabot detects new versions of containers, it will automatically create a PR to your repository. So you don't need to keep track of updates - Dependabot will do everything
 for you 💪😎
 
 If the `.github/dependabot.yml` file has already been created, we will check it and add the necessary rules. So don't be afraid, nothing will be deleted 😎
+
+> Note
+>
+> Files will be created only if you have specified `fix` = `true`.
 
 ## License
 

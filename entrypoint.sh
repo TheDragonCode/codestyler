@@ -33,7 +33,7 @@ IS_DIRTY_DEPENDABOT=1
 # Fix codestyle
 IS_DIRTY_CODE=1
 
-php-cs-fixer fix --config=/.php-cs.php -v
+php-cs-fixer fix --config=/.php-cs.php --ansi -v
 
 { git add . && git commit -a -m "Update code-style"; } || IS_DIRTY_CODE=0
 
