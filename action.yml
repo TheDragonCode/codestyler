@@ -1,5 +1,6 @@
 name: 'The Dragon Code Styler'
 description: 'A tool to automatically fix PHP Coding Standards issues by Dragon Code.'
+author: Andrey Helldar <helldar@ai-rus.com>
 
 inputs:
     path:
