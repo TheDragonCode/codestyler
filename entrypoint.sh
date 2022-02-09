@@ -24,4 +24,4 @@ if [[ "$INPUT_FIX" = 'true' || "$INPUT_FIX" = true ]]; then
     { git add . && git commit -a -m "Codestyle fix"; } || IS_DIRTY=0
 
     [ $IS_DIRTY = 1 ] && { git push };
-else
+fi
