@@ -3,10 +3,6 @@ description: 'A tool to automatically fix PHP Coding Standards issues by Dragon 
 author: 'Andrey Helldar'
 
 inputs:
-    path:
-        description: 'Specifies one or more paths to test.'
-        required: false
-        default: 'src tests config resources'
     fix:
         description: 'Only shows which files would have been modified.'
         required: false
@@ -20,7 +16,6 @@ runs:
     using: docker
     image: Dockerfile
     args:
-        - ${{ inputs.path }}
         - ${{ inputs.fix }}
         - ${{ inputs.github_token }}
 

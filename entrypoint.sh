@@ -2,7 +2,7 @@
 
 # Check only
 if [[ "$INPUT_FIX" != 'true' && "$INPUT_FIX" != true ]]; then
-    php-cs-fixer fix $INPUT_PATH --config=/.php-cs.php --dry-run --diff -v
+    php-cs-fixer fix --config=/.php-cs.php --dry-run --diff -v
 
     exit 0;
 fi
@@ -27,7 +27,7 @@ cp -fr /.editorconfig ./.editorconfig
 # Fix codestyle
 IS_DIRTY_CODE=1
 
-php-cs-fixer fix $INPUT_PATH --config=/.php-cs.php -v
+php-cs-fixer fix --config=/.php-cs.php -v
 
 { git add . && git commit -a -m "Update code-style"; } || IS_DIRTY_CODE=0
 
