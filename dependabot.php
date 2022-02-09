@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-$target_path = realpath('./.github/dependabot.yml');
+$target_path = './.github/dependabot.yml';
 
-$content = $target_path && file_exists($target_path) ? yaml_parse_file($target_path) : [];
+$content = file_exists($target_path) ? yaml_parse_file($target_path) : [];
 
 $updates = $content['updates'] ?? [];
 
