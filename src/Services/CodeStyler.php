@@ -53,7 +53,7 @@ abstract class CodeStyler implements Processor
     protected function resolveOptions(): array
     {
         return Arrayable::of($this->getOptions())
-            ->map(static function (mixed $value, string $key) {
+            ->map(function (mixed $value, string $key) {
                 if (is_bool($value)) {
                     return $key;
                 }
