@@ -90,7 +90,8 @@ jobs:
             -   name: Checking PHP Syntax
                 uses: TheDragonCode/php-codestyler@v1.6.0
                 with:
-                    # Activates the mode of accepting changes with the creation of commits.
+                    # Activates the mode of accepting changes with the creation
+                    # of commits.
                     fix: true
 
                     # Activates the actualization of the `.editorconfig` file.
