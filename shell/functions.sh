@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -l
 
 function allow() {
     local result="false"
