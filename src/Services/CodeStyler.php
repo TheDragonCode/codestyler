@@ -58,10 +58,19 @@ abstract class CodeStyler implements Processor
                     return $key;
                 }
 
-                return sprintf('%s=%s', $key, $value);
+                return sprintf('%s=%s', $key, $this->resolvePath($value));
             })
             ->values()
             ->get();
+    }
+
+    protected function resolvePath(mixed $value): mixed
+    {
+        if (is_string($value) && file_exists($value)) {
+            return realpath($value);
+        }
+
+        return $value;
     }
 
     protected function getOptions(): array
