@@ -5,13 +5,9 @@ FROM helldar/laravel-gitlab-ci:${PHP_VERSION}
 ARG INPUT_FIX
 ARG INPUT_GITHUB_TOKEN
 
-RUN composer global require friendsofphp/php-cs-fixer
+RUN composer global require dragon-code/codestyler
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-
-COPY .php-cs.php /.php-cs.php
-COPY .editorconfig /.editorconfig
-COPY dependabot.php /dependabot.php
 
 ENTRYPOINT ["/entrypoint.sh"]
