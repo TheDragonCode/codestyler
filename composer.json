@@ -13,7 +13,7 @@
         "php": "^8.0",
         "dragon-code/support": "^5.7",
         "friendsofphp/php-cs-fixer": "^3.6",
-        "symfony/yaml": "^6.0"
+        "symfony/yaml": "^5.0 || ^6.0"
     },
     "minimum-stability": "stable",
     "autoload": {
