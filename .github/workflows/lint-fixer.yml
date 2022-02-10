@@ -16,3 +16,4 @@ jobs:
                 uses: TheDragonCode/php-codestyler@v1.5.6
                 with:
                     fix: true
+                    editorconfig: false
