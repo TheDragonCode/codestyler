@@ -4,6 +4,8 @@ FROM helldar/laravel-gitlab-ci:${PHP_VERSION}
 
 ARG INPUT_FIX
 ARG INPUT_GITHUB_TOKEN
+ARG INPUT_EDITORCONFIG
+ARG INPUT_DEPENDABOT
 
 RUN composer global require dragon-code/codestyler
 
