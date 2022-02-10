@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Services;
 
+use DragonCode\CodeStyler\Concerns\Files;
 use DragonCode\CodeStyler\Contracts\Processor;
 use DragonCode\Support\Facades\Helpers\Arr;
 
 class Dependabot implements Processor
 {
+    use Files;
+
     protected const VERSION = 2;
 
     protected const NAME = 'github-actions';
@@ -22,6 +25,8 @@ class Dependabot implements Processor
 
         'schedule' => [
             'interval' => 'daily',
+            'timezone' => 'UTC',
+            'time'     => '00:00',
         ],
     ];
 
@@ -62,11 +67,6 @@ class Dependabot implements Processor
         return $updates;
     }
 
-    protected function store(int $version, array $updates): void
-    {
-        yaml_emit_file($this->path, compact('version', 'updates'));
-    }
-
     protected function getUpdates(): array
     {
         return Arr::get($this->content, 'updates', []);
@@ -79,11 +79,11 @@ class Dependabot implements Processor
 
     protected function parse(): array
     {
-        return $this->exists() ? yaml_parse_file($this->path) : [];
+        return $this->filesystem()->load($this->path);
     }
 
-    protected function exists(): bool
+    protected function store(int $version, array $updates): void
     {
-        return file_exists($this->path);
+        $this->filesystem()->store($this->path, compact('version', 'updates'));
     }
 }
