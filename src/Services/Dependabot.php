@@ -2,10 +2,21 @@
 
 declare(strict_types=1);
 
-class Dependabot
+namespace DragonCode\CodeStyler\Services;
+
+use DragonCode\CodeStyler\Contracts\Processor;
+use DragonCode\Support\Facades\Helpers\Arr;
+
+class Dependabot implements Processor
 {
+    protected const VERSION = 2;
+
+    protected const NAME = 'github-actions';
+
+    protected string $path = './.github/dependabot.yml';
+
     protected array $update = [
-        'package-ecosystem' => 'github-actions',
+        'package-ecosystem' => self::NAME,
 
         'directory' => '/',
 
@@ -16,17 +27,12 @@ class Dependabot
 
     protected array $content = [];
 
-    protected int $version = 2;
-
-    protected string $name = 'github-actions';
-
-    public function __construct(
-        protected string $path
-    ) {
+    public function __construct()
+    {
         $this->content = $this->parse();
     }
 
-    public function handle(): void
+    public function run(): void
     {
         $updates = $this->each($this->getUpdates());
         $version = $this->getVersion();
@@ -39,7 +45,7 @@ class Dependabot
         $found = false;
 
         foreach ($updates as &$update) {
-            if ($update['package-ecosystem'] === $this->name) {
+            if (Arr::get($update, 'package-ecosystem') === self::NAME) {
                 $update = $this->update;
                 $found  = true;
                 break;
@@ -63,12 +69,12 @@ class Dependabot
 
     protected function getUpdates(): array
     {
-        return $this->content['updates'] ?? [];
+        return Arr::get($this->content, 'updates', []);
     }
 
     protected function getVersion(): int
     {
-        return $this->version;
+        return self::VERSION;
     }
 
     protected function parse(): array
@@ -81,7 +87,3 @@ class Dependabot
         return file_exists($this->path);
     }
 }
-
-$dependabot = new Dependabot('./.github/dependabot.yml');
-
-$dependabot->handle();

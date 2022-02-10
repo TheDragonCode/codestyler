@@ -6,9 +6,48 @@
 [![Unstable Version][badge_unstable]][link_repo]
 [![License][badge_license]][link_license]
 
+## Installation
+
+### Required
+
+- PHP: ^8.0
+- Composer: ^2.0
+
+### Locally
+
+```bash
+composer global require dragon-code/codestyler
+```
+
 ## Usage
 
-### Check
+### CLI
+
+#### Check code-style
+
+```bash
+codestyler check
+```
+
+#### Fix code-style
+
+```bash
+codestyler fix
+```
+
+#### Update `.editorconfig`
+
+```bash
+codestyler editorconfig
+```
+
+#### Enable Dependabot
+
+```bash
+codestyler dependabot
+```
+
+### GitHub Action
 
 Create a new `.github/workflows/lint-check.yml` file and add the content to it:
 
@@ -26,12 +65,12 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/php-codestyler@v1.5.5
+                uses: TheDragonCode/php-codestyler@v1.6.0
 ```
 
 ### Fixer
 
-Create a new `.github/workflows/lint-check.yml` file and add the content to it:
+Create a new `.github/workflows/lint-fixer.yml` file and add the content to it:
 
 ```yaml
 name: "Code-Style Fix"
@@ -49,26 +88,23 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/php-codestyler@v1.5.5
+                uses: TheDragonCode/php-codestyler@v1.6.0
                 with:
                     fix: true
-
 ```
 
 ## Configuration
 
-By default, the linter scans the `.` with except `vendor`, `node_modules` and `.github` folders.
+By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules` and `.github`.
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@v1.5.5
+-   uses: TheDragonCode/php-codestyler@v1.6.0
 ```
 
-Also, by default, the linter only checks for compliance without making changes to the files.
-
-If you want to apply changes to repository, then use the following example:
+By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this option:
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@v1.5.5
+-   uses: TheDragonCode/php-codestyler@v1.6.0
     with:
         fix: true
 ```
@@ -83,6 +119,8 @@ If the `.github/dependabot.yml` file has already been created, we will check it 
 > Note
 >
 > Files will be created only if you have specified `fix: true`.
+>
+> Or you can manually run the Dependabot rule creation script by executing the `codestyler dependabot` command.
 
 ## License
 

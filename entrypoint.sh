@@ -2,7 +2,7 @@
 
 # Check only
 if [[ "$INPUT_FIX" != 'true' && "$INPUT_FIX" != true ]]; then
-    php-cs-fixer fix --config=/.php-cs.php --dry-run --diff --ansi
+    codestyler check
     exitcode=$?
 
     exit $exitcode
@@ -20,22 +20,16 @@ git config --local user.name "GitHub Action"
 
 # Copy config file
 IS_DIRTY_CONFIG=1
-
-cp -fr /.editorconfig ./.editorconfig
-
-{ git add . && git commit -a -m "Update .editorconfig"; } || IS_DIRTY_CONFIG=0
+{ codestyler editorconfig && git add . && git commit -a -m "Update .editorconfig"; } || IS_DIRTY_CONFIG=0
 
 # Set dependabot
 IS_DIRTY_DEPENDABOT=1
-
-{ php /dependabot.php && git add . && git commit -a -m "Enabled dependabot"; } || IS_DIRTY_DEPENDABOT=0
+{ codestyler dependabot && git add . && git commit -a -m "Enabled dependabot"; } || IS_DIRTY_DEPENDABOT=0
 
 # Fix codestyle
 IS_DIRTY_CODE=1
-
-php-cs-fixer fix --config=/.php-cs.php --ansi -v
-
+codestyler fix
 { git add . && git commit -a -m "Update code-style"; } || IS_DIRTY_CODE=0
 
 # Push changes
-if [[ "$IS_DIRTY_CONFIG" == 1 || "$IS_DIRTY_CODE" == 1 || "$IS_DIRTY_DEPENDABOT" == 1 ]]; then git push; fi
+if [[ "$IS_DIRTY_CONFIG" == 1 || "$IS_DIRTY_DEPENDABOT" == 1 || "$IS_DIRTY_CODE" == 1 ]]; then git push; fi

@@ -6,8 +6,8 @@ use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $finder = Finder::create()
-                ->exclude(['.git', '.github', 'vendor', 'node_modules'])
-                ->in('.');
+    ->exclude(['.git', '.github', 'vendor', 'node_modules'])
+    ->in('.');
 
 return (new Config())
     ->setFinder($finder)
