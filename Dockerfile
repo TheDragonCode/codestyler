@@ -9,6 +9,7 @@ ARG INPUT_DEPENDABOT
 
 RUN composer global require dragon-code/codestyler
 
+COPY shell /shell
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
