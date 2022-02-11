@@ -73,7 +73,7 @@ jobs:
 Create a new `.github/workflows/lint-fixer.yml` file and add the content to it:
 
 ```yaml
-name: "Code-Style Fix"
+name: "Code-Style Fixer"
 
 on:
     push:
