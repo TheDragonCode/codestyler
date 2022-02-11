@@ -15,7 +15,6 @@ class Application
     {
         $this->resolve($class)->run();
     }
-    
 
     protected function resolve(string $class): Processor
     {
