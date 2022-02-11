@@ -96,10 +96,12 @@ jobs:
 
                     # Activates the actualization of the `.editorconfig` file.
                     # Works only when the `fix` option is enabled.
+                    # By default, true
                     editorconfig: true
 
                     # Activates Dependabot file processing.
                     # Works only when the `fix` option is enabled.
+                    # By default, true
                     dependabot: true
 ```
 
