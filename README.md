@@ -73,7 +73,7 @@ jobs:
 Create a new `.github/workflows/lint-fixer.yml` file and add the content to it:
 
 ```yaml
-name: "Code-Style Fix"
+name: "Code-Style Fixer"
 
 on:
     push:
@@ -96,10 +96,12 @@ jobs:
 
                     # Activates the actualization of the `.editorconfig` file.
                     # Works only when the `fix` option is enabled.
+                    # By default, true
                     editorconfig: true
 
                     # Activates Dependabot file processing.
                     # Works only when the `fix` option is enabled.
+                    # By default, true
                     dependabot: true
 ```
 
