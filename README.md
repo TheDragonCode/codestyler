@@ -26,25 +26,25 @@ composer global require dragon-code/codestyler
 #### Check code-style
 
 ```bash
-codestyler check
+codestyle check
 ```
 
 #### Fix code-style
 
 ```bash
-codestyler fix
+codestyle fix
 ```
 
 #### Update `.editorconfig`
 
 ```bash
-codestyler editorconfig
+codestyle editorconfig
 ```
 
 #### Enable Dependabot
 
 ```bash
-codestyler dependabot
+codestyle dependabot
 ```
 
 ### GitHub Action
@@ -65,7 +65,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/php-codestyler@v1.6.0
+                uses: TheDragonCode/php-codestyler@v1.9.0
 ```
 
 ### Fixer
@@ -88,7 +88,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/php-codestyler@v1.6.0
+                uses: TheDragonCode/php-codestyler@v1.9.0
                 with:
                     # Activates the mode of accepting changes with the creation
                     # of commits.
@@ -110,13 +110,13 @@ jobs:
 By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules` and `.github`.
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@v1.6.0
+-   uses: TheDragonCode/php-codestyler@v1.9.0
 ```
 
 By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this option:
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@v1.6.0
+-   uses: TheDragonCode/php-codestyler@v1.9.0
     with:
         fix: true
 ```
@@ -132,7 +132,7 @@ If the `.github/dependabot.yml` file has already been created, we will check it 
 >
 > Files will be created only if you have specified `fix: true`.
 >
-> Or you can manually run the Dependabot rule creation script by executing the `codestyler dependabot` command.
+> Or you can manually run the Dependabot rule creation script by executing the `codestyle dependabot` command.
 
 ## License
 

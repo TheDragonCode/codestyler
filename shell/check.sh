@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 if [[ $(allowFix) == "false" ]]; then
-    codestyler check
+    codestyle check
 
     exitcode=$?
 
