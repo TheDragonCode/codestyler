@@ -22,7 +22,6 @@
         }
     },
     "bin": [
-        "bin/codestyle",
-        "bin/codestyler"
+        "bin/codestyle"
     ]
 }
