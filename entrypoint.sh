@@ -9,3 +9,5 @@ source /shell/editorconfig.sh
 source /shell/dependabot.sh
 
 source /shell/push.sh
+
+source /shell/thanks.sh

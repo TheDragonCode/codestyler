@@ -7,7 +7,9 @@ ARG INPUT_GITHUB_TOKEN
 ARG INPUT_EDITORCONFIG
 ARG INPUT_DEPENDABOT
 
-RUN composer global require dragon-code/codestyler
+RUN composer global require \
+    dragon-code/codestyler \
+    symfony/thanks
 
 COPY shell /shell
 COPY entrypoint.sh /entrypoint.sh
