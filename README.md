@@ -65,7 +65,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/php-codestyler@v1.9.0
+                uses: TheDragonCode/php-codestyler@v1.10.0
 ```
 
 ### Fixer
@@ -88,7 +88,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/php-codestyler@v1.9.0
+                uses: TheDragonCode/php-codestyler@v1.10.0
                 with:
                     # Activates the mode of accepting changes with the creation
                     # of commits.
@@ -110,13 +110,13 @@ jobs:
 By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules` and `.github`.
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@v1.9.0
+-   uses: TheDragonCode/php-codestyler@v1.10.0
 ```
 
 By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this option:
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@v1.9.0
+-   uses: TheDragonCode/php-codestyler@v1.10.0
     with:
         fix: true
 ```
