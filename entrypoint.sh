@@ -4,6 +4,7 @@ source /shell/functions.sh
 source /shell/config.sh
 
 source /shell/check.sh
+source /shell/fix.sh
 source /shell/editorconfig.sh
 source /shell/dependabot.sh
 
