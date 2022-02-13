@@ -2,6 +2,6 @@
 
 composer global thanks
 
-if [[ -f "./composer.json" ]]; then
-    composer thanks
-fi
+#if [[ -f "./composer.json" ]]; then
+#    composer thanks
+#fi
