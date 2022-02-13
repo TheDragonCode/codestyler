@@ -8,7 +8,7 @@ ARG INPUT_EDITORCONFIG
 ARG INPUT_DEPENDABOT
 
 RUN composer global require \
-    dragon-code/codestyler \
+    dragon-code/codestyler:^1.0 \
     symfony/thanks
 
 COPY shell /shell
