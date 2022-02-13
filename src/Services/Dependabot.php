@@ -25,6 +25,8 @@ class Dependabot implements Processor
 
         'schedule' => [
             'interval' => 'daily',
+            'timezone' => 'UTC',
+            'time'     => '00:00',
         ],
     ];
 
