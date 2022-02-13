@@ -10,4 +10,4 @@ source /shell/dependabot.sh
 
 source /shell/push.sh
 
-source /shell/thanks.sh
+#source /shell/thanks.sh
