@@ -90,6 +90,10 @@ jobs:
             -   name: Checking PHP Syntax
                 uses: TheDragonCode/php-codestyler@v1.10.0
                 with:
+                    # This token uses GitHub Actions to execute code.
+                    # The default value is `${{ secrets.GITHUB_TOKEN }}`.
+                    github_token: ${{ secrets.YOUR_TOKEN }}
+                
                     # Activates the mode of accepting changes with the creation
                     # of commits.
                     fix: true
@@ -109,6 +113,12 @@ jobs:
                     # By default, true
                     normalize: true
 ```
+
+Since the changes are pushed to the master branch, GitHub can block this action with a security policy.
+
+To solve this problem, you need to be [`create`](https://github.com/settings/tokens/new?scopes=repo&description=The%20Dragon%20Code:%20Styler) of your account token and specify it in the `Actions secrets` section of the repository or organization.
+
+The name of the variable containing the token must be passed to the `github_token` key.
 
 ## Configuration
 
