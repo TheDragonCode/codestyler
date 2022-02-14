@@ -10,5 +10,3 @@ source /shell/dependabot.sh
 source /shell/normalize.sh
 
 source /shell/push.sh
-
-#source /shell/thanks.sh
