@@ -103,6 +103,11 @@ jobs:
                     # Works only when the `fix` option is enabled.
                     # By default, true
                     dependabot: true
+
+                    # Normalizing `composer.json`.
+                    # Works only when the `fix` option is enabled.
+                    # By default, true
+                    normalize: true
 ```
 
 ## Configuration
