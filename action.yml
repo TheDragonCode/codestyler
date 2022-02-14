@@ -19,6 +19,11 @@ inputs:
         description: 'Updating Dependabot rules.'
         required: false
         default: 'true'
+    normalize:
+        description: 'Normalizing composer.json.'
+        required: false
+        default: 'true'
+
 
 runs:
     using: docker
@@ -28,6 +33,7 @@ runs:
         - ${{ inputs.fix }}
         - ${{ inputs.editorconfig }}
         - ${{ inputs.dependabot }}
+        - ${{ inputs.normalize }}
 
 branding:
     icon: check
