@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 IS_DIRTY_NORMALIZE=0
-if [[ $(allowFix) == "true" && $(allow "$INPUT_NORMALIZE") == "true" ]]; then
+if [[ $(allow "$INPUT_NORMALIZE") == "true" ]]; then
     composer global require ergebnis/composer-normalize
 
     if [[ -f "./composer.json" ]]; then
