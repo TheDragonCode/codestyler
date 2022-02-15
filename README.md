@@ -21,6 +21,17 @@ composer global require dragon-code/codestyler
 
 ## Usage
 
+When you run the commands in the base path of the project, the `composer.json` file will be automatically read, from which the minimum PHP version for your project will be taken.
+
+This is necessary to draw up rules for applying the codestyle.
+
+For example, if your project supports PHP 7.2 and above, and you use the `mkdir($path, 0755)` function in it, then applying the rules for PHP 8.0 will break your code because it
+will replace `0755` with `0o755` (`mkdir($path, 0o755)`).
+
+To prevent this from happening, we check the minimum PHP version.
+
+Please note that the `composer.json` file is only read if the script execution is started in the folder with it.
+
 ### CLI
 
 #### Check code-style

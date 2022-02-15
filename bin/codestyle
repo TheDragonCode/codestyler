@@ -32,23 +32,13 @@ require_once $file;
 
 $script = $argv[1] ?? null;
 
-switch ($script) {
-    case 'check':
-        $processor = Check::class;
-        break;
-
-    case 'fix':
-        $processor = Fix::class;
-        break;
-
-    case 'dependabot':
-        $processor = Dependabot::class;
-        break;
-
-    case 'editorconfig':
-        $processor = EditorConfig::class;
-        break;
-}
+$processor = match ($script) {
+    'check'        => Check::class,
+    'fix'          => Fix::class,
+    'dependabot'   => Dependabot::class,
+    'editorconfig' => EditorConfig::class,
+    default        => null,
+};
 
 if (empty($processor)) {
     $script = empty($script) ? '(empty)' : $script;
