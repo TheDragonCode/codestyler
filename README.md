@@ -68,7 +68,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/php-codestyler@v1.10.0
+                uses: TheDragonCode/codestyler@v1.12.4
 ```
 
 #### Fixer
@@ -91,7 +91,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/php-codestyler@v1.10.0
+                uses: TheDragonCode/codestyler@v1.12.4
                 with:
                     # This token uses GitHub Actions to execute code.
                     # Required when `fix` is `true`.
@@ -138,13 +138,13 @@ codestyle <command>
 By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules` and `.github`.
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@v1.10.0
+-   uses: TheDragonCode/codestyler@v1.12.4
 ```
 
 By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this option:
 
 ```yaml
--   uses: TheDragonCode/php-codestyler@v1.10.0
+-   uses: TheDragonCode/codestyler@v1.12.4
     with:
         fix: true
 ```
@@ -169,10 +169,10 @@ This package is licensed under the [MIT License](LICENSE).
 
 [badge_license]:    https://img.shields.io/badge/license-MIT-green?style=flat-square
 
-[badge_stable]:     https://img.shields.io/github/v/release/TheDragonCode/php-codestyler?label=stable&style=flat-square
+[badge_stable]:     https://img.shields.io/github/v/release/TheDragonCode/codestyler?label=stable&style=flat-square
 
 [badge_unstable]:   https://img.shields.io/badge/unstable-dev--main-orange?style=flat-square
 
 [link_license]:     LICENSE
 
-[link_repo]:        https://github.com/TheDragonCode/php-codestyler
+[link_repo]:        https://github.com/TheDragonCode/codestyler
