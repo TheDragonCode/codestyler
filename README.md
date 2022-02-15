@@ -34,31 +34,23 @@ Please note that the `composer.json` file is only read if the script execution i
 
 ### CLI
 
-#### Check code-style
-
 ```bash
+# Check code-style.
 codestyle check
-```
 
-#### Fix code-style
-
-```bash
+# Check and fix code-style.
 codestyle fix
-```
 
-#### Update `.editorconfig`
-
-```bash
+# Update `.editorconfig`.
 codestyle editorconfig
-```
 
-#### Enable Dependabot
-
-```bash
+# Update Dependabot rules.
 codestyle dependabot
 ```
 
 ### GitHub Action
+
+#### Check
 
 Create a new `.github/workflows/lint-check.yml` file and add the content to it:
 
@@ -79,15 +71,7 @@ jobs:
                 uses: TheDragonCode/php-codestyler@v1.10.0
 ```
 
-### Docker
-
-```bash
-docker run --rm -t -v "${PWD}":/workdir overtrue/phplint ./  --exclude=vendor
-```
-
-> Please mount the code directory to `/workdir` in the container.
-
-### Fixer
+#### Fixer
 
 Create a new `.github/workflows/lint-fixer.yml` file and add the content to it:
 
@@ -136,9 +120,30 @@ jobs:
 
 Since the changes are pushed to the master branch, GitHub can block this action with a security policy.
 
-To solve this problem, you need to be [`create`](https://github.com/settings/tokens/new?scopes=repo&description=The%20Dragon%20Code:%20Styler) of your account token and specify it in the `Actions secrets` section of the repository or organization.
+To solve this problem, you need to be [`create`](https://github.com/settings/tokens/new?scopes=repo&description=The%20Dragon%20Code:%20Styler) of your account token and specify it
+in the `Actions secrets` section of the repository or organization.
 
 The name of the variable containing the token must be passed to the `github_token` key.
+
+### Docker
+
+```bash
+docker run --rm -t -v "${PWD}":/workdir dragon-code/codestyler <command>
+```
+
+> Please mount the code directory to `/workdir` in the container.
+
+### Other CI/CD
+
+Run this command using `dragon-code/codestyler` Docker image:
+
+```bash
+/root/.composer/vendor/bin/codestyle <command>
+
+# or
+
+codestyle <command>
+```
 
 ## Configuration
 
