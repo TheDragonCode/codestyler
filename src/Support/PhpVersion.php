@@ -41,8 +41,10 @@ class PhpVersion
 
     protected function composer(): ?array
     {
-        $path = realpath('./composer.json');
+        if ($path = realpath('./composer.json')) {
+            return file_exists($path) ? json_decode(file_get_contents($path), true) : null;
+        }
 
-        return file_exists($path) ? json_decode(file_get_contents($path), true) : null;
+        return null;
     }
 }

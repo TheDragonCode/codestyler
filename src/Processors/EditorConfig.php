@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace DragonCode\CodeStyler\Services;
+namespace DragonCode\CodeStyler\Processors;
 
-use DragonCode\CodeStyler\Contracts\Processor;
 use DragonCode\Support\Facades\Helpers\Filesystem\File;
 
-class EditorConfig implements Processor
+class EditorConfig extends BaseProcessor
 {
     protected string $source = __DIR__ . '/../../.editorconfig';
 

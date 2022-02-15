@@ -1,13 +1,13 @@
 #!/usr/bin/env php
 <?php
 
-error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+use DragonCode\CodeStyler\Commands\Check;
+use DragonCode\CodeStyler\Commands\Dependabot;
+use DragonCode\CodeStyler\Commands\EditorConfig;
+use DragonCode\CodeStyler\Commands\Fix;
+use Symfony\Component\Console\Application;
 
-use DragonCode\CodeStyler\Application;
-use DragonCode\CodeStyler\Services\Check;
-use DragonCode\CodeStyler\Services\Dependabot;
-use DragonCode\CodeStyler\Services\EditorConfig;
-use DragonCode\CodeStyler\Services\Fix;
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 
 $possible_files = [
         __DIR__ . '/../../../autoload.php',
@@ -30,22 +30,11 @@ if (is_null($file)) {
 
 require_once $file;
 
-$script = $argv[1] ?? null;
+$application = new Application('PHP Code Styler');
 
-$processor = match ($script) {
-    'check'        => Check::class,
-    'fix'          => Fix::class,
-    'dependabot'   => Dependabot::class,
-    'editorconfig' => EditorConfig::class,
-    default        => null,
-};
+$application->add(new Check());
+$application->add(new Fix());
+$application->add(new Dependabot());
+$application->add(new EditorConfig());
 
-if (empty($processor)) {
-    $script = empty($script) ? '(empty)' : $script;
-
-    echo 'ERROR: ⚠️Unknown script parameter: ' . $script;
-
-    exit(1);
-}
-
-Application::make()->process($processor);
+$application->run();
