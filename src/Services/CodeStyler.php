@@ -7,6 +7,7 @@ namespace DragonCode\CodeStyler\Services;
 use Composer\XdebugHandler\XdebugHandler;
 use DragonCode\CodeStyler\Contracts\Processor;
 use DragonCode\Support\Facades\Helpers\Ables\Arrayable;
+use DragonCode\Support\Facades\Helpers\Arr;
 use PhpCsFixer\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 
@@ -15,10 +16,9 @@ abstract class CodeStyler implements Processor
     protected const ENV_PREFIX = 'PHP_CS_FIXER';
 
     protected array $options = [
-        'path'     => __DIR__,
-        'fix'      => true,
-        '--config' => __DIR__ . '/../../config/rules.php',
-        '--ansi'   => true,
+        'path'   => __DIR__,
+        'fix'    => true,
+        '--ansi' => true,
     ];
 
     protected array $options_check = [];
@@ -53,7 +53,7 @@ abstract class CodeStyler implements Processor
     protected function resolveOptions(): array
     {
         return Arrayable::of($this->getOptions())
-            ->map(function (mixed $value, string $key) {
+            ->map(function ($value, string $key) {
                 if (is_bool($value)) {
                     return $key;
                 }
@@ -64,7 +64,7 @@ abstract class CodeStyler implements Processor
             ->get();
     }
 
-    protected function resolvePath(mixed $value): mixed
+    protected function resolvePath($value)
     {
         if (is_string($value) && file_exists($value)) {
             return realpath($value);
@@ -75,6 +75,43 @@ abstract class CodeStyler implements Processor
 
     protected function getOptions(): array
     {
-        return array_merge($this->options, $this->options_check);
+        return array_merge($this->options, [
+            '--config' => $this->getConfigFilename(),
+        ], $this->options_check);
+    }
+
+    protected function getConfigFilename(): string
+    {
+        $path = __DIR__ . '/../../rules/';
+
+        $config = $path . $this->getPhpVersion() . '.php';
+
+        return file_exists($config) ? $config : $path . '8.1.php';
+    }
+
+    protected function getPhpVersion(): ?string
+    {
+        $path = realpath('./composer.json');
+
+        if (file_exists($path)) {
+            $composer = json_decode(file_get_contents($path), true);
+
+            $version = Arr::get($composer, 'require.php', Arr::get($composer, 'require-dev.php', ''));
+
+            preg_match_all('/\d\.\d/', $version, $output);
+
+            $versions = $output[0];
+
+            sort($versions);
+
+            $versions = Arrayable::of($versions)
+                ->filter(static fn (string $value) => version_compare($value, '7.4', '>='))
+                ->values()
+                ->get();
+
+            return $versions[0] ?? null;
+        }
+
+        return null;
     }
 }
