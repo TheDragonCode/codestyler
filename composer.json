@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.0",
         "ext-json": "*",
         "dragon-code/support": "^5.7",
         "friendsofphp/php-cs-fixer": "^3.6",

@@ -6,7 +6,7 @@ use PhpCsFixer\Config;
 
 require __DIR__ . '/main.php';
 
-array_unshift($rules, ['@PHP80Migration' => true]);
+$rules['@PHP80Migration'] = true;
 
 return (new Config())
     ->setFinder($finder)
