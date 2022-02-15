@@ -6,8 +6,8 @@ namespace DragonCode\CodeStyler\Services;
 
 use Composer\XdebugHandler\XdebugHandler;
 use DragonCode\CodeStyler\Contracts\Processor;
+use DragonCode\CodeStyler\Support\PhpVersion;
 use DragonCode\Support\Facades\Helpers\Ables\Arrayable;
-use DragonCode\Support\Facades\Helpers\Arr;
 use PhpCsFixer\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 
@@ -64,7 +64,7 @@ abstract class CodeStyler implements Processor
             ->get();
     }
 
-    protected function resolvePath($value)
+    protected function resolvePath(mixed $value): mixed
     {
         if (is_string($value) && file_exists($value)) {
             return realpath($value);
@@ -86,32 +86,11 @@ abstract class CodeStyler implements Processor
 
         $config = $path . $this->getPhpVersion() . '.php';
 
-        return file_exists($config) ? $config : $path . '8.1.php';
+        return file_exists($config) ? $config : $path . PhpVersion::DEFAULT . '.php';
     }
 
-    protected function getPhpVersion(): ?string
+    protected function getPhpVersion(): string
     {
-        $path = realpath('./composer.json');
-
-        if (file_exists($path)) {
-            $composer = json_decode(file_get_contents($path), true);
-
-            $version = Arr::get($composer, 'require.php', Arr::get($composer, 'require-dev.php', ''));
-
-            preg_match_all('/\d\.\d/', $version, $output);
-
-            $versions = $output[0];
-
-            sort($versions);
-
-            $versions = Arrayable::of($versions)
-                ->filter(static fn (string $value) => version_compare($value, '7.4', '>='))
-                ->values()
-                ->get();
-
-            return $versions[0] ?? null;
-        }
-
-        return null;
+        return PhpVersion::make()->get();
     }
 }
