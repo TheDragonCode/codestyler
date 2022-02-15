@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace DragonCode\CodeStyler\Services;
+namespace DragonCode\CodeStyler\Processors;
 
 use DragonCode\CodeStyler\Concerns\Files;
-use DragonCode\CodeStyler\Contracts\Processor;
 use DragonCode\Support\Facades\Helpers\Arr;
 
-class Dependabot implements Processor
+class Dependabot extends BaseProcessor
 {
     use Files;
 
@@ -32,13 +31,10 @@ class Dependabot implements Processor
 
     protected array $content = [];
 
-    public function __construct()
-    {
-        $this->content = $this->parse();
-    }
-
     public function run(): void
     {
+        $this->content = $this->parse();
+
         $updates = $this->each($this->getUpdates());
         $version = $this->getVersion();
 

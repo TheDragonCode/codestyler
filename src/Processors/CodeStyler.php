@@ -2,39 +2,25 @@
 
 declare(strict_types=1);
 
-namespace DragonCode\CodeStyler\Services;
+namespace DragonCode\CodeStyler\Processors;
 
-use Composer\XdebugHandler\XdebugHandler;
-use DragonCode\CodeStyler\Contracts\Processor;
 use DragonCode\CodeStyler\Support\PhpVersion;
 use DragonCode\Support\Facades\Helpers\Ables\Arrayable;
 use PhpCsFixer\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 
-abstract class CodeStyler implements Processor
+abstract class CodeStyler extends BaseProcessor
 {
-    protected const ENV_PREFIX = 'PHP_CS_FIXER';
-
     protected array $options = [
-        'path'   => __DIR__,
-        'fix'    => true,
-        '--ansi' => true,
+        'path' => __DIR__,
+        'fix'  => true,
     ];
 
     protected array $options_check = [];
 
     public function run(): void
     {
-        $this->xdebug();
         $this->styler();
-    }
-
-    protected function xdebug(): void
-    {
-        $xdebug = new XdebugHandler(self::ENV_PREFIX);
-        $xdebug->check();
-
-        unset($xdebug);
     }
 
     protected function styler(): void
@@ -75,9 +61,16 @@ abstract class CodeStyler implements Processor
 
     protected function getOptions(): array
     {
-        return array_merge($this->options, [
+        return array_merge($this->options, $this->options_check, [
             '--config' => $this->getConfigFilename(),
-        ], $this->options_check);
+        ], $this->getDecorationOption());
+    }
+
+    protected function getDecorationOption(): array
+    {
+        return $this->output->isDecorated()
+            ? ['--ansi' => true]
+            : ['--no-ansi' => true];
     }
 
     protected function getConfigFilename(): string

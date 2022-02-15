@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DragonCode\CodeStyler\Services;
+namespace DragonCode\CodeStyler\Processors;
 
 class Fix extends CodeStyler
 {
