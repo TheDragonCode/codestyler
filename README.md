@@ -125,22 +125,10 @@ in the `Actions secrets` section of the repository or organization.
 
 The name of the variable containing the token must be passed to the `github_token` key.
 
-### Docker
-
-```bash
-docker run --rm -t -v "${PWD}":/workdir dragon-code/codestyler <command>
-```
-
-> Please mount the code directory to `/workdir` in the container.
-
 ### Other CI/CD
 
-Run this command using `dragon-code/codestyler` Docker image:
-
 ```bash
-/root/.composer/vendor/bin/codestyle <command>
-
-# or
+composer global require dragon-code/codestyler
 
 codestyle <command>
 ```
