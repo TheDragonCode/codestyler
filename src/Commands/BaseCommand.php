@@ -32,6 +32,8 @@ abstract class BaseCommand extends Command
         $this->input  = $input;
         $this->output = $output;
 
+        $this->output->writeln('ANSI output is ' . ($this->output->isDecorated() ? 'on' : 'off'));
+
         $this->hello();
         $this->handle();
 
