@@ -11,7 +11,7 @@ class Fix extends BaseCommand
 {
     protected string|Processor $processor = FixProcessor::class;
 
-    protected string $status = 'Checking and fixing the code-style......';
+    protected string $status = 'Checking and fixing the code-style...';
 
     protected function configure()
     {

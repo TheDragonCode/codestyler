@@ -11,13 +11,13 @@ jobs:
 
         steps:
             -   name: Checkout
-                uses: actions/checkout@v2.4.0
+                uses: actions/checkout@v2
 
             -   name: Docker meta
                 id: meta
                 uses: docker/metadata-action@v3.6.2
                 with:
-                    images: helldar/codestyler
+                    images: dragon-code/codestyler
                     tags: |
                         type=semver,pattern={{version}}
                         type=semver,pattern={{major}}.{{minor}}
@@ -41,3 +41,17 @@ jobs:
                     push: true
                     tags: ${{ steps.meta.outputs.tags }}
                     labels: ${{ steps.meta.outputs.labels }}
+
+    description:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v2
+
+            -   name: Update repo description
+                uses: peter-evans/dockerhub-description@v2.4.3
+                with:
+                    username: ${{ secrets.DOCKER_USERNAME }}
+                    password: ${{ secrets.DOCKER_PASSWORD }}
+                    repository: dragon-code/codestyler
