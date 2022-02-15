@@ -9,6 +9,6 @@ if [[ $(allow "$INPUT_NORMALIZE") == "true" ]]; then
 
         composer global config --no-plugins allow-plugins.ergebnis/composer-normalize true
 
-        { composer normalize && git add . && git commit -a -m "Normalize \`composer.json\` 👀"; } || IS_DIRTY_NORMALIZE=0
+        { composer normalize --ansi && git add . && git commit -a -m "Normalize \`composer.json\` 👀"; } || IS_DIRTY_NORMALIZE=0
     fi
 fi
