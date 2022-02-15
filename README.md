@@ -91,6 +91,7 @@ jobs:
                 uses: TheDragonCode/php-codestyler@v1.10.0
                 with:
                     # This token uses GitHub Actions to execute code.
+                    # Required when `fix` is `true`.
                     # The default value is `${{ secrets.GITHUB_TOKEN }}`.
                     github_token: ${{ secrets.YOUR_TOKEN }}
                 
