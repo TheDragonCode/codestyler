@@ -79,6 +79,14 @@ jobs:
                 uses: TheDragonCode/php-codestyler@v1.10.0
 ```
 
+### Docker
+
+```bash
+docker run --rm -t -v "${PWD}":/workdir overtrue/phplint ./  --exclude=vendor
+```
+
+> Please mount the code directory to `/workdir` in the container.
+
 ### Fixer
 
 Create a new `.github/workflows/lint-fixer.yml` file and add the content to it:
@@ -105,7 +113,7 @@ jobs:
                     # Required when `fix` is `true`.
                     # The default value is `${{ secrets.GITHUB_TOKEN }}`.
                     github_token: ${{ secrets.YOUR_TOKEN }}
-                
+
                     # Activates the mode of accepting changes with the creation
                     # of commits.
                     fix: true
