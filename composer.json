@@ -1,7 +1,9 @@
 {
-    "name": "dragon-code/codestyler",
     "description": "A tool to automatically fix Coding Style Standards issues by The Dragon Code.",
     "license": "MIT",
+    "bin": [
+        "bin/codestyle"
+    ],
     "type": "library",
     "authors": [
         {
@@ -17,13 +19,11 @@
         "symfony/console": "^5.0 || ^6.0",
         "symfony/yaml": "^5.0 || ^6.0"
     },
-    "minimum-stability": "stable",
+    "name": "dragon-code/codestyler",
     "autoload": {
         "psr-4": {
             "DragonCode\\CodeStyler\\": "src"
         }
     },
-    "bin": [
-        "bin/codestyle"
-    ]
+    "minimum-stability": "stable"
 }
