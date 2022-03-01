@@ -109,12 +109,12 @@ $rules = [
         'elements' => ['const', 'property'],
     ],
 
-    'multiline_comment_opening_closing' => true,
+    'multiline_comment_opening_closing' => false,
 
     'no_empty_comment' => true,
 
     'single_line_comment_style' => [
-        'comment_types' => ['asterisk'],
+        'comment_types' => ['asterisk', 'hash'],
     ],
 
     'control_structure_continuation_position' => [
@@ -408,7 +408,15 @@ $rules = [
     ],
 
     'phpdoc_to_comment' => [
-        'ignored_tags' => [],
+        'ignored_tags' => [
+            'method',
+            'mixin',
+            'property',
+            'property-read',
+            'property-write',
+            'see',
+            'var',
+        ],
     ],
 
     'phpdoc_trim_consecutive_blank_line_separation' => true,
