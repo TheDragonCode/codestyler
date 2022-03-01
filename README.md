@@ -1,6 +1,6 @@
-# PHP Code Styler
+# The Dragon Code Styler
 
-![the dragon code php code styler](https://preview.dragon-code.pro/the-dragon-code/php-code-styler.svg?brand=github&invert=1)
+![the dragon code php code styler](https://preview.dragon-code.pro/the-dragon-code/code-styler.svg?brand=github&invert=1)
 
 [![Stable Version][badge_stable]][link_repo]
 [![Unstable Version][badge_unstable]][link_repo]

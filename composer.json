@@ -1,6 +1,6 @@
 {
     "name": "dragon-code/codestyler",
-    "description": "A tool to automatically fix PHP Coding Standards issues by Dragon Code.",
+    "description": "A tool to automatically fix Coding Style Standards issues by The Dragon Code.",
     "license": "MIT",
     "type": "library",
     "authors": [
