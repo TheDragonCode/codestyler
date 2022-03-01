@@ -16,8 +16,6 @@ $finder = Finder::create()
 
 $rules = [
     '@PSR12'              => true,
-    '@PHP73Migration'     => true,
-    '@PHP74Migration'     => true,
     '@DoctrineAnnotation' => true,
 
     'no_alias_language_construct_call' => true,
