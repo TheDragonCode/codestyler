@@ -7,6 +7,12 @@ use DragonCode\CodeStyler\Commands\EditorConfig;
 use DragonCode\CodeStyler\Commands\Fix;
 use Symfony\Component\Console\Application;
 
+if (PHP_SAPI !== 'cli' || PHP_MAJOR_VERSION < 8) {
+    echo 'Warning: codestyle should be invoked via the CLI minimum version of PHP 8.0.0, not the ' . PHP_SAPI . ' ' . PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION;
+
+    exit(1);
+}
+
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 
 $possible_files = [
@@ -30,7 +36,7 @@ if (is_null($file)) {
 
 require_once $file;
 
-$application = new Application('PHP Code Styler');
+$application = new Application('The Dragon Code Styler');
 
 $application->add(new Check());
 $application->add(new Fix());
