@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace DragonCode\CodeStyler\Support;
 
 use DragonCode\Support\Concerns\Makeable;
-use DragonCode\Support\Facades\Helpers\Ables\Arrayable;
+use DragonCode\Support\Facades\Application\Version;
 use DragonCode\Support\Facades\Helpers\Arr;
 
 class PhpVersion
@@ -31,10 +31,10 @@ class PhpVersion
 
         sort($output[0]);
 
-        $versions = Arrayable::of($output[0])
-            ->filter(static fn (string $value) => version_compare($value, '7.2', '>='))
+        $versions = Arr::of($output[0])
+            ->filter(static fn (string $value) => Version::of($value)->gte('7.2'))
             ->values()
-            ->get();
+            ->toArray();
 
         return $versions[0] ?? self::DEFAULT;
     }
