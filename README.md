@@ -4,6 +4,7 @@
 
 [![Stable Version][badge_stable]][link_repo]
 [![Unstable Version][badge_unstable]][link_repo]
+[![Total Downloads][badge_downloads]][link_packagist]
 [![License][badge_license]][link_license]
 
 ## Installation
@@ -167,6 +168,8 @@ If the `.github/dependabot.yml` file has already been created, we will check it 
 This package is licensed under the [MIT License](LICENSE).
 
 
+[badge_downloads]:  https://img.shields.io/packagist/dt/dragon-code/codestyler.svg?style=flat-square
+
 [badge_license]:    https://img.shields.io/badge/license-MIT-green?style=flat-square
 
 [badge_stable]:     https://img.shields.io/github/v/release/TheDragonCode/codestyler?label=stable&style=flat-square
@@ -174,5 +177,7 @@ This package is licensed under the [MIT License](LICENSE).
 [badge_unstable]:   https://img.shields.io/badge/unstable-dev--main-orange?style=flat-square
 
 [link_license]:     LICENSE
+
+[link_packagist]:   https://packagist.org/packages/dragon-code/codestyler
 
 [link_repo]:        https://github.com/TheDragonCode/codestyler
