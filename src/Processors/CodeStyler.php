@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace DragonCode\CodeStyler\Processors;
 
 use DragonCode\CodeStyler\Support\PhpVersion;
-use DragonCode\Support\Facades\Helpers\Ables\Arrayable;
+use DragonCode\Support\Facades\Helpers\Arr;
 use PhpCsFixer\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 
@@ -38,7 +38,7 @@ abstract class CodeStyler extends BaseProcessor
 
     protected function resolveOptions(): array
     {
-        return Arrayable::of($this->getOptions())
+        return Arr::of($this->getOptions())
             ->map(function ($value, string $key) {
                 if (is_bool($value)) {
                     return $key;
@@ -47,7 +47,7 @@ abstract class CodeStyler extends BaseProcessor
                 return sprintf('%s=%s', $key, $this->resolvePath($value));
             })
             ->values()
-            ->get();
+            ->toArray();
     }
 
     protected function resolvePath(mixed $value): mixed

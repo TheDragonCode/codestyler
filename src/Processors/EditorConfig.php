@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Processors;
 
-use DragonCode\Support\Facades\Helpers\Filesystem\File;
+use DragonCode\Support\Facades\Filesystem\File;
 
 class EditorConfig extends BaseProcessor
 {

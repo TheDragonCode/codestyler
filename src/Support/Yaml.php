@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace DragonCode\CodeStyler\Support;
 
 use DragonCode\Contracts\Support\Filesystem;
-use DragonCode\Support\Facades\Helpers\Filesystem\File;
+use DragonCode\Support\Facades\Filesystem\File;
 use Symfony\Component\Yaml\Yaml as SymfonyYaml;
 
 class Yaml implements Filesystem
