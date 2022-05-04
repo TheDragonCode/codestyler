@@ -8,8 +8,8 @@
 };
 
 # Set git config
-git config --local user.email "action@github.com"
-git config --local user.name "GitHub Action"
+git config --global user.email "action@github.com"
+git config --global user.name "GitHub Action"
 
 # Set safe directory
 git config --global --add safe.directory /github/workspace
