@@ -59,6 +59,8 @@ class PhpVersion
             return Arr::ofFile($path)->toArray();
         }
 
+        dump('composer.json file not found in the current directory.', __DIR__);
+
         return null;
     }
 }
