@@ -33,5 +33,12 @@
     },
     "bin": [
         "bin/codestyle"
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "dragon-code/codestyler": true,
+            "ergebnis/composer-normalize": true,
+            "friendsofphp/php-cs-fixer": true
+        }
+    }
 }
