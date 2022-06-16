@@ -39,8 +39,8 @@ require_once $file;
 $application = new Application('The Dragon Code Styler');
 
 $application->add(new Check());
-$application->add(new Fix());
 $application->add(new Dependabot());
 $application->add(new EditorConfig());
+$application->add(new Fix());
 
 $application->run();
