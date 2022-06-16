@@ -14,6 +14,8 @@ class PhpVersion
 
     public const DEFAULT = '8.1';
 
+    public const MIN = '7.2';
+
     public function get(): string
     {
         if ($composer = $this->composer()) {
@@ -25,25 +27,39 @@ class PhpVersion
 
     protected function find(array $composer)
     {
-        $version = Arr::get($composer, 'require.php', Arr::get($composer, 'require-dev.php', ''));
+        preg_match_all('/\d\.\d/', (string) $this->getVersions($composer), $output);
 
-        preg_match_all('/\d\.\d/', $version, $output);
-
-        sort($output[0]);
-
-        $versions = Arr::of($output[0])
-            ->filter(static fn (string $value) => Version::of($value)->gte('7.2'))
+        return Arr::of($output[0])
+            ->map(fn (string $value) => $this->getMinVersion($value))
+            ->unique()
+            ->sort()
             ->values()
-            ->toArray();
+            ->first(default: self::DEFAULT);
+    }
 
-        return $versions[0] ?? self::DEFAULT;
+    protected function getVersions(array $composer, array $keys = ['require.php', 'require-dev.php']): ?string
+    {
+        foreach ($keys as $key) {
+            if ($versions = Arr::get($composer, $key)) {
+                return $versions;
+            }
+        }
+
+        return null;
+    }
+
+    protected function getMinVersion(string $version): string
+    {
+        return Version::of($version)->gt(self::MIN) ? self::MIN : $version;
     }
 
     protected function composer(): ?array
     {
         if ($path = realpath('./composer.json')) {
-            return file_exists($path) ? json_decode(file_get_contents($path), true) : null;
+            return Arr::ofFile($path)->toArray();
         }
+
+        dump('composer.json file not found in the current directory.', __DIR__);
 
         return null;
     }
