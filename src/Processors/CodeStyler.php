@@ -39,7 +39,8 @@ abstract class CodeStyler extends BaseProcessor
     protected function resolveOptions(): array
     {
         return Arr::of($this->getOptions())
-            ->map(function ($value, string $key) {
+            ->map(function ($value, string $key)
+            {
                 if (is_bool($value)) {
                     return $key;
                 }
