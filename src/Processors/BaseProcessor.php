@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 abstract class BaseProcessor implements Processor
 {
     public function __construct(
-        protected InputInterface  $input,
+        protected InputInterface $input,
         protected OutputInterface $output
     ) {
     }
