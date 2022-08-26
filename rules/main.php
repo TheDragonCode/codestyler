@@ -40,8 +40,11 @@ $rules = [
     'whitespace_after_comma_in_array' => true,
 
     'braces' => [
-        'allow_single_line_anonymous_class_with_empty_body' => true,
+        'allow_single_line_anonymous_class_with_empty_body' => false,
         'allow_single_line_closure'                         => true,
+        'position_after_anonymous_constructs'               => 'next',
+        'position_after_functions_and_oop_constructs'       => 'next',
+        'position_after_control_structures'                 => 'same',
     ],
 
     'class_reference_name_casing' => true,
@@ -118,7 +121,7 @@ $rules = [
     ],
 
     'control_structure_continuation_position' => [
-        'position' => 'same_line',
+        'position' => 'next_line',
     ],
 
     'empty_loop_body' => [
@@ -500,4 +503,6 @@ $rules = [
     'types_spaces' => [
         'space' => 'none',
     ],
+
+    'control_structure_braces' => true,
 ];
