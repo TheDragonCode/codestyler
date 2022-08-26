@@ -9,6 +9,7 @@ $finder = Finder::create()
         '.git',
         '.github',
         '.idea',
+        'bootstrap',
         'node_modules',
         'storage',
         'vendor',
