@@ -64,7 +64,7 @@ abstract class CodeStyler extends BaseProcessor
     {
         return array_merge($this->options, $this->options_check, [
             '--config' => $this->getConfigFilename(),
-        ], $this->getDecorationOption());
+        ], $this->getDecorationOption(), $this->getRiskyOption());
     }
 
     protected function getDecorationOption(): array
@@ -72,6 +72,13 @@ abstract class CodeStyler extends BaseProcessor
         return $this->output->isDecorated()
             ? ['--ansi' => true]
             : ['--no-ansi' => true];
+    }
+
+    protected function getRiskyOption(): array
+    {
+        return $this->input->hasOption('risky') && $this->input->getOption('risky') !== 'no'
+            ? ['--allow-risky' => 'yes']
+            : ['--allow-risky' => 'no'];
     }
 
     protected function getConfigFilename(): string

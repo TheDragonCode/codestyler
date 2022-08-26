@@ -6,6 +6,7 @@ namespace DragonCode\CodeStyler\Commands;
 
 use DragonCode\CodeStyler\Contracts\Processor;
 use DragonCode\CodeStyler\Processors\Fix as FixProcessor;
+use Symfony\Component\Console\Input\InputOption;
 
 class Fix extends BaseCommand
 {
@@ -17,6 +18,7 @@ class Fix extends BaseCommand
     {
         $this
             ->setName('fix')
-            ->setDescription('Fix the codestyle of the project');
+            ->setDescription('Fix the codestyle of the project')
+            ->addOption('risky', null, InputOption::VALUE_OPTIONAL, 'Allows to set whether risky rules may run');
     }
 }

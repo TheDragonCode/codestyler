@@ -59,6 +59,6 @@ abstract class BaseCommand extends Command
 
     protected function resolveProcessor(): Processor
     {
-        return new $this->processor($this->output);
+        return new $this->processor($this->input, $this->output);
     }
 }
