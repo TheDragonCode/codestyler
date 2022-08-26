@@ -49,6 +49,17 @@ codestyle editorconfig
 codestyle dependabot
 ```
 
+### Options
+
+#### Risky
+
+Allows to set whether risky rules may run:
+
+```bash
+codestyle check --risky
+codestyle fix --risky
+```
+
 ### GitHub Action
 
 #### Check
