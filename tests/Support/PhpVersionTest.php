@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Support;
 
 use Tests\Fixtures\Support\PhpVersion;
@@ -7,7 +9,7 @@ use Tests\TestCase;
 
 class PhpVersionTest extends TestCase
 {
-    public function test72()
+    public function test72(): void
     {
         $helper = PhpVersion::make()->setComposer([
             'require' => [
@@ -20,7 +22,7 @@ class PhpVersionTest extends TestCase
         $this->assertSame('7.2', $helper);
     }
 
-    public function test72Dev()
+    public function test72Dev(): void
     {
         $helper = PhpVersion::make()->setComposer([
             'require-dev' => [
@@ -33,7 +35,7 @@ class PhpVersionTest extends TestCase
         $this->assertSame('7.2', $helper);
     }
 
-    public function test74()
+    public function test74(): void
     {
         $helper = PhpVersion::make()->setComposer([
             'require' => [
@@ -46,7 +48,7 @@ class PhpVersionTest extends TestCase
         $this->assertSame('7.4', $helper);
     }
 
-    public function test74Dev()
+    public function test74Dev(): void
     {
         $helper = PhpVersion::make()->setComposer([
             'require-dev' => [
@@ -59,7 +61,7 @@ class PhpVersionTest extends TestCase
         $this->assertSame('7.4', $helper);
     }
 
-    public function test80()
+    public function test80(): void
     {
         $helper = PhpVersion::make()->setComposer([
             'require' => [
@@ -72,7 +74,7 @@ class PhpVersionTest extends TestCase
         $this->assertSame('8.0', $helper);
     }
 
-    public function test80Dev()
+    public function test80Dev(): void
     {
         $helper = PhpVersion::make()->setComposer([
             'require-dev' => [
@@ -85,7 +87,7 @@ class PhpVersionTest extends TestCase
         $this->assertSame('8.0', $helper);
     }
 
-    public function test81()
+    public function test81(): void
     {
         $helper = PhpVersion::make()->setComposer([
             'require' => [
@@ -98,7 +100,7 @@ class PhpVersionTest extends TestCase
         $this->assertSame('8.1', $helper);
     }
 
-    public function test81Dev()
+    public function test81Dev(): void
     {
         $helper = PhpVersion::make()->setComposer([
             'require-dev' => [
@@ -111,7 +113,7 @@ class PhpVersionTest extends TestCase
         $this->assertSame('8.1', $helper);
     }
 
-    public function testDefault()
+    public function testDefault(): void
     {
         $helper = PhpVersion::make()->setComposer([
             'require' => [
@@ -123,7 +125,7 @@ class PhpVersionTest extends TestCase
         $this->assertSame('8.1', $helper);
     }
 
-    public function testDefaultDev()
+    public function testDefaultDev(): void
     {
         $helper = PhpVersion::make()->setComposer([
             'require-dev' => [

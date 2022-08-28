@@ -14,11 +14,11 @@ class Check extends BaseCommand
 
     protected string $status = 'Checking code-style...';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('check')
-            ->setDescription('Checking the codestyle of the project')
-            ->addOption('risky', null, InputOption::VALUE_OPTIONAL, 'Allows to set whether risky rules may run', 'no');
+            ->setDescription('Checking the code-style of the project')
+            ->addOption('risky', null, InputOption::VALUE_NONE, 'Allows to set whether risky rules may run');
     }
 }
