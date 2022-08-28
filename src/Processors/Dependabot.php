@@ -24,8 +24,6 @@ class Dependabot extends BaseProcessor
 
         'schedule' => [
             'interval' => 'daily',
-            'timezone' => 'UTC',
-            'time'     => '00:00',
         ],
     ];
 
