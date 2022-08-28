@@ -13,5 +13,4 @@ $rules['@PHP73Migration'] = true;
 return (new Config())
     ->setFinder($finder)
     ->setUsingCache(false)
-    ->setRiskyAllowed(true)
     ->setRules($rules);

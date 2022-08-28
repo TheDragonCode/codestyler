@@ -12,8 +12,10 @@ $rules['@PHP73Migration'] = true;
 $rules['@PHP74Migration'] = true;
 $rules['@PHP80Migration'] = true;
 $rules['@PHP81Migration'] = true;
+$rules['@PSR12:risky']    = true;
 
 return (new Config())
     ->setFinder($finder)
     ->setUsingCache(false)
+    ->setRiskyAllowed(true)
     ->setRules($rules);

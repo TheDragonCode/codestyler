@@ -75,7 +75,7 @@ abstract class CodeStyler extends BaseProcessor
 
     protected function getRiskyOption(): array
     {
-        return $this->input->hasOption('risky') && $this->input->getOption('risky') !== 'no'
+        return $this->hasRisky()
             ? ['--allow-risky' => 'yes']
             : ['--allow-risky' => 'no'];
     }
@@ -84,7 +84,9 @@ abstract class CodeStyler extends BaseProcessor
     {
         $path = __DIR__ . '/../../rules/';
 
-        $config = $path . $this->getPhpVersion() . '.php';
+        $risky = $this->hasRisky() ? '-risky' : '';
+
+        $config = $path . $this->getPhpVersion() . $risky . '.php';
 
         return file_exists($config) ? $config : $path . PhpVersion::DEFAULT . '.php';
     }
@@ -92,5 +94,10 @@ abstract class CodeStyler extends BaseProcessor
     protected function getPhpVersion(): string
     {
         return PhpVersion::make()->get();
+    }
+
+    protected function hasRisky(): bool
+    {
+        return $this->input->hasOption('risky') && $this->input->getOption('risky');
     }
 }

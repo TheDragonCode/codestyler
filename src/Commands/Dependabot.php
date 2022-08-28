@@ -13,7 +13,7 @@ class Dependabot extends BaseCommand
 
     protected string $status = 'Updating Dependabot rules...';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('dependabot')

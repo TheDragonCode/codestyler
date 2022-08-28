@@ -13,7 +13,7 @@ class EditorConfig extends BaseCommand
 
     protected string $status = 'Updating .editorconfig...';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('editorconfig')

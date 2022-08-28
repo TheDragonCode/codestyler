@@ -14,11 +14,11 @@ class Fix extends BaseCommand
 
     protected string $status = 'Checking and fixing the code-style...';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('fix')
-            ->setDescription('Fix the codestyle of the project')
-            ->addOption('risky', null, InputOption::VALUE_OPTIONAL, 'Allows to set whether risky rules may run');
+            ->setDescription('Fix the code-style of the project')
+            ->addOption('risky', null, InputOption::VALUE_NONE, 'Allows to set whether risky rules may run');
     }
 }

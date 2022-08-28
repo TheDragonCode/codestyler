@@ -15,5 +15,4 @@ $rules['@PHP80Migration'] = true;
 return (new Config())
     ->setFinder($finder)
     ->setUsingCache(false)
-    ->setRiskyAllowed(true)
     ->setRules($rules);
