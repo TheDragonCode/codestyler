@@ -25,19 +25,19 @@ class PhpVersion
         return self::DEFAULT;
     }
 
-    protected function find(array $composer)
+    protected function find(array $composer): string
     {
-        preg_match_all('/\d\.\d/', (string) $this->getVersions($composer), $output);
+        preg_match_all('/\d\.\d/', $this->getVersions($composer), $versions);
 
-        return Arr::of($output[0])
-            ->map(fn (string $value) => $this->getMinVersion($value))
+        return Arr::of($versions[0] ?? [])
+            ->map(fn (string $version) => $this->getMinVersion($version))
             ->unique()
             ->sort()
             ->values()
-            ->first(default: self::DEFAULT);
+            ->first();
     }
 
-    protected function getVersions(array $composer, array $keys = ['require.php', 'require-dev.php']): ?string
+    protected function getVersions(array $composer, array $keys = ['require.php', 'require-dev.php']): string
     {
         foreach ($keys as $key) {
             if ($versions = Arr::get($composer, $key)) {
@@ -45,12 +45,12 @@ class PhpVersion
             }
         }
 
-        return null;
+        return self::DEFAULT;
     }
 
     protected function getMinVersion(string $version): string
     {
-        return Version::of($version)->gt(self::MIN) ? self::MIN : $version;
+        return Version::of($version)->gte(self::MIN) ? self::MIN : $version;
     }
 
     protected function composer(): ?array

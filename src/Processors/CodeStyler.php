@@ -11,6 +11,8 @@ use Symfony\Component\Console\Input\ArgvInput;
 
 abstract class CodeStyler extends BaseProcessor
 {
+    protected string $config_path = __DIR__ . '/../../rules/';
+
     protected array $options = [
         'path' => __DIR__,
         'fix'  => true,
@@ -82,13 +84,9 @@ abstract class CodeStyler extends BaseProcessor
 
     protected function getConfigFilename(): string
     {
-        $path = __DIR__ . '/../../rules/';
-
         $risky = $this->hasRisky() ? '-risky' : '';
 
-        $config = $path . $this->getPhpVersion() . $risky . '.php';
-
-        return file_exists($config) ? $config : $path . PhpVersion::DEFAULT . '.php';
+        return $this->config_path . $this->getPhpVersion() . $risky . '.php';
     }
 
     protected function getPhpVersion(): string
