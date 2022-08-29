@@ -8,7 +8,7 @@ permissions: write-all
 
 jobs:
     check:
-        if: ${{ github.event_name != 'push' && github.ref != 'refs/heads/main' || github.event_name == 'pull_request' }}
+        if: ${{ ! (github.event_name == 'push' && github.ref == 'refs/heads/main') }}
 
         runs-on: ubuntu-latest
 
