@@ -14,7 +14,7 @@
         "php": "^8.0",
         "ext-json": "*",
         "dragon-code/support": "^6.1",
-        "friendsofphp/php-cs-fixer": "^3.8",
+        "friendsofphp/php-cs-fixer": "^3.10",
         "symfony/console": "^6.0",
         "symfony/yaml": "^6.0"
     },

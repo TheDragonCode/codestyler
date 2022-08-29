@@ -11,129 +11,164 @@ class PhpVersionTest extends TestCase
 {
     public function test72(): void
     {
-        $helper = PhpVersion::make()->setComposer([
-            'require' => [
-                'php'      => '^8.0 || ^7.1',
-                'ext-json' => '*',
-                'foo/bar'  => '^1.0',
-            ],
-        ])->get();
+        $version1 = $this->getVersion([
+            'php'      => '^8.0 || ^7.1',
+            'ext-json' => '*',
+            'foo/bar'  => '^1.0',
+        ]);
 
-        $this->assertSame('7.2', $helper);
+        $version2 = $this->getVersion([
+            'php' => '^8.0 || ^7.1.5',
+        ]);
+
+        $this->assertSame('7.2', $version1);
+        $this->assertSame('7.2', $version2);
     }
 
     public function test72Dev(): void
     {
-        $helper = PhpVersion::make()->setComposer([
-            'require-dev' => [
-                'php'      => '^8.0 || ^7.1',
-                'ext-json' => '*',
-                'foo/bar'  => '^1.0',
-            ],
-        ])->get();
+        $version1 = $this->getVersion([
+            'php'      => '^8.0 || ^7.1',
+            'ext-json' => '*',
+            'foo/bar'  => '^1.0',
+        ], true);
 
-        $this->assertSame('7.2', $helper);
+        $version2 = $this->getVersion([
+            'php' => '^8.0 || ^7.1.5',
+        ], true);
+
+        $this->assertSame('7.2', $version1);
+        $this->assertSame('7.2', $version2);
     }
 
     public function test74(): void
     {
-        $helper = PhpVersion::make()->setComposer([
-            'require' => [
-                'php'      => '^8.0 || ^7.4',
-                'ext-json' => '*',
-                'foo/bar'  => '^1.0',
-            ],
-        ])->get();
+        $version1 = $this->getVersion([
+            'php'      => '^8.0 || ^7.4',
+            'ext-json' => '*',
+            'foo/bar'  => '^1.0',
+        ]);
 
-        $this->assertSame('7.4', $helper);
+        $version2 = $this->getVersion([
+            'php' => '^8.0 || ^7.4.5',
+        ]);
+
+        $this->assertSame('7.4', $version1);
+        $this->assertSame('7.4', $version2);
     }
 
     public function test74Dev(): void
     {
-        $helper = PhpVersion::make()->setComposer([
-            'require-dev' => [
-                'php'      => '^8.0 || ^7.4',
-                'ext-json' => '*',
-                'foo/bar'  => '^1.0',
-            ],
-        ])->get();
+        $version1 = $this->getVersion([
+            'php'      => '^8.0 || ^7.4',
+            'ext-json' => '*',
+            'foo/bar'  => '^1.0',
+        ], true);
 
-        $this->assertSame('7.4', $helper);
+        $version2 = $this->getVersion([
+            'php' => '^8.0 || ^7.4.5',
+        ], true);
+
+        $this->assertSame('7.4', $version1);
+        $this->assertSame('7.4', $version2);
     }
 
     public function test80(): void
     {
-        $helper = PhpVersion::make()->setComposer([
-            'require' => [
-                'php'      => '^8.0',
-                'ext-json' => '*',
-                'foo/bar'  => '^1.0',
-            ],
-        ])->get();
+        $version1 = $this->getVersion([
+            'php'      => '^8.0',
+            'ext-json' => '*',
+            'foo/bar'  => '^1.0',
+        ]);
 
-        $this->assertSame('8.0', $helper);
+        $version2 = $this->getVersion([
+            'php' => '^8.0.5',
+        ]);
+
+        $this->assertSame('8.0', $version1);
+        $this->assertSame('8.0', $version2);
     }
 
     public function test80Dev(): void
     {
-        $helper = PhpVersion::make()->setComposer([
-            'require-dev' => [
-                'php'      => '^8.0',
-                'ext-json' => '*',
-                'foo/bar'  => '^1.0',
-            ],
-        ])->get();
+        $version1 = $this->getVersion([
+            'php'      => '^8.0',
+            'ext-json' => '*',
+            'foo/bar'  => '^1.0',
+        ], true);
 
-        $this->assertSame('8.0', $helper);
+        $version2 = $this->getVersion([
+            'php' => '^8.0.5',
+        ], true);
+
+        $this->assertSame('8.0', $version1);
+        $this->assertSame('8.0', $version2);
     }
 
     public function test81(): void
     {
-        $helper = PhpVersion::make()->setComposer([
-            'require' => [
-                'php'      => '^8.1',
-                'ext-json' => '*',
-                'foo/bar'  => '^1.0',
-            ],
-        ])->get();
+        $version1 = $this->getVersion([
+            'php'      => '^8.1',
+            'ext-json' => '*',
+            'foo/bar'  => '^1.0',
+        ]);
 
-        $this->assertSame('8.1', $helper);
+        $version2 = $this->getVersion([
+            'php' => '^8.1.5',
+        ]);
+
+        $this->assertSame('8.1', $version1);
+        $this->assertSame('8.1', $version2);
     }
 
     public function test81Dev(): void
     {
-        $helper = PhpVersion::make()->setComposer([
-            'require-dev' => [
-                'php'      => '^8.1',
-                'ext-json' => '*',
-                'foo/bar'  => '^1.0',
-            ],
-        ])->get();
+        $version1 = $this->getVersion([
+            'php'      => '^8.1',
+            'ext-json' => '*',
+            'foo/bar'  => '^1.0',
+        ], true);
 
-        $this->assertSame('8.1', $helper);
+        $version2 = $this->getVersion([
+            'php' => '^8.1.5',
+        ], true);
+
+        $this->assertSame('8.1', $version1);
+        $this->assertSame('8.1', $version2);
     }
 
     public function testDefault(): void
     {
-        $helper = PhpVersion::make()->setComposer([
-            'require' => [
-                'ext-json' => '*',
-                'foo/bar'  => '^1.0',
-            ],
-        ])->get();
+        $version1 = $this->getVersion([
+            'ext-json' => '*',
+            'foo/bar'  => '^1.0',
+        ]);
 
-        $this->assertSame('8.1', $helper);
+        $version2 = $this->getVersion([]);
+
+        $this->assertSame('8.1', $version1);
+        $this->assertSame('8.1', $version2);
     }
 
     public function testDefaultDev(): void
     {
-        $helper = PhpVersion::make()->setComposer([
-            'require-dev' => [
-                'ext-json' => '*',
-                'foo/bar'  => '^1.0',
-            ],
-        ])->get();
+        $version1 = $this->getVersion([
+            'ext-json' => '*',
+            'foo/bar'  => '^1.0',
+        ], true);
 
-        $this->assertSame('8.1', $helper);
+        $version2 = $this->getVersion([], true);
+
+        $this->assertSame('8.1', $version1);
+        $this->assertSame('8.1', $version2);
+    }
+
+    protected function getVersion(array $dependencies, bool $is_dev = false): string
+    {
+        $key = $is_dev ? 'require-dev' : 'require';
+
+        return PhpVersion::make()->setComposer([
+            $key => $dependencies,
+        ])->get();
     }
 }
