@@ -80,7 +80,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v2.0.0
+                uses: TheDragonCode/codestyler@v2.6.2
 ```
 
 #### Fixer
@@ -103,7 +103,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v2.0.0
+                uses: TheDragonCode/codestyler@v2.6.2
                 with:
                     # This token uses GitHub Actions to execute code.
                     # Required when `fix` is `true`.
@@ -137,6 +137,47 @@ in the `Actions secrets` section of the repository or organization.
 
 The name of the variable containing the token must be passed to the `github_token` key.
 
+### Simplify Check & Fix
+
+```yaml
+name: code-style
+
+on:
+    push:
+    pull_request:
+
+permissions: write-all
+
+jobs:
+    check:
+        if: ${{ github.event_name != 'push' && github.ref != 'refs/heads/main' }}
+
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v3
+
+            -   name: Checking PHP Syntax
+                uses: TheDragonCode/codestyler@v2.6.2
+
+    fix:
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v3
+
+            -   name: Checking PHP Syntax
+                uses: TheDragonCode/codestyler@v2.6.2
+                with:
+                    github_token: ${{ secrets.YOUR_TOKEN }}
+                    fix: true
+
+```
+
 ### Other CI/CD
 
 ```bash
@@ -150,13 +191,13 @@ codestyle <command>
 By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules` and `.github`.
 
 ```yaml
--   uses: TheDragonCode/codestyler@v2.0.0
+-   uses: TheDragonCode/codestyler@v2.6.2
 ```
 
 By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this option:
 
 ```yaml
--   uses: TheDragonCode/codestyler@v2.0.0
+-   uses: TheDragonCode/codestyler@v2.6.2
     with:
         fix: true
 ```
