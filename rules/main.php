@@ -74,7 +74,8 @@ $rules = [
             'property'     => 'one',
             'const'        => 'one',
             'method'       => 'one',
-            'trait_import' => 'none',
+            'trait_import' => 'one',
+            'case'         => 'one',
         ],
     ],
 
@@ -511,4 +512,20 @@ $rules = [
     ],
 
     'control_structure_braces' => true,
+
+    'visibility_required' => [
+        'elements' => ['property', 'method', 'const'],
+    ],
+
+    'constant_case' => [
+        'case' => 'lower',
+    ],
+
+    'lowercase_keywords'         => true,
+    'lowercase_static_reference' => true,
+
+    'function_declaration' => [
+        'closure_function_spacing'   => 'one',
+        'trailing_comma_single_line' => false,
+    ],
 ];
