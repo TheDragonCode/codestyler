@@ -80,7 +80,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v2.6.2
+                uses: TheDragonCode/codestyler@v3.0.0
 ```
 
 #### Fixer
@@ -103,7 +103,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v2.6.2
+                uses: TheDragonCode/codestyler@v3.0.0
                 with:
                     # This token uses GitHub Actions to execute code.
                     # Required when `fix` is `true`.
