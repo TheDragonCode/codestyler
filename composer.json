@@ -10,17 +10,35 @@
             "homepage": "https://github.com/andrey-helldar"
         }
     ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/TheDragonCode"
+        },
+        {
+            "type": "open_collective",
+            "url": "https://opencollective.com/dragon-code"
+        },
+        {
+            "type": "boosty",
+            "url": "https://boosty.to/dragon-code"
+        },
+        {
+            "type": "yoomoney",
+            "url": "https://yoomoney.ru/to/410012608840929"
+        }
+    ],
     "require": {
         "php": "^8.0",
         "ext-json": "*",
         "dragon-code/support": "^6.1",
         "friendsofphp/php-cs-fixer": "^3.10",
-        "symfony/console": "^6.0",
-        "symfony/yaml": "^6.0"
+        "symfony/console": "^5.0 || ^6.0",
+        "symfony/yaml": "^5.0 || ^6.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
-        "symfony/var-dumper": "^6.1"
+        "symfony/var-dumper": "^5.0 || ^6.0"
     },
     "minimum-stability": "stable",
     "autoload": {
