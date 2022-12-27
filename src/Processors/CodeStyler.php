@@ -8,6 +8,7 @@ use DragonCode\CodeStyler\Services\Stylers\JsonStyler;
 use DragonCode\CodeStyler\Support\Json;
 use DragonCode\CodeStyler\Support\PhpVersion;
 use DragonCode\Support\Facades\Helpers\Arr;
+use PhpCsFixer\Config;
 use PhpCsFixer\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 
@@ -24,8 +25,8 @@ abstract class CodeStyler extends BaseProcessor
 
     public function run(): void
     {
-        $this->phpStyler();
         $this->jsonStyler();
+        $this->phpStyler();
     }
 
     protected function phpStyler(): void
@@ -36,9 +37,7 @@ abstract class CodeStyler extends BaseProcessor
 
     protected function jsonStyler(): void
     {
-        $path = $this->getOptions()['path'];
-
-        JsonStyler::make($path, $this->hasCheck(), new Json(), $this->output)->handle();
+        JsonStyler::make($this->output, $this->getRulesConfig(), new Json(), $this->hasCheck())->handle();
     }
 
     protected function getArgv(): ArgvInput
@@ -102,6 +101,13 @@ abstract class CodeStyler extends BaseProcessor
     protected function getPhpVersion(): string
     {
         return PhpVersion::make()->get();
+    }
+
+    protected function getRulesConfig(): Config
+    {
+        $path = $this->getOptions()['--config'];
+
+        return require $path;
     }
 
     protected function hasRisky(): bool

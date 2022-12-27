@@ -6,12 +6,12 @@ namespace DragonCode\CodeStyler\Services\Stylers;
 
 use DragonCode\Contracts\Support\Filesystem;
 use DragonCode\Support\Concerns\Makeable;
-use DragonCode\Support\Facades\Filesystem\File;
-use DragonCode\Support\Facades\Filesystem\Path;
+use PhpCsFixer\Config;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Finder\SplFileInfo;
 
 /**
- * @method static JsonStyler make(string $path, bool $hasCheck, Filesystem $filesystem, OutputInterface $output)
+ * @method static JsonStyler make(OutputInterface $output, Config $rulesConfig, Filesystem $filesystem, bool $hasCheck)
  */
 class JsonStyler
 {
@@ -21,16 +21,19 @@ class JsonStyler
     ^ JSON_PRESERVE_ZERO_FRACTION
     ^ JSON_PRETTY_PRINT
     ^ JSON_UNESCAPED_UNICODE
+    ^ JSON_UNESCAPED_SLASHES
     ^ JSON_UNESCAPED_LINE_TERMINATORS
     ^ JSON_PARTIAL_OUTPUT_ON_ERROR;
 
     protected bool $isCorrect = true;
 
+    protected int $fileNumber = 1;
+
     public function __construct(
-        protected string $path,
-        protected bool $hasCheck,
+        protected OutputInterface $output,
+        protected Config $rulesConfig,
         protected Filesystem $filesystem,
-        protected OutputInterface $output
+        protected bool $hasCheck,
     ) {
     }
 
@@ -44,8 +47,8 @@ class JsonStyler
     {
         foreach ($this->files() as $file) {
             $this->hasCheck
-                ? $this->check($file)
-                : $this->fix($file);
+                ? $this->check($file->getRealPath())
+                : $this->fix($file->getRealPath());
         }
     }
 
@@ -64,10 +67,15 @@ class JsonStyler
         $styled = $this->stylize($value);
 
         if (trim($json) !== trim($styled)) {
-            $this->output->writeln($path);
+            $this->output->writeln(sprintf('%d) %s', $this->fileNumber, $path));
+            $this->output->writeln('---------- begin diff ----------');
+
             $this->output->writeln($this->diff($styled, $json));
 
+            $this->output->writeln('----------- end diff -----------');
+
             $this->isCorrect = false;
+            ++$this->fileNumber;
         }
     }
 
@@ -80,7 +88,7 @@ class JsonStyler
 
     protected function diff(string $expected, string $actual): string
     {
-        return xdiff_string_diff($expected, $actual) ?: 'Error getting string difference';
+        return xdiff_string_diff($actual, $expected) ?: 'Error getting string difference';
     }
 
     protected function stylize(array $value): string
@@ -105,16 +113,17 @@ class JsonStyler
 
     protected function encode(array $value): string
     {
-        return json_encode($value, $this->flags);
+        return json_encode($value, $this->flags) . PHP_EOL;
     }
 
-    protected function files(): array
+    /**
+     * @return iterable<SplFileInfo>
+     */
+    protected function files(): iterable
     {
-        return File::allPaths($this->path, $this->fileExtensionFilter(), true);
-    }
-
-    protected function fileExtensionFilter(): callable
-    {
-        return fn (string $filename) => Path::extension($filename) === 'json';
+        return $this->rulesConfig->getFinder()
+            ->name('/\.json$/')
+            ->notName('/\.php$/')
+            ->files();
     }
 }
