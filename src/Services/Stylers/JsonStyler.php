@@ -27,9 +27,9 @@ class JsonStyler
     protected bool $isCorrect = true;
 
     public function __construct(
-        protected string          $path,
-        protected bool            $hasCheck,
-        protected Filesystem      $filesystem,
+        protected string $path,
+        protected bool $hasCheck,
+        protected Filesystem $filesystem,
         protected OutputInterface $output
     ) {
     }
