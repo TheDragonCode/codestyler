@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Processors;
 
+use DragonCode\CodeStyler\Services\Stylers\JsonStyler;
+use DragonCode\CodeStyler\Support\Json;
 use DragonCode\CodeStyler\Support\PhpVersion;
 use DragonCode\Support\Facades\Helpers\Arr;
 use PhpCsFixer\Console\Application;
@@ -14,7 +16,7 @@ abstract class CodeStyler extends BaseProcessor
     protected string $config_path = __DIR__ . '/../../rules/';
 
     protected array $options = [
-        'path' => __DIR__,
+        'path' => '.',
         'fix'  => true,
     ];
 
@@ -22,13 +24,21 @@ abstract class CodeStyler extends BaseProcessor
 
     public function run(): void
     {
-        $this->styler();
+        $this->phpStyler();
+        $this->jsonStyler();
     }
 
-    protected function styler(): void
+    protected function phpStyler(): void
     {
         $application = new Application();
         $application->run($this->getArgv());
+    }
+
+    protected function jsonStyler(): void
+    {
+        $path = $this->getOptions()['path'];
+
+        JsonStyler::make($path, $this->hasCheck(), new Json(), $this->output)->handle();
     }
 
     protected function getArgv(): ArgvInput
@@ -97,5 +107,10 @@ abstract class CodeStyler extends BaseProcessor
     protected function hasRisky(): bool
     {
         return $this->input->hasOption('risky') && $this->input->getOption('risky');
+    }
+
+    protected function hasCheck(): bool
+    {
+        return in_array('--dry-run', $this->options_check);
     }
 }
