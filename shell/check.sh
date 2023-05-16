@@ -1,8 +1,7 @@
 #!/bin/sh -l
 
 if [[ $(allowFix) == "false" ]]; then
-    cd ~
-    ls -l
+    cd ~/.composer/vendor/bin && ls -l
     
     codestyle check --ansi
 
