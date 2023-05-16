@@ -7,6 +7,19 @@ on:
 permissions: write-all
 
 jobs:
+    dev:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v3
+
+            -   name: PHP Version
+                run: php -v
+
+            -   name: Checking PHP Syntax
+                uses: ./
+    
     check:
         if: ${{ ! (github.event_name == 'push' && github.ref == 'refs/heads/main') }}
 
@@ -17,7 +30,7 @@ jobs:
                 uses: actions/checkout@v3
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v2.6.2
+                uses: TheDragonCode/codestyler@v2
     
     fix:
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
@@ -29,7 +42,7 @@ jobs:
                 uses: actions/checkout@v3
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v2.6.2
+                uses: TheDragonCode/codestyler@v2
                 with:
                     github_token: ${{ secrets.COMPOSER_TOKEN }}
                     fix: true

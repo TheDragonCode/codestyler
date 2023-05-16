@@ -80,7 +80,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v3.0.0
+                uses: TheDragonCode/codestyler@v3
 ```
 
 #### Fixer
@@ -103,7 +103,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v3.0.0
+                uses: TheDragonCode/codestyler@v3
                 with:
                     # This token uses GitHub Actions to execute code.
                     # Required when `fix` is `true`.
@@ -159,7 +159,7 @@ jobs:
                 uses: actions/checkout@v3
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v3.0.0
+                uses: TheDragonCode/codestyler@v3
 
     fix:
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
@@ -171,7 +171,7 @@ jobs:
                 uses: actions/checkout@v3
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v3.0.0
+                uses: TheDragonCode/codestyler@v3
                 with:
                     github_token: ${{ secrets.YOUR_TOKEN }}
                     fix: true
@@ -191,13 +191,13 @@ codestyle <command>
 By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules` and `.github`.
 
 ```yaml
--   uses: TheDragonCode/codestyler@v3.0.0
+-   uses: TheDragonCode/codestyler@v3
 ```
 
 By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this option:
 
 ```yaml
--   uses: TheDragonCode/codestyler@v3.0.0
+-   uses: TheDragonCode/codestyler@v3
     with:
         fix: true
 ```
