@@ -1,6 +1,6 @@
 name: update-major-version
 
-run-name: Move ${{ github.event.inputs.major_version }} to ${{ github.event.inputs.target }}
+run-name: Move ${{ github.event.release.tag_name }} to ${ github.event.release.tag_name:0:2 }
 
 on:
     release:
@@ -38,7 +38,7 @@ jobs:
             -   name: Get versions
                 run: |
                     echo ::set-output name=full_version::${{ github.event.release.tag_name }}
-                    echo ::set-output name=major_version::${{ github.event.release.tag_name:0:2 }}
+                    echo ::set-output name=major_version::${ github.event.release.tag_name:0:2 }
 
             -   name: Tag new target
                 run: git tag -f ${{ steps.get_version.outputs.major_version }} ${{ steps.get_version.outputs.full_version }}
