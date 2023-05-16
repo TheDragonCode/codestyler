@@ -13,5 +13,6 @@ RUN composer global require dragon-code/codestyler:^2.6
 COPY shell /shell
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+RUN chmod +x /usr/local/bin/codestyle
 
 ENTRYPOINT ["/entrypoint.sh"]
