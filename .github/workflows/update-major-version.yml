@@ -36,14 +36,20 @@ jobs:
                     git config --local user.name "GitHub Action"
 
             -   name: Get versions
+                id: version
                 run: |
                     TAG=${{ github.event.release.tag_name }}
                     
-                    echo ::set-output name=full_version::${TAG}
-                    echo ::set-output name=major_version::${TAG:0:2}
+                    echo "full_version=${TAG}" >> $GITHUB_OUTPUT
+                    echo "major_version=${TAG:0:2}" >> $GITHUB_OUTPUT
+
+            -   name: Show versions
+                run: |
+                    echo "Major is ${{ steps.version.outputs.major_version }}"
+                    echo "Full is ${{ steps.version.outputs.full_version }}"
 
             -   name: Tag new target
-                run: git tag -f ${{ steps.get_version.outputs.major_version }} ${{ steps.get_version.outputs.full_version }}
+                run: git tag -f ${{ $GITHUB_OUTPUT.major_version }} ${{ $GITHUB_OUTPUT.full_version }}
 
             -   name: Push new tag
-                run: git push origin ${{ steps.get_version.outputs.major_version }} --force
+                run: git push origin ${{ $GITHUB_OUTPUT.major_version }} --force
