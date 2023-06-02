@@ -33,9 +33,11 @@ abstract class BaseCommand extends Command
     protected function hello(): void
     {
         $this->output->writeln(
-            sprintf('<fg=green>%s</> by <fg=yellow>%s</> and contributors.',
+            sprintf(
+                '<fg=green>%s</> by <fg=yellow>%s</> and contributors.',
                 $this->getApplication()->getLongVersion(),
-                'Andrey Helldar')
+                'Andrey Helldar'
+            )
         );
 
         $this->output->writeln('');
