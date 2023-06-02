@@ -59,7 +59,8 @@
     "config": {
         "allow-plugins": {
             "dragon-code/codestyler": true,
-            "ergebnis/composer-normalize": true
+            "ergebnis/composer-normalize": true,
+            "friendsofphp/php-cs-fixer": true
         }
     }
 }
