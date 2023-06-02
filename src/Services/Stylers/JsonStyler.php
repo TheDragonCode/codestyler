@@ -110,7 +110,11 @@ class JsonStyler
 
     protected function diff(string $expected, string $actual): string
     {
-        return xdiff_string_diff($actual, $expected);
+        if (extension_loaded('xdiff')) {
+            return xdiff_string_diff($actual, $expected);
+        }
+
+        return $actual !== $expected ? 'Difference found' : '';
     }
 
     protected function stylize(array $value): string
