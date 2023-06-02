@@ -6,19 +6,17 @@ namespace DragonCode\CodeStyler\Support;
 
 use DragonCode\Contracts\Support\Filesystem;
 use DragonCode\Support\Facades\Filesystem\File;
-use Symfony\Component\Yaml\Yaml as SymfonyYaml;
+use DragonCode\Support\Facades\Helpers\Arr;
 
-class Yaml implements Filesystem
+class Json implements Filesystem
 {
     public function load(string $path): array
     {
-        return file_exists($path) ? SymfonyYaml::parseFile($path) : [];
+        return Arr::ofFile($path)->toArray();
     }
 
     public function store(string $path, $content): string
     {
-        $yaml = SymfonyYaml::dump($content, 5);
-
-        return File::store($path, $yaml);
+        return File::store($path, trim($content) . PHP_EOL);
     }
 }

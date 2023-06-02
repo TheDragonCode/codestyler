@@ -21,8 +21,8 @@ class PhpVersionTest extends TestCase
             'php' => '^8.0 || ^7.1.5',
         ]);
 
-        $this->assertSame('7.2', $version1);
-        $this->assertSame('7.2', $version2);
+        $this->assertSame('8.1', $version1);
+        $this->assertSame('8.1', $version2);
     }
 
     public function test72Dev(): void
@@ -37,8 +37,8 @@ class PhpVersionTest extends TestCase
             'php' => '^8.0 || ^7.1.5',
         ], true);
 
-        $this->assertSame('7.2', $version1);
-        $this->assertSame('7.2', $version2);
+        $this->assertSame('8.1', $version1);
+        $this->assertSame('8.1', $version2);
     }
 
     public function test74(): void
@@ -53,8 +53,8 @@ class PhpVersionTest extends TestCase
             'php' => '^8.0 || ^7.4.5',
         ]);
 
-        $this->assertSame('7.4', $version1);
-        $this->assertSame('7.4', $version2);
+        $this->assertSame('8.1', $version1);
+        $this->assertSame('8.1', $version2);
     }
 
     public function test74Dev(): void
@@ -69,8 +69,8 @@ class PhpVersionTest extends TestCase
             'php' => '^8.0 || ^7.4.5',
         ], true);
 
-        $this->assertSame('7.4', $version1);
-        $this->assertSame('7.4', $version2);
+        $this->assertSame('8.1', $version1);
+        $this->assertSame('8.1', $version2);
     }
 
     public function test80(): void
@@ -85,8 +85,8 @@ class PhpVersionTest extends TestCase
             'php' => '^8.0.5',
         ]);
 
-        $this->assertSame('8.0', $version1);
-        $this->assertSame('8.0', $version2);
+        $this->assertSame('8.1', $version1);
+        $this->assertSame('8.1', $version2);
     }
 
     public function test80Dev(): void
@@ -101,8 +101,8 @@ class PhpVersionTest extends TestCase
             'php' => '^8.0.5',
         ], true);
 
-        $this->assertSame('8.0', $version1);
-        $this->assertSame('8.0', $version2);
+        $this->assertSame('8.1', $version1);
+        $this->assertSame('8.1', $version2);
     }
 
     public function test81(): void
@@ -146,8 +146,8 @@ class PhpVersionTest extends TestCase
 
         $version2 = $this->getVersion([]);
 
-        $this->assertSame('8.1', $version1);
-        $this->assertSame('8.1', $version2);
+        $this->assertSame('8.2', $version1);
+        $this->assertSame('8.2', $version2);
     }
 
     public function testDefaultDev(): void
@@ -159,8 +159,8 @@ class PhpVersionTest extends TestCase
 
         $version2 = $this->getVersion([], true);
 
-        $this->assertSame('8.1', $version1);
-        $this->assertSame('8.1', $version2);
+        $this->assertSame('8.2', $version1);
+        $this->assertSame('8.2', $version2);
     }
 
     protected function getVersion(array $dependencies, bool $is_dev = false): string

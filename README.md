@@ -1,6 +1,6 @@
 # The Dragon Code Styler
 
-![the dragon code php code styler](https://preview.dragon-code.pro/the-dragon-code/code-styler.svg?brand=github&invert=1)
+![the dragon code code styler](https://preview.dragon-code.pro/the-dragon-code/code-styler.svg?brand=php&invert=1)
 
 [![Stable Version][badge_stable]][link_repo]
 [![Unstable Version][badge_unstable]][link_repo]
@@ -26,7 +26,7 @@ When you run the commands in the base path of the project, the `composer.json` f
 
 This is necessary to draw up rules for applying the codestyle.
 
-For example, if your project supports PHP 7.2 and above, and you use the `mkdir($path, 0755)` function in it, then applying the rules for PHP 8.0 will break your code because it
+For example, if your project supports PHP 8.0 and above, and you use the `mkdir($path, 0755)` function in it, then applying the rules for PHP 8.0 will break your code because it
 will replace `0755` with `0o755` (`mkdir($path, 0o755)`).
 
 To prevent this from happening, we check the minimum PHP version.
@@ -80,7 +80,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v2
+                uses: TheDragonCode/codestyler@v3
 ```
 
 #### Fixer
@@ -103,7 +103,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v2
+                uses: TheDragonCode/codestyler@v3
                 with:
                     # This token uses GitHub Actions to execute code.
                     # Required when `fix` is `true`.
@@ -159,7 +159,7 @@ jobs:
                 uses: actions/checkout@v3
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v2
+                uses: TheDragonCode/codestyler@v3
 
     fix:
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
@@ -171,7 +171,7 @@ jobs:
                 uses: actions/checkout@v3
 
             -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v2
+                uses: TheDragonCode/codestyler@v3
                 with:
                     github_token: ${{ secrets.YOUR_TOKEN }}
                     fix: true
@@ -191,13 +191,13 @@ codestyle <command>
 By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules` and `.github`.
 
 ```yaml
--   uses: TheDragonCode/codestyler@v2
+-   uses: TheDragonCode/codestyler@v3
 ```
 
 By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this option:
 
 ```yaml
--   uses: TheDragonCode/codestyler@v2
+-   uses: TheDragonCode/codestyler@v3
     with:
         fix: true
 ```

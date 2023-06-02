@@ -11,7 +11,7 @@ jobs:
         strategy:
             fail-fast: true
             matrix:
-                php: [ "8.0", "8.1", "8.2" ]
+                php: [ "8.1", "8.2" ]
 
         name: PHP ${{ matrix.php }}
 
@@ -23,11 +23,11 @@ jobs:
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php }}
-                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
-                    coverage: none
+                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json, xdiff
+                    coverage: xdebug
 
             -   name: Install dependencies
-                run: composer update --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer update --prefer-stable --prefer-dist --no-progress --no-interaction --ignore-platform-req=ext-xdiff
 
             -   name: Execute tests
                 run: sudo vendor/bin/phpunit --colors=always

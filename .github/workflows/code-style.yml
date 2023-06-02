@@ -19,7 +19,7 @@ jobs:
 
             -   name: Checking PHP Syntax
                 uses: ./
-    
+
     check:
         if: ${{ ! (github.event_name == 'push' && github.ref == 'refs/heads/main') }}
 
@@ -31,10 +31,10 @@ jobs:
 
             -   name: Checking PHP Syntax
                 uses: TheDragonCode/codestyler@v2
-    
+
     fix:
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        
+
         runs-on: ubuntu-latest
 
         steps:

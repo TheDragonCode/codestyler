@@ -39,7 +39,7 @@ jobs:
                 id: version
                 run: |
                     TAG=${{ github.event.release.tag_name }}
-                    
+
                     echo "full_version=${TAG}" >> $GITHUB_OUTPUT
                     echo "major_version=${TAG:0:2}" >> $GITHUB_OUTPUT
 
