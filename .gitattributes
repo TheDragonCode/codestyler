@@ -1,8 +1,16 @@
 * text=auto
 
+.fixtures/ export-ignore
 .github/ export-ignore
+
+shell/ export-ignore
+tests/ export-ignore
 
 .gitattributes export-ignore
 .gitignore export-ignore
-.scrutinizer.yml export-ignore
-.styleci.yml export-ignore
+
+action.yml export-ignore
+Dockerfile export-ignore
+entrypoint.sh export-ignore
+
+phpunit.xml export-ignore
