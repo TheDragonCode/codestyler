@@ -96,6 +96,6 @@ abstract class CodeStyler extends BaseProcessor
             return $path;
         }
 
-        return realpath(__DIR__ . '/../../../vendor/bin/pint');
+        return realpath(__DIR__ . '/../../../../bin/pint');
     }
 }
