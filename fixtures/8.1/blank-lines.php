@@ -11,37 +11,37 @@ class Foo
 
     protected $y;
 
-    function foo()
+    public function foo()
     {
-
     }
 }
 
 class Bar
 {
-    const X = 1;
+    use Acme\Bar;
+    use Acme\Foo;
+    public const X = 1;
+    public const Y = 2;
 
-    const Y = 2;
+    public $a;
 
-    var $a;
+    public $b;
 
-    var $b;
-
-    function bar()
+    public function bar(): string
     {
-        $a = "a";
+        $a = 'a';
 
-        $b = "b";
+        $b = 'b';
     }
 
-    function bar_2()
+    public function bar_2()
     {
-        return $this->a . $this->b;
+        return $this->a.$this->b;
     }
 
-    function bar_3()
+    public function bar_3()
     {
-        echo "null";
+        echo 'null';
 
         return null;
     }

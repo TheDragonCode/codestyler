@@ -3,8 +3,8 @@
 function foo()
 {
     if ($x > 5) {
-        echo "bar";
+        echo 'bar';
     }
 
-    return "string";
+    return 'string';
 }

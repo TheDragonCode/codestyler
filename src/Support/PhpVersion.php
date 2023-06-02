@@ -11,9 +11,7 @@ use DragonCode\Support\Facades\Helpers\Arr;
 class PhpVersion
 {
     use Makeable;
-
     public const DEFAULT = '8.2';
-
     public const MIN = '8.1';
 
     public function get(): string

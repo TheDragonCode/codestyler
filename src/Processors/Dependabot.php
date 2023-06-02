@@ -10,9 +10,7 @@ use DragonCode\Support\Facades\Helpers\Arr;
 class Dependabot extends BaseProcessor
 {
     use Files;
-
     protected const VERSION = 2;
-
     protected const NAME = 'github-actions';
 
     protected string $path = './.github/dependabot.yml';
@@ -44,9 +42,9 @@ class Dependabot extends BaseProcessor
         $found = false;
 
         foreach ($updates as &$update) {
-            if (Arr::get($update, 'package-ecosystem') === self::NAME) {
+            if (self::NAME === Arr::get($update, 'package-ecosystem')) {
                 $update = $this->update;
-                $found  = true;
+                $found = true;
                 break;
             }
         }

@@ -40,9 +40,9 @@ class JsonStyler
 
     public function __construct(
         protected OutputInterface $output,
-        protected Filesystem      $filesystem,
-        protected string          $path,
-        protected bool            $hasCheck,
+        protected Filesystem $filesystem,
+        protected string $path,
+        protected bool $hasCheck,
     ) {
         $this->resolveExcludes();
     }
@@ -64,14 +64,14 @@ class JsonStyler
 
     protected function finish(): void
     {
-        if (! $this->isCorrect && $this->hasCheck) {
+        if (!$this->isCorrect && $this->hasCheck) {
             exit(0);
         }
     }
 
     protected function check(string $path): void
     {
-        $json  = $this->read($path);
+        $json = $this->read($path);
         $value = $this->load($path);
 
         $styled = $this->stylize($value);
@@ -83,7 +83,7 @@ class JsonStyler
 
     protected function fix(string $path): void
     {
-        $value  = $this->load($path);
+        $value = $this->load($path);
         $source = $this->read($path);
 
         $stylized = $this->stylize($value);
@@ -149,12 +149,12 @@ class JsonStyler
 
     protected function allowFile(string $path): bool
     {
-        return $this->isJson($path) && ! $this->hasExclude($path);
+        return $this->isJson($path) && !$this->hasExclude($path);
     }
 
     protected function isJson(string $path): bool
     {
-        return Path::extension($path) === 'json';
+        return 'json' === Path::extension($path);
     }
 
     protected function hasExclude(string $path): bool
@@ -165,7 +165,7 @@ class JsonStyler
     protected function resolveExcludes(): void
     {
         $this->excludes = Arr::of($this->excludes)
-            ->map(fn (string $name) => realpath($this->path . '/' . $name))
+            ->map(fn (string $name) => realpath($this->path.'/'.$name))
             ->filter(fn (mixed $value) => is_string($value))
             ->values()
             ->toArray();

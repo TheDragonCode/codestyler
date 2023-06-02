@@ -21,7 +21,7 @@ abstract class BaseCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->input  = $input;
+        $this->input = $input;
         $this->output = $output;
 
         $this->hello();

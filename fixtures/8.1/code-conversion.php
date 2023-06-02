@@ -4,24 +4,24 @@ class Baz
 {
     public float $prop;
 
-    function foo(
-        bool   $one = null,
-        int    $two = 0,
-        string $three = "String"
+    public function foo(
+        ?bool $one = null,
+        int $two = 0,
+        string $three = 'String'
     ): int {
         if (true) {
             $x = [
-                0   => "zero",
-                123 => "one two three",
-                25  => "two five",
+                0 => 'zero',
+                123 => 'one two three',
+                25 => 'two five',
             ];
 
             $a = isset($one, $two, $three);
 
             $m = match ($two) {
-                1 => "one",
-                2 => "two",
-                3 => "three"
+                1 => 'one',
+                2 => 'two',
+                3 => 'three'
             };
         }
         elseif (null) {

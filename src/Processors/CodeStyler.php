@@ -5,18 +5,16 @@ declare(strict_types=1);
 namespace DragonCode\CodeStyler\Processors;
 
 use DragonCode\CodeStyler\Models\Input;
+use DragonCode\CodeStyler\Services\Config;
 use DragonCode\CodeStyler\Services\Stylers\JsonStyler;
 use DragonCode\CodeStyler\Support\Json;
-use DragonCode\CodeStyler\Support\PhpVersion;
 use DragonCode\Support\Facades\Helpers\Arr;
 
 abstract class CodeStyler extends BaseProcessor
 {
-    protected string $config_path = __DIR__ . '/../../rules/';
-
     protected array $options = [
         'path' => '.',
-        'fix'  => true,
+        'fix' => true,
     ];
 
     protected array $options_check = [];
@@ -70,14 +68,7 @@ abstract class CodeStyler extends BaseProcessor
 
     protected function getConfigFilename(): string
     {
-        $risky = $this->hasRisky() ? '-risky' : '';
-
-        return $this->config_path . $this->getPhpVersion() . $risky . '.json';
-    }
-
-    protected function getPhpVersion(): string
-    {
-        return PhpVersion::make()->get();
+        return Config::make($this->hasRisky())->getPath();
     }
 
     protected function hasRisky(): bool
@@ -92,10 +83,10 @@ abstract class CodeStyler extends BaseProcessor
 
     protected function pintPath(): string
     {
-        if ($path = realpath(__DIR__ . '/../../vendor/bin/pint')) {
+        if ($path = realpath(__DIR__.'/../../vendor/bin/pint')) {
             return $path;
         }
 
-        return realpath(__DIR__ . '/../../../../bin/pint');
+        return realpath(__DIR__.'/../../../../bin/pint');
     }
 }

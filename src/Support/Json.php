@@ -17,6 +17,6 @@ class Json implements Filesystem
 
     public function store(string $path, $content): string
     {
-        return File::store($path, trim($content) . PHP_EOL);
+        return File::store($path, trim($content).PHP_EOL);
     }
 }
