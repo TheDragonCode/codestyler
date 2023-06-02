@@ -23,7 +23,7 @@ jobs:
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php }}
-                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
+                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json, xdiff
                     coverage: none
 
             -   name: Install dependencies
