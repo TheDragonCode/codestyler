@@ -27,7 +27,7 @@ jobs:
                     coverage: xdebug
 
             -   name: Install dependencies
-                run: composer update --prefer-stable --prefer-dist --no-progress --no-interaction --ignore-platform-req=ext-xdiff
+                run: composer update --prefer-stable --prefer-dist --no-progress --no-interaction
 
             -   name: Execute tests
                 run: sudo vendor/bin/phpunit --colors=always
