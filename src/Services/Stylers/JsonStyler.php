@@ -34,14 +34,15 @@ class JsonStyler
         'bootstrap',
         'node_modules',
         'storage',
+        'tests',
         'vendor',
     ];
 
     public function __construct(
         protected OutputInterface $output,
-        protected Filesystem $filesystem,
-        protected string $path,
-        protected bool $hasCheck,
+        protected Filesystem      $filesystem,
+        protected string          $path,
+        protected bool            $hasCheck,
     ) {
         $this->resolveExcludes();
     }
