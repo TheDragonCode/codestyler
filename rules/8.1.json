@@ -1,17 +1,5 @@
 {
     "preset": "psr12",
-    "exclude": [
-        ".git",
-        ".github",
-        ".husky",
-        ".idea",
-        ".next",
-        ".vscode",
-        "bootstrap",
-        "node_modules",
-        "storage",
-        "vendor"
-    ],
     "rules": {
         "@PHP70Migration": true,
         "@PHP71Migration": true,
