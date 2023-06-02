@@ -11,7 +11,7 @@
 
 ### Required
 
-- PHP: ^8.0
+- PHP: ^8.1
 - Composer: ^2.0
 
 ### Locally
