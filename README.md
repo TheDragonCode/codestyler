@@ -11,7 +11,7 @@
 
 ### Required
 
-- PHP: ^8.0
+- PHP: ^8.1
 - Composer: ^2.0
 
 ### Locally
@@ -149,21 +149,7 @@ on:
 permissions: write-all
 
 jobs:
-    check:
-        if: ${{ github.event_name != 'push' && github.ref != 'refs/heads/main' }}
-
-        runs-on: ubuntu-latest
-
-        steps:
-            -   name: Checkout code
-                uses: actions/checkout@v3
-
-            -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v3
-
-    fix:
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-
+    style:
         runs-on: ubuntu-latest
 
         steps:
@@ -174,7 +160,7 @@ jobs:
                 uses: TheDragonCode/codestyler@v3
                 with:
                     github_token: ${{ secrets.YOUR_TOKEN }}
-                    fix: true
+                    fix: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
 ```
 

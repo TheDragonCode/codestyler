@@ -1,5 +1,6 @@
 .idea/
 vendor/
+tmp/
 
 rules/current.json
 

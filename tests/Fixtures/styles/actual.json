@@ -1,0 +1,16 @@
+{
+    "preset": "psr12", 
+    "rules": {
+        "no_alias_language_construct_call": true,        "whitespace_after_comma_in_array": {            "ensure_single_space": true        },
+        "curly_braces_position": {
+            "anonymous_classes_opening_brace": "next_line_unless_newline_at_signature_end"        },
+        "class_attributes_separation": {            "elements": {
+                "property": "one",
+"const": "only_if_meta",                "method": "one",                "case": "none",                "trait_import": "none"
+            }
+        },
+        "@Symfony" : true
+    },   "exclude"
+: [
+    "tests/Fixtures",    "tests/fixtures"]
+}

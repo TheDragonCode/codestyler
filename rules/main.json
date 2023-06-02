@@ -1,37 +1,44 @@
 {
+    "exclude": [
+        "tests/Fixtures",
+        "tests/fixtures"
+    ],
     "preset": "psr12",
     "rules": {
+        "@DoctrineAnnotation": true,
         "@PHP70Migration": true,
         "@PHP71Migration": true,
         "@PHP73Migration": true,
         "@PHP74Migration": true,
         "@PHP80Migration": true,
         "@PHP81Migration": true,
-        "@DoctrineAnnotation": true,
         "@Symfony": true,
-        "no_alias_language_construct_call": true,
-        "whitespace_after_comma_in_array": {
-            "ensure_single_space": true
-        },
-        "curly_braces_position": {
-            "anonymous_classes_opening_brace": "next_line_unless_newline_at_signature_end"
-        },
         "class_attributes_separation": {
             "elements": {
-                "property": "one",
+                "case": "none",
                 "const": "only_if_meta",
                 "method": "one",
-                "case": "none",
+                "property": "one",
                 "trait_import": "none"
             }
         },
         "class_definition": {
-            "single_line": true,
-            "space_before_parenthesis": true,
             "inline_constructor_arguments": true,
             "multi_line_extends_each_single_line": true,
-            "single_item_single_line": true
+            "single_item_single_line": true,
+            "single_line": true,
+            "space_before_parenthesis": true
         },
+        "control_structure_continuation_position": {
+            "position": "next_line"
+        },
+        "curly_braces_position": {
+            "anonymous_classes_opening_brace": "next_line_unless_newline_at_signature_end"
+        },
+        "multiline_comment_opening_closing": true,
+        "no_alias_language_construct_call": true,
+        "no_superfluous_elseif": true,
+        "no_useless_else": true,
         "ordered_class_elements": {
             "order": [
                 "use_trait",
@@ -81,17 +88,14 @@
             "order": "alpha"
         },
         "self_static_accessor": true,
-        "multiline_comment_opening_closing": true,
         "single_line_comment_style": {
             "comment_types": [
                 "asterisk",
                 "hash"
             ]
         },
-        "control_structure_continuation_position": {
-            "position": "next_line"
-        },
-        "no_superfluous_elseif": true,
-        "no_useless_else": true
+        "whitespace_after_comma_in_array": {
+            "ensure_single_space": true
+        }
     }
 }

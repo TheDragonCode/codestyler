@@ -36,6 +36,10 @@ class JsonStyler
         'storage',
         'tests',
         'vendor',
+
+        'composer.json',
+        'package.json',
+        'package-lock.json',
     ];
 
     public function __construct(
@@ -120,6 +124,8 @@ class JsonStyler
 
     protected function stylize(array $value): string
     {
+        $value = Arr::ksort($value);
+
         $service = Formatter::make();
 
         $service->asJson();
