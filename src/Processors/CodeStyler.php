@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Processors;
 
+use DragonCode\CodeStyler\Models\Input;
 use DragonCode\CodeStyler\Services\Stylers\JsonStyler;
 use DragonCode\CodeStyler\Support\Json;
 use DragonCode\CodeStyler\Support\PhpVersion;
 use DragonCode\Support\Facades\Helpers\Arr;
-use PhpCsFixer\Config;
-use PhpCsFixer\Console\Application;
-use Symfony\Component\Console\Input\ArgvInput;
 
 abstract class CodeStyler extends BaseProcessor
 {
@@ -25,40 +23,24 @@ abstract class CodeStyler extends BaseProcessor
 
     public function run(): void
     {
-        $this->jsonStyler();
-        $this->phpStyler();
+        $arguments = $this->getOptions();
+
+        $this->jsonStyler($arguments);
+        $this->phpStyler($arguments);
     }
 
-    protected function phpStyler(): void
+    protected function phpStyler(Input $arguments): void
     {
-        $application = new Application();
-        $application->run($this->getArgv());
+        $check = $this->hasCheck() ? '--test' : '';
+
+        $ansi = $arguments->ansi ? '--ansi' : '--no-ansi';
+
+        echo shell_exec(sprintf('%s %s --config %s %s', $this->pintPath(), $check, $arguments->config, $ansi));
     }
 
-    protected function jsonStyler(): void
+    protected function jsonStyler(Input $arguments): void
     {
-        JsonStyler::make($this->output, $this->getRulesConfig(), new Json(), $this->hasCheck())->handle();
-    }
-
-    protected function getArgv(): ArgvInput
-    {
-        return new ArgvInput(
-            $this->resolveOptions()
-        );
-    }
-
-    protected function resolveOptions(): array
-    {
-        return Arr::of($this->getOptions())
-            ->map(function ($value, string $key) {
-                if (is_bool($value)) {
-                    return $key;
-                }
-
-                return sprintf('%s=%s', $key, $this->resolvePath($value));
-            })
-            ->values()
-            ->toArray();
+        JsonStyler::make($this->output, new Json(), $arguments->path, $this->hasCheck())->handle();
     }
 
     protected function resolvePath(mixed $value): mixed
@@ -70,44 +52,32 @@ abstract class CodeStyler extends BaseProcessor
         return $value;
     }
 
-    protected function getOptions(): array
+    protected function getOptions(): Input
     {
-        return array_merge($this->options, $this->options_check, [
-            '--config' => $this->getConfigFilename(),
-        ], $this->getDecorationOption(), $this->getRiskyOption());
+        return Arr::of()
+            ->merge($this->options)
+            ->merge($this->options_check)
+            ->merge(['config' => $this->getConfigFilename()])
+            ->merge($this->getDecorationOption())
+            ->map(fn (mixed $value) => $this->resolvePath($value))
+            ->toInstance(Input::class);
     }
 
     protected function getDecorationOption(): array
     {
-        return $this->output->isDecorated()
-            ? ['--ansi' => true]
-            : ['--no-ansi' => true];
-    }
-
-    protected function getRiskyOption(): array
-    {
-        return $this->hasRisky()
-            ? ['--allow-risky' => 'yes']
-            : ['--allow-risky' => 'no'];
+        return ['ansi' => $this->output->isDecorated()];
     }
 
     protected function getConfigFilename(): string
     {
         $risky = $this->hasRisky() ? '-risky' : '';
 
-        return $this->config_path . $this->getPhpVersion() . $risky . '.php';
+        return $this->config_path . $this->getPhpVersion() . $risky . '.json';
     }
 
     protected function getPhpVersion(): string
     {
         return PhpVersion::make()->get();
-    }
-
-    protected function getRulesConfig(): Config
-    {
-        $path = $this->getOptions()['--config'];
-
-        return require $path;
     }
 
     protected function hasRisky(): bool
@@ -117,6 +87,15 @@ abstract class CodeStyler extends BaseProcessor
 
     protected function hasCheck(): bool
     {
-        return in_array('--dry-run', $this->options_check);
+        return $this->options_check['--test'] ?? false;
+    }
+
+    protected function pintPath(): string
+    {
+        if ($path = realpath(__DIR__ . '/../../vendor/bin/pint')) {
+            return $path;
+        }
+
+        return realpath(__DIR__ . '/../../../vendor/bin/pint');
     }
 }

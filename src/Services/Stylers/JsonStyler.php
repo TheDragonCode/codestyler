@@ -7,12 +7,14 @@ namespace DragonCode\CodeStyler\Services\Stylers;
 use DragonCode\Contracts\Support\Filesystem;
 use DragonCode\PrettyArray\Services\Formatter;
 use DragonCode\Support\Concerns\Makeable;
-use PhpCsFixer\Config;
+use DragonCode\Support\Facades\Filesystem\File;
+use DragonCode\Support\Facades\Filesystem\Path;
+use DragonCode\Support\Facades\Helpers\Arr;
+use DragonCode\Support\Facades\Helpers\Str;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Finder\SplFileInfo;
 
 /**
- * @method static JsonStyler make(OutputInterface $output, Config $rulesConfig, Filesystem $filesystem, bool $hasCheck)
+ * @method static JsonStyler make(OutputInterface $output, Filesystem $filesystem, string $path, bool $hasCheck)
  */
 class JsonStyler
 {
@@ -22,12 +24,26 @@ class JsonStyler
 
     protected int $fileNumber = 1;
 
+    protected array $excludes = [
+        '.git',
+        '.github',
+        '.husky',
+        '.idea',
+        '.next',
+        '.vscode',
+        'bootstrap',
+        'node_modules',
+        'storage',
+        'vendor',
+    ];
+
     public function __construct(
         protected OutputInterface $output,
-        protected Config          $rulesConfig,
         protected Filesystem      $filesystem,
+        protected string          $path,
         protected bool            $hasCheck,
     ) {
+        $this->resolveExcludes();
     }
 
     public function handle(): void
@@ -40,8 +56,8 @@ class JsonStyler
     {
         foreach ($this->files() as $file) {
             $this->hasCheck
-                ? $this->check($file->getRealPath())
-                : $this->fix($file->getRealPath());
+                ? $this->check($file)
+                : $this->fix($file);
         }
     }
 
@@ -59,30 +75,42 @@ class JsonStyler
 
         $styled = $this->stylize($value);
 
-        if (trim($json) !== trim($styled)) {
-            $this->output->writeln(sprintf('%d) %s', $this->fileNumber, $path));
-            $this->output->writeln('---------- begin diff ----------');
-
-            $this->output->writeln($this->diff($styled, $json));
-
-            $this->output->writeln('----------- end diff -----------');
-
-            $this->isCorrect = false;
-
-            ++$this->fileNumber;
+        if (trim($json) !== trim($styled) && $diff = $this->diff($styled, $json)) {
+            $this->showDiff($path, $diff);
         }
     }
 
     protected function fix(string $path): void
     {
-        $value = $this->load($path);
+        $value  = $this->load($path);
+        $source = $this->read($path);
 
-        $this->store($path, $this->stylize($value));
+        $stylized = $this->stylize($value);
+
+        if ($diff = $this->diff($stylized, $source)) {
+            $this->store($path, $stylized);
+            $this->showDiff($path, $diff, false);
+        }
+    }
+
+    protected function showDiff(string $path, string $diff, bool $full = true): void
+    {
+        $this->output->writeln(sprintf('%d) %s', $this->fileNumber, $path));
+
+        if ($full) {
+            $this->output->writeln('---------- begin diff ----------');
+            $this->output->writeln($diff);
+            $this->output->writeln('----------- end diff -----------');
+        }
+
+        $this->isCorrect = false;
+
+        ++$this->fileNumber;
     }
 
     protected function diff(string $expected, string $actual): string
     {
-        return xdiff_string_diff($actual, $expected) ?: 'Error getting string difference';
+        return xdiff_string_diff($actual, $expected);
     }
 
     protected function stylize(array $value): string
@@ -109,13 +137,32 @@ class JsonStyler
         $this->filesystem->store($path, $content);
     }
 
-    /**
-     * @return iterable<SplFileInfo>
-     */
-    protected function files(): iterable
+    protected function files(): array
     {
-        return $this->rulesConfig->getFinder()
-            ->name('/\.json$/')
-            ->files();
+        return File::allPaths($this->path, fn (string $path) => $this->allowFile($path), true);
+    }
+
+    protected function allowFile(string $path): bool
+    {
+        return $this->isJson($path) && ! $this->hasExclude($path);
+    }
+
+    protected function isJson(string $path): bool
+    {
+        return Path::extension($path) === 'json';
+    }
+
+    protected function hasExclude(string $path): bool
+    {
+        return Str::startsWith($path, $this->excludes);
+    }
+
+    protected function resolveExcludes(): void
+    {
+        $this->excludes = Arr::of($this->excludes)
+            ->map(fn (string $name) => realpath($this->path . '/' . $name))
+            ->filter(fn (mixed $value) => is_string($value))
+            ->values()
+            ->toArray();
     }
 }

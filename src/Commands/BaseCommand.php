@@ -15,14 +15,6 @@ abstract class BaseCommand extends Command
 
     protected OutputInterface $output;
 
-    protected string $logotype = '
- _____ _            ____                                 ____          _
-|_   _| |__   ___  |  _ \ _ __ __ _  __ _  ___  _ __    / ___|___   __| | ___
-  | | | \'_ \ / _ \ | | | | \'__/ _` |/ _` |/ _ \| \'_ \  | |   / _ \ / _` |/ _ \
-  | | | | | |  __/ | |_| | | | (_| | (_| | (_) | | | | | |__| (_) | (_| |  __/
-  |_| |_| |_|\___| |____/|_|  \__,_|\__, |\___/|_| |_|  \____\___/ \__,_|\___|
-                                    |___/';
-
     protected string $status;
 
     protected string|Processor $processor;
@@ -40,14 +32,13 @@ abstract class BaseCommand extends Command
 
     protected function hello(): void
     {
-        $this->output->isDecorated()
-            ? $this->output->writeln(PHP_EOL . '<fg=blue>' . $this->logotype . '</>')
-            : $this->output->writeln(PHP_EOL . $this->logotype);
+        $this->output->writeln(
+            sprintf('<fg=green>%s</> by <fg=yellow>%s</> and contributors.',
+                $this->getApplication()->getLongVersion(),
+                'Andrey Helldar')
+        );
 
-        $this->output->writeln(PHP_EOL);
-        $this->output->writeln(sprintf('<fg=green>%s</> by <fg=yellow>%s</> and contributors.', $this->getApplication()->getLongVersion(), 'Andrey Helldar'));
-
-        sleep(1);
+        $this->output->writeln('');
     }
 
     protected function handle(): void

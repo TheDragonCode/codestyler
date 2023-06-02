@@ -20,9 +20,9 @@ class Dependabot extends BaseProcessor
     protected array $update = [
         'package-ecosystem' => self::NAME,
 
-        'directory'         => '/',
+        'directory' => '/',
 
-        'schedule'          => [
+        'schedule' => [
             'interval' => 'daily',
         ],
     ];

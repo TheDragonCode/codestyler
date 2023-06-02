@@ -7,7 +7,7 @@ namespace DragonCode\CodeStyler\Processors;
 class Check extends CodeStyler
 {
     protected array $options_check = [
-        '--dry-run' => true,
-        '--diff'    => true,
+        '--test' => true,
+        '--diff' => true,
     ];
 }
