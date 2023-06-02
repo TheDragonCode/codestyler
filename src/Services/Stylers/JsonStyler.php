@@ -40,9 +40,9 @@ class JsonStyler
 
     public function __construct(
         protected OutputInterface $output,
-        protected Filesystem      $filesystem,
-        protected string          $path,
-        protected bool            $hasCheck,
+        protected Filesystem $filesystem,
+        protected string $path,
+        protected bool $hasCheck,
     ) {
         $this->resolveExcludes();
     }
