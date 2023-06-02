@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DragonCode\CodeStyler\Services\Stylers;
 
 use DragonCode\Contracts\Support\Filesystem;
+use DragonCode\PrettyArray\Services\Formatter;
 use DragonCode\Support\Concerns\Makeable;
 use PhpCsFixer\Config;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -17,23 +18,15 @@ class JsonStyler
 {
     use Makeable;
 
-    protected int $flags = JSON_NUMERIC_CHECK
-    ^ JSON_PRESERVE_ZERO_FRACTION
-    ^ JSON_PRETTY_PRINT
-    ^ JSON_UNESCAPED_UNICODE
-    ^ JSON_UNESCAPED_SLASHES
-    ^ JSON_UNESCAPED_LINE_TERMINATORS
-    ^ JSON_PARTIAL_OUTPUT_ON_ERROR;
-
     protected bool $isCorrect = true;
 
     protected int $fileNumber = 1;
 
     public function __construct(
         protected OutputInterface $output,
-        protected Config $rulesConfig,
-        protected Filesystem $filesystem,
-        protected bool $hasCheck,
+        protected Config          $rulesConfig,
+        protected Filesystem      $filesystem,
+        protected bool            $hasCheck,
     ) {
     }
 
@@ -75,6 +68,7 @@ class JsonStyler
             $this->output->writeln('----------- end diff -----------');
 
             $this->isCorrect = false;
+
             ++$this->fileNumber;
         }
     }
@@ -93,7 +87,11 @@ class JsonStyler
 
     protected function stylize(array $value): string
     {
-        return $this->encode($value);
+        $service = Formatter::make();
+
+        $service->asJson();
+
+        return $service->raw($value);
     }
 
     protected function read(string $path): string
@@ -111,11 +109,6 @@ class JsonStyler
         $this->filesystem->store($path, $content);
     }
 
-    protected function encode(array $value): string
-    {
-        return json_encode($value, $this->flags) . PHP_EOL;
-    }
-
     /**
      * @return iterable<SplFileInfo>
      */
@@ -123,7 +116,6 @@ class JsonStyler
     {
         return $this->rulesConfig->getFinder()
             ->name('/\.json$/')
-            ->notName('/\.php$/')
             ->files();
     }
 }

@@ -32,14 +32,15 @@
         "php": "^8.0",
         "ext-json": "*",
         "ext-xdiff": "*",
-        "dragon-code/support": "^6.1",
-        "friendsofphp/php-cs-fixer": "^3.10",
-        "symfony/console": "^5.0 || ^6.0",
-        "symfony/yaml": "^5.0 || ^6.0"
+        "dragon-code/pretty-array": "^4.1",
+        "dragon-code/support": "^6.11.2",
+        "friendsofphp/php-cs-fixer": "^3.17",
+        "symfony/console": "^5.0 || ^6.3",
+        "symfony/var-dumper": "^5.0 || ^6.3",
+        "symfony/yaml": "^5.0 || ^6.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "symfony/var-dumper": "^5.0 || ^6.0"
+        "phpunit/phpunit": "^9.6.8"
     },
     "minimum-stability": "stable",
     "autoload": {
