@@ -193,7 +193,7 @@ class Foo3
     }
 }
 
-class Bar
+class Bar2
 {
     const X = 1;
 
@@ -337,10 +337,10 @@ abstract class Foo4 extends FooBaseClass implements Bar1, Bar2, Bar3
 
     function bar(
         $v,
-        $w = "a"
+        $w = 'a'
     ) {
         $y      = $w;
-        $result = foo("arg1", "arg2", 10);
+        $result = foo('arg1', 'arg2', 10);
         switch ($v) {
             case 0:
                 return 1;
@@ -371,7 +371,7 @@ abstract class Foo4 extends FooBaseClass implements Bar1, Bar2, Bar3
         $argH
     ) {
         $x = $argA + $argB + $argC + $argD + $argE + $argF + $argG + $argH;
-        [$field1, $field2, $field3, $filed4, $field5, $field6] = explode(",", $x);
+        [$field1, $field2, $field3, $filed4, $field5, $field6] = explode(',', $x);
         fTwo($argA, $argB, $argC, fThree($argD, $argE, $argF, $argG, $argH));
         $z      = $argA == 'Some string' ? 'yes' : 'no';
         $colors =
@@ -392,13 +392,13 @@ abstract class Foo4 extends FooBaseClass implements Bar1, Bar2, Bar3
 
     function fTwo($strA, $strB, $strC, $strD)
     {
-        if ($strA == "one" || $strB == "two" || $strC == "three") {
+        if ($strA == 'one' || $strB == 'two' || $strC == 'three') {
             return $strA + $strB + $strC;
         }
 
-        $x = $foo->one("a", "b")
-            ->two("c", "d", "e")
-            ->three("fg")
+        $x = $foo->one('a', 'b')
+            ->two('c', 'd', 'e')
+            ->three('fg')
             ->four();
         $y = a()->b()->c();
 
@@ -420,11 +420,11 @@ abstract class Foo4 extends FooBaseClass implements Bar1, Bar2, Bar3
     }
 }
 
-function foo()
+function foo2()
 {
     if ($x > 5) {
-        echo "bar";
+        echo 'bar';
     }
 
-    return "string";
+    return 'string';
 }

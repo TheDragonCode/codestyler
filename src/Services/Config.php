@@ -16,7 +16,7 @@ class Config
 {
     use Makeable;
 
-    protected string $path = __DIR__.'/../../rules/';
+    protected string $path = __DIR__ . '/../../rules/';
 
     public function __construct(
         protected readonly bool $risky = false
@@ -67,7 +67,7 @@ class Config
     {
         $risky = $risky ? '-risky' : '';
 
-        return $this->path.$version.$risky.'.json';
+        return $this->path . $version . $risky . '.json';
     }
 
     protected function phpVersion(): string

@@ -83,10 +83,10 @@ abstract class CodeStyler extends BaseProcessor
 
     protected function pintPath(): string
     {
-        if ($path = realpath(__DIR__.'/../../vendor/bin/pint')) {
+        if ($path = realpath(__DIR__ . '/../../vendor/bin/pint')) {
             return $path;
         }
 
-        return realpath(__DIR__.'/../../../../bin/pint');
+        return realpath(__DIR__ . '/../../../../bin/pint');
     }
 }

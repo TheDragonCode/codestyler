@@ -171,7 +171,7 @@ class JsonStyler
     protected function resolveExcludes(): void
     {
         $this->excludes = Arr::of($this->excludes)
-            ->map(fn (string $name) => realpath($this->path.'/'.$name))
+            ->map(fn (string $name) => realpath($this->path . '/' . $name))
             ->filter(fn (mixed $value) => is_string($value))
             ->values()
             ->toArray();
