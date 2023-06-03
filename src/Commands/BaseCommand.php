@@ -12,11 +12,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 abstract class BaseCommand extends Command
 {
     protected InputInterface $input;
-
     protected OutputInterface $output;
-
     protected string $status;
-
     protected string|Processor $processor;
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -32,13 +29,7 @@ abstract class BaseCommand extends Command
 
     protected function hello(): void
     {
-        $this->output->writeln(
-            sprintf(
-                '<fg=green>%s</> by <fg=yellow>%s</> and contributors.',
-                $this->getApplication()->getLongVersion(),
-                'Andrey Helldar'
-            )
-        );
+        $this->output->writeln(sprintf('<fg=green>%s</> by <fg=yellow>%s</> and contributors.', $this->getApplication()->getLongVersion(), 'Andrey Helldar'));
 
         $this->output->writeln('');
     }

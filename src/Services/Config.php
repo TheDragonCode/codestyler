@@ -15,12 +15,10 @@ use DragonCode\Support\Facades\Helpers\Arr;
 class Config
 {
     use Makeable;
-
     protected string $path = __DIR__ . '/../../rules/';
 
-    public function __construct(
-        protected readonly bool $risky = false
-    ) {
+    public function __construct(protected readonly bool $risky = false)
+    {
     }
 
     public function getPath(): string
@@ -28,10 +26,7 @@ class Config
         $main = $this->loadMain();
         $version = $this->resolveVersion();
 
-        return $this->store(
-            $this->resolvePath('current'),
-            $this->merge($main, $version)
-        );
+        return $this->store($this->resolvePath('current'), $this->merge($main, $version));
     }
 
     protected function merge(array $main, array $version): array
@@ -41,16 +36,12 @@ class Config
 
     protected function loadMain(): array
     {
-        return $this->load(
-            $this->resolvePath('main')
-        );
+        return $this->load($this->resolvePath('main'));
     }
 
     protected function resolveVersion(): array
     {
-        return $this->load(
-            $this->resolvePath($this->phpVersion(), $this->risky)
-        );
+        return $this->load($this->resolvePath($this->phpVersion(), $this->risky));
     }
 
     protected function load(string $path): array

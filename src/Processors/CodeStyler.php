@@ -16,7 +16,6 @@ abstract class CodeStyler extends BaseProcessor
         'path' => '.',
         'fix' => true,
     ];
-
     protected array $options_check = [];
 
     public function run(): void

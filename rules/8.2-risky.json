@@ -5,6 +5,7 @@
         "@PHP74Migration:risky": true,
         "@PHP80Migration:risky": true,
         "@PHP82Migration": true,
-        "@PSR12:risky": true
+        "@PSR12:risky": true,
+        "@Symfony:risky": true
     }
 }

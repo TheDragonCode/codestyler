@@ -12,9 +12,7 @@ class Dependabot extends BaseProcessor
     use Files;
     protected const VERSION = 2;
     protected const NAME = 'github-actions';
-
     protected string $path = './.github/dependabot.yml';
-
     protected array $update = [
         'package-ecosystem' => self::NAME,
 
@@ -24,7 +22,6 @@ class Dependabot extends BaseProcessor
             'interval' => 'daily',
         ],
     ];
-
     protected array $content = [];
 
     public function run(): void
@@ -45,6 +42,7 @@ class Dependabot extends BaseProcessor
             if (self::NAME === Arr::get($update, 'package-ecosystem')) {
                 $update = $this->update;
                 $found = true;
+
                 break;
             }
         }

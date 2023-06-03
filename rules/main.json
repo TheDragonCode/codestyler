@@ -15,12 +15,32 @@
         "@Symfony": true,
         "array_indentation": true,
         "assign_null_coalescing_to_coalesce_equal": true,
+        "blank_line_before_statement": {
+            "statements": [
+                "continue",
+                "default",
+                "do",
+                "exit",
+                "for",
+                "foreach",
+                "goto",
+                "if",
+                "phpdoc",
+                "return",
+                "switch",
+                "throw",
+                "try",
+                "while",
+                "yield",
+                "yield_from"
+            ]
+        },
         "class_attributes_separation": {
             "elements": {
                 "case": "none",
                 "const": "only_if_meta",
                 "method": "one",
-                "property": "one",
+                "property": "only_if_meta",
                 "trait_import": "none"
             }
         },
@@ -44,63 +64,76 @@
         },
         "heredoc_to_nowdoc": true,
         "multiline_comment_opening_closing": true,
+        "multiline_whitespace_before_semicolons": {
+            "strategy": "no_multi_line"
+        },
         "no_alias_language_construct_call": true,
+        "no_extra_blank_lines": {
+            "tokens": [
+                "attribute",
+                "break",
+                "case",
+                "continue",
+                "curly_brace_block",
+                "default",
+                "extra",
+                "parenthesis_brace_block",
+                "return",
+                "square_brace_block",
+                "switch",
+                "throw",
+                "use",
+                "use_trait"
+            ]
+        },
         "no_superfluous_elseif": true,
         "no_useless_else": true,
+        "no_useless_return": true,
+        "not_operator_with_successor_space": true,
+        "nullable_type_declaration_for_default_null_value": {
+            "use_nullable_type_declaration": true
+        },
         "ordered_class_elements": {
             "order": [
                 "use_trait",
                 "case",
-                "constant_public",
-                "constant_protected",
-                "constant_private",
+                "public",
+                "protected",
+                "private",
                 "constant",
-                "property_public_readonly",
-                "property_protected_readonly",
-                "property_private_readonly",
-                "property_public_static",
-                "property_protected_static",
-                "property_private_static",
-                "property_public",
-                "property_protected",
-                "property_private",
                 "property",
                 "property_static",
                 "phpunit",
-                "construct",
-                "method_public_abstract",
-                "method_protected_abstract",
-                "method_private_abstract",
-                "method_protected_static",
-                "method_public_abstract_static",
-                "method_protected_abstract_static",
-                "method_private_abstract_static",
                 "method_abstract",
-                "method_public",
-                "method_public_static",
+                "construct",
                 "method",
                 "method_static",
-                "method_protected",
-                "method_private_static",
-                "method_private",
-                "method",
                 "destruct",
-                "magic",
-                "public",
-                "protected",
-                "private"
+                "magic"
+            ]
+        },
+        "ordered_imports": {
+            "imports_order": [
+                "class",
+                "const",
+                "function"
             ]
         },
         "ordered_interfaces": {
             "direction": "ascend",
             "order": "alpha"
         },
+        "ordered_traits": true,
         "self_static_accessor": true,
+        "simplified_null_return": true,
         "single_line_comment_style": {
             "comment_types": [
                 "asterisk",
                 "hash"
             ]
+        },
+        "types_spaces": {
+            "space_multiple_catch": "none"
         },
         "whitespace_after_comma_in_array": {
             "ensure_single_space": true

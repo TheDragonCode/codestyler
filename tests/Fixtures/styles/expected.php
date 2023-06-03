@@ -27,8 +27,8 @@ class Foo2
 {
     public function __construct(
         protected string $foo,
-        protected int    $bar,
-        private bool     $baz
+        protected int $bar,
+        private bool $baz
     ) {
     }
 
@@ -38,7 +38,9 @@ class Foo2
 
         $obj->foo(x: 1)->bar();
         $arr = [0 => 'zero', 1 => 'one'];
-        call_func(fn () => 0);
+        call_func(function () {
+            return 0;
+        });
         call_func(fn () => 0);
 
         for ($i = 0; $i < $x; ++$i) {

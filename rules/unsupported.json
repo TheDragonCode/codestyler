@@ -3,6 +3,7 @@
         "ordered_types": {
             "null_adjustment": "always_last",
             "sort_algorithm": "alpha"
-        }
+        },
+        "single_line_empty_body": true
     }
 }

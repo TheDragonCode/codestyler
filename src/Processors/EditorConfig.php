@@ -9,7 +9,6 @@ use DragonCode\Support\Facades\Filesystem\File;
 class EditorConfig extends BaseProcessor
 {
     protected string $source = __DIR__ . '/../../.editorconfig';
-
     protected string $target = './.editorconfig';
 
     public function run(): void

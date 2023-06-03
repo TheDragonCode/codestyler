@@ -19,11 +19,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 class JsonStyler
 {
     use Makeable;
-
     protected bool $isCorrect = true;
-
     protected int $fileNumber = 1;
-
     protected array $excludes = [
         '.git',
         '.github',
@@ -42,12 +39,8 @@ class JsonStyler
         'package-lock.json',
     ];
 
-    public function __construct(
-        protected OutputInterface $output,
-        protected Filesystem $filesystem,
-        protected string $path,
-        protected bool $hasCheck,
-    ) {
+    public function __construct(protected OutputInterface $output, protected Filesystem $filesystem, protected string $path, protected bool $hasCheck)
+    {
         $this->resolveExcludes();
     }
 
@@ -68,7 +61,7 @@ class JsonStyler
 
     protected function finish(): void
     {
-        if (!$this->isCorrect && $this->hasCheck) {
+        if (! $this->isCorrect && $this->hasCheck) {
             exit(0);
         }
     }
@@ -155,7 +148,7 @@ class JsonStyler
 
     protected function allowFile(string $path): bool
     {
-        return $this->isJson($path) && !$this->hasExclude($path);
+        return $this->isJson($path) && ! $this->hasExclude($path);
     }
 
     protected function isJson(string $path): bool
