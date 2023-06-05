@@ -14,15 +14,16 @@ abstract class CodeStyler extends BaseProcessor
 {
     protected array $options = [
         'path' => '.',
-        'fix' => true,
+        'fix'  => true,
     ];
+
     protected array $options_check = [];
 
     public function run(): void
     {
         $arguments = $this->getOptions();
 
-        $this->jsonStyler($arguments);
+        // $this->jsonStyler($arguments);
         $this->phpStyler($arguments);
     }
 
@@ -32,7 +33,7 @@ abstract class CodeStyler extends BaseProcessor
 
         $ansi = $arguments->ansi ? '--ansi' : '--no-ansi';
 
-        echo shell_exec(sprintf('%s %s --config %s %s', $this->pintPath(), $check, $arguments->config, $ansi));
+        echo shell_exec(sprintf('php %s %s --config %s %s', $this->pintPath(), $check, $arguments->config, $ansi));
     }
 
     protected function jsonStyler(Input $arguments): void
@@ -85,6 +86,8 @@ abstract class CodeStyler extends BaseProcessor
         if ($path = realpath(__DIR__ . '/../../vendor/bin/pint')) {
             return $path;
         }
+
+        return realpath(__DIR__ . '/../../modules/laravel/pint/builds/pint');
 
         return realpath(__DIR__ . '/../../../../bin/pint');
     }

@@ -10,6 +10,7 @@ use DragonCode\CodeStyler\Processors\Dependabot as DependabotProcessor;
 class Dependabot extends BaseCommand
 {
     protected string|Processor $processor = DependabotProcessor::class;
+
     protected string $status = 'Updating Dependabot rules...';
 
     protected function configure(): void

@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputOption;
 class Check extends BaseCommand
 {
     protected string|Processor $processor = CheckProcessor::class;
+
     protected string $status = 'Checking code-style...';
 
     protected function configure(): void

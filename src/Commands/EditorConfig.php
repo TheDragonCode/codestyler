@@ -10,6 +10,7 @@ use DragonCode\CodeStyler\Processors\EditorConfig as EditorConfigProcessor;
 class EditorConfig extends BaseCommand
 {
     protected string|Processor $processor = EditorConfigProcessor::class;
+
     protected string $status = 'Updating .editorconfig...';
 
     protected function configure(): void

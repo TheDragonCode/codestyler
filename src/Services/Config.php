@@ -15,6 +15,7 @@ use DragonCode\Support\Facades\Helpers\Arr;
 class Config
 {
     use Makeable;
+
     protected string $path = __DIR__ . '/../../rules/';
 
     public function __construct(protected readonly bool $risky = false)
@@ -23,7 +24,7 @@ class Config
 
     public function getPath(): string
     {
-        $main = $this->loadMain();
+        $main    = $this->loadMain();
         $version = $this->resolveVersion();
 
         return $this->store($this->resolvePath('current'), $this->merge($main, $version));

@@ -19,8 +19,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 class JsonStyler
 {
     use Makeable;
+
     protected bool $isCorrect = true;
+
     protected int $fileNumber = 1;
+
     protected array $excludes = [
         '.git',
         '.github',
@@ -68,7 +71,7 @@ class JsonStyler
 
     protected function check(string $path): void
     {
-        $json = $this->read($path);
+        $json  = $this->read($path);
         $value = $this->load($path);
 
         $styled = $this->stylize($value);
@@ -80,7 +83,7 @@ class JsonStyler
 
     protected function fix(string $path): void
     {
-        $value = $this->load($path);
+        $value  = $this->load($path);
         $source = $this->read($path);
 
         $stylized = $this->stylize($value);

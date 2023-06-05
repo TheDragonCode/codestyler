@@ -12,9 +12,9 @@ class PhpVersionTest extends TestCase
     public function test72(): void
     {
         $version1 = $this->getVersion([
-            'php' => '^8.0 || ^7.1',
+            'php'      => '^8.0 || ^7.1',
             'ext-json' => '*',
-            'foo/bar' => '^1.0',
+            'foo/bar'  => '^1.0',
         ]);
 
         $version2 = $this->getVersion([
@@ -28,9 +28,9 @@ class PhpVersionTest extends TestCase
     public function test72Dev(): void
     {
         $version1 = $this->getVersion([
-            'php' => '^8.0 || ^7.1',
+            'php'      => '^8.0 || ^7.1',
             'ext-json' => '*',
-            'foo/bar' => '^1.0',
+            'foo/bar'  => '^1.0',
         ], true);
 
         $version2 = $this->getVersion([
@@ -44,9 +44,9 @@ class PhpVersionTest extends TestCase
     public function test74(): void
     {
         $version1 = $this->getVersion([
-            'php' => '^8.0 || ^7.4',
+            'php'      => '^8.0 || ^7.4',
             'ext-json' => '*',
-            'foo/bar' => '^1.0',
+            'foo/bar'  => '^1.0',
         ]);
 
         $version2 = $this->getVersion([
@@ -60,9 +60,9 @@ class PhpVersionTest extends TestCase
     public function test74Dev(): void
     {
         $version1 = $this->getVersion([
-            'php' => '^8.0 || ^7.4',
+            'php'      => '^8.0 || ^7.4',
             'ext-json' => '*',
-            'foo/bar' => '^1.0',
+            'foo/bar'  => '^1.0',
         ], true);
 
         $version2 = $this->getVersion([
@@ -76,9 +76,9 @@ class PhpVersionTest extends TestCase
     public function test80(): void
     {
         $version1 = $this->getVersion([
-            'php' => '^8.0',
+            'php'      => '^8.0',
             'ext-json' => '*',
-            'foo/bar' => '^1.0',
+            'foo/bar'  => '^1.0',
         ]);
 
         $version2 = $this->getVersion([
@@ -92,9 +92,9 @@ class PhpVersionTest extends TestCase
     public function test80Dev(): void
     {
         $version1 = $this->getVersion([
-            'php' => '^8.0',
+            'php'      => '^8.0',
             'ext-json' => '*',
-            'foo/bar' => '^1.0',
+            'foo/bar'  => '^1.0',
         ], true);
 
         $version2 = $this->getVersion([
@@ -108,9 +108,9 @@ class PhpVersionTest extends TestCase
     public function test81(): void
     {
         $version1 = $this->getVersion([
-            'php' => '^8.1',
+            'php'      => '^8.1',
             'ext-json' => '*',
-            'foo/bar' => '^1.0',
+            'foo/bar'  => '^1.0',
         ]);
 
         $version2 = $this->getVersion([
@@ -124,9 +124,9 @@ class PhpVersionTest extends TestCase
     public function test81Dev(): void
     {
         $version1 = $this->getVersion([
-            'php' => '^8.1',
+            'php'      => '^8.1',
             'ext-json' => '*',
-            'foo/bar' => '^1.0',
+            'foo/bar'  => '^1.0',
         ], true);
 
         $version2 = $this->getVersion([
@@ -141,7 +141,7 @@ class PhpVersionTest extends TestCase
     {
         $version1 = $this->getVersion([
             'ext-json' => '*',
-            'foo/bar' => '^1.0',
+            'foo/bar'  => '^1.0',
         ]);
 
         $version2 = $this->getVersion([]);
@@ -154,7 +154,7 @@ class PhpVersionTest extends TestCase
     {
         $version1 = $this->getVersion([
             'ext-json' => '*',
-            'foo/bar' => '^1.0',
+            'foo/bar'  => '^1.0',
         ], true);
 
         $version2 = $this->getVersion([], true);

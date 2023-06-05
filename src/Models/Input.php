@@ -7,7 +7,9 @@ namespace DragonCode\CodeStyler\Models;
 class Input
 {
     public string $path;
+
     public string $config;
+
     public bool $ansi;
 
     public function __construct(array $data)
