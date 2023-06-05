@@ -33,6 +33,7 @@ class JsonStyler
         '.vscode',
         'bootstrap',
         'node_modules',
+        'modules/laravel',
         'storage',
         'tests',
         'vendor',
@@ -42,8 +43,12 @@ class JsonStyler
         'package-lock.json',
     ];
 
-    public function __construct(protected OutputInterface $output, protected Filesystem $filesystem, protected string $path, protected bool $hasCheck)
-    {
+    public function __construct(
+        protected OutputInterface $output,
+        protected Filesystem $filesystem,
+        protected string $path,
+        protected bool $hasCheck
+    ) {
         $this->resolveExcludes();
     }
 

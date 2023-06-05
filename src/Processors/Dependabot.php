@@ -11,9 +11,8 @@ class Dependabot extends BaseProcessor
 {
     use Files;
 
+    protected const NAME    = 'github-actions';
     protected const VERSION = 2;
-
-    protected const NAME = 'github-actions';
 
     protected string $path = './.github/dependabot.yml';
 
