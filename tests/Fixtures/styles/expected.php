@@ -13,10 +13,10 @@ use Acme\Foo;
 
 enum Suit: string
 {
-    case Clubs = 'C';
+    case Clubs    = 'C';
     case Diamonds = 'D';
-    case Hearts = 'H';
-    case Spades = 'S';
+    case Hearts   = 'H';
+    case Spades   = 'S';
 }
 
 enum a: int
@@ -35,7 +35,6 @@ class Foo2
     public function foo($x, $z)
     {
         global $k, $s1;
-
         $obj->foo(x: 1)->bar();
         $arr = [0 => 'zero', 1 => 'one'];
         call_func(function () {
