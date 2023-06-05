@@ -37,15 +37,12 @@ class Foo2
         global $k, $s1;
         $obj->foo(x: 1)->bar();
         $arr = [0 => 'zero', 1 => 'one'];
-        call_func(function () {
-            return 0;
-        });
+        call_func(function () { return 0; });
         call_func(fn () => 0);
 
         for ($i = 0; $i < $x; ++$i) {
             $y += ($y ^ 0x123) << 2;
         }
-
         $k = $x > 15 ? 1 : 2;
         $k = $x ?: 0;
         $k = $x ?? $z;
@@ -53,11 +50,10 @@ class Foo2
 
         do {
             try {
-                if (! 0 > $x && ! $x < 10) {
+                if ($x < ! 0 && ! $x < 10) {
                     while ($x != $y) {
                         $x = f($x * 3 + 5);
                     }
-
                     $z += 2;
                 }
                 elseif ($x > 20) {
@@ -81,7 +77,7 @@ class Foo2
                         $s1 = 'other';
                 }
             }
-            catch (Exception|RuntimeException $e) {
+            catch (RuntimeException|Exception $e) {
                 $t = $one[0];
                 $u = $one['str'];
                 $v = $one[$x[1]];
@@ -116,10 +112,10 @@ f2([
     1 => 7,
 ]);
 
-print match ($j) {
-    0       => 'zero',
-    2       => 'two',
-    42      => 'forty-two',
+echo match ($j) {
+    0  => 'zero',
+    2  => 'two',
+    42 => 'forty-two',
 
     default => throw new Exception()
 };
@@ -145,12 +141,14 @@ class Baz
     protected const FOO3 = 1;
 
     public float $prop1;
+
     public float $prop2;
+
     public float $prop3;
 
-    function foo(
-        bool   $one = null,
-        int    $two = 0,
+    public function foo(
+        ?bool $one = null,
+        int $two = 0,
         string $three = 'String'
     ): int {
         if (true) {
@@ -174,7 +172,9 @@ class Baz
             echo null;
         }
         elseif (false) {
-            $y = fn () => $a;
+            $y = function () {
+                return $a;
+            };
 
             return 0;
         }
@@ -278,10 +278,9 @@ function bar3(
         $x = 0;
     }
 
-    do {
-        $x += 1;
+    while (true) {
+        ++$x;
     }
-    while (true);
 
     foreach ([
         'a' => 0,

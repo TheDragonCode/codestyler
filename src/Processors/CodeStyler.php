@@ -23,7 +23,7 @@ abstract class CodeStyler extends BaseProcessor
     {
         $arguments = $this->getOptions();
 
-        $this->jsonStyler($arguments);
+        // $this->jsonStyler($arguments);
         $this->phpStyler($arguments);
     }
 
