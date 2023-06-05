@@ -3,6 +3,18 @@
     "description": "A tool to automatically fix Coding Style Standards issues by The Dragon Code.",
     "license": "MIT",
     "type": "library",
+    "keywords": [
+        "php",
+        "json",
+        "format",
+        "formatter",
+        "lint",
+        "linter",
+        "style",
+        "code style",
+        "codestyle",
+        "standard"
+    ],
     "authors": [
         {
             "name": "Andrey Helldar",
