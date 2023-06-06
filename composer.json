@@ -22,6 +22,10 @@
             "homepage": "https://github.com/andrey-helldar"
         }
     ],
+    "support": {
+        "issues": "https://github.com/TheDragonCode/codestyler/issues",
+        "source": "https://github.com/TheDragonCode/codestyler"
+    },
     "funding": [
         {
             "type": "github",
@@ -45,46 +49,38 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "ext-tokenizer": "*",
-        "ext-xml": "*"
+        "ext-xml": "*",
+        "dragon-code/pretty-array": "^4.1"
     },
     "require-dev": {
-        "dragon-code/pretty-array": "^4.1",
-        "dragon-code/support": "^6.11.2",
-        "friendsofphp/php-cs-fixer": "^3.17.0",
-        "illuminate/view": "^10.13.2",
+        "dragon-code/support": "^6.11",
+        "friendsofphp/php-cs-fixer": "^3.17",
+        "illuminate/view": "^10.13",
         "laravel-zero/framework": "^10.0.2",
-        "mockery/mockery": "^1.6.1",
-        "nunomaduro/larastan": "^2.6.0",
+        "mockery/mockery": "^1.5.1",
         "nunomaduro/termwind": "^1.15.1",
-        "phpunit/phpunit": "^9.6.8",
-        "symfony/console": "^6.3",
-        "symfony/var-dumper": "^6.3",
+        "pestphp/pest": "^2.5",
+        "seld/jsonlint": "^1.10",
         "symfony/yaml": "^6.3"
-    },
-    "suggest": {
-        "ext-xdiff": "Install PHP extension to show diff in JSON files"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "DragonCode\\CodeStyler\\": "src"
+            "DragonCode\\CodeStyler\\": "app/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests"
+            "Tests\\": "tests/"
         }
     },
     "bin": [
-        "bin/codestyle",
-        "builds/codestyle"
+        "codestyle"
     ],
     "config": {
         "allow-plugins": {
-            "dragon-code/codestyler": true,
-            "ergebnis/composer-normalize": true,
-            "friendsofphp/php-cs-fixer": true
+            "pestphp/pest-plugin": true
         },
         "optimize-autoloader": true,
         "platform": {

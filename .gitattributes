@@ -1,6 +1,5 @@
-* text=auto
+* text=auto eol=lf
 
-.fixtures/ export-ignore
 .github/ export-ignore
 
 shell/ export-ignore
@@ -14,3 +13,7 @@ Dockerfile export-ignore
 entrypoint.sh export-ignore
 
 phpunit.xml export-ignore
+
+BACKERS.md export-ignore
+CONTRIBUTING.md export-ignore
+CHANGELOG.md export-ignore

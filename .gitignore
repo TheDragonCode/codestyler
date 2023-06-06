@@ -8,5 +8,3 @@ rules/current.json
 *.cache
 *.clover
 *.orig
-
-composer.lock
