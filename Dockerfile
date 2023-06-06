@@ -1,4 +1,4 @@
-ARG PHP_VERSION=8.2.5
+ARG PHP_VERSION=stable
 
 FROM helldar/laravel-gitlab-ci:${PHP_VERSION}
 
@@ -9,7 +9,7 @@ ARG INPUT_DEPENDABOT
 ARG INPUT_NORMALIZE
 
 RUN composer global update
-RUN composer global require dragon-code/codestyler:^3.0
+RUN composer global require dragon-code/codestyler:^3.1
 
 COPY shell /shell
 COPY entrypoint.sh /entrypoint.sh
