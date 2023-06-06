@@ -7,6 +7,16 @@
 [![Total Downloads][badge_downloads]][link_packagist]
 [![License][badge_license]][link_license]
 
+## Introduction
+
+`The Dragon Code Styler` is an opinionated PHP code style fixer for minimalists.
+`Codestyler` is built on top of [Laravel Pint](https://laravel.com/docs/pint)
+and [PHP-CS-Fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer), and makes it simple to ensure that your code style
+stays clean and consistent.
+
+By default, `Codestyler` does not require any configuration and will fix code style issues in your code by following
+the opinionated coding style of `The Dragon Code`.
+
 ## Installation
 
 ### Required
@@ -22,11 +32,13 @@ composer global require dragon-code/codestyler
 
 ## Usage
 
-When you run the commands in the base path of the project, the `composer.json` file will be automatically read, from which the minimum PHP version for your project will be taken.
+When you run the commands in the base path of the project, the `composer.json` file will be automatically read, from
+which the minimum PHP version for your project will be taken.
 
 This is necessary to draw up rules for applying the codestyle.
 
-For example, if your project supports PHP 8.0 and above, and you use the `mkdir($path, 0755)` function in it, then applying the rules for PHP 8.0 will break your code because it
+For example, if your project supports PHP 8.0 and above, and you use the `mkdir($path, 0755)` function in it, then
+applying the rules for PHP 8.0 will break your code because it
 will replace `0755` with `0o755` (`mkdir($path, 0o755)`).
 
 To prevent this from happening, we check the minimum PHP version.
@@ -132,7 +144,9 @@ jobs:
 
 Since the changes are pushed to the master branch, GitHub can block this action with a security policy.
 
-To solve this problem, you need to be [`create`](https://github.com/settings/tokens/new?scopes=repo&description=The%20Dragon%20Code:%20Styler) of your account token and specify it
+To solve this problem, you need to
+be [`create`](https://github.com/settings/tokens/new?scopes=repo&description=The%20Dragon%20Code:%20Styler) of your
+account token and specify it
 in the `Actions secrets` section of the repository or organization.
 
 The name of the variable containing the token must be passed to the `github_token` key.
@@ -174,13 +188,15 @@ codestyle <command>
 
 ## Configuration
 
-By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules` and `.github`.
+By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules`
+and `.github`.
 
 ```yaml
 -   uses: TheDragonCode/codestyler@v3
 ```
 
-By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this option:
+By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this
+option:
 
 ```yaml
 -   uses: TheDragonCode/codestyler@v3
@@ -188,12 +204,15 @@ By default, the linter only checks the code-style. If you want to apply the chan
         fix: true
 ```
 
-By default, GitHub Action does not allow versioning, so our project will create a configuration file for it, which will check for new versions once a day.
+By default, GitHub Action does not allow versioning, so our project will create a configuration file for it, which will
+check for new versions once a day.
 
-When Dependabot detects new versions of containers, it will automatically create a PR to your repository. So you don't need to keep track of updates - Dependabot will do everything
+When Dependabot detects new versions of containers, it will automatically create a PR to your repository. So you don't
+need to keep track of updates - Dependabot will do everything
 for you 💪😎
 
-If the `.github/dependabot.yml` file has already been created, we will check it and add the necessary rules. So don't be afraid, nothing will be deleted 😎
+If the `.github/dependabot.yml` file has already been created, we will check it and add the necessary rules. So don't be
+afraid, nothing will be deleted 😎
 
 > Note
 >

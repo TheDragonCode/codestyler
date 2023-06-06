@@ -3,12 +3,6 @@
 declare(strict_types=1);
 
 return [
-    'exclude' => [
-        'tests/Fixtures',
-        'tests/fixtures',
-        'modules/laravel',
-    ],
-
     'preset' => 'psr12',
 
     'rules' => [
