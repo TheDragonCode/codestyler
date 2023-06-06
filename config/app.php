@@ -1,5 +1,8 @@
 <?php
 
+use DragonCode\CodeStyler\Providers\AppServiceProvider;
+use DragonCode\CodeStyler\Providers\RepositoryServiceProvider;
+
 return [
 
     /*
@@ -54,7 +57,8 @@ return [
     */
 
     'providers' => [
-        DragonCode\CodeStyler\Providers\AppServiceProvider::class,
+        AppServiceProvider::class,
+        RepositoryServiceProvider::class,
     ],
 
 ];
