@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Commands;
 
+use App\Actions\ElaborateSummary;
+use DragonCode\CodeStyler\Actions\FixCode;
 use LaravelZero\Framework\Commands\Command;
-
-use function Termwind\render;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 
 class CheckCommand extends Command
 {
@@ -14,16 +16,47 @@ class CheckCommand extends Command
 
     protected $description = 'Check code-style';
 
-    public function handle(): void
+    public function handle(FixCode $fixCode, ElaborateSummary $summary): int
     {
-        render(<<<'HTML'
-            <div class="py-1 ml-2">
-                <div class="px-1 bg-blue-300 text-black">Laravel Zero</div>
-                <em class="ml-1">
-                  Simplicity is the ultimate sophistication.
-                </em>
-            </div>
-        HTML
-        );
+        [$totalFiles, $changes] = $fixCode->execute();
+
+        return $summary->execute($totalFiles, $changes);
+    }
+
+    protected function configure(): void
+    {
+        parent::configure();
+
+        $this
+            ->setDefinition(
+                [
+                    new InputArgument(
+                        'path',
+                        InputArgument::IS_ARRAY,
+                        'The path to fix',
+                        [(string) getcwd()]
+                    ),
+
+                    new InputOption('test',
+                        '',
+                        InputOption::VALUE_OPTIONAL,
+                        'Test for code style errors without fixing them',
+                        true
+                    ),
+
+                    new InputOption('dirty',
+                        '',
+                        InputOption::VALUE_NONE,
+                        'Only fix files that have uncommitted changes'
+                    ),
+
+                    new InputOption(
+                        'format',
+                        '',
+                        InputOption::VALUE_REQUIRED,
+                        'The output format that should be used'
+                    ),
+                ]
+            );
     }
 }

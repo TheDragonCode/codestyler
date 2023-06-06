@@ -6,8 +6,8 @@ namespace DragonCode\CodeStyler\Providers;
 
 use App\Actions\ElaborateSummary;
 use App\Output\ProgressOutput;
-use App\Output\SummaryOutput;
 use DragonCode\CodeStyler\Actions\FixCode;
+use DragonCode\CodeStyler\Output\SummaryOutput;
 use DragonCode\CodeStyler\Repositories\ConfigurationJsonRepository;
 use Illuminate\Support\ServiceProvider;
 use PhpCsFixer\Error\ErrorsManager;

@@ -16,14 +16,12 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 class FixCode
 {
     public function __construct(
-        protected ErrorsManager   $errors,
+        protected ErrorsManager $errors,
         protected EventDispatcher $events,
-        protected InputInterface  $input,
+        protected InputInterface $input,
         protected OutputInterface $output,
-        protected ProgressOutput  $progress,
-    ) {
-        //
-    }
+        protected ProgressOutput $progress,
+    ) {}
 
     public function execute()
     {

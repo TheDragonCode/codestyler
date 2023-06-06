@@ -13,7 +13,7 @@ class Project
         return $input->hasArgument('path') ? $input->getArgument('path') : static::path();
     }
 
-    public static function path(): string|bool
+    public static function path(): bool|string
     {
         return getcwd();
     }

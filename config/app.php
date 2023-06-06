@@ -6,7 +6,6 @@ use DragonCode\CodeStyler\Providers\CommandsServiceProvider;
 use DragonCode\CodeStyler\Providers\RepositoriesServiceProvider;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -64,5 +63,4 @@ return [
         CommandsServiceProvider::class,
         RepositoriesServiceProvider::class,
     ],
-
 ];

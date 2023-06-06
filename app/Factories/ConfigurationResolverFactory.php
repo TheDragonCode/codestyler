@@ -15,7 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ConfigurationResolverFactory
 {
-    public static $presets = [
+    public static array $presets = [
         '8.1',
         '8.1-risky',
         '8.2',
@@ -41,34 +41,34 @@ class ConfigurationResolverFactory
     }
 
     protected static function resolver(
-        InputInterface              $input,
-        OutputInterface             $output,
-        array                       $path,
+        InputInterface $input,
+        OutputInterface $output,
+        array $path,
         ConfigurationJsonRepository $configuration,
-        string                      $preset
+        string $preset
     ) {
         return new ConfigurationResolver(
             new Config('default'),
             [
-                'allow-risky'       => static::allowRisky($input) ? 'yes' : 'no',
-                'config'            => implode(DIRECTORY_SEPARATOR, [
+                'allow-risky' => 'yes',
+                'config'      => implode(DIRECTORY_SEPARATOR, [
                     dirname(__DIR__, 2),
                     'resources',
                     'presets',
                     sprintf('%s.php', $preset),
                 ]),
-                'diff'              => $output->isVerbose(),
-                'dry-run'           => $input->getOption('test'),
-                'path'              => $path,
-                'path-mode'         => ConfigurationResolver::PATH_MODE_OVERRIDE,
-                'cache-file'        => $configuration->cacheFile() ?? implode(DIRECTORY_SEPARATOR, [
-                        realpath(sys_get_temp_dir()),
-                        md5(
-                            app()->isProduction()
-                                ? implode('|', $path)
-                                : (string) microtime()
-                        ),
-                    ]),
+                'diff'       => $output->isVerbose(),
+                'dry-run'    => $input->getOption('test'),
+                'path'       => $path,
+                'path-mode'  => ConfigurationResolver::PATH_MODE_OVERRIDE,
+                'cache-file' => $configuration->cacheFile() ?? implode(DIRECTORY_SEPARATOR, [
+                    realpath(sys_get_temp_dir()),
+                    md5(
+                        app()->isProduction()
+                            ? implode('|', $path)
+                            : (string) microtime()
+                    ),
+                ]),
                 'stop-on-violation' => false,
                 'verbosity'         => $output->getVerbosity(),
                 'show-progress'     => 'true',
@@ -86,10 +86,5 @@ class ConfigurationResolverFactory
     protected static function configuration()
     {
         return resolve(ConfigurationJsonRepository::class);
-    }
-
-    protected static function allowRisky(InputInterface $input): bool
-    {
-        return $input->hasOption('risky') && $input->getOption('risky');
     }
 }

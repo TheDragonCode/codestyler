@@ -31,7 +31,7 @@ class ExtraWhitespacesInSingleLineAnonymousFunction implements FixerInterface
 
     public function fix(SplFileInfo $file, Tokens $tokens): void
     {
-        for ($index = $tokens->count() - 1; $index > 0; $index--) {
+        for ($index = $tokens->count() - 1; $index > 0; --$index) {
             if (! $tokens[$index]->isGivenKind(T_FUNCTION)) {
                 continue;
             }

@@ -22,7 +22,7 @@ class Filesystem implements FilesystemContract
     protected function service(string $path): FilesystemContract
     {
         return match ($this->extension($path)) {
-            'json'        => resolve(Json::class),
+            'json' => resolve(Json::class),
             'yaml', 'yml' => resolve(Yaml::class)
         };
     }

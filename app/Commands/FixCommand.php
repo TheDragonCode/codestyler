@@ -27,26 +27,35 @@ class FixCommand extends Command
     {
         parent::configure();
 
-        $this->setDefinition([
-            new InputArgument(
-                'path',
-                InputArgument::IS_ARRAY,
-                'The path to fix',
-                [(string) getcwd()]
-            ),
+        $this
+            ->setDefinition(
+                [
+                    new InputArgument(
+                        'path',
+                        InputArgument::IS_ARRAY,
+                        'The path to fix',
+                        [(string) getcwd()]
+                    ),
 
-            new InputOption('test',
-                '',
-                InputOption::VALUE_NONE,
-                'Test for code style errors without fixing them'
-            ),
+                    new InputOption('test',
+                        '',
+                        InputOption::VALUE_NONE,
+                        'Test for code style errors without fixing them'
+                    ),
 
-            new InputOption(
-                'format',
-                '',
-                InputOption::VALUE_REQUIRED,
-                'The output format that should be used'
-            ),
-        ]);
+                    new InputOption('dirty',
+                        '',
+                        InputOption::VALUE_NONE,
+                        'Only fix files that have uncommitted changes'
+                    ),
+
+                    new InputOption(
+                        'format',
+                        '',
+                        InputOption::VALUE_REQUIRED,
+                        'The output format that should be used'
+                    ),
+                ]
+            );
     }
 }

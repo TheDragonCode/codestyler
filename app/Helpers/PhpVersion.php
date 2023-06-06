@@ -11,8 +11,7 @@ use DragonCode\Support\Facades\Helpers\Arr;
 class PhpVersion
 {
     public const DEFAULT = '8.2';
-
-    public const MIN = '8.1';
+    public const MIN     = '8.1';
 
     public static function get(): string
     {

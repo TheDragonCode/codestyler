@@ -3,7 +3,6 @@
 use DragonCode\CodeStyler\Commands\DefaultCommand;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Command
@@ -81,5 +80,4 @@ return [
     'remove' => [
         // ..
     ],
-
 ];

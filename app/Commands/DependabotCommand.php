@@ -9,8 +9,7 @@ use DragonCode\Support\Facades\Helpers\Arr;
 
 class DependabotCommand extends BaseCommand
 {
-    protected const NAME = 'github-actions';
-
+    protected const NAME    = 'github-actions';
     protected const VERSION = 2;
 
     protected $signature = 'dependabot';
