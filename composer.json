@@ -49,10 +49,10 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "ext-tokenizer": "*",
-        "ext-xml": "*",
-        "dragon-code/pretty-array": "^4.1"
+        "ext-xml": "*"
     },
     "require-dev": {
+        "dragon-code/pretty-array": "^4.1",
         "dragon-code/support": "^6.11",
         "friendsofphp/php-cs-fixer": "^3.17",
         "illuminate/view": "^10.13",
@@ -67,8 +67,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "DragonCode\\CodeStyler\\": "app/",
-            "App\\": "modules/laravel/pint/app/"
+            "App\\": "modules/laravel/pint/app/",
+            "DragonCode\\CodeStyler\\": "app/"
         }
     },
     "autoload-dev": {

@@ -44,6 +44,12 @@ class CheckCommand extends Command
                         true
                     ),
 
+                    new InputOption('risky',
+                        '',
+                        InputOption::VALUE_NONE,
+                        'Allows the application of risky rules'
+                    ),
+
                     new InputOption('dirty',
                         '',
                         InputOption::VALUE_NONE,

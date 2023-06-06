@@ -43,6 +43,12 @@ class FixCommand extends Command
                         'Test for code style errors without fixing them'
                     ),
 
+                    new InputOption('risky',
+                        '',
+                        InputOption::VALUE_NONE,
+                        'Allows the application of risky rules'
+                    ),
+
                     new InputOption('dirty',
                         '',
                         InputOption::VALUE_NONE,
