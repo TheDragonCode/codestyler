@@ -37,7 +37,7 @@ jobs:
                 run: composer install --prefer-dist --no-progress --no-interaction
 
             -   name: Execute lint tests with Laravel preset
-                run: sudo ./codestyle check
+                run: php ./codestyle check
 
             -   name: Execute unit/feature tests
                 run: sudo ./vendor/bin/pest
