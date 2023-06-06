@@ -1,4 +1,4 @@
 [submodule "modules/laravel/pint"]
 	path = modules/laravel/pint
-	url = git@github.com:laravel/pint.git
+	url = https://github.com/laravel/pint.git
 	branch = main
