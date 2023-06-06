@@ -14,4 +14,6 @@ return ConfigurationFactory::preset(array_merge($default, [
     '@PHP82Migration'       => true,
     '@PER:risky'            => true,
     '@Symfony:risky'        => true,
+
+    'ordered_traits' => true,
 ]));

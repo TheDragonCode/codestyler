@@ -161,8 +161,6 @@ return [
         'order'     => 'alpha',
     ],
 
-    'ordered_traits' => true,
-
     'ordered_types' => [
         'null_adjustment' => 'always_last',
         'sort_algorithm'  => 'alpha',
