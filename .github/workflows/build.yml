@@ -5,6 +5,10 @@ on:
         branches:
             - main
     workflow_dispatch:
+        inputs:
+            tag:
+                description: 'Tag version'
+                required: true
 
 permissions: write-all
 
@@ -16,6 +20,9 @@ jobs:
             -   name: Extract the tag version
                 id: tag
                 run: |
+                    if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+                      GITHUB_REF=${{ github.event.inputs.tag }}
+                    fi          
                     echo "tag=${GITHUB_REF##*v}" >> "$GITHUB_OUTPUT"
 
             -   name: Checkout the code
