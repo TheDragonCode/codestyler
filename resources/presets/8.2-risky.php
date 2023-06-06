@@ -12,7 +12,7 @@ $rules = array_merge($default['rules'] ?? [], [
     '@PHP74Migration:risky' => true,
     '@PHP80Migration:risky' => true,
     '@PHP82Migration'       => true,
-    '@PSR12:risky'          => true,
+    '@PER:risky'            => true,
     '@Symfony:risky'        => true,
 ]);
 

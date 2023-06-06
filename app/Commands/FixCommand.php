@@ -4,22 +4,23 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Commands;
 
-use DragonCode\CodeStyler\Actions\ElaborateSummary;
+use App\Actions\ElaborateSummary;
 use DragonCode\CodeStyler\Actions\FixCode;
+use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class FixCommand extends BaseCommand
+class FixCommand extends Command
 {
     protected $signature = 'fix';
 
     protected $description = 'Fix code-style';
 
-    public function handle(): int
+    public function handle(FixCode $fixCode, ElaborateSummary $summary): int
     {
-        [$totalFiles, $changes] = resolve(FixCode::class)->execute();
+        [$totalFiles, $changes] = $fixCode->execute();
 
-        return resolve(ElaborateSummary::class)->execute($totalFiles, $changes);
+        return $summary->execute($totalFiles, $changes);
     }
 
     protected function configure(): void
@@ -47,9 +48,5 @@ class FixCommand extends BaseCommand
                 'The output format that should be used'
             ),
         ]);
-    }
-
-    protected function process(): string
-    {
     }
 }

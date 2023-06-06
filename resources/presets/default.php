@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'preset' => 'psr12',
+    'preset' => 'per',
 
-    'rules' => [
+    'rules'                                                          => [
         '@DoctrineAnnotation' => true,
         '@PHP70Migration'     => true,
         '@PHP71Migration'     => true,
@@ -233,4 +233,10 @@ return [
             'less_and_greater'     => false,
         ],
     ],
+
+    // Laravel
+    'Laravel/laravel_phpdoc_alignment'                               => true,
+
+    // Dragon
+    'DragonCode/extra_whitespaces_in_single_line_anonymous_function' => true,
 ];

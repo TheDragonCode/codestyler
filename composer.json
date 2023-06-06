@@ -67,7 +67,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "DragonCode\\CodeStyler\\": "app/"
+            "DragonCode\\CodeStyler\\": "app/",
+            "App\\": "modules/laravel/pint/app/"
         }
     },
     "autoload-dev": {

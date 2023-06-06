@@ -4,13 +4,25 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Commands;
 
-use NunoMaduro\LaravelConsoleSummary\SummaryCommand;
+use LaravelZero\Framework\Commands\Command;
 
-class DefaultCommand extends SummaryCommand
+class DefaultCommand extends Command
 {
-    protected const FORMAT = 'txt';
+    protected $name = 'default';
 
-    protected string $name = 'default';
+    protected $description = 'Default command';
 
-    protected string $description = 'Default command';
+    public function handle(): void
+    {
+        $this->newLine();
+
+        $this->line('<fg=gray>' . config('app.name') . '</>  <info>' . config('app.version') . '</info>');
+
+        $this->newLine();
+
+        $this->line('<info>check</info>        Check code-style');
+        $this->line('<info>dependabot</info>   Update Dependabot rules');
+        $this->line('<info>editorconfig</info> Update the `.editorconfig` file');
+        $this->line('<info>fix</info>          Fix code-style');
+    }
 }

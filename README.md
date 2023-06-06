@@ -15,7 +15,8 @@ and [PHP-CS-Fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer), and makes it s
 stays clean and consistent.
 
 By default, `Codestyler` does not require any configuration and will fix code style issues in your code by following
-the opinionated coding style of `The Dragon Code`.
+the opinionated coding style of `The Dragon Code` based on the [`PER`](https://www.php-fig.org/per/coding-style/) rule
+set.
 
 ## Installation
 
@@ -35,7 +36,7 @@ composer global require dragon-code/codestyler
 When you run the commands in the base path of the project, the `composer.json` file will be automatically read, from
 which the minimum PHP version for your project will be taken.
 
-This is necessary to draw up rules for applying the codestyle.
+This is necessary to draw up rules for applying the Codestyler.
 
 For example, if your project supports PHP 8.0 and above, and you use the `mkdir($path, 0755)` function in it, then
 applying the rules for PHP 8.0 will break your code because it
@@ -74,37 +75,12 @@ codestyle fix --risky
 
 ### GitHub Action
 
-#### Check
-
-Create a new `.github/workflows/lint-check.yml` file and add the content to it:
+Create a new `.github/workflows/code-style.yml` file and add the content to it:
 
 ```yaml
-name: "Code-Style Check"
+name: "Code-Style"
 
 on: [ push, pull_request ]
-
-jobs:
-    build:
-        runs-on: ubuntu-latest
-
-        steps:
-            -   name: Checkout code
-                uses: actions/checkout@v2
-
-            -   name: Checking PHP Syntax
-                uses: TheDragonCode/codestyler@v3
-```
-
-#### Fixer
-
-Create a new `.github/workflows/lint-fixer.yml` file and add the content to it:
-
-```yaml
-name: "Code-Style Fixer"
-
-on:
-    push:
-        branches: [ main ]
 
 jobs:
     fix:
@@ -151,14 +127,12 @@ in the `Actions secrets` section of the repository or organization.
 
 The name of the variable containing the token must be passed to the `github_token` key.
 
-### Simplify Check & Fix
+#### Simplify Check & Fix
 
 ```yaml
 name: code-style
 
-on:
-    push:
-    pull_request:
+on: [ push, pull_request ]
 
 permissions: write-all
 
