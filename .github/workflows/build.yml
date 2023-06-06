@@ -45,7 +45,7 @@ jobs:
                     git config --local user.name "GitHub Action"
 
             -   name: Install the dependencies
-                run: composer install --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer install --prefer-dist --no-progress --no-interaction
 
             -   name: Create the PHAR file
                 id: build

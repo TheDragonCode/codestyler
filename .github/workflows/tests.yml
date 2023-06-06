@@ -34,7 +34,7 @@ jobs:
                     coverage: none
 
             -   name: Install dependencies
-                run: composer install --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer install --prefer-dist --no-progress --no-interaction
 
             -   name: Execute lint tests with Laravel preset
                 run: ./codestyle check
