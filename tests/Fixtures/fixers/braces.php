@@ -6,19 +6,21 @@ if (true) {
 
 try {
     // ..
-} catch (\Exception $e) {
+}
+catch (\Exception $e) {
     // ..
 }
 
-$a = function ()
+$a = function () {
+    // ..
+};
+
+new class ()
 {
     // ..
 };
 
-new class {
-    // ..
-};
-
-new class extends stdClass {
+new class () extends stdClass
+{
     // ..
 };

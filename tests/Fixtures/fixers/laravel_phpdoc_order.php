@@ -1,9 +1,10 @@
 <?php
 
 /**
+ * @param string $foo
+ * @param string $bar
+ *
  * @return string
- * @param  string  $foo
- * @param  string  $bar
  */
 function a($foo, $bar)
 {
