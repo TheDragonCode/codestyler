@@ -11,6 +11,13 @@
 |
 */
 
+use App\Commands\DefaultCommand;
+use Illuminate\Foundation\Console\Kernel;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\Console\Output\OutputInterface;
+
 uses(Tests\TestCase::class)->in('Feature');
 
 /*
@@ -39,7 +46,40 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something(): void
+/**
+ * Runs the given console command.
+ *
+ * @param string $command
+ * @param array<string, string> $arguments
+ *
+ * @return array{int, BufferedOutput}
+ */
+function run($command, $arguments)
 {
-    // ..
+    $arguments = array_merge([
+        '--test' => true,
+    ], $arguments);
+
+    if (isset($arguments['path'])) {
+        $arguments['--config'] = $arguments['path'] . '/pint.json';
+        $arguments['path']     = [$arguments['path']];
+    }
+
+    $commandInstance = match ($command) {
+        'default' => resolve(DefaultCommand::class),
+    };
+
+    $input  = new ArrayInput($arguments, $commandInstance->getDefinition());
+    $output = new BufferedOutput(
+        BufferedOutput::VERBOSITY_VERBOSE,
+    );
+
+    app()->singleton(InputInterface::class, fn () => $input);
+    app()->singleton(OutputInterface::class, fn () => $output);
+
+    $statusCode = resolve(Kernel::class)->call($command, $arguments, $output);
+
+    $output = preg_replace('#\\x1b[[][^A-Za-z]*[A-Za-z]#', '', $output->fetch());
+
+    return [$statusCode, $output];
 }
