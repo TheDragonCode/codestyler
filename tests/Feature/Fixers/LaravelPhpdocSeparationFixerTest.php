@@ -8,6 +8,7 @@ it('fixes the code', function () {
     expect($statusCode)->toBe(1)
         ->and($output)
         ->toContain('  ⨯')
+        ->toContain('FAIL', '1 file')
         ->toContain(
             <<<'EOF'
                    /**

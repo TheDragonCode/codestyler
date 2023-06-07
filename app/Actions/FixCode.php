@@ -6,7 +6,6 @@ namespace DragonCode\CodeStyler\Actions;
 
 use App\Output\ProgressOutput;
 use DragonCode\CodeStyler\Factories\ConfigurationResolverFactory;
-use LaravelZero\Framework\Exceptions\ConsoleException;
 use PhpCsFixer\Error\ErrorsManager;
 use PhpCsFixer\Runner\Runner;
 use Symfony\Component\Console\Input\InputInterface;
@@ -25,12 +24,7 @@ class FixCode
 
     public function execute()
     {
-        try {
-            [$resolver, $totalFiles] = ConfigurationResolverFactory::fromIO($this->input, $this->output);
-        }
-        catch (ConsoleException $exception) {
-            return [$exception->getCode(), []];
-        }
+        [$resolver, $totalFiles] = ConfigurationResolverFactory::fromIO($this->input, $this->output);
 
         if (is_null($this->input->getOption('format'))) {
             $this->progress->subscribe();

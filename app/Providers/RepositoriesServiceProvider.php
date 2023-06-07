@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace DragonCode\CodeStyler\Providers;
 
 use App\Contracts\PathsRepository;
-use App\Repositories\GitPathsRepository;
+use App\Project;
+use App\Repositories\ConfigurationJsonRepository as BaseConfigurationJsonRepository;
 use DragonCode\CodeStyler\Helpers\PhpVersion;
-use DragonCode\CodeStyler\Project;
 use DragonCode\CodeStyler\Repositories\ConfigurationJsonRepository;
+use DragonCode\CodeStyler\Repositories\GitPathsRepository;
 use Illuminate\Support\ServiceProvider;
 use Symfony\Component\Console\Input\InputInterface;
 
@@ -28,10 +29,12 @@ class RepositoriesServiceProvider extends ServiceProvider
             $risky = $input->getOption('risky') ? '-risky' : '';
 
             return new ConfigurationJsonRepository(
-                Project::path() . '/pint.json',
+                $input->getOption('config') ?: Project::path() . '/pint.json',
                 PhpVersion::get() . $risky
             );
         });
+
+        $this->app->singleton(BaseConfigurationJsonRepository::class, ConfigurationJsonRepository::class);
     }
 
     protected function registerPaths(): void

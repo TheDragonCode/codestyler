@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Helpers;
 
-use DragonCode\CodeStyler\Project;
+use App\Project;
 use DragonCode\Support\Facades\Application\Version;
 use DragonCode\Support\Facades\Helpers\Arr;
 

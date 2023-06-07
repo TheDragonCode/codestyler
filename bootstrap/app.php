@@ -28,7 +28,7 @@ $app = new LaravelZero\Framework\Application(
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    DragonCode\CodeStyler\Kernel::class
+    App\Kernel::class
 );
 
 $app->singleton(

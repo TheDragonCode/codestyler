@@ -23,10 +23,17 @@ it('may fail with errors', function () {
         'path' => base_path('tests/Fixtures/with-non-fixable-issues'),
     ]);
 
-    expect($statusCode)->toBe(0)
+    expect($statusCode)->toBe(1)
         ->and($output)
-        ->toContain('PASS')
-        ->toContain('1 file');
+        ->toContain('FAIL')
+        ->toContain('1 file, 1 error')
+        ->toContain(sprintf('! %s',
+            implode(DIRECTORY_SEPARATOR, [
+                'tests',
+                'Fixtures',
+                'with-non-fixable-issues',
+                'file.php',
+            ])))->toContain('Parse error: syntax error');
 });
 
 it('may pass', function () {

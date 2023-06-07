@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Factories;
 
+use App\Project;
 use ArrayIterator;
-use DragonCode\CodeStyler\Project;
 use DragonCode\CodeStyler\Repositories\ConfigurationJsonRepository;
 use PhpCsFixer\Config;
 use PhpCsFixer\Console\ConfigurationResolver;
@@ -50,7 +50,7 @@ class ConfigurationResolverFactory
         return new ConfigurationResolver(
             new Config('default'),
             [
-                'allow-risky' => static::allowRisky($input) ? 'yes' : 'no',
+                'allow-risky' => static::allowRisky($input),
                 'config'      => implode(DIRECTORY_SEPARATOR, [
                     dirname(__DIR__, 2),
                     'resources',
@@ -91,8 +91,8 @@ class ConfigurationResolverFactory
         return resolve(ConfigurationJsonRepository::class);
     }
 
-    protected static function allowRisky(InputInterface $input): bool
+    protected static function allowRisky(InputInterface $input): string
     {
-        return $input->getOption('risky');
+        return $input->getOption('risky') ? 'yes' : 'no';
     }
 }

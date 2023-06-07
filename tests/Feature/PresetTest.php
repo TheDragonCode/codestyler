@@ -10,42 +10,13 @@ it('uses the laravel preset by default', function () {
         ->toContain('── PHP 8.1');
 });
 
-it('may use the PSR 12 preset', function () {
+it('may use the PHP 8.1 risky', function () {
     [$statusCode, $output] = run('default', [
-        'path' => base_path('tests/Fixtures/without-issues'),
+        'path'    => base_path('tests/Fixtures/without-issues-risky'),
+        '--risky' => true,
     ]);
 
     expect($statusCode)->toBe(0)
         ->and($output)
-        ->toContain('── PHP 8.1');
-});
-
-it('may use the PER preset', function () {
-    [$statusCode, $output] = run('default', [
-        'path' => base_path('tests/Fixtures/without-issues'),
-    ]);
-
-    expect($statusCode)->toBe(0)
-        ->and($output)
-        ->toContain('── PHP 8.1');
-});
-
-it('may use the Laravel preset', function () {
-    [$statusCode, $output] = run('default', [
-        'path' => base_path('tests/Fixtures/without-issues'),
-    ]);
-
-    expect($statusCode)->toBe(0)
-        ->and($output)
-        ->toContain('── PHP 8.1');
-});
-
-it('may use the Symfony preset', function () {
-    [$statusCode, $output] = run('default', [
-        'path' => base_path('tests/Fixtures/without-issues'),
-    ]);
-
-    expect($statusCode)->toBe(0)
-        ->and($output)
-        ->toContain('── PHP 8.1');
+        ->toContain('── PHP 8.1 with risky');
 });

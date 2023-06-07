@@ -9,6 +9,7 @@ use App\Fixers\LaravelPhpdocAlignmentFixer;
 use DragonCode\CodeStyler\Repositories\ConfigurationJsonRepository;
 use PedroTroller\CS\Fixer\DeadCode\UselessCodeAfterReturnFixer;
 use PhpCsFixer\Config;
+use PhpCsFixer\ConfigInterface;
 use PhpCsFixerCustomFixers\Fixer\DeclareAfterOpeningTagFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilineCommentOpeningClosingAloneFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilinePromotedPropertiesFixer;
@@ -27,7 +28,7 @@ use PhpCsFixerCustomFixers\Fixer\SingleSpaceBeforeStatementFixer;
 
 class ConfigurationFactory extends BaseFactory
 {
-    public static function preset($rules)
+    public static function preset($rules): ConfigInterface
     {
         return (new Config())
             ->setFinder(self::finder())
