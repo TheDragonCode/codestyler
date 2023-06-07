@@ -2716,16 +2716,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "a8dd186f07ea667c1e3abd2176bfab0ab161ea94"
+                "reference": "13a7fa2642c76c58fa2806ef7f565344c817a191"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/a8dd186f07ea667c1e3abd2176bfab0ab161ea94",
-                "reference": "a8dd186f07ea667c1e3abd2176bfab0ab161ea94",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/13a7fa2642c76c58fa2806ef7f565344c817a191",
+                "reference": "13a7fa2642c76c58fa2806ef7f565344c817a191",
                 "shasum": ""
             },
             "require": {
@@ -2744,7 +2744,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-main": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -2788,9 +2788,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mockery/mockery/issues",
-                "source": "https://github.com/mockery/mockery/tree/1.6.1"
+                "source": "https://github.com/mockery/mockery/tree/1.6.2"
             },
-            "time": "2023-06-05T13:59:03+00:00"
+            "time": "2023-06-07T09:07:52+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -3433,16 +3433,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v2.6.2",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "436b20857d84f2cd62411ee32f745263e74b9cc4"
+                "reference": "3c20e8114e5d2f5e39cf013f0f9b8ebc0ac1a6fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/436b20857d84f2cd62411ee32f745263e74b9cc4",
-                "reference": "436b20857d84f2cd62411ee32f745263e74b9cc4",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/3c20e8114e5d2f5e39cf013f0f9b8ebc0ac1a6fa",
+                "reference": "3c20e8114e5d2f5e39cf013f0f9b8ebc0ac1a6fa",
                 "shasum": ""
             },
             "require": {
@@ -3450,16 +3450,16 @@
                 "nunomaduro/collision": "^7.5.2",
                 "nunomaduro/termwind": "^1.15.1",
                 "pestphp/pest-plugin": "^2.0.1",
-                "pestphp/pest-plugin-arch": "^2.1.2",
+                "pestphp/pest-plugin-arch": "^2.2.0",
                 "php": "^8.1.0",
-                "phpunit/phpunit": "^10.2.0"
+                "phpunit/phpunit": "^10.2.1"
             },
             "conflict": {
-                "phpunit/phpunit": ">10.2.0",
+                "phpunit/phpunit": ">10.2.1",
                 "webmozart/assert": "<1.11.0"
             },
             "require-dev": {
-                "pestphp/pest-dev-tools": "^2.9.0",
+                "pestphp/pest-dev-tools": "^2.10.0",
                 "symfony/process": "^6.3.0"
             },
             "bin": [
@@ -3516,7 +3516,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v2.6.2"
+                "source": "https://github.com/pestphp/pest/tree/v2.6.3"
             },
             "funding": [
                 {
@@ -3528,7 +3528,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-02T21:46:07+00:00"
+            "time": "2023-06-07T19:19:04+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -4386,16 +4386,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.2.0",
+            "version": "10.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3aad97fde1f3e490e2b316ba56bc4680310e3c3f"
+                "reference": "599b33294350e8f51163119d5670512f98b0490d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3aad97fde1f3e490e2b316ba56bc4680310e3c3f",
-                "reference": "3aad97fde1f3e490e2b316ba56bc4680310e3c3f",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/599b33294350e8f51163119d5670512f98b0490d",
+                "reference": "599b33294350e8f51163119d5670512f98b0490d",
                 "shasum": ""
             },
             "require": {
@@ -4467,7 +4467,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.2.0"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.2.1"
             },
             "funding": [
                 {
@@ -4483,7 +4483,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-02T05:42:13+00:00"
+            "time": "2023-06-05T05:15:51+00:00"
         },
         {
             "name": "psr/cache",
