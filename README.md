@@ -64,20 +64,20 @@ codestyle dependabot
 
 ### Options
 
+#### Path
+
+The path to fix
+
+```bash
+codestyle foo/bar
+```
+
 #### Test
 
 Test for code style errors without fixing them
 
 ```bash
 codestyle --test
-```
-
-#### Path
-
-The path to fix
-
-```bash
-codestyle --path=foo/bar
 ```
 
 #### Config
