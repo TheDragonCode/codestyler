@@ -56,9 +56,11 @@
         "dragon-code/support": "^6.11",
         "friendsofphp/php-cs-fixer": "^3.17",
         "illuminate/view": "^10.13",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.14",
         "laravel-zero/framework": "^10.0.2",
         "mockery/mockery": "^1.5.1",
         "nunomaduro/termwind": "^1.15.1",
+        "pedrotroller/php-cs-custom-fixer": "^2.32",
         "pestphp/pest": "^2.5",
         "seld/jsonlint": "^1.10",
         "symfony/yaml": "^6.3"

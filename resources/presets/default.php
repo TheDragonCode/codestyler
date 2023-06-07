@@ -2,6 +2,21 @@
 
 declare(strict_types=1);
 
+use App\Fixers\LaravelPhpdocAlignmentFixer;
+use PedroTroller\CS\Fixer\DeadCode\UselessCodeAfterReturnFixer;
+use PhpCsFixerCustomFixers\Fixer\DeclareAfterOpeningTagFixer;
+use PhpCsFixerCustomFixers\Fixer\MultilineCommentOpeningClosingAloneFixer;
+use PhpCsFixerCustomFixers\Fixer\MultilinePromotedPropertiesFixer;
+use PhpCsFixerCustomFixers\Fixer\NoDuplicatedImportsFixer;
+use PhpCsFixerCustomFixers\Fixer\NoPhpStormGeneratedCommentFixer;
+use PhpCsFixerCustomFixers\Fixer\NoSuperfluousConcatenationFixer;
+use PhpCsFixerCustomFixers\Fixer\NoUselessDoctrineRepositoryCommentFixer;
+use PhpCsFixerCustomFixers\Fixer\NoUselessParenthesisFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocArrayStyleFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocNoIncorrectVarAnnotationFixer;
+use PhpCsFixerCustomFixers\Fixer\SingleSpaceAfterStatementFixer;
+use PhpCsFixerCustomFixers\Fixer\SingleSpaceBeforeStatementFixer;
+
 return [
     '@DoctrineAnnotation' => true,
     '@PHP70Migration'     => true,
@@ -13,6 +28,26 @@ return [
     '@PER'                => true,
     '@Symfony'            => true,
     'array_indentation'   => true,
+
+    (new LaravelPhpdocAlignmentFixer())->getName() => true,
+
+    (new UselessCodeAfterReturnFixer)->getName() => true,
+
+    DeclareAfterOpeningTagFixer::name()              => true,
+    MultilineCommentOpeningClosingAloneFixer::name() => true,
+    NoDuplicatedImportsFixer::name()                 => true,
+    NoPhpStormGeneratedCommentFixer::name()          => true,
+    NoSuperfluousConcatenationFixer::name()          => true,
+    NoUselessDoctrineRepositoryCommentFixer::name()  => true,
+    NoUselessParenthesisFixer::name()                => true,
+    SingleSpaceBeforeStatementFixer::name()          => true,
+    SingleSpaceAfterStatementFixer::name()           => true,
+    PhpdocArrayStyleFixer::name()                    => true,
+    PhpdocNoIncorrectVarAnnotationFixer::name()      => true,
+
+    MultilinePromotedPropertiesFixer::name() => [
+        'minimum_number_of_parameters' => 3,
+    ],
 
     'binary_operator_spaces' => [
         'default' => 'align_single_space_minimal',
@@ -229,7 +264,5 @@ return [
         'less_and_greater'     => false,
     ],
 
-    'Laravel/laravel_phpdoc_alignment' => true,
-
-    'DragonCode/extra_whitespaces_in_single_line_anonymous_function' => true,
+    'phpdoc_param_order' => true,
 ];

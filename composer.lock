@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae385ec4af9355978613e873d9475173",
+    "content-hash": "a428c1edf6dd4dc697ce917a7b16bd0f",
     "packages": [],
     "packages-dev": [
         {
@@ -2317,6 +2317,52 @@
             "time": "2023-05-24T18:53:01+00:00"
         },
         {
+            "name": "kubawerlos/php-cs-fixer-custom-fixers",
+            "version": "v3.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers.git",
+                "reference": "0414fbeada4360510df515b613ccc4055921a3c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/0414fbeada4360510df515b613ccc4055921a3c7",
+                "reference": "0414fbeada4360510df515b613ccc4055921a3c7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-filter": "*",
+                "ext-tokenizer": "*",
+                "friendsofphp/php-cs-fixer": "^3.16.0",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.6.4 || ^10.0.14"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpCsFixerCustomFixers\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kuba Werłos",
+                    "email": "werlos@gmail.com"
+                }
+            ],
+            "description": "A set of custom fixers for PHP CS Fixer",
+            "support": {
+                "issues": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/issues",
+                "source": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/tree/v3.14.0"
+            },
+            "time": "2023-04-03T20:47:19+00:00"
+        },
+        {
             "name": "laravel-zero/foundation",
             "version": "v10.12.0",
             "source": {
@@ -3338,6 +3384,52 @@
                 }
             ],
             "time": "2023-02-08T01:06:31+00:00"
+        },
+        {
+            "name": "pedrotroller/php-cs-custom-fixer",
+            "version": "v2.32.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PedroTroller/PhpCSFixer-Custom-Fixers.git",
+                "reference": "c166db1f61a1514654c9831ba89b224f8fed872d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PedroTroller/PhpCSFixer-Custom-Fixers/zipball/c166db1f61a1514654c9831ba89b224f8fed872d",
+                "reference": "c166db1f61a1514654c9831ba89b224f8fed872d",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofphp/php-cs-fixer": "^3.15",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^7.0",
+                "sebastian/diff": "^4.0",
+                "twig/twig": "^3.3",
+                "webmozart/assert": "^1.10"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PedroTroller\\CS\\Fixer\\": "src/PedroTroller/CS/Fixer"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP-CS-FIXER : my custom fixers",
+            "support": {
+                "issues": "https://github.com/PedroTroller/PhpCSFixer-Custom-Fixers/issues",
+                "source": "https://github.com/PedroTroller/PhpCSFixer-Custom-Fixers/tree/v2.32.0"
+            },
+            "time": "2023-03-31T13:33:49+00:00"
         },
         {
             "name": "pestphp/pest",
