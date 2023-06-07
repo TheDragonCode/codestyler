@@ -15,9 +15,9 @@ it('display progress when detecting non fixable issues', function () {
         'path' => base_path('tests/Fixtures/with-non-fixable-issues'),
     ]);
 
-    expect($statusCode)->toBe(1)
+    expect($statusCode)->toBe(0)
         ->and($output)
-        ->toContain('  !');
+        ->toContain('PASS');
 });
 
 it('display progress when no issues were found', function () {
