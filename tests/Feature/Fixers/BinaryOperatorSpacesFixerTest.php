@@ -12,7 +12,7 @@ it('fixes the code', function () {
                   -    'long_item_name' =>  'value',
                   -    'short'          =>  'value',
                   +    'long_item_name' => 'value',
-                  +    'short' => 'value',
+                  +    'short'          => 'value',
                 EOF,
         )->toContain(
             <<<'EOF'

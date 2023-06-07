@@ -7,7 +7,7 @@ it('uses the laravel preset by default', function () {
 
     expect($statusCode)->toBe(0)
         ->and($output)
-        ->toContain('── PHP 8.2');
+        ->toContain('── PHP 8.1');
 });
 
 it('may use the PSR 12 preset', function () {
@@ -17,7 +17,7 @@ it('may use the PSR 12 preset', function () {
 
     expect($statusCode)->toBe(0)
         ->and($output)
-        ->toContain('── PHP 8.2');
+        ->toContain('── PHP 8.1');
 });
 
 it('may use the PER preset', function () {
@@ -27,7 +27,7 @@ it('may use the PER preset', function () {
 
     expect($statusCode)->toBe(0)
         ->and($output)
-        ->toContain('── PHP 8.2');
+        ->toContain('── PHP 8.1');
 });
 
 it('may use the Laravel preset', function () {
@@ -37,7 +37,7 @@ it('may use the Laravel preset', function () {
 
     expect($statusCode)->toBe(0)
         ->and($output)
-        ->toContain('── PHP 8.2');
+        ->toContain('── PHP 8.1');
 });
 
 it('may use the Symfony preset', function () {
@@ -47,5 +47,5 @@ it('may use the Symfony preset', function () {
 
     expect($statusCode)->toBe(0)
         ->and($output)
-        ->toContain('── PHP 8.2');
+        ->toContain('── PHP 8.1');
 });

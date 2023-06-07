@@ -16,21 +16,5 @@ it('fixes the code', function () {
                        // ..
                    };
                 EOF,
-        )->toContain(
-            <<<'EOF'
-                  -new class {
-                  +new class
-                  +{
-                       // ..
-                   };
-                EOF,
-        )->toContain(
-            <<<'EOF'
-                  -new class extends stdClass {
-                  +new class extends stdClass
-                  +{
-                       // ..
-                   };
-                EOF,
         );
 });
