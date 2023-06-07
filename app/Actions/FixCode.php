@@ -21,8 +21,7 @@ class FixCode
         protected InputInterface $input,
         protected OutputInterface $output,
         protected ProgressOutput $progress,
-    ) {
-    }
+    ) {}
 
     public function execute()
     {
