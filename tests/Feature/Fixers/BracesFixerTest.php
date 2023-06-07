@@ -10,27 +10,27 @@ it('fixes the code', function () {
         ->toContain('  ⨯')
         ->toContain(
             <<<'EOF'
-  -$a = function ()
-  -{
-  +$a = function () {
-       // ..
-   };
-EOF,
+                  -$a = function ()
+                  -{
+                  +$a = function () {
+                       // ..
+                   };
+                EOF,
         )->toContain(
             <<<'EOF'
-  -new class {
-  +new class
-  +{
-       // ..
-   };
-EOF,
+                  -new class {
+                  +new class
+                  +{
+                       // ..
+                   };
+                EOF,
         )->toContain(
             <<<'EOF'
-  -new class extends stdClass {
-  +new class extends stdClass
-  +{
-       // ..
-   };
-EOF,
+                  -new class extends stdClass {
+                  +new class extends stdClass
+                  +{
+                       // ..
+                   };
+                EOF,
         );
 });

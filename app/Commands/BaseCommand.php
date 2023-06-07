@@ -9,6 +9,7 @@ use LaravelZero\Framework\Commands\Command;
 abstract class BaseCommand extends Command
 {
     protected const STATUS_DONE = 'DONE';
+
     protected const STATUS_SKIP = 'SKIP';
 
     protected string $source;

@@ -35,7 +35,7 @@ it('ignores the path argument', function () {
 
     [$statusCode, $output] = run('default', [
         '--dirty' => true,
-        'path' => base_path(),
+        'path'    => base_path(),
     ]);
 
     expect($statusCode)->toBe(0)
