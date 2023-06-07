@@ -39,10 +39,10 @@ jobs:
                     git submodule update --init
 
             -   name: Install dependencies
-                run: composer install --prefer-dist --no-progress --no-interaction
+                run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
             -   name: Execute lint tests with Laravel preset
-                run: php ./codestyle check
+                run: php ./codestyle --test
 
             -   name: Execute unit/feature tests
-                run: sudo ./vendor/bin/pest
+                run: vendor/bin/pest

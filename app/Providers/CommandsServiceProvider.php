@@ -6,8 +6,7 @@ namespace DragonCode\CodeStyler\Providers;
 
 use App\Actions\ElaborateSummary;
 use DragonCode\CodeStyler\Actions\FixCode;
-use DragonCode\CodeStyler\Commands\CheckCommand;
-use DragonCode\CodeStyler\Commands\FixCommand;
+use DragonCode\CodeStyler\Commands\DefaultCommand;
 use Illuminate\Support\ServiceProvider;
 use LaravelZero\Framework\Commands\Command;
 
@@ -15,8 +14,7 @@ class CommandsServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->bindMethod(CheckCommand::class);
-        $this->bindMethod(FixCommand::class);
+        $this->bindMethod(DefaultCommand::class);
     }
 
     protected function bindMethod(string $class): void

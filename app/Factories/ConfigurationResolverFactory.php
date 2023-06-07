@@ -93,6 +93,6 @@ class ConfigurationResolverFactory
 
     protected static function allowRisky(InputInterface $input): bool
     {
-        return $input->hasOption('risky') && $input->getOption('risky');
+        return $input->getOption('risky');
     }
 }

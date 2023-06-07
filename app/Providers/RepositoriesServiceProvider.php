@@ -25,7 +25,7 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->singleton(ConfigurationJsonRepository::class, function () {
             $input = resolve(InputInterface::class);
 
-            $risky = $input->hasOption('risky') && $input->getOption('risky') ? '-risky' : '';
+            $risky = $input->getOption('risky') ? '-risky' : '';
 
             return new ConfigurationJsonRepository(
                 Project::path() . '/pint.json',

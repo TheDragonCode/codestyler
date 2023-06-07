@@ -2,8 +2,7 @@
 
 it('outputs checkstyle format', function () {
     [$statusCode, $output] = run('default', [
-        'path' => base_path('tests/Fixtures/with-fixable-issues'),
-        '--preset' => 'psr12',
+        'path'     => base_path('tests/Fixtures/with-fixable-issues'),
         '--format' => 'checkstyle',
     ]);
 
@@ -12,15 +11,18 @@ it('outputs checkstyle format', function () {
         ->toContain('<?xml version="1.0" encoding="UTF-8"?>')
         ->toContain('<checkstyle>')
         ->toContain('</checkstyle>')
-        ->not->toContain(sprintf('⨯ %s', implode(DIRECTORY_SEPARATOR, [
-            'tests', 'Fixtures', 'with-fixable-issues', 'file.php',
-        ])));
+        ->not->toContain(sprintf('⨯ %s',
+            implode(DIRECTORY_SEPARATOR, [
+                'tests',
+                'Fixtures',
+                'with-fixable-issues',
+                'file.php',
+            ])));
 });
 
 it('outputs json format', function () {
     [$statusCode, $output] = run('default', [
-        'path' => base_path('tests/Fixtures/with-fixable-issues'),
-        '--preset' => 'psr12',
+        'path'     => base_path('tests/Fixtures/with-fixable-issues'),
         '--format' => 'json',
     ]);
 
@@ -28,30 +30,36 @@ it('outputs json format', function () {
         ->and($output)
         ->toBeJson()
         ->toContain('appliedFixers')
-        ->not->toContain(sprintf('⨯ %s', implode(DIRECTORY_SEPARATOR, [
-            'tests', 'Fixtures', 'with-fixable-issues', 'file.php',
-        ])));
+        ->not->toContain(sprintf('⨯ %s',
+            implode(DIRECTORY_SEPARATOR, [
+                'tests',
+                'Fixtures',
+                'with-fixable-issues',
+                'file.php',
+            ])));
 });
 
 it('outputs xml format', function () {
     [$statusCode, $output] = run('default', [
-        'path' => base_path('tests/Fixtures/with-fixable-issues'),
-        '--preset' => 'psr12',
+        'path'     => base_path('tests/Fixtures/with-fixable-issues'),
         '--format' => 'xml',
     ]);
 
     expect($statusCode)->toBe(1)
         ->and($output)
         ->toContain('<?xml version="1.0" encoding="UTF-8"?>')
-        ->not->toContain(sprintf('⨯ %s', implode(DIRECTORY_SEPARATOR, [
-            'tests', 'Fixtures', 'with-fixable-issues', 'file.php',
-        ])));
+        ->not->toContain(sprintf('⨯ %s',
+            implode(DIRECTORY_SEPARATOR, [
+                'tests',
+                'Fixtures',
+                'with-fixable-issues',
+                'file.php',
+            ])));
 });
 
 it('outputs junit format', function () {
     [$statusCode, $output] = run('default', [
-        'path' => base_path('tests/Fixtures/with-fixable-issues'),
-        '--preset' => 'psr12',
+        'path'     => base_path('tests/Fixtures/with-fixable-issues'),
         '--format' => 'junit',
     ]);
 
@@ -59,15 +67,18 @@ it('outputs junit format', function () {
         ->and($output)
         ->toContain('<?xml version="1.0" encoding="UTF-8"?>')
         ->toContain('CDATA')
-        ->not->toContain(sprintf('⨯ %s', implode(DIRECTORY_SEPARATOR, [
-            'tests', 'Fixtures', 'with-fixable-issues', 'file.php',
-        ])));
+        ->not->toContain(sprintf('⨯ %s',
+            implode(DIRECTORY_SEPARATOR, [
+                'tests',
+                'Fixtures',
+                'with-fixable-issues',
+                'file.php',
+            ])));
 });
 
 it('outputs gitlab format', function () {
     [$statusCode, $output] = run('default', [
-        'path' => base_path('tests/Fixtures/with-fixable-issues'),
-        '--preset' => 'psr12',
+        'path'     => base_path('tests/Fixtures/with-fixable-issues'),
         '--format' => 'gitlab',
     ]);
 
@@ -75,7 +86,11 @@ it('outputs gitlab format', function () {
         ->and($output)
         ->toBeJson()
         ->toContain('fingerprint')
-        ->not->toContain(sprintf('⨯ %s', implode(DIRECTORY_SEPARATOR, [
-            'tests', 'Fixtures', 'with-fixable-issues', 'file.php',
-        ])));
+        ->not->toContain(sprintf('⨯ %s',
+            implode(DIRECTORY_SEPARATOR, [
+                'tests',
+                'Fixtures',
+                'with-fixable-issues',
+                'file.php',
+            ])));
 });

@@ -49,29 +49,79 @@ Please note that the `composer.json` file is only read if the script execution i
 ### CLI
 
 ```bash
-# Check code-style.
-codestyle check
+# Check code-style
+codestyle --test
 
-# Check and fix code-style.
-codestyle fix
+# Fix code-style
+codestyle
 
-# Update `.editorconfig`.
+# Update `.editorconfig`
 codestyle editorconfig
 
-# Update Dependabot rules.
+# Update Dependabot rules
 codestyle dependabot
 ```
 
 ### Options
+
+#### Test
+
+Test for code style errors without fixing them
+
+```bash
+codestyle --test
+```
+
+#### Path
+
+The path to fix
+
+```bash
+codestyle --path=foo/bar
+```
+
+#### Config
+
+The configuration that should be used. The target directory will read the `pint.json` file
+from [Laravel Pint](https://laravel.com/docs/pint), minus the style set.
+
+```bash
+codestyle --config=foo/bar
+```
 
 #### Risky
 
 Allows to set whether risky rules may run:
 
 ```bash
-codestyle check --risky
-codestyle fix --risky
+codestyle --risky --test
+codestyle --risky
 ```
+
+#### Dirty
+
+Only fix files that have uncommitted changes.
+
+```bash
+codestyle --dirty
+```
+
+#### Output Format
+
+The output format that should be used.
+
+```bash
+codestyle --format
+```
+
+List of available formats:
+
+- checkstyle
+- gitlab
+- json
+- junit
+- txt
+- xml
 
 ### GitHub Action
 

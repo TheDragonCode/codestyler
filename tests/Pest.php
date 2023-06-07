@@ -11,7 +11,7 @@
 |
 */
 
-use App\Commands\DefaultCommand;
+use DragonCode\CodeStyler\Commands\DefaultCommand;
 use Illuminate\Foundation\Console\Kernel;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -31,9 +31,7 @@ uses(Tests\TestCase::class)->in('Feature');
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
+expect()->extend('toBeOne', fn () => $this->toBe(1));
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +52,7 @@ expect()->extend('toBeOne', function () {
  *
  * @return array{int, BufferedOutput}
  */
-function run($command, $arguments)
+function run(string $command, array $arguments): array
 {
     $arguments = array_merge([
         '--test' => true,
@@ -70,9 +68,7 @@ function run($command, $arguments)
     };
 
     $input  = new ArrayInput($arguments, $commandInstance->getDefinition());
-    $output = new BufferedOutput(
-        BufferedOutput::VERBOSITY_VERBOSE,
-    );
+    $output = new BufferedOutput(BufferedOutput::VERBOSITY_VERBOSE);
 
     app()->singleton(InputInterface::class, fn () => $input);
     app()->singleton(OutputInterface::class, fn () => $output);

@@ -4,25 +4,69 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Commands;
 
+use App\Actions\ElaborateSummary;
+use DragonCode\CodeStyler\Actions\FixCode;
 use LaravelZero\Framework\Commands\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 
 class DefaultCommand extends Command
 {
-    protected $name = 'default';
+    protected $signature = 'default';
 
-    protected $description = 'Default command';
+    protected $description = 'Fix the coding style of the given path';
 
-    public function handle(): void
+    public function handle(FixCode $fixCode, ElaborateSummary $summary): int
     {
-        $this->newLine();
+        [$totalFiles, $changes] = $fixCode->execute();
 
-        $this->line('<fg=gray>' . config('app.name') . '</>  <info>' . config('app.version') . '</info>');
+        return $summary->execute($totalFiles, $changes);
+    }
 
-        $this->newLine();
+    protected function configure(): void
+    {
+        $this
+            ->setDefinition(
+                [
+                    new InputArgument(
+                        'path',
+                        InputArgument::IS_ARRAY,
+                        'The path to fix',
+                        [(string) getcwd()]
+                    ),
 
-        $this->line('<info>check</info>        Check code-style');
-        $this->line('<info>dependabot</info>   Update Dependabot rules');
-        $this->line('<info>editorconfig</info> Update the `.editorconfig` file');
-        $this->line('<info>fix</info>          Fix code-style');
+                    new InputOption(
+                        'config',
+                        '',
+                        InputOption::VALUE_REQUIRED,
+                        'The configuration that should be used'
+                    ),
+
+                    new InputOption('test',
+                        '',
+                        InputOption::VALUE_NONE,
+                        'Test for code style errors without fixing them'
+                    ),
+
+                    new InputOption('risky',
+                        '',
+                        InputOption::VALUE_NONE,
+                        'Allows the application of risky rules'
+                    ),
+
+                    new InputOption('dirty',
+                        '',
+                        InputOption::VALUE_NONE,
+                        'Only fix files that have uncommitted changes'
+                    ),
+
+                    new InputOption(
+                        'format',
+                        '',
+                        InputOption::VALUE_REQUIRED,
+                        'The output format that should be used'
+                    ),
+                ]
+            );
     }
 }
