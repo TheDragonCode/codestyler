@@ -1,0 +1,69 @@
+name: Build application
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+        inputs:
+            tag:
+                description: 'Tag version'
+                required: true
+
+permissions: write-all
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        
+        steps:
+            -   name: Extract the tag version
+                id: tag
+                run: |
+                    if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+                      GITHUB_REF=${{ github.event.inputs.tag }}
+                    fi          
+                    echo "tag=${GITHUB_REF##*v}" >> "$GITHUB_OUTPUT"
+
+            -   name: Checkout the code
+                uses: actions/checkout@v3
+                with:
+                    ref: v${{ steps.tag.outputs.tag }}
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: 8.1
+                    extensions: dom, curl, libxml, mbstring, zip
+                    ini-values: error_reporting=E_ALL
+                    coverage: none
+
+            -   name: Git setup
+                run: |
+                    git config --local user.email "action@github.com"
+                    git config --local user.name "GitHub Action"
+                    
+                    git config --global core.autocrlf false
+                    git config --global core.eol lf
+                    
+                    git submodule update --init
+
+            -   name: Install the dependencies
+                run: composer install --prefer-dist --no-progress --no-interaction
+
+            -   name: Create the PHAR file
+                id: build
+                run: |
+                    IS_DIRTY=1
+
+                    ./codestyle app:build codestyle.phar --build-version=${{ steps.tag.outputs.tag }}
+
+                    { git add . && git commit -a -m "🏗️ Build application"; } || IS_DIRTY=0
+
+                    echo ::set-output name=is_dirty::${IS_DIRTY}
+
+            -   name: Push changes
+                uses: ad-m/github-push-action@master
+                if: success() && steps.build.outputs.is_dirty == 1 ||
+                with:
+                    github_token: ${{ secrets.COMPOSER_TOKEN }}

@@ -1,9 +1,10 @@
 .idea/
 vendor/
+tmp/
+
+rules/current.json
 
 *.bak
 *.cache
 *.clover
 *.orig
-
-composer.lock
