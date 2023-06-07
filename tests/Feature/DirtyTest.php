@@ -56,7 +56,7 @@ it('does not abort when there are no dirty files', function () {
     [$statusCode, $output] = run('default', [
         '--dirty' => true,
     ]);
-dd($output);
+
     expect($statusCode)->toBe(0)
         ->and($output)
         ->toContain('── PHP 8.1', ' 0 files');

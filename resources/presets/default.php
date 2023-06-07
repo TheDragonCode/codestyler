@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use App\Fixers\LaravelPhpdocAlignmentFixer;
 use PedroTroller\CS\Fixer\DeadCode\UselessCodeAfterReturnFixer;
-use PhpCsFixerCustomFixers\Fixer\DeclareAfterOpeningTagFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilineCommentOpeningClosingAloneFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilinePromotedPropertiesFixer;
 use PhpCsFixerCustomFixers\Fixer\NoDuplicatedImportsFixer;
@@ -28,26 +27,6 @@ return [
     '@PER'                => true,
     '@Symfony'            => true,
     'array_indentation'   => true,
-
-    (new LaravelPhpdocAlignmentFixer())->getName() => true,
-
-    (new UselessCodeAfterReturnFixer)->getName() => true,
-
-    DeclareAfterOpeningTagFixer::name()              => true,
-    MultilineCommentOpeningClosingAloneFixer::name() => true,
-    NoDuplicatedImportsFixer::name()                 => true,
-    NoPhpStormGeneratedCommentFixer::name()          => true,
-    NoSuperfluousConcatenationFixer::name()          => true,
-    NoUselessDoctrineRepositoryCommentFixer::name()  => true,
-    NoUselessParenthesisFixer::name()                => true,
-    SingleSpaceBeforeStatementFixer::name()          => true,
-    SingleSpaceAfterStatementFixer::name()           => true,
-    PhpdocArrayStyleFixer::name()                    => true,
-    PhpdocNoIncorrectVarAnnotationFixer::name()      => true,
-
-    MultilinePromotedPropertiesFixer::name() => [
-        'minimum_number_of_parameters' => 3,
-    ],
 
     'binary_operator_spaces' => [
         'default' => 'align_single_space_minimal',
@@ -265,4 +244,23 @@ return [
     ],
 
     'phpdoc_param_order' => true,
+
+    (new LaravelPhpdocAlignmentFixer())->getName() => true,
+
+    (new UselessCodeAfterReturnFixer())->getName() => true,
+
+    MultilineCommentOpeningClosingAloneFixer::name() => true,
+    NoDuplicatedImportsFixer::name()                 => true,
+    NoPhpStormGeneratedCommentFixer::name()          => true,
+    NoSuperfluousConcatenationFixer::name()          => true,
+    NoUselessDoctrineRepositoryCommentFixer::name()  => true,
+    NoUselessParenthesisFixer::name()                => true,
+    SingleSpaceBeforeStatementFixer::name()          => true,
+    SingleSpaceAfterStatementFixer::name()           => true,
+    PhpdocArrayStyleFixer::name()                    => true,
+    PhpdocNoIncorrectVarAnnotationFixer::name()      => true,
+
+    MultilinePromotedPropertiesFixer::name() => [
+        'minimum_number_of_parameters' => 3,
+    ],
 ];

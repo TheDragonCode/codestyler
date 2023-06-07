@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use DragonCode\CodeStyler\Factories\ConfigurationFactory;
+use PhpCsFixerCustomFixers\Fixer\DeclareAfterOpeningTagFixer;
 use PhpCsFixerCustomFixers\Fixer\NoUselessStrlenFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpUnitAssertArgumentsOrderFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpUnitDedicatedAssertFixer;
@@ -19,6 +20,7 @@ return ConfigurationFactory::preset(array_merge($default, [
 
     'ordered_traits' => true,
 
+    DeclareAfterOpeningTagFixer::name()      => true,
     NoUselessStrlenFixer::name()             => true,
     PhpUnitAssertArgumentsOrderFixer::name() => true,
     PhpUnitDedicatedAssertFixer::name()      => true,
