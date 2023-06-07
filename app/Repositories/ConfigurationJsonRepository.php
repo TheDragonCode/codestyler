@@ -11,11 +11,20 @@ class ConfigurationJsonRepository extends BaseConfiguration
 {
     public function preset(): string
     {
+        $this->validate();
+
         return $this->preset ?? PhpVersion::DEFAULT;
     }
 
     public function rules(): array
     {
+        $this->validate();
+
         return [];
+    }
+
+    protected function validate(): void
+    {
+        $this->get();
     }
 }

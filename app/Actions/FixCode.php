@@ -6,6 +6,7 @@ namespace DragonCode\CodeStyler\Actions;
 
 use App\Output\ProgressOutput;
 use DragonCode\CodeStyler\Factories\ConfigurationResolverFactory;
+use LaravelZero\Framework\Exceptions\ConsoleException;
 use PhpCsFixer\Error\ErrorsManager;
 use PhpCsFixer\Runner\Runner;
 use Symfony\Component\Console\Input\InputInterface;
@@ -15,16 +16,22 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 class FixCode
 {
     public function __construct(
-        protected ErrorsManager $errors,
+        protected ErrorsManager   $errors,
         protected EventDispatcher $events,
-        protected InputInterface $input,
+        protected InputInterface  $input,
         protected OutputInterface $output,
-        protected ProgressOutput $progress,
-    ) {}
+        protected ProgressOutput  $progress,
+    ) {
+    }
 
     public function execute()
     {
-        [$resolver, $totalFiles] = ConfigurationResolverFactory::fromIO($this->input, $this->output);
+        try {
+            [$resolver, $totalFiles] = ConfigurationResolverFactory::fromIO($this->input, $this->output);
+        }
+        catch (ConsoleException $e) {
+            return [$e->getCode(), []];
+        }
 
         if (is_null($this->input->getOption('format'))) {
             $this->progress->subscribe();

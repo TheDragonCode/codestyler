@@ -7,9 +7,9 @@ namespace DragonCode\CodeStyler\Providers;
 use App\Contracts\PathsRepository;
 use App\Project;
 use App\Repositories\ConfigurationJsonRepository as BaseConfigurationJsonRepository;
+use App\Repositories\GitPathsRepository;
 use DragonCode\CodeStyler\Helpers\PhpVersion;
 use DragonCode\CodeStyler\Repositories\ConfigurationJsonRepository;
-use DragonCode\CodeStyler\Repositories\GitPathsRepository;
 use Illuminate\Support\ServiceProvider;
 use Symfony\Component\Console\Input\InputInterface;
 
