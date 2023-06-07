@@ -41,8 +41,8 @@ jobs:
             -   name: Install dependencies
                 run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
-            -   name: Execute lint tests with Laravel preset
-                run: php ./codestyle --test
+            -   name: Execute lint
+                run: php ./codestyle --test --ansi
 
             -   name: Execute unit/feature tests
-                run: vendor/bin/pest
+                run: vendor/bin/pest --colors=always
