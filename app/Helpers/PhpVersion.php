@@ -61,7 +61,7 @@ class PhpVersion
         return null;
     }
 
-    protected static function path(string $filename): string
+    protected static function path(string $filename): string|bool
     {
         return realpath(Project::path() . '/' . $filename);
     }
