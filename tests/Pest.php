@@ -47,8 +47,7 @@ expect()->extend('toBeOne', fn () => $this->toBe(1));
 /**
  * Runs the given console command.
  *
- * @param array<string, string> $arguments
- * @param string $command
+ * @param  array<string, string>  $arguments
  *
  * @return array{int, BufferedOutput}
  */

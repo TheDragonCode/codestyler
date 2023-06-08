@@ -4,22 +4,18 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Commands;
 
+use App\Project;
 use DragonCode\CodeStyler\Services\Filesystem\Filesystem;
 use DragonCode\Support\Facades\Helpers\Arr;
 
 class DependabotCommand extends BaseCommand
 {
     protected const NAME    = 'github-actions';
-
     protected const VERSION = 2;
 
     protected $signature = 'dependabot';
 
     protected $description = 'Update Dependabot rules';
-
-    protected string $source = '';
-
-    protected string $target = './.github/dependabot.yml';
 
     protected array $content = [
         'package-ecosystem' => self::NAME,
@@ -31,9 +27,14 @@ class DependabotCommand extends BaseCommand
         ],
     ];
 
-    public function process(): string
+    protected function targetPath(): ?string
     {
-        $content = $this->file()->load($this->target);
+        return Project::path() . '/.github/dependabot.yml';
+    }
+
+    protected function process(): string
+    {
+        $content = $this->file()->load($this->targetPath());
 
         $updates = $this->updates($content['updates'] ?? []);
         $version = $this->version();
@@ -41,6 +42,11 @@ class DependabotCommand extends BaseCommand
         $this->store($version, $updates);
 
         return self::STATUS_DONE;
+    }
+
+    protected function allow(): bool
+    {
+        return true;
     }
 
     protected function updates(array $items): array
@@ -58,7 +64,7 @@ class DependabotCommand extends BaseCommand
 
     protected function store(int $version, array $updates): void
     {
-        $this->file()->store($this->target, compact('version', 'updates'));
+        $this->file()->store($this->targetPath(), compact('version', 'updates'));
     }
 
     protected function file(): Filesystem

@@ -11,7 +11,6 @@ use DragonCode\Support\Facades\Helpers\Arr;
 class PhpVersion
 {
     public const DEFAULT = '8.2';
-
     public const MIN     = '8.1';
 
     public static function get(): string
@@ -57,13 +56,13 @@ class PhpVersion
             return Arr::ofFile($path)->toArray();
         }
 
-        dump('composer.json file not found in the current directory.', __DIR__);
+        dump('composer.json file not found in the current directory.', Project::path());
 
         return null;
     }
 
-    protected static function path(string $filename): string
+    protected static function path(string $filename): string|bool
     {
-        return Project::path() . '/' . $filename;
+        return realpath(Project::path() . '/' . $filename);
     }
 }

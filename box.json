@@ -5,10 +5,17 @@
         "bootstrap",
         "config",
         "resources",
-        "vendor"
+        "vendor",
+        "modules/laravel/pint/app",
+        "modules/laravel/pint/resources"
     ],
     "files": [
+        ".env",
+        ".editorconfig",
         "composer.json"
+    ],
+    "blacklist": [
+        "modules/laravel/pint/resources/presets"
     ],
     "exclude-composer-files": false,
     "exclude-dev-files": false,

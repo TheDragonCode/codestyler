@@ -26,7 +26,8 @@ return [
     '@PHP81Migration'     => true,
     '@PER'                => true,
     '@Symfony'            => true,
-    'array_indentation'   => true,
+
+    'array_indentation' => true,
 
     'binary_operator_spaces' => [
         'default' => 'align_single_space_minimal',
@@ -187,13 +188,6 @@ return [
     'phpdoc_align' => [
         'align' => 'left',
         'tags'  => [
-            'var',
-            'param',
-            'property',
-            'property-read',
-            'property-write',
-            'method',
-            'type',
             'throws',
             'return',
         ],

@@ -27,5 +27,6 @@ it('display progress when no issues were found', function () {
 
     expect($statusCode)->toBe(0)
         ->and($output)
+        ->toContain('PASS')
         ->toContain('  .');
 });

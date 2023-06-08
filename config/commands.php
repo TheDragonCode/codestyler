@@ -1,6 +1,8 @@
 <?php
 
 use DragonCode\CodeStyler\Commands\DefaultCommand;
+use DragonCode\CodeStyler\Commands\DependabotCommand;
+use DragonCode\CodeStyler\Commands\EditorConfigCommand;
 
 return [
     /*
@@ -41,7 +43,8 @@ return [
     */
 
     'add' => [
-        // ..
+        DependabotCommand::class,
+        EditorConfigCommand::class,
     ],
 
     /*

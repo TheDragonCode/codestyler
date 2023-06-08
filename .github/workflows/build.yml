@@ -4,7 +4,6 @@ on:
     push:
         branches:
             - main
-            - 3.x
     workflow_dispatch:
         inputs:
             tag:
@@ -48,7 +47,10 @@ jobs:
                     git config --global core.eol lf
 
             -   name: Install the dependencies
-                run: composer install --prefer-dist --no-progress --no-interaction
+                run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
+
+#            -   name: Execute unit/feature tests
+#                run: sudo php ./codestyle test --colors=always
 
             -   name: Create the PHAR file
                 id: build
@@ -59,7 +61,7 @@ jobs:
 
                     { git add . && git commit -a -m "🏗️ Build application"; } || IS_DIRTY=0
 
-                    echo ::set-output name=is_dirty::${IS_DIRTY}
+                    echo "is_dirty=${IS_DIRTY}" >> "$GITHUB_OUTPUT"
 
             -   name: Push changes
                 uses: ad-m/github-push-action@master

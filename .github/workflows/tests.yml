@@ -41,8 +41,5 @@ jobs:
             -   name: Install dependencies
                 run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
-            -   name: Execute lint
-                run: sudo php ./codestyle --test --ansi
-
             -   name: Execute unit/feature tests
-                run: sudo vendor/bin/pest --colors=always
+                run: sudo php ./codestyle test --colors=always

@@ -12,8 +12,7 @@ class Json implements FilesystemContract
 {
     public function __construct(
         protected readonly JsonParser $parser
-    ) {
-    }
+    ) {}
 
     public function load(string $path): array
     {
