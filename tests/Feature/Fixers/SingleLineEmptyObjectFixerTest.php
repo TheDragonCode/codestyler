@@ -37,5 +37,5 @@ it('fixes the code', function () {
                   -    {
                   -    }
                   +    public function internal() {}
-                EOF,);
+                EOF);
 });
