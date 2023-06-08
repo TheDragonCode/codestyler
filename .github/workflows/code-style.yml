@@ -8,8 +8,6 @@ jobs:
     style:
         runs-on: ubuntu-latest
 
-        name: ${{ [[ github.event_name == 'push' && github.ref == 'refs/heads/main' ]] && echo "Fix" || echo "Check" }}
-
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v3
@@ -17,7 +15,18 @@ jobs:
             -   name: Update git branch
                 run: git pull
 
-            -   name: Check the code style
+            -   name: Detect job name
+                id: detect
+                run: |
+                    if [[ github.event_name == 'push' && github.ref == 'refs/heads/main' ]]; then
+                        NAME="Fix"
+                    else
+                        NAME="Check"
+                    fi
+                    
+                    echo "name=${NAME}" >> $GITHUB_OUTPUT
+
+            -   name: ${{ steps.detect.outputs.name }} the code style
                 uses: TheDragonCode/codestyler@v3
                 with:
                     github_token: ${{ secrets.COMPOSER_TOKEN }}
