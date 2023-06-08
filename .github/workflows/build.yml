@@ -54,7 +54,7 @@ jobs:
                 run: |
                     IS_DIRTY=1
 
-                    sudo ./codestyle app:build codestyle.phar --build-version=${{ steps.tag.outputs.tag }}
+                    sudo php ./codestyle app:build codestyle.phar --build-version=${{ steps.tag.outputs.tag }}
 
                     { git add . && git commit -a -m "🏗️ Build application"; } || IS_DIRTY=0
 

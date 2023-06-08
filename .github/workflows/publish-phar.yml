@@ -46,12 +46,6 @@ jobs:
                     git config --global core.autocrlf false
                     git config --global core.eol lf
 
-            -   name: Install the dependencies
-                run: composer install --prefer-dist --no-progress
-
-            -   name: Create the PHAR file.
-                run: ./codestyle app:build codestyle.phar --build-version=${{ steps.tag.outputs.tag }}
-
             -   name: Upload the PHAR artifact
                 uses: actions/upload-artifact@v3
                 with:
