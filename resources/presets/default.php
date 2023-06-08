@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Fixers\LaravelPhpdocAlignmentFixer;
+use DragonCode\CodeStyler\Fixers\JsonFixer;
 use PedroTroller\CS\Fixer\DeadCode\UselessCodeAfterReturnFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilineCommentOpeningClosingAloneFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilinePromotedPropertiesFixer;
@@ -238,6 +239,8 @@ return [
     ],
 
     'phpdoc_param_order' => true,
+
+    (new JsonFixer())->getName() => true,
 
     (new LaravelPhpdocAlignmentFixer())->getName() => true,
 
