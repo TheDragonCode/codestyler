@@ -156,7 +156,7 @@ jobs:
             -   name: Checkout code
                 uses: actions/checkout@v2
 
-            -   name: Checking PHP Syntax
+            -   name: Code style fix
                 uses: TheDragonCode/codestyler@v3
                 with:
                     # This token uses GitHub Actions to execute code.
@@ -210,7 +210,7 @@ jobs:
             -   name: Checkout code
                 uses: actions/checkout@v3
 
-            -   name: Checking PHP Syntax
+            -   name: Code style fix
                 uses: TheDragonCode/codestyler@v3
                 with:
                     github_token: ${{ secrets.YOUR_TOKEN }}
