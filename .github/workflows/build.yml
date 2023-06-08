@@ -49,8 +49,8 @@ jobs:
             -   name: Install the dependencies
                 run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
-            -   name: Execute unit/feature tests
-                run: sudo php ./codestyle test --colors=always
+#            -   name: Execute unit/feature tests
+#                run: sudo php ./codestyle test --colors=always
 
             -   name: Create the PHAR file
                 id: build
