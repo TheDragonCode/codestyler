@@ -123,6 +123,22 @@ List of available formats:
 - txt
 - xml
 
+#### Help Commands
+
+To view the list of available commands, you can call the console command:
+
+```bash
+codestyle list
+```
+
+To view extended information on a command, you can use the `help` option. For example,
+
+```bash
+codestyle --help
+codestyle dependabot --help
+codestyle editorconfig --help
+```
+
 ### GitHub Action
 
 Create a new `.github/workflows/code-style.yml` file and add the content to it:
