@@ -65,7 +65,7 @@
         "seld/jsonlint": "^1.10",
         "symfony/yaml": "^6.3"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
@@ -85,8 +85,7 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "dragon-code/codestyler": true,
-            "ergebnis/composer-normalize": true,
-            "friendsofphp/php-cs-fixer": true
+            "ergebnis/composer-normalize": true
         },
         "optimize-autoloader": true,
         "platform": {
