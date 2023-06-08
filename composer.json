@@ -53,15 +53,15 @@
     },
     "require-dev": {
         "dragon-code/pretty-array": "^4.1",
-        "dragon-code/support": "^6.11",
+        "dragon-code/support": "^6.11.2",
         "friendsofphp/php-cs-fixer": "^3.17",
-        "illuminate/view": "^10.13",
+        "illuminate/view": "^10.13.2",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.14",
         "laravel-zero/framework": "^10.0.2",
-        "mockery/mockery": "^1.5.1",
+        "mockery/mockery": "^1.6.2",
         "nunomaduro/termwind": "^1.15.1",
         "pedrotroller/php-cs-custom-fixer": "^2.32",
-        "pestphp/pest": "^2.5",
+        "pestphp/pest": "^2.6.3",
         "seld/jsonlint": "^1.10",
         "symfony/yaml": "^6.3"
     },
@@ -85,8 +85,7 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "dragon-code/codestyler": true,
-            "ergebnis/composer-normalize": true,
-            "friendsofphp/php-cs-fixer": true
+            "ergebnis/composer-normalize": true
         },
         "optimize-autoloader": true,
         "platform": {
