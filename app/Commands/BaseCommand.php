@@ -11,11 +11,9 @@ abstract class BaseCommand extends Command
     protected const STATUS_DONE = 'DONE';
     protected const STATUS_SKIP = 'SKIP';
 
-    protected string $source;
-
-    protected string $target;
-
     abstract protected function process(): string;
+
+    abstract protected function targetPath(): ?string;
 
     public function handle(): int
     {
@@ -24,6 +22,11 @@ abstract class BaseCommand extends Command
             : $this->processInfo($this->skip());
 
         return self::SUCCESS;
+    }
+
+    protected function sourcePath(): ?string
+    {
+        return null;
     }
 
     protected function skip(): string
@@ -38,6 +41,6 @@ abstract class BaseCommand extends Command
 
     protected function allow(): bool
     {
-        return realpath($this->source) !== realpath($this->target) && ! empty($this->target);
+        return realpath($this->sourcePath()) !== realpath($this->targetPath()) && ! empty($this->targetPath());
     }
 }

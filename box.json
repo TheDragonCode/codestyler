@@ -4,12 +4,21 @@
         "app",
         "bootstrap",
         "config",
-        "vendor"
+        "resources",
+        "vendor",
+        "modules/laravel/pint/app",
+        "modules/laravel/pint/resources"
     ],
     "files": [
+        ".env",
+        ".editorconfig",
         "composer.json"
     ],
+    "blacklist": [
+        "modules/laravel/pint/resources/presets"
+    ],
     "exclude-composer-files": false,
+    "exclude-dev-files": false,
     "compression": "GZ",
     "compactors": [
         "KevinGH\\Box\\Compactor\\Php",

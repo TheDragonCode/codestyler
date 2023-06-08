@@ -30,6 +30,6 @@ return [
     */
 
     'paths' => [
-        realpath(__DIR__ . '/../modules/laravel/pint/resources/views'),
+        base_path('modules/laravel/pint/resources/views'),
     ],
 ];

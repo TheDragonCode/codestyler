@@ -56,13 +56,13 @@ class PhpVersion
             return Arr::ofFile($path)->toArray();
         }
 
-        dump('composer.json file not found in the current directory.', __DIR__);
+        dump('composer.json file not found in the current directory.', Project::path());
 
         return null;
     }
 
     protected static function path(string $filename): string
     {
-        return Project::path() . '/' . $filename;
+        return realpath(Project::path() . '/' . $filename);
     }
 }

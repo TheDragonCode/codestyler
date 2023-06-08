@@ -28,7 +28,7 @@ jobs:
             -   name: Checkout the code
                 uses: actions/checkout@v3
                 with:
-                    ref: v${{ steps.tag.outputs.tag }}
+                    submodules: true
 
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
@@ -45,25 +45,26 @@ jobs:
                     
                     git config --global core.autocrlf false
                     git config --global core.eol lf
-                    
-                    git submodule update --init
 
             -   name: Install the dependencies
-                run: composer install --prefer-dist --no-progress --no-interaction
+                run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
+
+            -   name: Execute unit/feature tests
+                run: sudo php ./codestyle test --colors=always
 
             -   name: Create the PHAR file
                 id: build
                 run: |
                     IS_DIRTY=1
 
-                    ./codestyle app:build codestyle.phar --build-version=${{ steps.tag.outputs.tag }}
+                    sudo php ./codestyle app:build codestyle --build-version=${{ steps.tag.outputs.tag }}
 
                     { git add . && git commit -a -m "🏗️ Build application"; } || IS_DIRTY=0
 
-                    echo ::set-output name=is_dirty::${IS_DIRTY}
+                    echo "is_dirty=${IS_DIRTY}" >> "$GITHUB_OUTPUT"
 
             -   name: Push changes
                 uses: ad-m/github-push-action@master
-                if: success() && steps.build.outputs.is_dirty == 1 ||
+                if: success() && steps.build.outputs.is_dirty == 1
                 with:
                     github_token: ${{ secrets.COMPOSER_TOKEN }}

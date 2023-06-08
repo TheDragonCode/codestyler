@@ -14,8 +14,11 @@ use Acme\Foo;
 enum Suit: string
 {
     case Clubs    = 'C';
+
     case Diamonds = 'D';
+
     case Hearts   = 'H';
+
     case Spades   = 'S';
 }
 
@@ -125,10 +128,9 @@ echo match ($j) {
  * formatter options.
  *
  * @author J.S.
- *
  * @license GPL
  *
- * @param string $three The third parameter with a longer comment to illustrate wrapping.
+ * @param string $three the third parameter with a longer comment to illustrate wrapping
  * @param $one The first parameter
  * @param int $two The second parameter
  *
@@ -137,7 +139,9 @@ echo match ($j) {
 class Baz
 {
     protected const FOO1 = 1;
+
     protected const FOO2 = 1;
+
     protected const FOO3 = 1;
 
     public float $prop1;
@@ -185,38 +189,38 @@ class Baz
 
 class Foo3
 {
-    var $x;
-    var $y;
+    public $x;
 
-    function foo()
+    public $y;
+
+    public function foo()
     {
-
     }
 }
 
 class Bar2
 {
-    const X = 1;
+    public const X = 1;
 
-    const Y = 2;
+    public const Y = 2;
 
-    var $a;
+    public $a;
 
-    var $b;
+    public $b;
 
-    function bar()
+    public function bar()
     {
         $a = 'a';
 
         $b = 'b';
     }
 
-    function bar_2()
+    public function bar_2()
     {
         return $this->a . ' ' . $this->b;
     }
 
-    function bar_3()
+    public function bar_3()
     {
         echo 'null';
 
@@ -226,16 +230,21 @@ class Bar2
 
 function function_declaration()
 {
-
 }
 
 register_function('function_declaration');
 
-$instance = new class { };
+$instance = new class ()
+{
+};
 
-$instance = new class extends Bar { };
+$instance = new class () extends Bar
+{
+};
 
-$instance = new class extends Bar { };
+$instance = new class () extends Bar
+{
+};
 
 function bar(): Foo
 {
@@ -256,7 +265,7 @@ function bar3(
     $x = 0;
     // $x = 1
     do {
-        $y += 1;
+        ++$y;
     }
     while ($y < 10);
 
@@ -270,7 +279,7 @@ function bar3(
         $x = 5;
     }
 
-    for ($i = 0; $i < 10; $i++) {
+    for ($i = 0; $i < 10; ++$i) {
         $yy = $x > 2 ? 1 : 2;
     }
 
@@ -316,11 +325,13 @@ function bar3(
 
 abstract class Foo4 extends FooBaseClass implements Bar1, Bar2, Bar3
 {
-    const FIRST = 'first';
-    const SECOND = 0; // comment
-    const Z = -1; // comment
+    public const FIRST = 'first';
 
-    var $numbers = [
+    public const SECOND = 0; // comment
+
+    public const Z = -1; // comment
+
+    public $numbers = [
         'one',
         'two',
         'three',
@@ -329,18 +340,50 @@ abstract class Foo4 extends FooBaseClass implements Bar1, Bar2, Bar3
         'six',
     ];
 
-    var $v = 0;
+    public $v = 0;
 
     public $path = 'root';
 
     abstract protected function fFour();
 
-    function bar(
+    public static function fOne(
+        #[Attribute(1, 2)]
+        $argA,
+        $argB,
+        $argC,
+        $argD,
+        $argE,
+        $argF,
+        $argG,
+        $argH
+    ) {
+        $x                                                     = $argA + $argB + $argC + $argD + $argE + $argF + $argG + $argH;
+        [$field1, $field2, $field3, $filed4, $field5, $field6] = explode(',', $x);
+        fTwo($argA, $argB, $argC, fThree($argD, $argE, $argF, $argG, $argH));
+        $z      = $argA == 'Some string' ? 'yes' : 'no';
+        $colors
+            = [
+                'red',
+                'green',
+                'blue',
+                'black',
+                'white',
+                'gray',
+            ];
+        $count  = count($colors);
+
+        for ($i = 0; $i < $count; ++$i) {
+            $colorString = $colors[$i];
+        }
+    }
+
+    public function bar(
         $v,
         $w = 'a'
     ) {
         $y      = $w;
         $result = foo('arg1', 'arg2', 10);
+
         switch ($v) {
             case 0:
                 return 1;
@@ -359,38 +402,7 @@ abstract class Foo4 extends FooBaseClass implements Bar1, Bar2, Bar3
         return $result;
     }
 
-    public static function fOne(
-        #[Attribute(1, 2)]
-        $argA,
-        $argB,
-        $argC,
-        $argD,
-        $argE,
-        $argF,
-        $argG,
-        $argH
-    ) {
-        $x = $argA + $argB + $argC + $argD + $argE + $argF + $argG + $argH;
-        [$field1, $field2, $field3, $filed4, $field5, $field6] = explode(',', $x);
-        fTwo($argA, $argB, $argC, fThree($argD, $argE, $argF, $argG, $argH));
-        $z      = $argA == 'Some string' ? 'yes' : 'no';
-        $colors =
-            [
-                'red',
-                'green',
-                'blue',
-                'black',
-                'white',
-                'gray',
-            ];
-        $count  = count($colors);
-
-        for ($i = 0; $i < $count; $i++) {
-            $colorString = $colors[$i];
-        }
-    }
-
-    function fTwo($strA, $strB, $strC, $strD)
+    public function fTwo($strA, $strB, $strC, $strD)
     {
         if ($strA == 'one' || $strB == 'two' || $strC == 'three') {
             return $strA + $strB + $strC;
@@ -405,7 +417,7 @@ abstract class Foo4 extends FooBaseClass implements Bar1, Bar2, Bar3
         return $strD;
     }
 
-    function fThree($strA, $strB, $strC, $strD, $strE)
+    public function fThree($strA, $strB, $strC, $strD, $strE)
     {
         try {
         }
