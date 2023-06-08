@@ -498,7 +498,7 @@ ij_javascript_wrap_comments = false
 
 [{*.ctp,*.hphp,*.inc,*.module,*.php,*.php4,*.php5,*.phtml}]
 ij_continuation_indent_size = 4
-ij_php_align_assignments = false
+ij_php_align_assignments = true
 ij_php_align_class_constants = true
 ij_php_align_enum_cases = true
 ij_php_align_group_field_declarations = false
@@ -629,7 +629,7 @@ ij_php_phpdoc_param_spaces_between_type_and_name = 1
 ij_php_phpdoc_use_fqcn = true
 ij_php_phpdoc_wrap_long_lines = true
 ij_php_place_assignment_sign_on_next_line = false
-ij_php_place_parens_for_constructor = 2
+ij_php_place_parens_for_constructor = 1
 ij_php_property_read_weight = 11
 ij_php_property_weight = 10
 ij_php_property_write_weight = 12

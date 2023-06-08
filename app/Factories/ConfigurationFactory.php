@@ -6,10 +6,13 @@ namespace DragonCode\CodeStyler\Factories;
 
 use App\Factories\ConfigurationFactory as BaseFactory;
 use App\Fixers\LaravelPhpdocAlignmentFixer;
+use DragonCode\CodeStyler\Fixers\JsonFixer;
+use DragonCode\CodeStyler\Fixers\JsonRiskyFixer;
 use DragonCode\CodeStyler\Repositories\ConfigurationJsonRepository;
 use PedroTroller\CS\Fixer\DeadCode\UselessCodeAfterReturnFixer;
 use PhpCsFixer\Config;
 use PhpCsFixer\ConfigInterface;
+use PhpCsFixer\Finder;
 use PhpCsFixerCustomFixers\Fixer\DeclareAfterOpeningTagFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilineCommentOpeningClosingAloneFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilinePromotedPropertiesFixer;
@@ -28,6 +31,21 @@ use PhpCsFixerCustomFixers\Fixer\SingleSpaceBeforeStatementFixer;
 
 class ConfigurationFactory extends BaseFactory
 {
+    protected static array $names = [
+        '/\.json$/',
+    ];
+
+    protected static $notName = [
+        '_ide_helper_actions.php',
+        '_ide_helper_models.php',
+        '_ide_helper.php',
+        '.phpstorm.meta.php',
+        '*.blade.php',
+        'composer.json',
+        'package.json',
+        'package-lock.json',
+    ];
+
     public static function preset($rules): ConfigInterface
     {
         return (new Config())
@@ -36,6 +54,9 @@ class ConfigurationFactory extends BaseFactory
             ->setRiskyAllowed(true)
             ->setUsingCache(true)
             ->registerCustomFixers([
+                // Dragon
+                new JsonFixer(),
+                new JsonRiskyFixer(),
                 // Laravel...
                 new LaravelPhpdocAlignmentFixer(),
                 // PhpCsFixerCustomFixers...
@@ -57,5 +78,10 @@ class ConfigurationFactory extends BaseFactory
                 // PedroTroller...
                 new UselessCodeAfterReturnFixer(),
             ]);
+    }
+
+    public static function finder(): Finder
+    {
+        return parent::finder()->name(static::$names);
     }
 }
