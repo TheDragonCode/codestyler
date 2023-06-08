@@ -28,7 +28,7 @@ jobs:
             -   name: Checkout the code
                 uses: actions/checkout@v3
                 with:
-                    ref: v${{ steps.tag.outputs.tag }}
+                    submodules: true
 
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
@@ -45,8 +45,6 @@ jobs:
                     
                     git config --global core.autocrlf false
                     git config --global core.eol lf
-                    
-                    git submodule update --init
 
             -   name: Install the dependencies
                 run: composer install --prefer-dist --no-progress --no-interaction
