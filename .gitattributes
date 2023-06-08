@@ -7,35 +7,35 @@
 *.php diff=php
 *.json diff=json
 
-; .github/ export-ignore
-; .env/ export-ignore
-; 
-; app/ export-ignore
-; bootstrap/ export-ignore
-; config/ export-ignore
-; modules/ export-ignore
-; resources/ export-ignore
-; shell/ export-ignore
-; tests/ export-ignore
-; 
-; .gitattributes export-ignore
-; .gitignore export-ignore
-; .gitmodules export-ignore
-; 
-; action.yml export-ignore
-; Dockerfile export-ignore
-; entrypoint.sh export-ignore
-; 
-; box.json export-ignore
-; pint.json export-ignore
-; 
-; codestyle export-ignore
-; 
-; composer.lock export-ignore
-; phpunit.xml.dist export-ignore
-; 
-; LICENSE export-ignore
-; README.md export-ignore
-; BACKERS.md export-ignore
-; CONTRIBUTING.md export-ignore
-; CHANGELOG.md export-ignore
+.github export-ignore
+.env export-ignore
+
+/app export-ignore
+/bootstrap export-ignore
+/config export-ignore
+/modules export-ignore
+/resources export-ignore
+/shell export-ignore
+/tests export-ignore
+
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/.gitmodules export-ignore
+
+/action.yml export-ignore
+/Dockerfile export-ignore
+/entrypoint.sh export-ignore
+
+/box.json export-ignore
+/pint.json export-ignore
+
+/codestyle export-ignore
+
+/composer.lock export-ignore
+/phpunit.xml.dist export-ignore
+
+/LICENSE export-ignore
+/README.md export-ignore
+/BACKERS.md export-ignore
+/CONTRIBUTING.md export-ignore
+/CHANGELOG.md export-ignore
