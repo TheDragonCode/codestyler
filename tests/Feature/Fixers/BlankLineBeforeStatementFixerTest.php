@@ -48,5 +48,31 @@ it('fixes the risky code', function () {
                   -
                        public const BAQ = 'baq';
                 EOF,
+        )
+        ->toContain(
+            <<<'EOF'
+                  -    case Clubs  =   'C';
+                  -
+                  -    case Diamonds =   'D';
+                  -
+                  -    case Hearts  =   'H';
+                  -
+                  -    case Spades    =   'S';
+                  +    case Clubs    = 'C';
+                  +    case Diamonds = 'D';
+                  +    case Hearts   = 'H';
+                  +    case Spades   = 'S';
+                EOF,
+        )
+        ->toContain(
+            <<<'EOF'
+                       protected const FOO1 = 1;
+                  -
+                       protected const FOO2 = 1;
+                  -
+                       protected const FOO3 = 1;
+                   
+                       public float $prop1;
+                EOF,
         );
 });

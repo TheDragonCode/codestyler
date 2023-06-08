@@ -21,3 +21,7 @@ class Foo
     {
     }
 }
+
+enum a: int
+{
+}

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @formatter:off
- */
-
 declare(strict_types=1);
 
 namespace Acme\Package;
@@ -12,30 +8,8 @@ use Acme\Bar;
 use Acme\Foo;
 use N\{AnotherClassName,ClassName,OneMoreClassName};
 
-enum Suit: string
-{
-    case Clubs  =   'C';
-
-    case Diamonds =   'D';
-
-    case Hearts  =   'H';
-
-    case Spades    =   'S';
-}
-
-enum a: int
-{
-}
-
 class Foo2
 {
-    public function __construct(
-        protected string $foo,
-        protected int $bar,
-        private bool $baz
-    ) {
-    }
-
     public function foo($x, $z)
     {
         global $k, $s1;
