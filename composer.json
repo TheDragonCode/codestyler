@@ -13,7 +13,11 @@
         "style",
         "code style",
         "codestyle",
-        "standard"
+        "standard",
+        "json",
+        "yaml",
+        "php",
+        "php-cs"
     ],
     "authors": [
         {
