@@ -79,7 +79,7 @@
         }
     },
     "bin": [
-        "codestyle"
+        "builds/codestyle"
     ],
     "config": {
         "allow-plugins": {

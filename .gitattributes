@@ -7,14 +7,15 @@
 *.php diff=php
 
 .github/ export-ignore
+.env/ export-ignore
 
 app/ export-ignore
 bootstrap/ export-ignore
 config/ export-ignore
 modules/ export-ignore
 resources/ export-ignore
-shell export-ignore
-tests export-ignore
+shell/ export-ignore
+tests/ export-ignore
 
 .gitattributes export-ignore
 .gitignore export-ignore
