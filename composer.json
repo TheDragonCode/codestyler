@@ -85,8 +85,7 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "dragon-code/codestyler": true,
-            "ergebnis/composer-normalize": true,
-            "friendsofphp/php-cs-fixer": true
+            "ergebnis/composer-normalize": true
         },
         "optimize-autoloader": true,
         "platform": {
