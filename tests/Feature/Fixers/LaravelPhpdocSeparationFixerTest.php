@@ -11,13 +11,13 @@ it('fixes the code', function () {
         ->toContain('FAIL', '1 file')
         ->toContain(
             <<<'EOF'
-                 /**
-                  * @param  string  $foo
-                + * @param  string  $bar
-                  *
-                - * @param  string  $bar
-                  * @return string
-                  */
+                   /**
+                    * @param  string  $foo
+                  + * @param  string  $bar
+                    *
+                  - * @param  string  $bar
+                    * @return string
+                    */
                 EOF,
         );
 });
