@@ -42,7 +42,7 @@ jobs:
                 run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
             -   name: Execute lint
-                run: php ./codestyle --test --ansi
+                run: sudo php ./codestyle --test --ansi
 
             -   name: Execute unit/feature tests
-                run: vendor/bin/pest --colors=always
+                run: sudo vendor/bin/pest --colors=always
