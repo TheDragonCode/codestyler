@@ -12,9 +12,6 @@ jobs:
             -   name: Checkout code
                 uses: actions/checkout@v3
 
-            -   name: Update git branch
-                run: git pull
-
             -   name: Detect job name
                 id: detect
                 run: |
