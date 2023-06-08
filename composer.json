@@ -65,7 +65,7 @@
         "seld/jsonlint": "^1.10",
         "symfony/yaml": "^6.3"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
