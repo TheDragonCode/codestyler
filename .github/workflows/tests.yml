@@ -42,4 +42,4 @@ jobs:
                 run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
             -   name: Execute unit/feature tests
-                run: sudo php ./codestyle test --colors=always
+                run: php ./codestyle test --colors=always
