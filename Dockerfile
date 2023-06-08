@@ -9,7 +9,7 @@ ARG INPUT_DEPENDABOT
 ARG INPUT_NORMALIZE
 
 RUN composer global update
-RUN composer global require dragon-code/codestyler:^3.1
+RUN composer global require dragon-code/codestyler:^3.1.2
 
 COPY shell /shell
 COPY entrypoint.sh /entrypoint.sh
