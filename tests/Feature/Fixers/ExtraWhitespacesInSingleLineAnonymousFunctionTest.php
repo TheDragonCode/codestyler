@@ -7,6 +7,7 @@ it('fixes the code', function () {
 
     expect($statusCode)->toBe(1)
         ->and($output)
+        ->toContain('FAIL')
         ->toContain(
             <<<'EOF'
                   -function () {     return 'foo';};
