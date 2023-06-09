@@ -95,7 +95,7 @@ return [
     'curly_braces_position' => [
         'allow_single_line_anonymous_functions'     => true,
         'allow_single_line_empty_anonymous_classes' => true,
-        'anonymous_classes_opening_brace'           => 'next_line_unless_newline_at_signature_end',
+        'anonymous_classes_opening_brace'           => 'same_line',
     ],
 
     'declare_parentheses' => true,

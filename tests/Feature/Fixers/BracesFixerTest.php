@@ -61,8 +61,8 @@ it('fixes the code', function () {
             <<<'EOF'
                   -new class ( ) extends stdClass
                   -
-                  +new class extends stdClass
-                   {
+                  -{
+                  +new class extends stdClass {
                        // ..
                    };
                 EOF,
@@ -71,8 +71,8 @@ it('fixes the code', function () {
             <<<'EOF'
                   -new class ( ) extends Foo
                   -
-                  +new class extends Foo
-                   {
+                  -{
+                  +new class extends Foo {
                        protected bool $some = true;
                    };
                 EOF,

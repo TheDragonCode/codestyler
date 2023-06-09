@@ -14,7 +14,7 @@ it('fixes the code', function () {
                   -{
                   +new class {
                        // ..
-                   }
+                   };
                 EOF,
         )
         ->toContain(
@@ -23,14 +23,23 @@ it('fixes the code', function () {
                   -{
                   +new class {
                        // ..
-                   }
+                   };
+                EOF,
+        )
+        ->toContain(
+            <<<'EOF'
+                  -new class extends Foo
+                  -{
+                  +new class extends Foo {
+                       protected bool $some = true;
+                   };
                 EOF,
         )
         ->toContain(
             <<<'EOF'
                   -new class ( ) extends Bar
-                  +new class extends Bar
-                   {
+                  -{
+                  +new class extends Bar {
                        protected bool $some = true;
                    };
                 EOF,
@@ -47,20 +56,6 @@ it('fixes the code', function () {
                    $x = new X();
                   -$y = new class() {};
                   +$y = new class {};
-                EOF,
-        )
-        ->not()
-        ->toContain(
-            <<<'EOF'
-                  -new class extends Foo
-                  -{
-                  +new class extends Foo
-                EOF,
-        )
-        ->not()
-        ->toContain(
-            <<<'EOF'
-                  +new class () extends Foo
                 EOF,
         );
 });
