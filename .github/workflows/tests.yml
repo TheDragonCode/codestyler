@@ -5,7 +5,19 @@ on: [ push, pull_request ]
 permissions: read-all
 
 jobs:
-    tests:
+    container:
+        runs-on: ubuntu-latest
+
+        name: Check Container
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v3
+
+            -   name: Check the container
+                uses: TheDragonCode/codestyler@main
+
+    unit:
         runs-on: ${{ matrix.os }}
 
         strategy:
