@@ -72,6 +72,7 @@ return [
     ],
 
     'class_definition' => [
+        'inline_constructor_arguments'        => true,
         'multi_line_extends_each_single_line' => true,
         'single_item_single_line'             => true,
         'single_line'                         => true,
@@ -89,6 +90,12 @@ return [
 
     'control_structure_continuation_position' => [
         'position' => 'next_line',
+    ],
+
+    'curly_braces_position' => [
+        'allow_single_line_anonymous_functions'     => true,
+        'allow_single_line_empty_anonymous_classes' => true,
+        'anonymous_classes_opening_brace'           => 'next_line_unless_newline_at_signature_end',
     ],
 
     'declare_parentheses' => true,
@@ -117,7 +124,7 @@ return [
         'tokens' => [
             'attribute',
             'break',
-            'case',
+            //'case',
             'continue',
             'curly_brace_block',
             'default',
@@ -161,7 +168,6 @@ return [
             'method',
             'method_static',
             'destruct',
-            'magic',
         ],
     ],
 
