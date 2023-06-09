@@ -3,6 +3,7 @@
 use DragonCode\CodeStyler\Commands\DefaultCommand;
 use DragonCode\CodeStyler\Commands\DependabotCommand;
 use DragonCode\CodeStyler\Commands\EditorConfigCommand;
+use DragonCode\CodeStyler\Commands\PhpStormCommand;
 
 return [
     /*
@@ -45,6 +46,7 @@ return [
     'add' => [
         DependabotCommand::class,
         EditorConfigCommand::class,
+        PhpStormCommand::class,
     ],
 
     /*
