@@ -44,8 +44,6 @@ class ConfigurationFactory extends BaseFactory
         '_ide_helper.php',
         '.phpstorm.meta.php',
         '*.blade.php',
-        'composer.json',
-        'package.json',
         'package-lock.json',
     ];
 
