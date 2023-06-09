@@ -61,6 +61,9 @@ codestyle editorconfig
 # Update Dependabot rules
 codestyle dependabot
 
+# Publishes code-style settings for the phpStorm IDE
+codestyle phpstorm
+
 # Show list of available commands
 codestyle list
 ```
@@ -229,6 +232,21 @@ composer global require dragon-code/codestyler
 codestyle <command>
 ```
 
+### IDE
+
+After executing the `codestyle editorconfig` console command, a `.editorconfig` file will be added to your application.
+If the file already exists, it will be replaced.
+
+In order for your IDE to read the code style settings from it, make sure its support is enabled in the settings.
+
+For example, in `phpStorm` the setting is in
+the [File | Settings | Editor | Code Style](jetbrains://PhpStorm/settings?name=Editor--Code+Style):
+
+![image](https://github.com/TheDragonCode/codestyler/assets/10347617/0a0ac61e-f297-41c9-b034-4ae52ea96da6)
+
+You can also use the `codestyle phpstorm` console command to publish the schema xml file to phpStorm.
+You can import this file into the IDE.
+
 ## Configuration
 
 By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules`
@@ -262,18 +280,6 @@ afraid, nothing will be deleted 😎
 > Files will be created only if you have specified `fix: true`.
 >
 > Or you can manually run the Dependabot rule creation script by executing the `codestyle dependabot` command.
-
-### IDE
-
-After executing the `codestyle editorconfig` console command, a `.editorconfig` file will be added to your application.
-If the file already exists, it will be replaced.
-
-In order for your IDE to read the code style settings from it, make sure its support is enabled in the settings.
-
-For example, in `phpStorm` the setting is in
-the [File | Settings | Editor | Code Style](jetbrains://PhpStorm/settings?name=Editor--Code+Style):
-
-![image](https://github.com/TheDragonCode/codestyler/assets/10347617/0a0ac61e-f297-41c9-b034-4ae52ea96da6)
 
 ## License
 
