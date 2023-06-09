@@ -13,7 +13,7 @@ it('fixes the code', function () {
                   -new class () extends BaseChangeColumn
                   -{
                   -};
-                  +new class () extends BaseChangeColumn {};
+                  +new class extends BaseChangeColumn {};
                 EOF,
         )
         ->toContain(

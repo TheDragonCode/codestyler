@@ -120,6 +120,10 @@ return [
         'strategy' => 'no_multi_line',
     ],
 
+    'new_with_braces' => [
+        'anonymous_class' => false,
+    ],
+
     'no_extra_blank_lines' => [
         'tokens' => [
             'attribute',

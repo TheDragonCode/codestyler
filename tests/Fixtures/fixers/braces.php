@@ -17,27 +17,31 @@ $a = function ()
     // ..
 };
 
-new class
+new class ( )
 
 {
     // ..
 };
 
-new class extends Bar
+new class ( ) extends Bar
 {
 
 };
 
-new class extends stdClass
+new class ( ) extends stdClass
 
 {
     // ..
 };
 
-new class extends Foo
+new class ( ) extends Foo
 
 {
     protected bool $some = true;
+};
+
+new class ( ) {
+    protected bool $value = true;
 };
 
 class Baq extends Qwerty{
