@@ -2,7 +2,7 @@
 
 # Check GitHub Token
 [ -z "${INPUT_GITHUB_TOKEN}" ] && {
-    echo 'Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}".';
+    echo 'Missing input "github_token: ${{ secrets.CODE_STYLE_TOKEN }}".';
 
     exit 1;
 };
