@@ -168,7 +168,7 @@ jobs:
                     # This token uses GitHub Actions to execute code.
                     # Required when `fix` is `true`.
                     # The default value is `${{ secrets.GITHUB_TOKEN }}`.
-                    github_token: ${{ secrets.YOUR_TOKEN }}
+                    github_token: ${{ secrets.CODE_STYLE_TOKEN }}
 
                     # Activates the mode of accepting changes with the creation
                     # of commits.
@@ -219,7 +219,7 @@ jobs:
             -   name: Code style fix
                 uses: TheDragonCode/codestyler@v3
                 with:
-                    github_token: ${{ secrets.YOUR_TOKEN }}
+                    github_token: ${{ secrets.CODE_STYLE_TOKEN }}
                     fix: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
 ```
