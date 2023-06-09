@@ -128,7 +128,7 @@ return [
         'tokens' => [
             'attribute',
             'break',
-            //'case',
+            // 'case',
             'continue',
             'curly_brace_block',
             'default',
