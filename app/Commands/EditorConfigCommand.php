@@ -20,7 +20,7 @@ class EditorConfigCommand extends BaseCommand
 
     protected function targetPath(): ?string
     {
-        return realpath(Project::path() . '/.editorconfig');
+        return Project::path() . '/.editorconfig';
     }
 
     protected function process(): string
