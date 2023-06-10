@@ -8,8 +8,9 @@ ARG INPUT_EDITORCONFIG
 ARG INPUT_DEPENDABOT
 ARG INPUT_NORMALIZE
 
-RUN echo $PATH
-RUN composer config --list --global
+RUN dep --version
+RUN pint --version
+RUN codestyle --version
 
 COPY shell /shell
 COPY entrypoint.sh /entrypoint.sh
