@@ -2,7 +2,7 @@
 
 if [[ $(allowFix) == "false" ]]; then
     echo "Check the code style..."
-    php codestyle --test
+    codestyle --test
 
     exitcode=$?
 
