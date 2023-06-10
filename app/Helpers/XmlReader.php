@@ -30,7 +30,6 @@ class XmlReader
 
         $document->preserveWhiteSpace = false;
         $document->formatOutput       = true;
-        $document->validateOnParse    = true;
 
         return $document;
     }
