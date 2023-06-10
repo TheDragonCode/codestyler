@@ -1,7 +1,11 @@
 #!/bin/sh -l
 
 if [[ $(allowFix) == "false" ]]; then
-    codestyle --test
+    if [[ $INPUT_VERBOSE == "true" ]]; then
+        codestyle --test --verbose
+    else
+        codestyle --test
+    fi
 
     exitcode=$?
 
