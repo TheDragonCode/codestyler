@@ -17,9 +17,6 @@ jobs:
             -   name: Checkout code
                 uses: actions/checkout@v3
 
-            -   name: Clean up
-                run: rm -rf ./codestyle
-
             -   name: Check the container
                 uses: TheDragonCode/codestyler@3.x
 
