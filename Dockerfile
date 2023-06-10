@@ -8,6 +8,8 @@ ARG INPUT_EDITORCONFIG
 ARG INPUT_DEPENDABOT
 ARG INPUT_NORMALIZE
 
+RUN composer config --list --global
+
 RUN composer global update
 RUN composer global require dragon-code/codestyler:^3.3
 
