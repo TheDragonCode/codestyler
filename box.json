@@ -13,6 +13,7 @@
         ".env",
         ".editorconfig",
         "composer.json",
+        
         "DragonCodePhpStorm.xml"
     ],
     "blacklist": [
