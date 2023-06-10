@@ -1,4 +1,4 @@
-ARG PHP_VERSION=edge
+ARG PHP_VERSION=stable
 
 FROM helldar/laravel-gitlab-ci:${PHP_VERSION}
 
