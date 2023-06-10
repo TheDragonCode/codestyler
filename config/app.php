@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'name' => 'The Dragon Code: Code-Styler',
+     'name' => 'The Dragon Code: Code-Styler',
 
     /*
     |--------------------------------------------------------------------------
