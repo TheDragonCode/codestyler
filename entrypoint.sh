@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+export PATH="$HOME/.composer/vendor/bin:~/.composer/vendor/bin:./vendor/bin:/vendor/bin:/composer/vendor/bin:$HOME/.composer/vendor/bin:/var/www/vendor/bin:$HOME/.local/composer/vendor/bin:$COMPOSER_HOME/vendor/bin:$PATH"
+
 source /shell/functions.sh
 source /shell/config.sh
 source /shell/plugins.sh
