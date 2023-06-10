@@ -9,6 +9,6 @@ jobs:
         uses: TheDragonCode/.github/.github/workflows/code-style.yml@main
         
         with:
-            token: ${{ secrets.CODE_STYLE_TOKEN }}
+            token: ${{ secrets.COMPOSER_TOKEN }}
             fix: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
             editorconfig: false
