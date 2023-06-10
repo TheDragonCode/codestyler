@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Fixers;
 
-use DragonCode\CodeStyler\Services\Filesystem\Filesystem;
+use DOMDocument;
+use DragonCode\CodeStyler\Helpers\XmlReader;
 use DragonCode\Support\Facades\Helpers\Str;
 use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
@@ -12,15 +13,14 @@ use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
 use SplFileInfo;
-use Symfony\Component\Yaml\Yaml as SymfonyYaml;
 
-class YamlFixer implements FixerInterface
+class XmlFixer implements FixerInterface
 {
-    protected array $extensions = ['yaml', 'yml'];
+    protected array $extensions = ['.xml', '.xml.dist'];
 
     public function getName(): string
     {
-        return 'DragonCode/yaml';
+        return 'DragonCode/xml';
     }
 
     public function isCandidate(Tokens $tokens): bool
@@ -42,7 +42,7 @@ class YamlFixer implements FixerInterface
 
     public function getDefinition(): FixerDefinitionInterface
     {
-        return new FixerDefinition('Formats a YAML file with 4 spaces indented.', []);
+        return new FixerDefinition('Formats a XML file with 2 spaces indented.', []);
     }
 
     public function getPriority(): int
@@ -52,16 +52,16 @@ class YamlFixer implements FixerInterface
 
     public function supports(SplFileInfo $file): bool
     {
-        return in_array(Str::lower($file->getExtension()), $this->extensions);
+        return Str::of($file->getPathname())->lower()->endsWith($this->extensions);
     }
 
-    protected function parse(string $path): ?array
+    protected function parse(string $path): DOMDocument
     {
-        return resolve(Filesystem::class)->load($path);
+        return XmlReader::load($path);
     }
 
-    protected function encode(array $data): string
+    protected function encode(DOMDocument $document): string
     {
-        return SymfonyYaml::dump($data, 5);
+        return XmlReader::toXml($document);
     }
 }

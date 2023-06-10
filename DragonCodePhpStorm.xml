@@ -1,132 +1,133 @@
+<?xml version="1.0"?>
 <code_scheme name="Dragon Code" version="173">
-  <option name="LINE_SEPARATOR" value="&#10;" />
-  <option name="FORMATTER_TAGS_ENABLED" value="true" />
-  <option name="ENABLE_SECOND_REFORMAT" value="true" />
+  <option name="LINE_SEPARATOR" value="&#10;"/>
+  <option name="FORMATTER_TAGS_ENABLED" value="true"/>
+  <option name="ENABLE_SECOND_REFORMAT" value="true"/>
   <CssCodeStyleSettings>
-    <option name="HEX_COLOR_UPPER_CASE" value="true" />
-    <option name="HEX_COLOR_LONG_FORMAT" value="true" />
-    <option name="ENFORCE_QUOTES_ON_FORMAT" value="true" />
+    <option name="HEX_COLOR_UPPER_CASE" value="true"/>
+    <option name="HEX_COLOR_LONG_FORMAT" value="true"/>
+    <option name="ENFORCE_QUOTES_ON_FORMAT" value="true"/>
   </CssCodeStyleSettings>
   <HTMLCodeStyleSettings>
-    <option name="HTML_ATTRIBUTE_WRAP" value="4" />
-    <option name="HTML_TEXT_WRAP" value="0" />
-    <option name="HTML_ALIGN_ATTRIBUTES" value="false" />
-    <option name="HTML_SPACE_INSIDE_EMPTY_TAG" value="true" />
-    <option name="HTML_ENFORCE_QUOTES" value="true" />
-    <option name="HTML_NEWLINE_BEFORE_FIRST_ATTRIBUTE" value="When multiline" />
+    <option name="HTML_ATTRIBUTE_WRAP" value="4"/>
+    <option name="HTML_TEXT_WRAP" value="0"/>
+    <option name="HTML_ALIGN_ATTRIBUTES" value="false"/>
+    <option name="HTML_SPACE_INSIDE_EMPTY_TAG" value="true"/>
+    <option name="HTML_ENFORCE_QUOTES" value="true"/>
+    <option name="HTML_NEWLINE_BEFORE_FIRST_ATTRIBUTE" value="When multiline"/>
   </HTMLCodeStyleSettings>
   <JSCodeStyleSettings version="0">
-    <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
-    <option name="FORCE_SEMICOLON_STYLE" value="true" />
-    <option name="FILE_NAME_STYLE" value="LISP_CASE" />
-    <option name="ALIGN_VAR_STATEMENTS" value="1" />
-    <option name="USE_DOUBLE_QUOTES" value="false" />
-    <option name="FORCE_QUOTE_STYlE" value="true" />
-    <option name="ENFORCE_TRAILING_COMMA" value="Remove" />
-    <option name="VAR_DECLARATION_WRAP" value="5" />
-    <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true" />
-    <option name="SPACES_WITHIN_IMPORTS" value="true" />
-    <option name="SPACES_WITHIN_INTERPOLATION_EXPRESSIONS" value="true" />
-    <option name="SPACE_AFTER_UNARY_NOT" value="true" />
-    <option name="IMPORT_PREFER_ABSOLUTE_PATH" value="TRUE" />
+    <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false"/>
+    <option name="FORCE_SEMICOLON_STYLE" value="true"/>
+    <option name="FILE_NAME_STYLE" value="LISP_CASE"/>
+    <option name="ALIGN_VAR_STATEMENTS" value="1"/>
+    <option name="USE_DOUBLE_QUOTES" value="false"/>
+    <option name="FORCE_QUOTE_STYlE" value="true"/>
+    <option name="ENFORCE_TRAILING_COMMA" value="Remove"/>
+    <option name="VAR_DECLARATION_WRAP" value="5"/>
+    <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true"/>
+    <option name="SPACES_WITHIN_IMPORTS" value="true"/>
+    <option name="SPACES_WITHIN_INTERPOLATION_EXPRESSIONS" value="true"/>
+    <option name="SPACE_AFTER_UNARY_NOT" value="true"/>
+    <option name="IMPORT_PREFER_ABSOLUTE_PATH" value="TRUE"/>
   </JSCodeStyleSettings>
   <JSON>
-    <option name="OBJECT_WRAPPING" value="5" />
-    <option name="ARRAY_WRAPPING" value="5" />
+    <option name="OBJECT_WRAPPING" value="5"/>
+    <option name="ARRAY_WRAPPING" value="5"/>
   </JSON>
   <LessCodeStyleSettings>
-    <option name="HEX_COLOR_UPPER_CASE" value="true" />
-    <option name="HEX_COLOR_LONG_FORMAT" value="true" />
+    <option name="HEX_COLOR_UPPER_CASE" value="true"/>
+    <option name="HEX_COLOR_LONG_FORMAT" value="true"/>
   </LessCodeStyleSettings>
   <Markdown>
-    <option name="MIN_LINES_AROUND_HEADER" value="2" />
+    <option name="MIN_LINES_AROUND_HEADER" value="2"/>
   </Markdown>
   <PHPCodeStyleSettings>
-    <option name="ALIGN_KEY_VALUE_PAIRS" value="true" />
-    <option name="ALIGN_ASSIGNMENTS" value="true" />
-    <option name="ALIGN_INLINE_COMMENTS" value="true" />
-    <option name="ALIGN_NAMED_ARGUMENTS" value="true" />
-    <option name="COMMA_AFTER_LAST_ARRAY_ELEMENT" value="true" />
-    <option name="COMMA_AFTER_LAST_MATCH_ARM" value="true" />
-    <option name="PHPDOC_BLANK_LINE_BEFORE_TAGS" value="true" />
-    <option name="PHPDOC_BLANK_LINES_AROUND_PARAMETERS" value="true" />
-    <option name="PHPDOC_WRAP_LONG_LINES" value="true" />
-    <option name="BLANK_LINES_BETWEEN_IMPORTS" value="1" />
-    <option name="PHPDOC_PARAM_SPACES_BETWEEN_TAG_AND_TYPE" value="2" />
-    <option name="PHPDOC_PARAM_SPACES_BETWEEN_NAME_AND_DESCRIPTION" value="2" />
-    <option name="LINK_WEIGHT" value="7" />
-    <option name="THROWS_WEIGHT" value="14" />
-    <option name="PARAM_WEIGHT" value="9" />
-    <option name="RETURN_WEIGHT" value="15" />
-    <option name="AUTHOR_WEIGHT" value="3" />
-    <option name="INTERNAL_WEIGHT" value="1" />
-    <option name="VERSION_WEIGHT" value="8" />
-    <option name="COPYRIGHT_WEIGHT" value="4" />
-    <option name="DEPRECATED_WEIGHT" value="0" />
-    <option name="LICENSE_WEIGHT" value="5" />
-    <option name="METHOD_WEIGHT" value="13" />
-    <option name="PROPERTY_WEIGHT" value="10" />
-    <option name="PROPERTY_READ_WEIGHT" value="11" />
-    <option name="PROPERTY_WRITE_WEIGHT" value="12" />
-    <option name="SEE_WEIGHT" value="6" />
-    <option name="SINCE_WEIGHT" value="2" />
-    <option name="LOWER_CASE_BOOLEAN_CONST" value="true" />
-    <option name="LOWER_CASE_NULL_CONST" value="true" />
-    <option name="ELSE_IF_STYLE" value="COMBINE" />
-    <option name="FIELDS_DEFAULT_VISIBILITY" value="protected" />
-    <option name="VARIABLE_NAMING_STYLE" value="CAMEL_CASE" />
-    <option name="BLANK_LINES_BEFORE_RETURN_STATEMENT" value="1" />
-    <option name="KEEP_RPAREN_AND_LBRACE_ON_ONE_LINE" value="true" />
-    <option name="ALIGN_CLASS_CONSTANTS" value="true" />
-    <option name="ALIGN_ENUM_CASES" value="true" />
-    <option name="BLANK_LINES_AFTER_OPENING_TAG" value="1" />
-    <option name="KEEP_BLANK_LINES_AFTER_LBRACE" value="1" />
-    <option name="SPACE_AFTER_UNARY_NOT" value="true" />
-    <option name="SPACE_BEFORE_SHORT_CLOSURE_LEFT_PARENTHESIS" value="true" />
-    <option name="FORCE_SHORT_DECLARATION_ARRAY_STYLE" value="true" />
-    <option name="NEW_LINE_AFTER_PHP_OPENING_TAG" value="true" />
-    <option name="FORCE_EMPTY_METHODS_IN_ONE_LINE" value="true" />
-    <option name="PHPDOC_USE_FQCN" value="true" />
-    <option name="NAMESPACE_BRACE_STYLE" value="2" />
-    <option name="PLACE_PARENS_FOR_CONSTRUCTOR" value="1" />
-    <option name="IF_LPAREN_ON_NEXT_LINE" value="true" />
-    <option name="IF_RPAREN_ON_NEXT_LINE" value="true" />
-    <option name="ATTRIBUTES_WRAP" value="2" />
-    <option name="PARAMETERS_ATTRIBUTES_WRAP" value="2" />
+    <option name="ALIGN_KEY_VALUE_PAIRS" value="true"/>
+    <option name="ALIGN_ASSIGNMENTS" value="true"/>
+    <option name="ALIGN_INLINE_COMMENTS" value="true"/>
+    <option name="ALIGN_NAMED_ARGUMENTS" value="true"/>
+    <option name="COMMA_AFTER_LAST_ARRAY_ELEMENT" value="true"/>
+    <option name="COMMA_AFTER_LAST_MATCH_ARM" value="true"/>
+    <option name="PHPDOC_BLANK_LINE_BEFORE_TAGS" value="true"/>
+    <option name="PHPDOC_BLANK_LINES_AROUND_PARAMETERS" value="true"/>
+    <option name="PHPDOC_WRAP_LONG_LINES" value="true"/>
+    <option name="BLANK_LINES_BETWEEN_IMPORTS" value="1"/>
+    <option name="PHPDOC_PARAM_SPACES_BETWEEN_TAG_AND_TYPE" value="2"/>
+    <option name="PHPDOC_PARAM_SPACES_BETWEEN_NAME_AND_DESCRIPTION" value="2"/>
+    <option name="LINK_WEIGHT" value="7"/>
+    <option name="THROWS_WEIGHT" value="14"/>
+    <option name="PARAM_WEIGHT" value="9"/>
+    <option name="RETURN_WEIGHT" value="15"/>
+    <option name="AUTHOR_WEIGHT" value="3"/>
+    <option name="INTERNAL_WEIGHT" value="1"/>
+    <option name="VERSION_WEIGHT" value="8"/>
+    <option name="COPYRIGHT_WEIGHT" value="4"/>
+    <option name="DEPRECATED_WEIGHT" value="0"/>
+    <option name="LICENSE_WEIGHT" value="5"/>
+    <option name="METHOD_WEIGHT" value="13"/>
+    <option name="PROPERTY_WEIGHT" value="10"/>
+    <option name="PROPERTY_READ_WEIGHT" value="11"/>
+    <option name="PROPERTY_WRITE_WEIGHT" value="12"/>
+    <option name="SEE_WEIGHT" value="6"/>
+    <option name="SINCE_WEIGHT" value="2"/>
+    <option name="LOWER_CASE_BOOLEAN_CONST" value="true"/>
+    <option name="LOWER_CASE_NULL_CONST" value="true"/>
+    <option name="ELSE_IF_STYLE" value="COMBINE"/>
+    <option name="FIELDS_DEFAULT_VISIBILITY" value="protected"/>
+    <option name="VARIABLE_NAMING_STYLE" value="CAMEL_CASE"/>
+    <option name="BLANK_LINES_BEFORE_RETURN_STATEMENT" value="1"/>
+    <option name="KEEP_RPAREN_AND_LBRACE_ON_ONE_LINE" value="true"/>
+    <option name="ALIGN_CLASS_CONSTANTS" value="true"/>
+    <option name="ALIGN_ENUM_CASES" value="true"/>
+    <option name="BLANK_LINES_AFTER_OPENING_TAG" value="1"/>
+    <option name="KEEP_BLANK_LINES_AFTER_LBRACE" value="1"/>
+    <option name="SPACE_AFTER_UNARY_NOT" value="true"/>
+    <option name="SPACE_BEFORE_SHORT_CLOSURE_LEFT_PARENTHESIS" value="true"/>
+    <option name="FORCE_SHORT_DECLARATION_ARRAY_STYLE" value="true"/>
+    <option name="NEW_LINE_AFTER_PHP_OPENING_TAG" value="true"/>
+    <option name="FORCE_EMPTY_METHODS_IN_ONE_LINE" value="true"/>
+    <option name="PHPDOC_USE_FQCN" value="true"/>
+    <option name="NAMESPACE_BRACE_STYLE" value="2"/>
+    <option name="PLACE_PARENS_FOR_CONSTRUCTOR" value="1"/>
+    <option name="IF_LPAREN_ON_NEXT_LINE" value="true"/>
+    <option name="IF_RPAREN_ON_NEXT_LINE" value="true"/>
+    <option name="ATTRIBUTES_WRAP" value="2"/>
+    <option name="PARAMETERS_ATTRIBUTES_WRAP" value="2"/>
   </PHPCodeStyleSettings>
   <ScssCodeStyleSettings>
-    <option name="HEX_COLOR_UPPER_CASE" value="true" />
-    <option name="HEX_COLOR_LONG_FORMAT" value="true" />
-    <option name="ENFORCE_QUOTES_ON_FORMAT" value="true" />
+    <option name="HEX_COLOR_UPPER_CASE" value="true"/>
+    <option name="HEX_COLOR_LONG_FORMAT" value="true"/>
+    <option name="ENFORCE_QUOTES_ON_FORMAT" value="true"/>
   </ScssCodeStyleSettings>
   <TypeScriptCodeStyleSettings version="0">
-    <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
-    <option name="FORCE_SEMICOLON_STYLE" value="true" />
-    <option name="USE_DOUBLE_QUOTES" value="false" />
-    <option name="FORCE_QUOTE_STYlE" value="true" />
-    <option name="ENFORCE_TRAILING_COMMA" value="Remove" />
-    <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true" />
-    <option name="SPACES_WITHIN_IMPORTS" value="true" />
-    <option name="SPACES_WITHIN_INTERPOLATION_EXPRESSIONS" value="true" />
-    <option name="SPACE_AFTER_UNARY_NOT" value="true" />
+    <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false"/>
+    <option name="FORCE_SEMICOLON_STYLE" value="true"/>
+    <option name="USE_DOUBLE_QUOTES" value="false"/>
+    <option name="FORCE_QUOTE_STYlE" value="true"/>
+    <option name="ENFORCE_TRAILING_COMMA" value="Remove"/>
+    <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true"/>
+    <option name="SPACES_WITHIN_IMPORTS" value="true"/>
+    <option name="SPACES_WITHIN_INTERPOLATION_EXPRESSIONS" value="true"/>
+    <option name="SPACE_AFTER_UNARY_NOT" value="true"/>
   </TypeScriptCodeStyleSettings>
   <XML>
-    <option name="XML_SPACE_INSIDE_EMPTY_TAG" value="true" />
+    <option name="XML_SPACE_INSIDE_EMPTY_TAG" value="true"/>
   </XML>
   <editorconfig>
-    <option name="ENABLED" value="false" />
+    <option name="ENABLED" value="false"/>
   </editorconfig>
   <yaml>
-    <option name="SEQUENCE_ON_NEW_LINE" value="true" />
+    <option name="SEQUENCE_ON_NEW_LINE" value="true"/>
   </yaml>
   <codeStyleSettings language="Blade">
     <indentOptions>
-      <option name="CONTINUATION_INDENT_SIZE" value="4" />
+      <option name="CONTINUATION_INDENT_SIZE" value="4"/>
     </indentOptions>
   </codeStyleSettings>
   <codeStyleSettings language="CSS">
-    <option name="BLOCK_COMMENT_ADD_SPACE" value="true" />
-    <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
+    <option name="BLOCK_COMMENT_ADD_SPACE" value="true"/>
+    <option name="KEEP_BLANK_LINES_IN_CODE" value="1"/>
     <arrangement>
       <rules>
         <section>
@@ -141,72 +142,72 @@
     </arrangement>
   </codeStyleSettings>
   <codeStyleSettings language="HTML">
-    <option name="SOFT_MARGINS" value="160" />
+    <option name="SOFT_MARGINS" value="160"/>
     <indentOptions>
-      <option name="CONTINUATION_INDENT_SIZE" value="4" />
+      <option name="CONTINUATION_INDENT_SIZE" value="4"/>
     </indentOptions>
     <arrangement>
-      <rules />
+      <rules/>
     </arrangement>
   </codeStyleSettings>
   <codeStyleSettings language="JSON">
-    <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
-    <option name="SPACE_WITHIN_BRACES" value="true" />
+    <option name="KEEP_BLANK_LINES_IN_CODE" value="1"/>
+    <option name="SPACE_WITHIN_BRACES" value="true"/>
     <indentOptions>
-      <option name="INDENT_SIZE" value="4" />
-      <option name="CONTINUATION_INDENT_SIZE" value="4" />
+      <option name="INDENT_SIZE" value="4"/>
+      <option name="CONTINUATION_INDENT_SIZE" value="4"/>
     </indentOptions>
   </codeStyleSettings>
   <codeStyleSettings language="JavaScript">
-    <option name="LINE_COMMENT_ADD_SPACE" value="false" />
-    <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
-    <option name="CLASS_BRACE_STYLE" value="2" />
-    <option name="ARRAY_INITIALIZER_WRAP" value="5" />
-    <option name="ARRAY_INITIALIZER_LBRACE_ON_NEXT_LINE" value="true" />
-    <option name="ARRAY_INITIALIZER_RBRACE_ON_NEXT_LINE" value="true" />
+    <option name="LINE_COMMENT_ADD_SPACE" value="false"/>
+    <option name="KEEP_BLANK_LINES_IN_CODE" value="1"/>
+    <option name="CLASS_BRACE_STYLE" value="2"/>
+    <option name="ARRAY_INITIALIZER_WRAP" value="5"/>
+    <option name="ARRAY_INITIALIZER_LBRACE_ON_NEXT_LINE" value="true"/>
+    <option name="ARRAY_INITIALIZER_RBRACE_ON_NEXT_LINE" value="true"/>
   </codeStyleSettings>
   <codeStyleSettings language="PHP">
-    <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
-    <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
-    <option name="KEEP_CONTROL_STATEMENT_IN_ONE_LINE" value="false" />
-    <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="0" />
-    <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
-    <option name="KEEP_BLANK_LINES_BEFORE_RBRACE" value="0" />
-    <option name="BLANK_LINES_AFTER_PACKAGE" value="1" />
-    <option name="BLANK_LINES_AROUND_FIELD" value="1" />
-    <option name="ELSE_ON_NEW_LINE" value="true" />
-    <option name="WHILE_ON_NEW_LINE" value="true" />
-    <option name="CATCH_ON_NEW_LINE" value="true" />
-    <option name="FINALLY_ON_NEW_LINE" value="true" />
-    <option name="SPECIAL_ELSE_IF_TREATMENT" value="true" />
-    <option name="ALIGN_MULTILINE_FOR" value="false" />
-    <option name="ALIGN_MULTILINE_EXTENDS_LIST" value="true" />
-    <option name="ALIGN_MULTILINE_ARRAY_INITIALIZER_EXPRESSION" value="true" />
-    <option name="SPACE_AFTER_TYPE_CAST" value="true" />
-    <option name="SPACE_BEFORE_ARRAY_INITIALIZER_LBRACE" value="true" />
-    <option name="CALL_PARAMETERS_WRAP" value="5" />
-    <option name="CALL_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
-    <option name="CALL_PARAMETERS_RPAREN_ON_NEXT_LINE" value="true" />
-    <option name="METHOD_PARAMETERS_WRAP" value="5" />
-    <option name="METHOD_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
-    <option name="METHOD_PARAMETERS_RPAREN_ON_NEXT_LINE" value="true" />
-    <option name="EXTENDS_KEYWORD_WRAP" value="1" />
-    <option name="METHOD_CALL_CHAIN_WRAP" value="5" />
-    <option name="BINARY_OPERATION_WRAP" value="5" />
-    <option name="BINARY_OPERATION_SIGN_ON_NEXT_LINE" value="true" />
-    <option name="TERNARY_OPERATION_WRAP" value="5" />
-    <option name="TERNARY_OPERATION_SIGNS_ON_NEXT_LINE" value="true" />
-    <option name="KEEP_SIMPLE_METHODS_IN_ONE_LINE" value="true" />
-    <option name="KEEP_SIMPLE_CLASSES_IN_ONE_LINE" value="true" />
-    <option name="FOR_STATEMENT_WRAP" value="1" />
-    <option name="ARRAY_INITIALIZER_WRAP" value="5" />
-    <option name="ARRAY_INITIALIZER_LBRACE_ON_NEXT_LINE" value="true" />
-    <option name="ARRAY_INITIALIZER_RBRACE_ON_NEXT_LINE" value="true" />
-    <option name="ASSIGNMENT_WRAP" value="5" />
-    <option name="IF_BRACE_FORCE" value="3" />
-    <option name="DOWHILE_BRACE_FORCE" value="3" />
-    <option name="WHILE_BRACE_FORCE" value="3" />
-    <option name="FOR_BRACE_FORCE" value="3" />
+    <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false"/>
+    <option name="KEEP_FIRST_COLUMN_COMMENT" value="false"/>
+    <option name="KEEP_CONTROL_STATEMENT_IN_ONE_LINE" value="false"/>
+    <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="0"/>
+    <option name="KEEP_BLANK_LINES_IN_CODE" value="1"/>
+    <option name="KEEP_BLANK_LINES_BEFORE_RBRACE" value="0"/>
+    <option name="BLANK_LINES_AFTER_PACKAGE" value="1"/>
+    <option name="BLANK_LINES_AROUND_FIELD" value="1"/>
+    <option name="ELSE_ON_NEW_LINE" value="true"/>
+    <option name="WHILE_ON_NEW_LINE" value="true"/>
+    <option name="CATCH_ON_NEW_LINE" value="true"/>
+    <option name="FINALLY_ON_NEW_LINE" value="true"/>
+    <option name="SPECIAL_ELSE_IF_TREATMENT" value="true"/>
+    <option name="ALIGN_MULTILINE_FOR" value="false"/>
+    <option name="ALIGN_MULTILINE_EXTENDS_LIST" value="true"/>
+    <option name="ALIGN_MULTILINE_ARRAY_INITIALIZER_EXPRESSION" value="true"/>
+    <option name="SPACE_AFTER_TYPE_CAST" value="true"/>
+    <option name="SPACE_BEFORE_ARRAY_INITIALIZER_LBRACE" value="true"/>
+    <option name="CALL_PARAMETERS_WRAP" value="5"/>
+    <option name="CALL_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true"/>
+    <option name="CALL_PARAMETERS_RPAREN_ON_NEXT_LINE" value="true"/>
+    <option name="METHOD_PARAMETERS_WRAP" value="5"/>
+    <option name="METHOD_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true"/>
+    <option name="METHOD_PARAMETERS_RPAREN_ON_NEXT_LINE" value="true"/>
+    <option name="EXTENDS_KEYWORD_WRAP" value="1"/>
+    <option name="METHOD_CALL_CHAIN_WRAP" value="5"/>
+    <option name="BINARY_OPERATION_WRAP" value="5"/>
+    <option name="BINARY_OPERATION_SIGN_ON_NEXT_LINE" value="true"/>
+    <option name="TERNARY_OPERATION_WRAP" value="5"/>
+    <option name="TERNARY_OPERATION_SIGNS_ON_NEXT_LINE" value="true"/>
+    <option name="KEEP_SIMPLE_METHODS_IN_ONE_LINE" value="true"/>
+    <option name="KEEP_SIMPLE_CLASSES_IN_ONE_LINE" value="true"/>
+    <option name="FOR_STATEMENT_WRAP" value="1"/>
+    <option name="ARRAY_INITIALIZER_WRAP" value="5"/>
+    <option name="ARRAY_INITIALIZER_LBRACE_ON_NEXT_LINE" value="true"/>
+    <option name="ARRAY_INITIALIZER_RBRACE_ON_NEXT_LINE" value="true"/>
+    <option name="ASSIGNMENT_WRAP" value="5"/>
+    <option name="IF_BRACE_FORCE" value="3"/>
+    <option name="DOWHILE_BRACE_FORCE" value="3"/>
+    <option name="WHILE_BRACE_FORCE" value="3"/>
+    <option name="FOR_BRACE_FORCE" value="3"/>
     <arrangement>
       <tokens>
         <token id="modifiers" name="modifiers">
@@ -434,7 +435,7 @@
               <AND>
                 <FIELD>true</FIELD>
                 <PUBLIC>true</PUBLIC>
-                <modifiers />
+                <modifiers/>
               </AND>
             </match>
           </rule>
@@ -445,7 +446,7 @@
               <AND>
                 <FIELD>true</FIELD>
                 <PROTECTED>true</PROTECTED>
-                <modifiers />
+                <modifiers/>
               </AND>
             </match>
           </rule>
@@ -456,7 +457,7 @@
               <AND>
                 <FIELD>true</FIELD>
                 <PRIVATE>true</PRIVATE>
-                <modifiers />
+                <modifiers/>
               </AND>
             </match>
           </rule>
@@ -467,7 +468,7 @@
               <AND>
                 <ABSTRACT>true</ABSTRACT>
                 <METHOD>true</METHOD>
-                <modifiers />
+                <modifiers/>
               </AND>
             </match>
             <order>BY_NAME</order>
@@ -486,7 +487,7 @@
               <AND>
                 <METHOD>true</METHOD>
                 <PUBLIC>true</PUBLIC>
-                <visibility />
+                <visibility/>
               </AND>
             </match>
           </rule>
@@ -497,7 +498,7 @@
               <AND>
                 <METHOD>true</METHOD>
                 <PROTECTED>true</PROTECTED>
-                <modifiers />
+                <modifiers/>
               </AND>
             </match>
           </rule>
@@ -508,7 +509,7 @@
               <AND>
                 <METHOD>true</METHOD>
                 <PRIVATE>true</PRIVATE>
-                <modifiers />
+                <modifiers/>
               </AND>
             </match>
           </rule>
@@ -532,10 +533,10 @@
     </arrangement>
   </codeStyleSettings>
   <codeStyleSettings language="SCSS">
-    <option name="BLOCK_COMMENT_ADD_SPACE" value="true" />
-    <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
+    <option name="BLOCK_COMMENT_ADD_SPACE" value="true"/>
+    <option name="KEEP_BLANK_LINES_IN_CODE" value="1"/>
     <indentOptions>
-      <option name="INDENT_SIZE" value="4" />
+      <option name="INDENT_SIZE" value="4"/>
     </indentOptions>
     <arrangement>
       <rules>
@@ -552,27 +553,28 @@
   </codeStyleSettings>
   <codeStyleSettings language="Shell Script">
     <indentOptions>
-      <option name="INDENT_SIZE" value="4" />
-      <option name="TAB_SIZE" value="4" />
+      <option name="INDENT_SIZE" value="4"/>
+      <option name="TAB_SIZE" value="4"/>
     </indentOptions>
   </codeStyleSettings>
   <codeStyleSettings language="TypeScript">
-    <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
-    <option name="CLASS_BRACE_STYLE" value="2" />
-    <option name="METHOD_BRACE_STYLE" value="2" />
+    <option name="KEEP_BLANK_LINES_IN_CODE" value="1"/>
+    <option name="CLASS_BRACE_STYLE" value="2"/>
+    <option name="METHOD_BRACE_STYLE" value="2"/>
   </codeStyleSettings>
   <codeStyleSettings language="Vue">
     <indentOptions>
-      <option name="INDENT_SIZE" value="4" />
-      <option name="TAB_SIZE" value="4" />
+      <option name="INDENT_SIZE" value="4"/>
+      <option name="TAB_SIZE" value="4"/>
     </indentOptions>
   </codeStyleSettings>
   <codeStyleSettings language="XML">
-    <option name="BLOCK_COMMENT_ADD_SPACE" value="true" />
+    <option name="BLOCK_COMMENT_ADD_SPACE" value="true"/>
   </codeStyleSettings>
   <codeStyleSettings language="yaml">
     <indentOptions>
-      <option name="INDENT_SIZE" value="4" />
+      <option name="INDENT_SIZE" value="4"/>
     </indentOptions>
   </codeStyleSettings>
 </code_scheme>
+
