@@ -150,7 +150,7 @@ codestyle editorconfig --help
 Create a new `.github/workflows/code-style.yml` file and add the content to it:
 
 ```yaml
-name: "Code-Style"
+name: Code Style
 
 on: [ push, pull_request ]
 
@@ -202,7 +202,7 @@ The name of the variable containing the token must be passed to the `github_toke
 #### Simplify Check & Fix
 
 ```yaml
-name: code-style
+name: Code Style
 
 on: [ push, pull_request ]
 
