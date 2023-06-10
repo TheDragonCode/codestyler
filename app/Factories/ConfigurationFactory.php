@@ -8,6 +8,7 @@ use App\Factories\ConfigurationFactory as BaseFactory;
 use App\Fixers\LaravelPhpdocAlignmentFixer;
 use DragonCode\CodeStyler\Fixers\JsonFixer;
 use DragonCode\CodeStyler\Fixers\JsonRiskyFixer;
+use DragonCode\CodeStyler\Fixers\XmlFixer;
 use DragonCode\CodeStyler\Fixers\YamlFixer;
 use DragonCode\CodeStyler\Repositories\ConfigurationJsonRepository;
 use PedroTroller\CS\Fixer\DeadCode\UselessCodeAfterReturnFixer;
@@ -34,8 +35,10 @@ class ConfigurationFactory extends BaseFactory
 {
     protected static array $names = [
         '/\.json$/',
-        '/\.yaml/',
-        '/\.yml/',
+        '/\.yaml$/',
+        '/\.yml$/',
+        '/\.xml$/',
+        '/\.xml\.dist$/',
     ];
 
     protected static $notName = [
@@ -59,6 +62,7 @@ class ConfigurationFactory extends BaseFactory
                 new JsonFixer(),
                 new JsonRiskyFixer(),
                 new YamlFixer(),
+                new XmlFixer(),
                 // Laravel...
                 new LaravelPhpdocAlignmentFixer(),
                 // PhpCsFixerCustomFixers...
