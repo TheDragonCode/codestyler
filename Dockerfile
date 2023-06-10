@@ -8,6 +8,7 @@ ARG INPUT_EDITORCONFIG
 ARG INPUT_DEPENDABOT
 ARG INPUT_NORMALIZE
 
+RUN composer --version
 RUN dep --version
 RUN pint --version
 RUN codestyle --version
