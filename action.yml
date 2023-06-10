@@ -11,15 +11,15 @@ inputs:
         required: false
         default: 'false'
     editorconfig:
-        description: 'Update `.editorconfig` file.'
+        description: 'Update .editorconfig file.'
         required: false
         default: 'true'
     dependabot:
-        description: 'Updating Dependabot rules.'
+        description: 'Update Dependabot rules.'
         required: false
         default: 'true'
     normalize:
-        description: 'Normalizing composer.json.'
+        description: 'Normalize the composer.json file.'
         required: false
         default: 'true'
 runs:
@@ -34,4 +34,3 @@ runs:
 branding:
     icon: check
     color: purple
-

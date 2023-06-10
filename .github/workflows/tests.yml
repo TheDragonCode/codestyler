@@ -18,7 +18,7 @@ jobs:
                 uses: actions/checkout@v3
 
             -   name: Check the container
-                uses: TheDragonCode/codestyler@main
+                uses: TheDragonCode/codestyler@3.x
 
     unit:
         runs-on: ${{ matrix.os }}

@@ -6,4 +6,4 @@ echo "Fix the code style..."
 
 codestyle
 
-{ git add . && git commit -a -m "🧹 Fixed style code"; } || IS_DIRTY_CODE=0
+{ git add . && git commit -a -m "🧹 Fix style code"; } || IS_DIRTY_CODE=0
