@@ -1,12 +1,14 @@
-ARG PHP_VERSION=stable
+FROM helldar/laravel-gitlab-ci:stable
 
-FROM helldar/laravel-gitlab-ci:${PHP_VERSION}
+LABEL maintainer="Andrey Helldar"
 
 ARG INPUT_FIX
 ARG INPUT_GITHUB_TOKEN
 ARG INPUT_EDITORCONFIG
 ARG INPUT_DEPENDABOT
 ARG INPUT_NORMALIZE
+
+RUN composer global require dragon-code/codestyler:^3.3
 
 COPY shell /shell
 COPY entrypoint.sh /entrypoint.sh
