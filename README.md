@@ -228,7 +228,29 @@ jobs:
                 with:
                     github_token: ${{ secrets.CODE_STYLE_TOKEN }}
                     fix: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+```
 
+Also you can use our configuration file:
+
+```yaml
+name: Code Style
+
+on: [ push, pull_request ]
+
+permissions: write-all
+
+jobs:
+    style:
+        uses: TheDragonCode/.github/.github/workflows/code-style.yml@main
+        
+        runs-on: ubuntu-latest
+        
+        with:
+            token: ${{ secrets.CODE_STYLE_TOKEN }}
+            fix: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+            editorconfig: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+            dependabot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+            normalize: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 ```
 
 ### Other CI/CD
