@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Fixers;
 
+use DragonCode\CodeStyler\Exceptions\ParsingException;
 use DragonCode\Support\Facades\Helpers\Str;
 use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
@@ -11,7 +12,6 @@ use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
 use Seld\JsonLint\JsonParser;
-use Seld\JsonLint\ParsingException;
 use SplFileInfo;
 
 class JsonFixer implements FixerInterface
