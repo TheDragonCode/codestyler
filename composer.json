@@ -43,19 +43,15 @@
             "type": "yoomoney",
             "url": "https://yoomoney.ru/to/410012608840929"
         },
-        
         {
             "type": "open_collective",
             "url": "https://opencollective.com/dragon-code"
         }
-        
     ],
     "require": {
         "php": "^8.1",
-
-        "ext-mbstring": "*",
         "ext-json": "*",
-        
+        "ext-mbstring": "*",
         "ext-tokenizer": "*",
         "ext-xml": "*"
     },
