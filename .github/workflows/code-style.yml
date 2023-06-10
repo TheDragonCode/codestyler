@@ -12,5 +12,3 @@ jobs:
             token: ${{ secrets.CODE_STYLE_TOKEN }}
             fix: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
             editorconfig: false
-            dependabot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-            normalize: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
