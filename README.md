@@ -216,7 +216,14 @@ jobs:
             -   name: Checkout code
                 uses: actions/checkout@v3
 
-            -   name: Code style fix
+            -   name: Detect job name
+                id: detect
+                run: |
+                    [[ ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} ]] && NAME="Fix" || NAME="Check"
+
+                    echo "name=${NAME}" >> $GITHUB_OUTPUT
+
+            -   name: ${{ steps.detect.outputs.name }} the code style
                 uses: TheDragonCode/codestyler@v3
                 with:
                     github_token: ${{ secrets.CODE_STYLE_TOKEN }}

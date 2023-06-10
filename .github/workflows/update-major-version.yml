@@ -1,4 +1,4 @@
-name: update-major-version
+name: Update Major Version
 
 run-name: Update for ${{ github.event.release.tag_name }}
 
