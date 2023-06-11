@@ -254,7 +254,7 @@ return [
 
     (new JsonFixer())->getName() => true,
     (new YamlFixer())->getName() => true,
-    // (new XmlFixer())->getName()  => true,
+    (new XmlFixer())->getName()  => true,
 
     (new LaravelPhpdocAlignmentFixer())->getName() => true,
 

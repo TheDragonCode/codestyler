@@ -11,18 +11,33 @@ it('fixes the xml', function () {
         ->toContain('  ⨯')
         ->toContain(
             <<<'EOF'
-                   <?xml version="1.0" encoding="UTF-8"?>
+                  -<?xml version="1.0" encoding="UTF-8"?>
+                  
                   -<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+                  
                   -   bootstrap="vendor/autoload.php"
+                  
                   -         colors="true"
+                  
                   ->
+                  
                   -<testsuites><testsuite name="Feature">
+                  
                   -<directory suffix="Test.php">./tests/Feature</directory>
+                  
                   -</testsuite><testsuite name="Unit">
+                  
                   -<directory suffix="Test.php">./tests/Unit</directory>
+                  
                   -</testsuite></testsuites>
+                  
                   -<source><include><directory suffix=".php">./app</directory>
+                  
                   -</include></source>
+                  
+                  -</phpunit>
+                  
+                  +<?xml version="1.0" encoding="UTF-8"?>
                   +<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd" bootstrap="vendor/autoload.php" colors="true">
                   +  <testsuites>
                   +    <testsuite name="Feature">
@@ -37,7 +52,7 @@ it('fixes the xml', function () {
                   +      <directory suffix=".php">./app</directory>
                   +    </include>
                   +  </source>
-                   </phpunit>
+                  +</phpunit>
                 EOF,
         );
 });
@@ -53,18 +68,33 @@ it('fixes the xml.dist', function () {
         ->toContain('  ⨯')
         ->toContain(
             <<<'EOF'
-                   <?xml version="1.0" encoding="UTF-8"?>
+                  -<?xml version="1.0" encoding="UTF-8"?>
+                  
                   -<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+                  
                   -   bootstrap="vendor/autoload.php"
+                  
                   -         colors="true"
+                  
                   ->
+                  
                   -<testsuites><testsuite name="Feature">
+                  
                   -<directory suffix="Test.php">./tests/Feature</directory>
+                  
                   -</testsuite><testsuite name="Unit">
+                  
                   -<directory suffix="Test.php">./tests/Unit</directory>
+                  
                   -</testsuite></testsuites>
+                  
                   -<source><include><directory suffix=".php">./app</directory>
+                  
                   -</include></source>
+                  
+                  -</phpunit>
+                  
+                  +<?xml version="1.0" encoding="UTF-8"?>
                   +<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd" bootstrap="vendor/autoload.php" colors="true">
                   +  <testsuites>
                   +    <testsuite name="Feature">
@@ -79,7 +109,7 @@ it('fixes the xml.dist', function () {
                   +      <directory suffix=".php">./app</directory>
                   +    </include>
                   +  </source>
-                   </phpunit>
+                  +</phpunit>
                 EOF,
         );
 });
