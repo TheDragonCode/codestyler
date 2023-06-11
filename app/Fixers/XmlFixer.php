@@ -35,9 +35,9 @@ class XmlFixer implements FixerInterface
 
     public function fix(SplFileInfo $file, Tokens $tokens): void
     {
-        if ($content = $this->parse($tokens[0]->getContent())) {
-            $tokens[0] = new Token([TOKEN_PARSE, $this->encode($content)]);
-        }
+        $xml = $this->parse($file->getPathname());
+
+        $tokens[0] = new Token([TOKEN_PARSE, $this->encode($xml)]);
     }
 
     public function getDefinition(): FixerDefinitionInterface
@@ -55,9 +55,9 @@ class XmlFixer implements FixerInterface
         return Str::of($file->getPathname())->lower()->endsWith($this->extensions);
     }
 
-    protected function parse(string $xml): DOMDocument
+    protected function parse(string $path): DOMDocument
     {
-        return XmlReader::fromXml($xml);
+        return XmlReader::fromFile($path);
     }
 
     protected function encode(DOMDocument $document): string
