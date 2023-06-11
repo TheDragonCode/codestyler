@@ -8,12 +8,12 @@ use DOMDocument;
 
 class XmlReader
 {
-    public static function load(string $path): DOMDocument
+    public static function fromXml(string $xml): DOMDocument
     {
         $document = static::dom();
 
-        if (file_exists($path)) {
-            $document->load($path, LIBXML_BIGLINES);
+        if (! empty($xml)) {
+            $document->loadXML($xml, LIBXML_BIGLINES);
         }
 
         return $document;
@@ -30,6 +30,7 @@ class XmlReader
 
         $document->preserveWhiteSpace = false;
         $document->formatOutput       = true;
+        $document->validateOnParse    = true;
 
         return $document;
     }

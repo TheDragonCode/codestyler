@@ -8,14 +8,28 @@ on:
 permissions: read-all
 
 jobs:
-    container:
+    container_main:
         runs-on: ubuntu-latest
 
-        name: Container
+        name: Container - main
 
         steps:
             -   name: Checkout code
-                uses: actions/checkout@v3
+                uses: actions/checkout@main
+
+            -   name: Check the container
+                uses: TheDragonCode/codestyler@main
+                with:
+                    verbose: true
+
+    container_3x:
+        runs-on: ubuntu-latest
+
+        name: Container - 3.x
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@main
 
             -   name: Check the container
                 uses: TheDragonCode/codestyler@3.x
@@ -60,3 +74,6 @@ jobs:
 
             -   name: Execute unit/feature tests
                 run: php ./codestyle test --colors=always
+
+            -   name: Application code-style testing
+                run: php ./codestyle --test
