@@ -22,6 +22,10 @@ inputs:
         description: 'Normalize the composer.json file.'
         required: false
         default: 'true'
+    verbose:
+        description: 'Increase the verbosity of messages for debug'
+        required: false
+        default: 'false'
 runs:
     using: docker
     image: Dockerfile
@@ -31,6 +35,7 @@ runs:
         - '${{ inputs.editorconfig }}'
         - '${{ inputs.dependabot }}'
         - '${{ inputs.normalize }}'
+        - '${{ inputs.verbose }}'
 branding:
     icon: check
     color: purple

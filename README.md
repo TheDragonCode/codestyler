@@ -188,6 +188,10 @@ jobs:
                     # Works only when the `fix` option is enabled.
                     # By default, true
                     normalize: true
+
+                    # Increase the verbosity of messages for debug
+                    # By default, false
+                    verbose: true
 ```
 
 Since the changes are pushed to the master branch, GitHub can block this action with a security policy.

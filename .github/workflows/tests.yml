@@ -19,6 +19,8 @@ jobs:
 
             -   name: Check the container
                 uses: TheDragonCode/codestyler@3.x
+                with:
+                    verbose: true
 
     unit:
         runs-on: ${{ matrix.os }}
