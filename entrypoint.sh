@@ -11,5 +11,6 @@ source /shell/fix.sh
 source /shell/editorconfig.sh
 source /shell/dependabot.sh
 source /shell/normalize.sh
+source /shell/thanks.sh
 
 source /shell/push.sh
