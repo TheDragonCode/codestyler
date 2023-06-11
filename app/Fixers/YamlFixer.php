@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace DragonCode\CodeStyler\Fixers;
 
-use DragonCode\CodeStyler\Services\Filesystem\Filesystem;
 use DragonCode\Support\Facades\Helpers\Str;
 use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
@@ -12,7 +11,7 @@ use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
 use SplFileInfo;
-use Symfony\Component\Yaml\Yaml as SymfonyYaml;
+use Symfony\Component\Yaml\Yaml;
 
 class YamlFixer implements FixerInterface
 {
@@ -35,7 +34,7 @@ class YamlFixer implements FixerInterface
 
     public function fix(SplFileInfo $file, Tokens $tokens): void
     {
-        if ($content = $this->parse($file->getPathname())) {
+        if ($content = $this->parse($tokens[0]->getContent())) {
             $tokens[0] = new Token([TOKEN_PARSE, $this->encode($content)]);
         }
     }
@@ -55,13 +54,13 @@ class YamlFixer implements FixerInterface
         return in_array(Str::lower($file->getExtension()), $this->extensions);
     }
 
-    protected function parse(string $path): ?array
+    protected function parse(string $yaml): ?array
     {
-        return resolve(Filesystem::class)->load($path);
+        return Yaml::parse($yaml);
     }
 
     protected function encode(array $data): string
     {
-        return SymfonyYaml::dump($data, 5);
+        return Yaml::dump($data, 5);
     }
 }

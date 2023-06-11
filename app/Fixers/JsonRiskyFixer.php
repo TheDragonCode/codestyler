@@ -19,7 +19,7 @@ class JsonRiskyFixer implements FixerInterface
 {
     public function getName(): string
     {
-        return 'DragonCode/json_risky';
+        return 'DragonCode/json_ksort';
     }
 
     public function isCandidate(Tokens $tokens): bool
@@ -34,7 +34,7 @@ class JsonRiskyFixer implements FixerInterface
 
     public function fix(SplFileInfo $file, Tokens $tokens): void
     {
-        $json = $this->content($file);
+        $json = $tokens[0]->getContent() ?: '';
 
         if ($this->parser()->lint($json)) {
             throw new ParsingException($this->getName());
@@ -56,11 +56,6 @@ class JsonRiskyFixer implements FixerInterface
     public function supports(SplFileInfo $file): bool
     {
         return Str::lower($file->getExtension()) === 'json';
-    }
-
-    protected function content(SplFileInfo $file): string
-    {
-        return file_get_contents($file->getPathname()) ?: '';
     }
 
     protected function parser(): JsonParser
