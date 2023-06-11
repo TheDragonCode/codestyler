@@ -4,8 +4,6 @@
     if [[ -f "./composer.json" ]]; then
         composer global require symfony/thanks
 
-        composer config --no-plugins allow-plugins.symfony/thanks true
-
         composer thanks
     fi
 };

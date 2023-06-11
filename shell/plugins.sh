@@ -7,5 +7,7 @@ composer global config --no-plugins allow-plugins.ergebnis/composer-normalize tr
 composer global config --no-plugins allow-plugins.symfony/thanks true
 
 composer config --no-plugins allow-plugins.dragon-code/codestyler true
+composer config --no-plugins allow-plugins.ergebnis/composer-normalize true
+composer config --no-plugins allow-plugins.symfony/thanks true
 
-{ git add composer.json composer.lock && git commit -a -m "💂 Updated permissions to run code styler"; } || IS_PLUGINS_CONFIG=0
+{ git add composer.json composer.lock && git commit -a -m "💂 Updated permissions to run plugins"; } || IS_PLUGINS_CONFIG=0
