@@ -13,6 +13,7 @@ use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
 use SplFileInfo;
+use Throwable;
 
 class XmlFixer implements FixerInterface
 {
@@ -35,9 +36,16 @@ class XmlFixer implements FixerInterface
 
     public function fix(SplFileInfo $file, Tokens $tokens): void
     {
-        $xml = $this->parse($tokens);
+        try {
+            $xml = $this->parse($tokens);
 
-        $tokens[0] = new Token([TOKEN_PARSE, $this->encode($xml)]);
+            $tokens[0] = new Token([TOKEN_PARSE, $this->encode($xml)]);
+        }
+        catch (Throwable $e) {
+            dump($e->getMessage(), $e->getFile());
+
+            throw $e;
+        }
     }
 
     public function getDefinition(): FixerDefinitionInterface
