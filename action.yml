@@ -23,7 +23,7 @@ inputs:
         required: false
         default: 'true'
     verbose:
-        description: Increase the verbosity of messages for debug
+        description: 'Increase the verbosity of messages for debug'
         required: false
         default: 'false'
 runs:
@@ -39,3 +39,4 @@ runs:
 branding:
     icon: check
     color: purple
+
