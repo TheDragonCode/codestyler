@@ -34,7 +34,7 @@ jobs:
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: 8.1
-                    extensions: dom, curl, libxml, mbstring, zip
+                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json, dom, curl, libxml, fileinfo, tokenizer, xml
                     ini-values: error_reporting=E_ALL
                     coverage: none
 
