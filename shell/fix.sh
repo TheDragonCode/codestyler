@@ -1,11 +1,13 @@
 #!/bin/sh -l
 
-IS_DIRTY_CODE=1
+IS_DIRTY_CODE=0
 
-if [[ $INPUT_VERBOSE == "true" ]]; then
-    codestyle --verbose
-else
-    codestyle
+if [[ $(allowFix) == "true" ]]; then
+    if [[ $INPUT_VERBOSE == "true" ]]; then
+        codestyle --verbose
+    else
+        codestyle
+    fi
+    
+    { git add . && git commit -a -m "🧹 Fixed code-style"; } || IS_DIRTY_CODE=0
 fi
-
-{ git add . && git commit -a -m "🧹 Fixed code-style"; } || IS_DIRTY_CODE=0
