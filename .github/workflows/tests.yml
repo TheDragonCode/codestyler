@@ -75,5 +75,5 @@ jobs:
             -   name: Execute unit/feature tests
                 run: php ./codestyle test --colors=always
 
-            -   name: App code-style testing
+            -   name: Application code-style testing
                 run: php ./codestyle --test
