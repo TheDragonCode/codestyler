@@ -76,4 +76,4 @@ jobs:
                 run: php ./codestyle test --colors=always
 
             -   name: App code-style testing
-                run: php ./codestyle --test --colors=always
+                run: php ./codestyle --test
