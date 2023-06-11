@@ -1,6 +1,7 @@
 #!/bin/sh -l
 
 IS_DIRTY_NORMALIZE=0
+
 if [[ $(allow "$INPUT_NORMALIZE") == "true" ]]; then
     composer global require ergebnis/composer-normalize
 
