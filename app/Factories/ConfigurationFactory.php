@@ -37,8 +37,6 @@ class ConfigurationFactory extends BaseFactory
         '/\.json$/',
         '/\.yaml$/',
         '/\.yml$/',
-        '/\.xml$/',
-        '/\.xml\.dist$/',
     ];
 
     protected static $notName = [

@@ -35,9 +35,9 @@ class XmlFixer implements FixerInterface
 
     public function fix(SplFileInfo $file, Tokens $tokens): void
     {
-        //$xml = $this->parse($tokens);
-        //
-        //$tokens[0] = new Token([TOKEN_PARSE, $this->encode($xml)]);
+        $xml = $this->parse($tokens);
+
+        $tokens[0] = new Token([TOKEN_PARSE, $this->encode($xml)]);
     }
 
     public function getDefinition(): FixerDefinitionInterface

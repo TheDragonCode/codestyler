@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use App\Fixers\LaravelPhpdocAlignmentFixer;
 use DragonCode\CodeStyler\Fixers\JsonFixer;
-use DragonCode\CodeStyler\Fixers\XmlFixer;
 use DragonCode\CodeStyler\Fixers\YamlFixer;
 use PedroTroller\CS\Fixer\DeadCode\UselessCodeAfterReturnFixer;
 use PhpCsFixerCustomFixers\Fixer\MultilineCommentOpeningClosingAloneFixer;
@@ -254,7 +253,6 @@ return [
 
     (new JsonFixer())->getName() => true,
     (new YamlFixer())->getName() => true,
-    (new XmlFixer())->getName()  => true,
 
     (new LaravelPhpdocAlignmentFixer())->getName() => true,
 
