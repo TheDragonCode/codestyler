@@ -5,10 +5,13 @@ it('fixes the xml', function () {
         'path' => base_path('tests/Fixtures/fixers/file.xml'),
     ]);
 
-    expect($statusCode)->toBe(1)
+    expect($statusCode)->toBe(0)
         ->and($output)
+        ->not()
         ->toContain('FAIL')
+        ->not()
         ->toContain('  ⨯')
+        ->not()
         ->toContain(
             <<<'EOF'
                    <?xml version="1.0" encoding="UTF-8"?>
@@ -47,10 +50,13 @@ it('fixes the xml.dist', function () {
         'path' => base_path('tests/Fixtures/fixers/file.xml.dist'),
     ]);
 
-    expect($statusCode)->toBe(1)
+    expect($statusCode)->toBe(0)
         ->and($output)
+        ->not()
         ->toContain('FAIL')
+        ->not()
         ->toContain('  ⨯')
+        ->not()
         ->toContain(
             <<<'EOF'
                    <?xml version="1.0" encoding="UTF-8"?>
