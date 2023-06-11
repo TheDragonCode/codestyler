@@ -273,6 +273,7 @@ option:
 ```yaml
 -   uses: TheDragonCode/codestyler@v3
     with:
+        github_token: ${{ secrets.CODE_STYLE_TOKEN }}
         fix: true
 ```
 
