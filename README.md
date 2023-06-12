@@ -224,13 +224,13 @@ jobs:
                 uses: TheDragonCode/codestyler@v3
                 if: ! ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
                 with:
-                    github_token: ${{ secrets.COMPOSER_TOKEN }}
+                    github_token: ${{ secrets.CODE_STYLE_TOKEN }}
 
             -   name: Fix the code style
                 uses: TheDragonCode/codestyler@v3
                 if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
                 with:
-                    github_token: ${{ secrets.COMPOSER_TOKEN }}
+                    github_token: ${{ secrets.CODE_STYLE_TOKEN }}
                     fix: true
 ```
 
