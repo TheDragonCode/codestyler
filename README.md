@@ -220,19 +220,18 @@ jobs:
             -   name: Checkout code
                 uses: actions/checkout@v3
 
-            -   name: Detect job name
-                id: detect
-                run: |
-                    [[ ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} = true ]] && NAME="Fix" || NAME="Check"
-
-                    echo "name=${NAME}" >> $GITHUB_OUTPUT
-
-            -   name: ${{ steps.detect.outputs.name }} the code style
+            -   name: Check the code style
                 uses: TheDragonCode/codestyler@v3
+                if: ! ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
                 with:
                     github_token: ${{ secrets.CODE_STYLE_TOKEN }}
-                    fix: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
+            -   name: Fix the code style
+                uses: TheDragonCode/codestyler@v3
+                if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+                with:
+                    github_token: ${{ secrets.CODE_STYLE_TOKEN }}
+                    fix: true
 ```
 
 ### Other CI/CD
