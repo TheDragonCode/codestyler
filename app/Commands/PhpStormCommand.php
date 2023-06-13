@@ -13,14 +13,16 @@ class PhpStormCommand extends BaseCommand
 
     protected $description = 'Publishes code-style settings for the phpStorm IDE';
 
+    protected string $filename = 'The_Dragon_Code_phpStorm.xml';
+
     protected function sourcePath(): ?string
     {
-        return base_path('DragonCodePhpStorm.xml');
+        return base_path($this->filename);
     }
 
     protected function targetPath(): ?string
     {
-        return Project::path() . '/DragonCodePhpStorm.xml';
+        return Project::path() . '/' . $this->filename;
     }
 
     protected function process(): string

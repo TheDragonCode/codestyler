@@ -13,7 +13,7 @@
         ".env",
         ".editorconfig",
         "composer.json",
-        "DragonCodePhpStorm.xml"
+        "The_Dragon_Code_phpStorm.xml"
     ],
     "blacklist": [
         "modules/laravel/pint/resources/presets"
