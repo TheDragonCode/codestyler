@@ -9,16 +9,16 @@
     "packages-dev": [
         {
             "name": "brianium/paratest",
-            "version": "v7.1.4",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paratestphp/paratest.git",
-                "reference": "153e68eb9e697baa3acf1db1d8ae1d1eb19fb816"
+                "reference": "970d21c0ad524861c16548b1363fc21b6c724634"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/153e68eb9e697baa3acf1db1d8ae1d1eb19fb816",
-                "reference": "153e68eb9e697baa3acf1db1d8ae1d1eb19fb816",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/970d21c0ad524861c16548b1363fc21b6c724634",
+                "reference": "970d21c0ad524861c16548b1363fc21b6c724634",
                 "shasum": ""
             },
             "require": {
@@ -28,26 +28,26 @@
                 "ext-simplexml": "*",
                 "fidry/cpu-core-counter": "^0.4.1 || ^0.5.1",
                 "jean85/pretty-package-versions": "^2.0.5",
-                "php": "~8.1.0 || ~8.2.0",
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
                 "phpunit/php-code-coverage": "^10.1.1",
-                "phpunit/php-file-iterator": "^4.0.1",
+                "phpunit/php-file-iterator": "^4.0.2",
                 "phpunit/php-timer": "^6.0",
-                "phpunit/phpunit": "^10.1.2",
+                "phpunit/phpunit": "^10.2.2",
                 "sebastian/environment": "^6.0.1",
-                "symfony/console": "^6.2.10",
-                "symfony/process": "^6.2.10"
+                "symfony/console": "^6.3.0",
+                "symfony/process": "^6.3.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "^12.0.0",
                 "ext-pcov": "*",
                 "ext-posix": "*",
-                "infection/infection": "^0.26.21",
-                "phpstan/phpstan": "^1.10.14",
+                "infection/infection": "^0.27.0",
+                "phpstan/phpstan": "^1.10.18",
                 "phpstan/phpstan-deprecation-rules": "^1.1.3",
-                "phpstan/phpstan-phpunit": "^1.3.11",
+                "phpstan/phpstan-phpunit": "^1.3.13",
                 "phpstan/phpstan-strict-rules": "^1.5.1",
                 "squizlabs/php_codesniffer": "^3.7.2",
-                "symfony/filesystem": "^6.2.10"
+                "symfony/filesystem": "^6.3.0"
             },
             "bin": [
                 "bin/paratest",
@@ -88,7 +88,7 @@
             ],
             "support": {
                 "issues": "https://github.com/paratestphp/paratest/issues",
-                "source": "https://github.com/paratestphp/paratest/tree/v7.1.4"
+                "source": "https://github.com/paratestphp/paratest/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -100,7 +100,7 @@
                     "type": "paypal"
                 }
             ],
-            "time": "2023-05-05T09:09:30+00:00"
+            "time": "2023-06-14T13:08:51+00:00"
         },
         {
             "name": "brick/math",
@@ -500,28 +500,28 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "2.0.6",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "d9d313a36c872fd6ee06d9a6cbcf713eaa40f024"
+                "reference": "f9301a5b2fb1216b2b08f02ba04dc45423db6bff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/d9d313a36c872fd6ee06d9a6cbcf713eaa40f024",
-                "reference": "d9d313a36c872fd6ee06d9a6cbcf713eaa40f024",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/f9301a5b2fb1216b2b08f02ba04dc45423db6bff",
+                "reference": "f9301a5b2fb1216b2b08f02ba04dc45423db6bff",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^10",
+                "doctrine/coding-standard": "^11.0",
                 "phpstan/phpstan": "^1.8",
                 "phpstan/phpstan-phpunit": "^1.1",
                 "phpstan/phpstan-strict-rules": "^1.3",
                 "phpunit/phpunit": "^8.5 || ^9.5",
-                "vimeo/psalm": "^4.25"
+                "vimeo/psalm": "^4.25 || ^5.4"
             },
             "type": "library",
             "autoload": {
@@ -571,7 +571,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/inflector/issues",
-                "source": "https://github.com/doctrine/inflector/tree/2.0.6"
+                "source": "https://github.com/doctrine/inflector/tree/2.0.8"
             },
             "funding": [
                 {
@@ -587,7 +587,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-20T09:10:12+00:00"
+            "time": "2023-06-16T13:40:37+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -1113,16 +1113,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.17.0",
+            "version": "v3.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "3f0ed862f22386c55a767461ef5083bddceeed79"
+                "reference": "b123395c9fa3a70801f816f13606c0f3a7ada8df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/3f0ed862f22386c55a767461ef5083bddceeed79",
-                "reference": "3f0ed862f22386c55a767461ef5083bddceeed79",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/b123395c9fa3a70801f816f13606c0f3a7ada8df",
+                "reference": "b123395c9fa3a70801f816f13606c0f3a7ada8df",
                 "shasum": ""
             },
             "require": {
@@ -1197,7 +1197,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.17.0"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.18.0"
             },
             "funding": [
                 {
@@ -1205,7 +1205,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-22T19:59:32+00:00"
+            "time": "2023-06-18T22:25:45+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -2409,67 +2409,67 @@
         },
         {
             "name": "laravel-zero/framework",
-            "version": "v10.0.2",
+            "version": "v10.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-zero/framework.git",
-                "reference": "8bf5b3e56f49bd2006f9386d1fdb72222971dad3"
+                "reference": "8919c19bf7cda42607c9f30e707c27a1f266430a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-zero/framework/zipball/8bf5b3e56f49bd2006f9386d1fdb72222971dad3",
-                "reference": "8bf5b3e56f49bd2006f9386d1fdb72222971dad3",
+                "url": "https://api.github.com/repos/laravel-zero/framework/zipball/8919c19bf7cda42607c9f30e707c27a1f266430a",
+                "reference": "8919c19bf7cda42607c9f30e707c27a1f266430a",
                 "shasum": ""
             },
             "require": {
                 "dragonmantank/cron-expression": "^3.3.2",
                 "ext-json": "*",
-                "illuminate/cache": "^10.4.1",
-                "illuminate/collections": "^10.4.1",
-                "illuminate/config": "^10.4.1",
-                "illuminate/console": "^10.4.1",
-                "illuminate/container": "^10.4.1",
-                "illuminate/contracts": "^10.4.1",
-                "illuminate/events": "^10.4.1",
-                "illuminate/filesystem": "^10.4.1",
-                "illuminate/process": "^10.4.1",
-                "illuminate/support": "^10.4.1",
-                "illuminate/testing": "^10.4.1",
-                "laravel-zero/foundation": "^10.0",
-                "league/flysystem": "^3.12.3",
+                "illuminate/cache": "^10.13.5",
+                "illuminate/collections": "^10.13.5",
+                "illuminate/config": "^10.13.5",
+                "illuminate/console": "^10.13.5",
+                "illuminate/container": "^10.13.5",
+                "illuminate/contracts": "^10.13.5",
+                "illuminate/events": "^10.13.5",
+                "illuminate/filesystem": "^10.13.5",
+                "illuminate/process": "^10.13.5",
+                "illuminate/support": "^10.13.5",
+                "illuminate/testing": "^10.13.5",
+                "laravel-zero/foundation": "^10.12",
+                "league/flysystem": "^3.15.1",
                 "nunomaduro/collision": "^6.4.0|^7.2.0",
                 "nunomaduro/laravel-console-summary": "^1.9.1",
-                "nunomaduro/laravel-console-task": "^1.8.0",
-                "nunomaduro/laravel-desktop-notifier": "^2.7.0",
+                "nunomaduro/laravel-console-task": "^1.8",
+                "nunomaduro/laravel-desktop-notifier": "^2.7",
                 "php": "^8.1",
                 "psr/log": "^1.1|^2.0|^3.0",
                 "ramsey/uuid": "^4.7.3",
-                "symfony/console": "^6.2.7",
-                "symfony/error-handler": "^6.2.7",
-                "symfony/event-dispatcher": "^6.2.7",
-                "symfony/finder": "^6.2.7",
-                "symfony/process": "^6.2.7",
-                "symfony/var-dumper": "^6.2.7",
+                "symfony/console": "^6.3",
+                "symfony/error-handler": "^6.3",
+                "symfony/event-dispatcher": "^6.3",
+                "symfony/finder": "^6.3.0",
+                "symfony/process": "^6.3.0",
+                "symfony/var-dumper": "^6.3.0",
                 "vlucas/phpdotenv": "^5.5"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "^7.5",
-                "illuminate/bus": "^10.4.1",
-                "illuminate/database": "^10.4.1",
-                "illuminate/http": "^10.4.1",
-                "illuminate/log": "^10.4.1",
-                "illuminate/queue": "^10.4.1",
-                "illuminate/redis": "^10.4.1",
-                "illuminate/view": "^10.4.1",
+                "illuminate/bus": "^10.13.5",
+                "illuminate/database": "^10.13.5",
+                "illuminate/http": "^10.13.5",
+                "illuminate/log": "^10.13.5",
+                "illuminate/queue": "^10.13.5",
+                "illuminate/redis": "^10.13.5",
+                "illuminate/view": "^10.13.5",
                 "laminas/laminas-text": "^2.10",
                 "laravel-zero/phar-updater": "^1.3",
-                "laravel/pint": "^1.6",
-                "nunomaduro/laravel-console-dusk": "^1.11.0",
-                "nunomaduro/laravel-console-menu": "^3.4.0",
+                "laravel/pint": "^1.10.3",
+                "nunomaduro/laravel-console-dusk": "^1.11",
+                "nunomaduro/laravel-console-menu": "^3.4",
                 "nunomaduro/termwind": "^1.15.1",
-                "pestphp/pest": "^2.0.2",
+                "pestphp/pest": "^2.8.1",
                 "pestphp/pest-plugin-laravel": "^2.0",
-                "phpstan/phpstan": "^1.10.7"
+                "phpstan/phpstan": "^1.10.20"
             },
             "suggest": {
                 "ext-pcntl": "Required to ensure that data is cleared when cancelling the build process."
@@ -2493,6 +2493,10 @@
                 {
                     "name": "Nuno Maduro",
                     "email": "enunomaduro@gmail.com"
+                },
+                {
+                    "name": "Owen Voke",
+                    "email": "development@voke.dev"
                 }
             ],
             "description": "The Laravel Zero Framework.",
@@ -2508,7 +2512,7 @@
                 "issues": "https://github.com/laravel-zero/laravel-zero/issues",
                 "source": "https://github.com/laravel-zero/laravel-zero"
             },
-            "time": "2023-03-21T10:51:39+00:00"
+            "time": "2023-06-21T16:15:40+00:00"
         },
         {
             "name": "league/flysystem",
@@ -3433,33 +3437,33 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v2.6.3",
+            "version": "v2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "3c20e8114e5d2f5e39cf013f0f9b8ebc0ac1a6fa"
+                "reference": "cd823193cc8a68b77146387b8f5dd65ef0470d62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/3c20e8114e5d2f5e39cf013f0f9b8ebc0ac1a6fa",
-                "reference": "3c20e8114e5d2f5e39cf013f0f9b8ebc0ac1a6fa",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/cd823193cc8a68b77146387b8f5dd65ef0470d62",
+                "reference": "cd823193cc8a68b77146387b8f5dd65ef0470d62",
                 "shasum": ""
             },
             "require": {
-                "brianium/paratest": "^7.1.4",
-                "nunomaduro/collision": "^7.5.2",
+                "brianium/paratest": "^7.2.0",
+                "nunomaduro/collision": "^7.6.0",
                 "nunomaduro/termwind": "^1.15.1",
                 "pestphp/pest-plugin": "^2.0.1",
-                "pestphp/pest-plugin-arch": "^2.2.0",
+                "pestphp/pest-plugin-arch": "^2.2.1",
                 "php": "^8.1.0",
-                "phpunit/phpunit": "^10.2.1"
+                "phpunit/phpunit": "^10.2.2"
             },
             "conflict": {
-                "phpunit/phpunit": ">10.2.1",
+                "phpunit/phpunit": ">10.2.2",
                 "webmozart/assert": "<1.11.0"
             },
             "require-dev": {
-                "pestphp/pest-dev-tools": "^2.10.0",
+                "pestphp/pest-dev-tools": "^2.12.0",
                 "symfony/process": "^6.3.0"
             },
             "bin": [
@@ -3516,7 +3520,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v2.6.3"
+                "source": "https://github.com/pestphp/pest/tree/v2.8.1"
             },
             "funding": [
                 {
@@ -3528,7 +3532,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-07T19:19:04+00:00"
+            "time": "2023-06-20T12:33:29+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -3601,27 +3605,27 @@
         },
         {
             "name": "pestphp/pest-plugin-arch",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest-plugin-arch.git",
-                "reference": "88725fd0d6ae4025df39c27bd91e98d14b8f1916"
+                "reference": "bac18387f015590e6d3883383cfb42e7550bb100"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-arch/zipball/88725fd0d6ae4025df39c27bd91e98d14b8f1916",
-                "reference": "88725fd0d6ae4025df39c27bd91e98d14b8f1916",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-arch/zipball/bac18387f015590e6d3883383cfb42e7550bb100",
+                "reference": "bac18387f015590e6d3883383cfb42e7550bb100",
                 "shasum": ""
             },
             "require": {
-                "nunomaduro/collision": "^7.5.2",
+                "nunomaduro/collision": "^7.6.0",
                 "pestphp/pest-plugin": "^2.0.1",
                 "php": "^8.1",
                 "ta-tikoma/phpunit-architecture-test": "^0.7.3"
             },
             "require-dev": {
                 "pestphp/pest": "dev-develop as 2.6.2",
-                "pestphp/pest-dev-tools": "^2.10.0"
+                "pestphp/pest-dev-tools": "^2.12.0"
             },
             "type": "library",
             "autoload": {
@@ -3649,7 +3653,7 @@
                 "unit"
             ],
             "support": {
-                "source": "https://github.com/pestphp/pest-plugin-arch/tree/v2.2.0"
+                "source": "https://github.com/pestphp/pest-plugin-arch/tree/v2.2.1"
             },
             "funding": [
                 {
@@ -3661,7 +3665,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-02T23:15:55+00:00"
+            "time": "2023-06-15T16:05:13+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -4386,16 +4390,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.2.1",
+            "version": "10.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "599b33294350e8f51163119d5670512f98b0490d"
+                "reference": "1ab521b24b88b88310c40c26c0cc4a94ba40ff95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/599b33294350e8f51163119d5670512f98b0490d",
-                "reference": "599b33294350e8f51163119d5670512f98b0490d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1ab521b24b88b88310c40c26c0cc4a94ba40ff95",
+                "reference": "1ab521b24b88b88310c40c26c0cc4a94ba40ff95",
                 "shasum": ""
             },
             "require": {
@@ -4467,7 +4471,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.2.1"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.2.2"
             },
             "funding": [
                 {
@@ -4483,7 +4487,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-05T05:15:51+00:00"
+            "time": "2023-06-11T06:15:20+00:00"
         },
         {
             "name": "psr/cache",
