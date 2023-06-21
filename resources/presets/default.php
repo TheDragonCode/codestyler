@@ -193,10 +193,6 @@ return [
         'sort_algorithm'  => 'alpha',
     ],
 
-    'phpdoc_add_missing_param_annotation' => [
-        'only_untyped' => false,
-    ],
-
     'phpdoc_align' => [
         'align' => 'left',
         'tags'  => [
