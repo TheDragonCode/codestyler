@@ -13,6 +13,20 @@ use PhpCsFixer\ToolInfo;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use function abort_unless;
+use function app;
+use function count;
+use function dirname;
+use function implode;
+use function in_array;
+use function iterator_to_array;
+use function md5;
+use function microtime;
+use function realpath;
+use function resolve;
+use function sprintf;
+use function sys_get_temp_dir;
+
 class ConfigurationResolverFactory
 {
     public static array $presets = [
@@ -33,9 +47,13 @@ class ConfigurationResolverFactory
 
         $resolver = static::resolver($input, $output, $path, $configuration, $preset);
 
-        $totalFiles = count(new ArrayIterator(iterator_to_array(
-            $resolver->getFinder()
-        )));
+        $totalFiles = count(
+            new ArrayIterator(
+                iterator_to_array(
+                    $resolver->getFinder()
+                )
+            )
+        );
 
         return [$resolver, $totalFiles];
     }
@@ -68,7 +86,7 @@ class ConfigurationResolverFactory
                     md5(
                         app()->isProduction()
                             ? implode('|', $path)
-                            : (string) microtime()
+                            : microtime()
                     ),
                 ]),
 

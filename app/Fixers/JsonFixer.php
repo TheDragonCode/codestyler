@@ -14,6 +14,9 @@ use PhpCsFixer\Tokenizer\Tokens;
 use Seld\JsonLint\JsonParser;
 use SplFileInfo;
 
+use function json_decode;
+use function json_encode;
+
 class JsonFixer implements FixerInterface
 {
     public function getName(): string

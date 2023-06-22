@@ -6,5 +6,4 @@ use DragonCode\CodeStyler\Factories\ConfigurationFactory;
 
 $default = require base_path('resources/presets/default.php');
 
-return ConfigurationFactory::preset(array_merge($default, [
-]));
+return ConfigurationFactory::preset($default);

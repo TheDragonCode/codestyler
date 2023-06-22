@@ -10,6 +10,8 @@ use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
+use function getcwd;
+
 class DefaultCommand extends Command
 {
     protected $signature = 'default';
@@ -42,19 +44,22 @@ class DefaultCommand extends Command
                         'The configuration that should be used'
                     ),
 
-                    new InputOption('test',
+                    new InputOption(
+                        'test',
                         '',
                         InputOption::VALUE_NONE,
                         'Test for code style errors without fixing them'
                     ),
 
-                    new InputOption('risky',
+                    new InputOption(
+                        'risky',
                         '',
                         InputOption::VALUE_NONE,
                         'Allows the application of risky rules'
                     ),
 
-                    new InputOption('dirty',
+                    new InputOption(
+                        'dirty',
                         '',
                         InputOption::VALUE_NONE,
                         'Only fix files that have uncommitted changes'
