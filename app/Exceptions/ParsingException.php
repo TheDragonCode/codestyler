@@ -6,4 +6,4 @@ namespace DragonCode\CodeStyler\Exceptions;
 
 use Seld\JsonLint\ParsingException as BaseParsingException;
 
-class ParsingException extends BaseParsingException { }
+class ParsingException extends BaseParsingException {}

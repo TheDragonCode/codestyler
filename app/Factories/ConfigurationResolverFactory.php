@@ -82,13 +82,13 @@ class ConfigurationResolverFactory
                 'path-mode' => ConfigurationResolver::PATH_MODE_OVERRIDE,
 
                 'cache-file' => $configuration->cacheFile() ?? implode(DIRECTORY_SEPARATOR, [
-                        realpath(sys_get_temp_dir()),
-                        md5(
-                            app()->isProduction()
-                                ? implode('|', $path)
-                                : (string) microtime()
-                        ),
-                    ]),
+                    realpath(sys_get_temp_dir()),
+                    md5(
+                        app()->isProduction()
+                            ? implode('|', $path)
+                            : microtime()
+                    ),
+                ]),
 
                 'stop-on-violation' => false,
                 'verbosity'         => $output->getVerbosity(),
