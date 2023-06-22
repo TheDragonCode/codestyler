@@ -13,6 +13,8 @@ use PhpCsFixer\Tokenizer\Tokens;
 use SplFileInfo;
 use Symfony\Component\Yaml\Yaml;
 
+use function in_array;
+
 class YamlFixer implements FixerInterface
 {
     protected array $extensions = ['yaml', 'yml'];

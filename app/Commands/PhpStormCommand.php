@@ -7,6 +7,8 @@ namespace DragonCode\CodeStyler\Commands;
 use App\Project;
 use Illuminate\Support\Facades\File;
 
+use function base_path;
+
 class PhpStormCommand extends BaseCommand
 {
     protected $signature = 'phpstorm';

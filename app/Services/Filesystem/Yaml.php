@@ -8,6 +8,8 @@ use DragonCode\CodeStyler\Contracts\Filesystem as FilesystemContract;
 use DragonCode\Support\Facades\Filesystem\File;
 use Symfony\Component\Yaml\Yaml as SymfonyYaml;
 
+use function file_exists;
+
 class Yaml implements FilesystemContract
 {
     public function load(string $path): array

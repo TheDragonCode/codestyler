@@ -13,6 +13,8 @@ use DragonCode\CodeStyler\Repositories\ConfigurationJsonRepository;
 use Illuminate\Support\ServiceProvider;
 use Symfony\Component\Console\Input\InputInterface;
 
+use function resolve;
+
 class RepositoriesServiceProvider extends ServiceProvider
 {
     public function register(): void

@@ -10,6 +10,8 @@ use DragonCode\CodeStyler\Commands\DefaultCommand;
 use Illuminate\Support\ServiceProvider;
 use LaravelZero\Framework\Commands\Command;
 
+use function resolve;
+
 class CommandsServiceProvider extends ServiceProvider
 {
     public function register(): void

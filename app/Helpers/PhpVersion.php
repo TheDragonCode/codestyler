@@ -8,6 +8,9 @@ use App\Project;
 use DragonCode\Support\Facades\Application\Version;
 use DragonCode\Support\Facades\Helpers\Arr;
 
+use function preg_match_all;
+use function realpath;
+
 class PhpVersion
 {
     public const DEFAULT = '8.2';

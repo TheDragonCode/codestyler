@@ -31,6 +31,9 @@ use PhpCsFixerCustomFixers\Fixer\PhpUnitDedicatedAssertFixer;
 use PhpCsFixerCustomFixers\Fixer\SingleSpaceAfterStatementFixer;
 use PhpCsFixerCustomFixers\Fixer\SingleSpaceBeforeStatementFixer;
 
+use function array_merge;
+use function resolve;
+
 class ConfigurationFactory extends BaseFactory
 {
     protected static array $names = [

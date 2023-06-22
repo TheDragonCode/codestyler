@@ -6,6 +6,8 @@ namespace DragonCode\CodeStyler\Commands;
 
 use LaravelZero\Framework\Commands\Command;
 
+use function realpath;
+
 abstract class BaseCommand extends Command
 {
     protected const STATUS_DONE = 'DONE';

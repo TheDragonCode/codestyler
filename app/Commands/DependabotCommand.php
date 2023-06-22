@@ -8,6 +8,9 @@ use App\Project;
 use DragonCode\CodeStyler\Services\Filesystem\Filesystem;
 use DragonCode\Support\Facades\Helpers\Arr;
 
+use function compact;
+use function resolve;
+
 class DependabotCommand extends BaseCommand
 {
     protected const NAME    = 'github-actions';

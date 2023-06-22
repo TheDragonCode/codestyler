@@ -7,6 +7,8 @@ namespace DragonCode\CodeStyler\Services\Filesystem;
 use DragonCode\CodeStyler\Contracts\Filesystem as FilesystemContract;
 use DragonCode\Support\Facades\Filesystem\Path;
 
+use function resolve;
+
 class Filesystem implements FilesystemContract
 {
     public function load(string $path): array
