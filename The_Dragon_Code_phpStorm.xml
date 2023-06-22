@@ -52,6 +52,7 @@
     <option name="PHPDOC_WRAP_LONG_LINES" value="true" />
     <option name="BLANK_LINES_BETWEEN_IMPORTS" value="1" />
     <option name="PHPDOC_PARAM_SPACES_BETWEEN_TAG_AND_TYPE" value="2" />
+    <option name="PHPDOC_PARAM_SPACES_BETWEEN_TYPE_AND_NAME" value="2" />
     <option name="PHPDOC_PARAM_SPACES_BETWEEN_NAME_AND_DESCRIPTION" value="2" />
     <option name="LINK_WEIGHT" value="7" />
     <option name="THROWS_WEIGHT" value="14" />
