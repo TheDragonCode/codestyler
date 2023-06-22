@@ -7,16 +7,12 @@
         "resources",
         "vendor",
         "modules/laravel/pint/app",
-        "modules/laravel/pint/resources"
+        "modules/laravel/pint/resources/views"
     ],
     "files": [
-        ".env",
         ".editorconfig",
         "composer.json",
         "The_Dragon_Code_phpStorm.xml"
-    ],
-    "blacklist": [
-        "modules/laravel/pint/resources/presets"
     ],
     "exclude-composer-files": false,
     "exclude-dev-files": false,
