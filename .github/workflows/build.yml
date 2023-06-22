@@ -54,7 +54,7 @@ jobs:
                 run: |
                     IS_DIRTY=1
 
-                    php ./codestyle app:build codestyle --build-version=${{ steps.tag.outputs.tag }}
+                    php ./codestyle app:build codestyle --build-version=${{ steps.tag.outputs.tag }} --ansi
 
                     { git add . && git commit -a -m "🏗️ Build application"; } || IS_DIRTY=0
 
