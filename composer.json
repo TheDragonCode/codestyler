@@ -60,7 +60,7 @@
     "require-dev": {
         "dragon-code/pretty-array": "^4.1",
         "dragon-code/support": "^6.11.2",
-        "friendsofphp/php-cs-fixer": "^3.18",
+        "friendsofphp/php-cs-fixer": "^3.19.2",
         "illuminate/view": "^10.13.5",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.14",
         "laravel-zero/framework": "10.0.2",
