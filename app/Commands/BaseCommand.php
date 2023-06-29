@@ -6,8 +6,6 @@ namespace DragonCode\CodeStyler\Commands;
 
 use LaravelZero\Framework\Commands\Command;
 
-use function realpath;
-
 abstract class BaseCommand extends Command
 {
     protected const STATUS_DONE = 'DONE';
@@ -43,6 +41,9 @@ abstract class BaseCommand extends Command
 
     protected function allow(): bool
     {
-        return realpath($this->sourcePath()) !== realpath($this->targetPath()) && ! empty($this->targetPath());
+        $source = realpath($this->sourcePath());
+        $target = realpath($this->targetPath());
+
+        return ($source !== $target || (! $source && ! $target)) && ! empty($this->targetPath());
     }
 }
