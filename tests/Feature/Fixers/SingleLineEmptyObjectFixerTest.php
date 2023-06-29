@@ -39,13 +39,28 @@ it('fixes the code', function () {
                   +    public function internal() {}
                 EOF
         )
-        ->not()
         ->toContain(
             <<<'EOF'
                   -enum a: int
                   -{
                   -}
                   +enum a: int {}
+                EOF
+        )
+        ->toContain(
+            <<<'EOF'
+                  -trait b
+                  -{
+                  -}
+                  +trait b {}
+                EOF
+        )
+        ->toContain(
+            <<<'EOF'
+                  -interface x
+                  -{
+                  -}
+                  +interface x {}
                 EOF
         );
 });

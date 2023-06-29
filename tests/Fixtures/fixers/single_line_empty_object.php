@@ -25,3 +25,11 @@ class Foo
 enum a: int
 {
 }
+
+trait b
+{
+}
+
+interface x
+{
+}
