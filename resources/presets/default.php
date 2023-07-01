@@ -178,8 +178,8 @@ return [
     'ordered_imports' => [
         'imports_order' => [
             'class',
-            'const',
             'function',
+            'const',
         ],
     ],
 
