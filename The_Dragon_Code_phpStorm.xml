@@ -1,4 +1,4 @@
-<code_scheme name="The Dragon Code" version="173">
+<code_scheme name="The Dragon Code copy" version="173">
   <option name="LINE_SEPARATOR" value="&#10;" />
   <option name="ENABLE_SECOND_REFORMAT" value="true" />
   <CssCodeStyleSettings>
@@ -100,6 +100,13 @@
     <option name="HEX_COLOR_LONG_FORMAT" value="true" />
     <option name="ENFORCE_QUOTES_ON_FORMAT" value="true" />
   </ScssCodeStyleSettings>
+  <SqlCodeStyleSettings version="6">
+    <option name="KEYWORD_CASE" value="2" />
+    <option name="IDENTIFIER_CASE" value="1" />
+    <option name="ALIAS_CASE" value="1" />
+    <option name="QUOTED_IDENTIFIER_CASE" value="1" />
+    <option name="QUOTE_IDENTIFIER" value="2" />
+  </SqlCodeStyleSettings>
   <TypeScriptCodeStyleSettings version="0">
     <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
     <option name="FORCE_SEMICOLON_STYLE" value="true" />

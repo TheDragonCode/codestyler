@@ -148,6 +148,10 @@ return [
     'no_useless_return'                 => true,
     'not_operator_with_successor_space' => true,
 
+    'nullable_type_declaration' => [
+        'syntax' => 'question_mark',
+    ],
+
     'nullable_type_declaration_for_default_null_value' => [
         'use_nullable_type_declaration' => true,
     ],
