@@ -1,4 +1,4 @@
-<code_scheme name="The Dragon Code copy" version="173">
+<code_scheme name="The Dragon Code" version="173">
   <option name="LINE_SEPARATOR" value="&#10;" />
   <option name="ENABLE_SECOND_REFORMAT" value="true" />
   <CssCodeStyleSettings>
@@ -43,7 +43,6 @@
   <PHPCodeStyleSettings>
     <option name="ALIGN_KEY_VALUE_PAIRS" value="true" />
     <option name="ALIGN_ASSIGNMENTS" value="true" />
-    <option name="ALIGN_INLINE_COMMENTS" value="true" />
     <option name="ALIGN_NAMED_ARGUMENTS" value="true" />
     <option name="ALIGN_MATCH_ARM_BODIES" value="true" />
     <option name="COMMA_AFTER_LAST_ARRAY_ELEMENT" value="true" />
@@ -103,9 +102,11 @@
   <SqlCodeStyleSettings version="6">
     <option name="KEYWORD_CASE" value="2" />
     <option name="IDENTIFIER_CASE" value="1" />
-    <option name="ALIAS_CASE" value="1" />
+    <option name="TYPE_CASE" value="3" />
+    <option name="ALIAS_CASE" value="4" />
     <option name="QUOTED_IDENTIFIER_CASE" value="1" />
     <option name="QUOTE_IDENTIFIER" value="2" />
+    <option name="QUERY_EL_LINE" value="101" />
   </SqlCodeStyleSettings>
   <TypeScriptCodeStyleSettings version="0">
     <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
@@ -154,6 +155,9 @@
       <rules />
     </arrangement>
   </codeStyleSettings>
+  <codeStyleSettings language="HTTP Request">
+    <option name="CALL_PARAMETERS_WRAP" value="5" />
+  </codeStyleSettings>
   <codeStyleSettings language="JSON">
     <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
     <option name="SPACE_WITHIN_BRACES" value="true" />
@@ -169,6 +173,11 @@
     <option name="ARRAY_INITIALIZER_WRAP" value="5" />
     <option name="ARRAY_INITIALIZER_LBRACE_ON_NEXT_LINE" value="true" />
     <option name="ARRAY_INITIALIZER_RBRACE_ON_NEXT_LINE" value="true" />
+  </codeStyleSettings>
+  <codeStyleSettings language="LESS">
+    <indentOptions>
+      <option name="INDENT_SIZE" value="4" />
+    </indentOptions>
   </codeStyleSettings>
   <codeStyleSettings language="PHP">
     <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
@@ -574,6 +583,11 @@
       </rules>
     </arrangement>
   </codeStyleSettings>
+  <codeStyleSettings language="SASS">
+    <indentOptions>
+      <option name="INDENT_SIZE" value="4" />
+    </indentOptions>
+  </codeStyleSettings>
   <codeStyleSettings language="SCSS">
     <option name="BLOCK_COMMENT_ADD_SPACE" value="true" />
     <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
@@ -609,6 +623,131 @@
       <option name="INDENT_SIZE" value="4" />
       <option name="TAB_SIZE" value="4" />
     </indentOptions>
+    <arrangement>
+      <rules>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>v-model</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>(v-bind:|:|v-)?is</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>v-for</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>v-(if|else-if|else|show|cloak)</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>v-(pre|once)</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>(v-bind:|:)?id</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>(v-bind:|:)?(ref|key|slot|slot-scope)|v-slot</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>v-(?!on:|bind:|(html|text|bind|on)$).+</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>(?!v-on:|@|v-on$|v-html$|v-text$).+</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>((v-on:|@)\\w+)|v-on$</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+        <section>
+          <rule>
+            <match>
+              <AND>
+                <NAME>v-html|v-text</NAME>
+                <XML_ATTRIBUTE />
+              </AND>
+            </match>
+            <order>BY_NAME</order>
+          </rule>
+        </section>
+      </rules>
+    </arrangement>
   </codeStyleSettings>
   <codeStyleSettings language="XML">
     <option name="BLOCK_COMMENT_ADD_SPACE" value="true" />
