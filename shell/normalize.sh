@@ -9,8 +9,10 @@ if [[ $(allowFix) == "true" && $(allow "$INPUT_NORMALIZE") == "true" ]]; then
         IS_DIRTY_NORMALIZE=1
 
         if [[ $INPUT_VERBOSE == "true" ]]; then
+            composer update --verbose
             composer normalize --verbose
         else
+            composer update
             composer normalize
         fi
 
