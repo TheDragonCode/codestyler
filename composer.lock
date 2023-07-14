@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "320cb895f3aeda468f56d6ba714ea584",
+    "content-hash": "7f409c14db32ab5c29015e6094760178",
     "packages": [],
     "packages-dev": [
         {
@@ -1042,16 +1042,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.15.2",
+            "version": "2.15.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "aac9304c5ed61bf7b1b7a6064bf9806ab842ce73"
+                "reference": "c83e88a30524f9360b11f585f71e6b17313b7187"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/aac9304c5ed61bf7b1b7a6064bf9806ab842ce73",
-                "reference": "aac9304c5ed61bf7b1b7a6064bf9806ab842ce73",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/c83e88a30524f9360b11f585f71e6b17313b7187",
+                "reference": "c83e88a30524f9360b11f585f71e6b17313b7187",
                 "shasum": ""
             },
             "require": {
@@ -1101,7 +1101,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.15.2"
+                "source": "https://github.com/filp/whoops/tree/2.15.3"
             },
             "funding": [
                 {
@@ -1109,7 +1109,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-12T12:00:00+00:00"
+            "time": "2023-07-13T12:00:00+00:00"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
@@ -2409,67 +2409,67 @@
         },
         {
             "name": "laravel-zero/framework",
-            "version": "v10.0.2",
+            "version": "v10.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-zero/framework.git",
-                "reference": "8bf5b3e56f49bd2006f9386d1fdb72222971dad3"
+                "reference": "16aaca0acd40ad2e5125ab147dc47bd584fc0a22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-zero/framework/zipball/8bf5b3e56f49bd2006f9386d1fdb72222971dad3",
-                "reference": "8bf5b3e56f49bd2006f9386d1fdb72222971dad3",
+                "url": "https://api.github.com/repos/laravel-zero/framework/zipball/16aaca0acd40ad2e5125ab147dc47bd584fc0a22",
+                "reference": "16aaca0acd40ad2e5125ab147dc47bd584fc0a22",
                 "shasum": ""
             },
             "require": {
                 "dragonmantank/cron-expression": "^3.3.2",
                 "ext-json": "*",
-                "illuminate/cache": "^10.4.1",
-                "illuminate/collections": "^10.4.1",
-                "illuminate/config": "^10.4.1",
-                "illuminate/console": "^10.4.1",
-                "illuminate/container": "^10.4.1",
-                "illuminate/contracts": "^10.4.1",
-                "illuminate/events": "^10.4.1",
-                "illuminate/filesystem": "^10.4.1",
-                "illuminate/process": "^10.4.1",
-                "illuminate/support": "^10.4.1",
-                "illuminate/testing": "^10.4.1",
-                "laravel-zero/foundation": "^10.0",
-                "league/flysystem": "^3.12.3",
+                "illuminate/cache": "^10.13.5",
+                "illuminate/collections": "^10.13.5",
+                "illuminate/config": "^10.13.5",
+                "illuminate/console": "^10.13.5",
+                "illuminate/container": "^10.13.5",
+                "illuminate/contracts": "^10.13.5",
+                "illuminate/events": "^10.13.5",
+                "illuminate/filesystem": "^10.13.5",
+                "illuminate/process": "^10.13.5",
+                "illuminate/support": "^10.13.5",
+                "illuminate/testing": "^10.13.5",
+                "laravel-zero/foundation": "^10.12",
+                "league/flysystem": "^3.15.1",
                 "nunomaduro/collision": "^6.4.0|^7.2.0",
                 "nunomaduro/laravel-console-summary": "^1.9.1",
-                "nunomaduro/laravel-console-task": "^1.8.0",
-                "nunomaduro/laravel-desktop-notifier": "^2.7.0",
+                "nunomaduro/laravel-console-task": "^1.8",
+                "nunomaduro/laravel-desktop-notifier": "^2.7",
                 "php": "^8.1",
                 "psr/log": "^1.1|^2.0|^3.0",
                 "ramsey/uuid": "^4.7.3",
-                "symfony/console": "^6.2.7",
-                "symfony/error-handler": "^6.2.7",
-                "symfony/event-dispatcher": "^6.2.7",
-                "symfony/finder": "^6.2.7",
-                "symfony/process": "^6.2.7",
-                "symfony/var-dumper": "^6.2.7",
+                "symfony/console": "^6.3",
+                "symfony/error-handler": "^6.3",
+                "symfony/event-dispatcher": "^6.3",
+                "symfony/finder": "^6.3.0",
+                "symfony/process": "^6.3.0",
+                "symfony/var-dumper": "^6.3.0",
                 "vlucas/phpdotenv": "^5.5"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "^7.5",
-                "illuminate/bus": "^10.4.1",
-                "illuminate/database": "^10.4.1",
-                "illuminate/http": "^10.4.1",
-                "illuminate/log": "^10.4.1",
-                "illuminate/queue": "^10.4.1",
-                "illuminate/redis": "^10.4.1",
-                "illuminate/view": "^10.4.1",
+                "illuminate/bus": "^10.13.5",
+                "illuminate/database": "^10.13.5",
+                "illuminate/http": "^10.13.5",
+                "illuminate/log": "^10.13.5",
+                "illuminate/queue": "^10.13.5",
+                "illuminate/redis": "^10.13.5",
+                "illuminate/view": "^10.13.5",
                 "laminas/laminas-text": "^2.10",
                 "laravel-zero/phar-updater": "^1.3",
-                "laravel/pint": "^1.6",
-                "nunomaduro/laravel-console-dusk": "^1.11.0",
-                "nunomaduro/laravel-console-menu": "^3.4.0",
+                "laravel/pint": "^1.10.3",
+                "nunomaduro/laravel-console-dusk": "^1.11",
+                "nunomaduro/laravel-console-menu": "^3.4",
                 "nunomaduro/termwind": "^1.15.1",
-                "pestphp/pest": "^2.0.2",
+                "pestphp/pest": "^2.8.1",
                 "pestphp/pest-plugin-laravel": "^2.0",
-                "phpstan/phpstan": "^1.10.7"
+                "phpstan/phpstan": "^1.10.20"
             },
             "suggest": {
                 "ext-pcntl": "Required to ensure that data is cleared when cancelling the build process."
@@ -2493,6 +2493,10 @@
                 {
                     "name": "Nuno Maduro",
                     "email": "enunomaduro@gmail.com"
+                },
+                {
+                    "name": "Owen Voke",
+                    "email": "development@voke.dev"
                 }
             ],
             "description": "The Laravel Zero Framework.",
@@ -2508,7 +2512,7 @@
                 "issues": "https://github.com/laravel-zero/laravel-zero/issues",
                 "source": "https://github.com/laravel-zero/laravel-zero"
             },
-            "time": "2023-03-21T10:51:39+00:00"
+            "time": "2023-07-14T10:15:33+00:00"
         },
         {
             "name": "league/flysystem",
@@ -3433,16 +3437,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v2.8.2",
+            "version": "v2.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "a1208b5876525d309ee8d39c83870fca60d1a0ac"
+                "reference": "805b81edc05e6b5fafe84caee8350e81c9f54842"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/a1208b5876525d309ee8d39c83870fca60d1a0ac",
-                "reference": "a1208b5876525d309ee8d39c83870fca60d1a0ac",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/805b81edc05e6b5fafe84caee8350e81c9f54842",
+                "reference": "805b81edc05e6b5fafe84caee8350e81c9f54842",
                 "shasum": ""
             },
             "require": {
@@ -3450,7 +3454,7 @@
                 "nunomaduro/collision": "^7.7.0",
                 "nunomaduro/termwind": "^1.15.1",
                 "pestphp/pest-plugin": "^2.0.1",
-                "pestphp/pest-plugin-arch": "^2.2.1",
+                "pestphp/pest-plugin-arch": "^2.2.2",
                 "php": "^8.1.0",
                 "phpunit/phpunit": "^10.2.3"
             },
@@ -3516,7 +3520,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v2.8.2"
+                "source": "https://github.com/pestphp/pest/tree/v2.8.3"
             },
             "funding": [
                 {
@@ -3528,7 +3532,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-01T09:31:00+00:00"
+            "time": "2023-07-12T20:26:47+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
