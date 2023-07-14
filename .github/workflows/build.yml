@@ -35,19 +35,11 @@ jobs:
                     ini-values: error_reporting=E_ALL
                     coverage: none
 
-            -   name: Git setup
-                run: |
-                    git config --local user.email "action@github.com"
-                    git config --local user.name "GitHub Action"
-                    
-                    git config --global core.autocrlf false
-                    git config --global core.eol lf
-
             -   name: Install the dependencies
                 run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
             -   name: Execute unit/feature tests
-                run: php ./codestyle test --colors=always
+                run: php ./codestyle --test --colors=always
 
             -   name: Create the PHAR file
                 run: php ./codestyle app:build codestyle --build-version=${{ steps.tag.outputs.tag }} --ansi
@@ -68,20 +60,29 @@ jobs:
             fail-fast: true
             matrix:
                 os: [ "ubuntu-latest", "windows-latest" ]
+                php: [ "8.1","8.2" ]
 
-        name: Check with ${{ matrix.os }}
+        name: Check on ${{ matrix.os }} with PHP ${{ matrix.php }}
         
         steps:
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json, dom, curl, libxml, fileinfo, tokenizer, xml
+                    ini-values: error_reporting=E_ALL
+                    coverage: none
+
             -   uses: actions/download-artifact@v3
                 with:
                     name: codestyle_build
                     path: builds/codestyle
 
             -   name: Show version
-                run: php ./builds/codestyle --version
+                run: php builds/codestyle --version
 
             -   name: Run codestyler
-                run: php ./builds/codestyle test --colors=always
+                run: php builds/codestyle --test --colors=always
     
     push:
         runs-on: ubuntu-latest
@@ -89,10 +90,21 @@ jobs:
         needs: checks
 
         steps:
+            -   name: Checkout the code
+                uses: actions/checkout@v3
+
             -   uses: actions/download-artifact@v3
                 with:
                     name: codestyle_build
                     path: builds/codestyle
+
+            -   name: Git setup
+                run: |
+                    git config --local user.email "action@github.com"
+                    git config --local user.name "GitHub Action"
+                    
+                    git config --global core.autocrlf false
+                    git config --global core.eol lf
 
             -   name: Commit the PHAR file
                 id: build

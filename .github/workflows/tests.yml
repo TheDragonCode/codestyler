@@ -72,8 +72,5 @@ jobs:
             -   name: Install dependencies
                 run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
-            -   name: Execute unit/feature tests
-                run: php ./codestyle test --colors=always
-
             -   name: Application code-style testing
-                run: php ./codestyle --test
+                run: php ./codestyle --test --colors=always
