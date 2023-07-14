@@ -87,7 +87,7 @@ jobs:
         
         needs: checks
         
-        if: steps.build.outputs.is_dirty == 1
+        if: ${{ steps.build.outputs.is_dirty == 1 }}
 
         steps:
             -   name: Push changes
