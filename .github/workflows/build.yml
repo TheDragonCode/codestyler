@@ -59,6 +59,12 @@ jobs:
                     { git add . && git commit -a -m "🏗️ Build application"; } || IS_DIRTY=0
 
                     echo "is_dirty=${IS_DIRTY}" >> "$GITHUB_OUTPUT"
+
+            -   uses: actions/upload-artifact@v3
+                with:
+                    name: codestyle_app
+                    path: builds/codestyle
+                    retention-days: 1
     
     checks:
         runs-on: ubuntu-latest
@@ -73,14 +79,11 @@ jobs:
         name: ${{ matrix.os }}
         
         steps:
-            -   name: Tech
-                run: ls -l
-
             -   name: Show version
                 run: php ./builds/codestyle --version
 
             -   name: Run codestyler
-                run: php ./builds/codestyle --test
+                run: php ./builds/codestyle test --colors=always
     
     push:
         runs-on: ubuntu-latest
