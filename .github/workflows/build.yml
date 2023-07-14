@@ -50,19 +50,12 @@ jobs:
                 run: php ./codestyle test --colors=always
 
             -   name: Create the PHAR file
-                id: build
-                run: |
-                    IS_DIRTY=1
+                run: php ./codestyle app:build codestyle --build-version=${{ steps.tag.outputs.tag }} --ansi
 
-                    php ./codestyle app:build codestyle --build-version=${{ steps.tag.outputs.tag }} --ansi
-
-                    { git add . && git commit -a -m "🏗️ Build application"; } || IS_DIRTY=0
-
-                    echo "is_dirty=${IS_DIRTY}" >> "$GITHUB_OUTPUT"
-
-            -   uses: actions/upload-artifact@v3
+            -   name: Upload artifact
+                uses: actions/upload-artifact@v3
                 with:
-                    name: codestyle_app
+                    name: codestyle_build
                     path: builds/codestyle
                     retention-days: 1
     
@@ -79,6 +72,11 @@ jobs:
         name: ${{ matrix.os }}
         
         steps:
+            -   uses: actions/download-artifact@v3
+                with:
+                    name: codestyle_build
+                    path: builds/codestyle
+
             -   name: Show version
                 run: php ./builds/codestyle --version
 
@@ -91,6 +89,20 @@ jobs:
         needs: checks
 
         steps:
+            -   uses: actions/download-artifact@v3
+                with:
+                    name: codestyle_build
+                    path: builds/codestyle
+
+            -   name: Commit the PHAR file
+                id: build
+                run: |
+                    IS_DIRTY=1
+
+                    { git add ./builds/codestyle && git commit -a -m "🏗️ Build application"; } || IS_DIRTY=0
+
+                    echo "is_dirty=${IS_DIRTY}" >> "$GITHUB_OUTPUT"
+
             -   name: Push changes
                 uses: ad-m/github-push-action@master
                 if: steps.build.outputs.is_dirty == 1
