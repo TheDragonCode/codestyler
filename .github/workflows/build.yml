@@ -39,7 +39,7 @@ jobs:
                 run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
             -   name: Execute unit/feature tests
-                run: php ./codestyle --test --colors=always
+                run: php ./codestyle --test
 
             -   name: Create the PHAR file
                 run: php ./codestyle app:build codestyle --build-version=${{ steps.tag.outputs.tag }} --ansi
@@ -82,7 +82,7 @@ jobs:
                 run: php builds/codestyle --version
 
             -   name: Run codestyler
-                run: php builds/codestyle --test --colors=always
+                run: php builds/codestyle --test
     
     push:
         runs-on: ubuntu-latest

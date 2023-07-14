@@ -73,4 +73,4 @@ jobs:
                 run: composer install --prefer-dist --no-progress --no-interaction --no-suggest
 
             -   name: Application code-style testing
-                run: php ./codestyle --test --colors=always
+                run: php ./codestyle --test
