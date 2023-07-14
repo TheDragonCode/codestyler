@@ -69,7 +69,7 @@ jobs:
             matrix:
                 os: [ "ubuntu-latest", "windows-latest" ]
 
-        name: ${{ matrix.os }}
+        name: Check with ${{ matrix.os }}
         
         steps:
             -   uses: actions/download-artifact@v3
