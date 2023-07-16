@@ -36,6 +36,10 @@
             "url": "https://github.com/sponsors/TheDragonCode"
         },
         {
+            "type": "open_collective",
+            "url": "https://opencollective.com/dragon-code"
+        },
+        {
             "type": "boosty",
             "url": "https://boosty.to/dragon-code"
         },
@@ -44,8 +48,8 @@
             "url": "https://yoomoney.ru/to/410012608840929"
         },
         {
-            "type": "open_collective",
-            "url": "https://opencollective.com/dragon-code"
+            "type": "donationalerts",
+            "url": "https://www.donationalerts.com/r/dragon_code"
         }
     ],
     "require": {
