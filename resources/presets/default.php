@@ -248,6 +248,8 @@ return [
         'identical'            => false,
         'less_and_greater'     => false,
     ],
+    
+    'yield_from_array_to_yields' => true,
 
     'phpdoc_param_order' => true,
 
