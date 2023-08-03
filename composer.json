@@ -64,16 +64,16 @@
     "require-dev": {
         "dragon-code/pretty-array": "^4.1",
         "dragon-code/support": "^6.11.2",
-        "friendsofphp/php-cs-fixer": "^3.21.1",
-        "illuminate/view": "^10.15.0",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^3.15",
+        "friendsofphp/php-cs-fixer": "^3.22.0",
+        "illuminate/view": "^10.17.1",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.16",
         "laravel-zero/framework": "^10.1.1",
-        "mockery/mockery": "^1.6.2",
+        "mockery/mockery": "^1.6.4",
         "nunomaduro/termwind": "^1.15.1",
         "pedrotroller/php-cs-custom-fixer": "^2.32.1",
-        "pestphp/pest": "^2.8.3",
+        "pestphp/pest": "^2.12.0",
         "seld/jsonlint": "^1.10",
-        "symfony/yaml": "^6.3"
+        "symfony/yaml": "^6.3.3"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
