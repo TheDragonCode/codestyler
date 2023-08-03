@@ -32,6 +32,8 @@ return [
         'scalar_types' => true,
     ],
 
+    'php_unit_data_provider_return_type' => true,
+
     DeclareAfterOpeningTagFixer::name()      => true,
     NoUselessStrlenFixer::name()             => true,
     PhpUnitAssertArgumentsOrderFixer::name() => true,
