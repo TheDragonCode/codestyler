@@ -38,7 +38,6 @@ return [
     'blank_line_before_statement' => [
         'statements' => [
             'continue',
-            'declare',
             'default',
             'do',
             'exit',
@@ -46,11 +45,7 @@ return [
             'foreach',
             'goto',
             'if',
-            'include',
-            'include_once',
             'phpdoc',
-            'require',
-            'require_once',
             'return',
             'switch',
             'throw',
