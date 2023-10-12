@@ -15,7 +15,7 @@ it('may fail with style issues', function () {
                 'Fixtures',
                 'with-fixable-issues',
                 'file.php',
-            ])))->toContain('new_with_braces');
+            ])))->toContain('new_with_parentheses');
 });
 
 it('may fail with errors', function () {

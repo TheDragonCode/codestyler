@@ -31,6 +31,15 @@ return [
 
     'array_indentation' => true,
 
+    'attribute_empty_parentheses' => [
+        'use_parentheses' => false,
+    ],
+
+    'long_to_shorthand_operator'     => true,
+    'native_type_declaration_casing' => true,
+
+    'no_unneeded_braces' => true,
+
     'binary_operator_spaces' => [
         'default' => 'align_single_space_minimal',
     ],
@@ -87,12 +96,6 @@ return [
         'position' => 'next_line',
     ],
 
-    'curly_braces_position' => [
-        'allow_single_line_anonymous_functions'     => true,
-        'allow_single_line_empty_anonymous_classes' => true,
-        'anonymous_classes_opening_brace'           => 'same_line',
-    ],
-
     'declare_parentheses' => true,
 
     'escape_implicit_backslashes' => [
@@ -115,7 +118,7 @@ return [
         'strategy' => 'no_multi_line',
     ],
 
-    'new_with_braces' => [
+    'new_with_parentheses' => [
         'anonymous_class' => false,
     ],
 
@@ -243,8 +246,6 @@ return [
         'identical'            => false,
         'less_and_greater'     => false,
     ],
-
-    'yield_from_array_to_yields' => true,
 
     'phpdoc_param_order' => true,
 
