@@ -26,7 +26,7 @@ body:
     -   type: textarea
         id: environment
         attributes:
-            label: Envoronment
+            label: Environment
             description: |
                 Tip: Use the `composer global info dragon-code/codestyler` command to get information for Laravel Lang.
                 Tip: Use the `php -v` command to get information for PHP.
