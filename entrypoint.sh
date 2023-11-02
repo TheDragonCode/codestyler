@@ -6,11 +6,14 @@ source /shell/functions.sh
 source /shell/config.sh
 source /shell/plugins.sh
 
-source /shell/check.sh
-source /shell/fix.sh
-source /shell/editorconfig.sh
-source /shell/dependabot.sh
-source /shell/normalize.sh
-source /shell/thanks.sh
+if [[ $(allowFix) == "true" ]]; then
+    source /shell/fix.sh
+    source /shell/editorconfig.sh
+    source /shell/dependabot.sh
+    source /shell/normalize.sh
+    source /shell/thanks.sh
 
-source /shell/push.sh
+    source /shell/push.sh
+else
+    source /shell/check.sh
+fi

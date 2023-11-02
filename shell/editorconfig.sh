@@ -2,7 +2,7 @@
 
 IS_DIRTY_EDITORCONFIG=0
 
-if [[ $(allowFix) == "true" && $(allow "$INPUT_EDITORCONFIG") == "true" ]]; then
+if [[ $(allow "$INPUT_EDITORCONFIG") == "true" ]]; then
     IS_DIRTY_EDITORCONFIG=1
 
     if [[ $INPUT_VERBOSE == "true" ]]; then

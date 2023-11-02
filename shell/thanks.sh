@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-if [[ $(allowFix) == "true" && ! -z "${INPUT_GITHUB_TOKEN}" ]]; then
+if [[ ! -z "${INPUT_GITHUB_TOKEN}" ]]; then
     if [[ -f "./composer.json" ]]; then
             composer global require symfony/thanks
     
