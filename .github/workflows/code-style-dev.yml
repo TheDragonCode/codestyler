@@ -6,7 +6,7 @@ on:
 permissions: write-all
 
 jobs:
-    style_dev:
+    style:
         runs-on: ubuntu-latest
 
         steps:
@@ -14,7 +14,7 @@ jobs:
                 uses: actions/checkout@v4
 
             -   name: Fix the code style
-                uses: ./Dockerfile
+                uses: ./
                 with:
                     fix: true
                     editorconfig: false
