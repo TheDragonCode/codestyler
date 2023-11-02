@@ -2,7 +2,7 @@
 
 IS_DIRTY_DEPENDABOT=0
 
-if [[ $(allowFix) == "true" && $(allow "$INPUT_DEPENDABOT") == "true" ]]; then
+if [[ $(allow "$INPUT_DEPENDABOT") == "true" ]]; then
     IS_DIRTY_DEPENDABOT=1
 
     if [[ $INPUT_VERBOSE == "true" ]]; then

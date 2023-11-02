@@ -20,7 +20,8 @@ echo "EditorConfig:   $IS_DIRTY_EDITORCONFIG"
 echo "Composer:       $IS_DIRTY_NORMALIZE"
 echo "Code Style:     $IS_DIRTY_CODE"
 echo " "
-echo "Total dirty is $(isDirty)"
+echo "Is Dirty:       $(isDirty)"
+echo "Allow to fix:   $(allowFix)"
 echo " "
 
 if [[ $(isDirty) == "true" ]]; then
