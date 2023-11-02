@@ -10,6 +10,19 @@ function isDirty() {
     echo "$result"
 }
 
+echo "=========================="
+echo "=    Changes Detector    ="
+echo "=========================="
+echo " "
+echo "Plugins Config: $IS_PLUGINS_CONFIG"
+echo "Dependabot:     $IS_DIRTY_DEPENDABOT"
+echo "EditorConfig:   $IS_DIRTY_EDITORCONFIG"
+echo "Composer:       $IS_DIRTY_NORMALIZE"
+echo "Code Style:     $IS_DIRTY_CODE"
+echo " "
+echo "Total dirty is $(isDirty)"
+echo " "
+
 if [[ $(isDirty) == "true" ]]; then
     git push
 fi
