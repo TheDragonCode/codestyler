@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-IS_DIRTY_CODE=0
+IS_DIRTY_CODE=1
 
 if [[ $INPUT_VERBOSE == "true" ]]; then
     codestyle --verbose
