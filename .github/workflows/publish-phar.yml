@@ -57,7 +57,7 @@ jobs:
                     sudo php ./codestyle app:build codestyle.phar --build-version=${{ steps.tag.outputs.tag }}
 
             -   name: Upload the PHAR artifact
-                uses: actions/upload-artifact@v3
+                uses: actions/upload-artifact@v4
                 with:
                     name: codestyle.phar
                     path: builds/codestyle.phar
