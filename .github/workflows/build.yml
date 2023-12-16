@@ -45,7 +45,7 @@ jobs:
                 run: php ./codestyle app:build codestyle --build-version=${{ steps.tag.outputs.tag }} --ansi
 
             -   name: Upload artifact
-                uses: actions/upload-artifact@v3
+                uses: actions/upload-artifact@v4
                 with:
                     name: codestyle
                     path: builds/codestyle
@@ -76,7 +76,7 @@ jobs:
             -   name: Remove old file
                 run: rm -f builds/codestyle
 
-            -   uses: actions/download-artifact@v3
+            -   uses: actions/download-artifact@v4
                 with:
                     name: codestyle
                     path: builds
@@ -99,7 +99,7 @@ jobs:
             -   name: Remove old file
                 run: rm -f builds/codestyle
 
-            -   uses: actions/download-artifact@v3
+            -   uses: actions/download-artifact@v4
                 with:
                     name: codestyle
                     path: builds

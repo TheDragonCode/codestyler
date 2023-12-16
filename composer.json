@@ -23,7 +23,7 @@
         {
             "name": "Andrey Helldar",
             "email": "helldar@dragon-code.pro",
-            "homepage": "https://github.com/andrey-helldar"
+            "homepage": "https://dragon-code.pro"
         }
     ],
     "support": {
@@ -31,14 +31,6 @@
         "source": "https://github.com/TheDragonCode/codestyler"
     },
     "funding": [
-        {
-            "type": "github",
-            "url": "https://github.com/sponsors/TheDragonCode"
-        },
-        {
-            "type": "open_collective",
-            "url": "https://opencollective.com/dragon-code"
-        },
         {
             "type": "boosty",
             "url": "https://boosty.to/dragon-code"
