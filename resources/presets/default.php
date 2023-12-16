@@ -35,7 +35,6 @@ return [
         'use_parentheses' => false,
     ],
 
-    'long_to_shorthand_operator'     => true,
     'native_type_declaration_casing' => true,
 
     'no_unneeded_braces' => true,
