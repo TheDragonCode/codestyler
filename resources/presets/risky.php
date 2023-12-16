@@ -32,6 +32,8 @@ return [
         'scalar_types' => true,
     ],
 
+    'long_to_shorthand_operator'     => true,
+
     'php_unit_data_provider_return_type' => true,
 
     'yield_from_array_to_yields' => true,
