@@ -163,7 +163,7 @@ jobs:
                 uses: actions/checkout@v2
 
             -   name: Code style fix
-                uses: TheDragonCode/codestyler@v3
+                uses: TheDragonCode/codestyler@v4
                 with:
                     # This token uses GitHub Actions to execute code.
                     # Required when `fix` is `true`.
@@ -228,7 +228,7 @@ jobs:
                     echo "name=${NAME}" >> $GITHUB_OUTPUT
 
             -   name: ${{ steps.detect.outputs.name }} the code style
-                uses: TheDragonCode/codestyler@v3
+                uses: TheDragonCode/codestyler@v4
                 with:
                     github_token: ${{ secrets.COMPOSER_TOKEN }}
                     fix: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
@@ -263,14 +263,14 @@ By default, the linter scans all files in the current launch folder, except for 
 and `.github`.
 
 ```yaml
--   uses: TheDragonCode/codestyler@v3
+-   uses: TheDragonCode/codestyler@v4
 ```
 
 By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this
 option:
 
 ```yaml
--   uses: TheDragonCode/codestyler@v3
+-   uses: TheDragonCode/codestyler@v4
     with:
         github_token: ${{ secrets.CODE_STYLE_TOKEN }}
         fix: true
