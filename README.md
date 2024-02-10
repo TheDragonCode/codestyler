@@ -218,18 +218,20 @@ jobs:
 
         steps:
             -   name: Checkout code
-                uses: actions/checkout@v3
+                uses: actions/checkout@v4
 
-            -   name: Check the code style
-                uses: TheDragonCode/codestyler@v3
-                if: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
+            -   name: Detect job name
+                id: detect
+                run: |
+                    NAME=${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'Fix' || 'Check' }}
 
-            -   name: Fix the code style
+                    echo "name=${NAME}" >> $GITHUB_OUTPUT
+
+            -   name: ${{ steps.detect.outputs.name }} the code style
                 uses: TheDragonCode/codestyler@v3
-                if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
                 with:
-                    github_token: ${{ secrets.CODE_STYLE_TOKEN }}
-                    fix: true
+                    github_token: ${{ secrets.COMPOSER_TOKEN }}
+                    fix: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 ```
 
 ### Other CI/CD
