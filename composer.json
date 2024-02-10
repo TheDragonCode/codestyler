@@ -60,6 +60,7 @@
         "illuminate/view": "^10.40.0",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.18.0",
         "friendsofphp/php-cs-fixer": "^3.49.0",
+        "illuminate/view": "^10.43.0",
         "laravel-zero/framework": "^10.3.0",
         "mockery/mockery": "^1.6.7",
         "nunomaduro/termwind": "^1.15.1",
