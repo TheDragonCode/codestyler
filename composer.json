@@ -63,9 +63,9 @@
         "mockery/mockery": "^1.6.7",
         "nunomaduro/termwind": "^1.15.1",
         "pedrotroller/php-cs-custom-fixer": "^2.33.0",
-        "pestphp/pest": "^2.30.0",
         "seld/jsonlint": "^1.10.1",
         "symfony/yaml": "^6.4.0 || ^7.0"
+        "pestphp/pest": "^2.33.4",
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
