@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace DragonCode\CodeStyler\Factories;
 
 use App\Factories\ConfigurationFactory as BaseFactory;
-use App\Fixers\LaravelPhpdocAlignmentFixer;
 use DragonCode\CodeStyler\Fixers\JsonFixer;
 use DragonCode\CodeStyler\Fixers\JsonRiskyFixer;
 use DragonCode\CodeStyler\Fixers\XmlFixer;
@@ -64,8 +63,6 @@ class ConfigurationFactory extends BaseFactory
                 new JsonRiskyFixer(),
                 new YamlFixer(),
                 new XmlFixer(),
-                // Laravel...
-                new LaravelPhpdocAlignmentFixer(),
                 // PhpCsFixerCustomFixers...
                 new DeclareAfterOpeningTagFixer(),
                 new MultilineCommentOpeningClosingAloneFixer(),
