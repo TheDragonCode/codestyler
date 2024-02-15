@@ -63,8 +63,6 @@ class YamlFixer implements FixerInterface
 
     protected function encode(array $data): string
     {
-        $encoded = Yaml::dump($data, 5);
-
-        return trim($encoded) . PHP_EOL;
+        return trim(Yaml::dump($data, 5));
     }
 }
