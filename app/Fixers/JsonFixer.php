@@ -67,9 +67,11 @@ class JsonFixer implements FixerInterface
 
     protected function convert(string $json): string
     {
-        return json_encode(
+        $encoded = json_encode(
             json_decode($json, false),
             JSON_UNESCAPED_UNICODE ^ JSON_UNESCAPED_SLASHES ^ JSON_PRETTY_PRINT
         );
+
+        return trim($encoded) . PHP_EOL;
     }
 }
