@@ -44,7 +44,7 @@ jobs:
                 run: |
                     TAG=${{ github.event.release.tag_name }}
 
-                    echo "full_version=v${TAG}" >> $GITHUB_OUTPUT
+                    echo "full_version=${TAG}" >> $GITHUB_OUTPUT
                     echo "major_version=v${TAG:0:1}" >> $GITHUB_OUTPUT
 
             -   name: Show versions
@@ -53,7 +53,7 @@ jobs:
                     echo "Full is ${{ steps.version.outputs.full_version }}"
 
             -   name: Tag new target
-                run: git tag -f ${{ steps.version.outputs.major_version }} ${{ steps.version.outputs.full_version }}
+                run: git tag -f "${{ steps.version.outputs.major_version }}" "${{ steps.version.outputs.full_version }}"
 
             -   name: Push new tag
-                run: git push origin ${{ steps.version.outputs.major_version }} --force
+                run: git push origin "${{ steps.version.outputs.major_version }}" --force
