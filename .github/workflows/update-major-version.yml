@@ -8,6 +8,11 @@ on:
             - released
         tags-ignore:
             - v1.*
+            - v2.*
+            - v3.*
+            - 1.*
+            - 2.*
+            - 3.*
     workflow_dispatch:
         inputs:
             target:
@@ -17,8 +22,7 @@ on:
                 type: choice
                 description: The major version to update
                 options:
-                    - v3
-                    - v2
+                    - "4"
 
 permissions: write-all
 
@@ -40,8 +44,8 @@ jobs:
                 run: |
                     TAG=${{ github.event.release.tag_name }}
 
-                    echo "full_version=${TAG}" >> $GITHUB_OUTPUT
-                    echo "major_version=${TAG:0:2}" >> $GITHUB_OUTPUT
+                    echo "full_version=v${TAG}" >> $GITHUB_OUTPUT
+                    echo "major_version=v${TAG:0:1}" >> $GITHUB_OUTPUT
 
             -   name: Show versions
                 run: |
