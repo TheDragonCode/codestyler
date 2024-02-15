@@ -19,6 +19,8 @@ use function json_encode;
 
 class JsonFixer implements FixerInterface
 {
+    protected int $flags = JSON_UNESCAPED_UNICODE ^ JSON_UNESCAPED_SLASHES ^ JSON_PRETTY_PRINT;
+
     public function getName(): string
     {
         return 'DragonCode/json';
@@ -67,9 +69,16 @@ class JsonFixer implements FixerInterface
 
     protected function convert(string $json): string
     {
-        return json_encode(
-            json_decode($json, false),
-            JSON_UNESCAPED_UNICODE ^ JSON_UNESCAPED_SLASHES ^ JSON_PRETTY_PRINT
-        );
+        return trim($this->encode($this->decode($json)));
+    }
+
+    protected function decode(string $json): array
+    {
+        return json_decode($json, true);
+    }
+
+    protected function encode(array $data): string
+    {
+        return json_encode($data, $this->flags);
     }
 }
