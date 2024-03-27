@@ -5,23 +5,58 @@ on: [ push, pull_request ]
 permissions: write-all
 
 jobs:
-    style:
+    check:
         runs-on: ubuntu-latest
+        
+        if: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
 
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v4
 
-            -   name: Check the code style
-                uses: TheDragonCode/codestyler@v4
-                if: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
                 with:
-                    github_token: ${{ secrets.COMPOSER_TOKEN }}
+                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
+                    coverage: none
 
-            -   name: Fix the code style
-                uses: TheDragonCode/codestyler@v4
-                if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+            -   name: Install dependency
+                run: composer global require dragon-code/codestyler
+
+            -   name: Check the code-style
+                run: codestyle --test
+
+    fix:
+        runs-on: ubuntu-latest
+        
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v4
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
                 with:
-                    github_token: ${{ secrets.COMPOSER_TOKEN }}
-                    fix: true
-                    editorconfig: false
+                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
+                    coverage: none
+
+            -   name: Install dependency
+                run: composer global require dragon-code/codestyler
+
+            -   name: Fix the code-style
+                run: |
+                    codestyle
+                    codestyle dependabot
+                    codestyle normalize
+
+            -   name: Create a Pull Request
+                uses: peter-evans/create-pull-request@v6
+                with:
+                    branch: code-style
+                    branch-suffix: random
+                    delete-branch: true
+                    title: "[code-style]: 🦋 The code style has been fixed"
+                    commit-message: 🦋 The code style has been fixed
+                    body: The code style has been fixed
+                    labels: code-style

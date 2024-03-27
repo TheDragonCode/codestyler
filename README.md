@@ -112,6 +112,14 @@ Only fix files that have uncommitted changes.
 codestyle --dirty
 ```
 
+#### Bail
+
+Test for code style errors without fixing them and stop on first error
+
+```Bash
+codestyle --bail
+```
+
 #### Output Format
 
 The output format that should be used.
@@ -147,63 +155,14 @@ codestyle editorconfig --help
 
 ### GitHub Action
 
+> ATTENTION
+>
+> Starting with code styler version 4.2.0, we will no longer support
+> a [container](https://github.com/marketplace/actions/the-dragon-code-styler) for GitHub Actions.
+>
+> Instead, use direct dependency installation using the examples below.
+
 Create a new `.github/workflows/code-style.yml` file and add the content to it:
-
-```yaml
-name: Code Style
-
-on: [ push, pull_request ]
-
-jobs:
-    fix:
-        runs-on: ubuntu-latest
-
-        steps:
-            -   name: Checkout code
-                uses: actions/checkout@v4
-
-            -   name: Code style fix
-                uses: TheDragonCode/codestyler@v4
-                with:
-                    # This token uses GitHub Actions to execute code.
-                    # Required when `fix` is `true`.
-                    # The default value is `${{ secrets.GITHUB_TOKEN }}`.
-                    github_token: ${{ secrets.CODE_STYLE_TOKEN }}
-
-                    # Activates the mode of accepting changes with the creation
-                    # of commits.
-                    fix: true
-
-                    # Activates the actualization of the `.editorconfig` file.
-                    # Works only when the `fix` option is enabled.
-                    # By default, true
-                    editorconfig: true
-
-                    # Activates Dependabot file processing.
-                    # Works only when the `fix` option is enabled.
-                    # By default, true
-                    dependabot: true
-
-                    # Normalizing `composer.json`.
-                    # Works only when the `fix` option is enabled.
-                    # By default, true
-                    normalize: true
-
-                    # Increase the verbosity of messages for debug
-                    # By default, false
-                    verbose: true
-```
-
-Since the changes are pushed to the master branch, GitHub can block this action with a security policy.
-
-To solve this problem, you need to
-be [`create`](https://github.com/settings/tokens/new?scopes=repo&description=The%20Dragon%20Code:%20Styler) of your
-account token and specify it
-in the `Actions secrets` section of the repository or organization.
-
-The name of the variable containing the token must be passed to the `github_token` key.
-
-#### Simplify Check & Fix
 
 ```yaml
 name: Code Style
@@ -213,25 +172,82 @@ on: [ push, pull_request ]
 permissions: write-all
 
 jobs:
-    style:
+    check:
         runs-on: ubuntu-latest
+
+        if: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
 
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v4
 
-            -   name: Detect job name
-                id: detect
-                run: |
-                    NAME=${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'Fix' || 'Check' }}
-
-                    echo "name=${NAME}" >> $GITHUB_OUTPUT
-
-            -   name: ${{ steps.detect.outputs.name }} the code style
-                uses: TheDragonCode/codestyler@v4
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
                 with:
-                    github_token: ${{ secrets.COMPOSER_TOKEN }}
-                    fix: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
+                    coverage: none
+
+            -   name: Install dependency
+                run: composer global require dragon-code/codestyler
+
+            -   name: Check the code-style
+                run: codestyle --test
+
+    fix:
+        runs-on: ubuntu-latest
+
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v4
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
+                    coverage: none
+
+            -   name: Install dependency
+                run: |
+                    composer global require dragon-code/codestyler
+                    composer global require ergebnis/composer-normalize
+                    composer global require symfony/thanks
+
+            -   name: Fix the code-style
+                run: |
+                    # Copies the `.editorconfig` file to the folder from which the command is run.
+                    # The file contains a complete set of instructions for the IDE that supports EditorConfig.
+                    codestyle editorconfig
+
+                    # Copies the `The_Dragon_Code_phpStorm.xml` file to the folder from which the command is run.
+                    # The file contains a complete set of instructions for JetBrains PhpStorm.
+                    codestyle phpstorm
+
+                    # Creates or updates the `dependabot.yml` file for GitHub Actions.
+                    codestyle dependabot
+
+                    # Provides a composer plugin for normalizing `composer.json`.
+                    composer update && composer normalize
+
+                    # The main script for fixing the project code style
+                    codestyle
+
+                    # The easiest and free way to say “thank you” to the developers whose packages
+                    you use is to “star” the GitHub repository.
+                    # See more at https://github.com/symfony/thanks
+                    composer thanks
+
+            -   name: Create a Pull Request
+                uses: peter-evans/create-pull-request@v6
+                with:
+                    branch: code-style
+                    branch-suffix: random
+                    delete-branch: true
+                    title: "[code-style]: 🦋 The code style has been fixed"
+                    commit-message: 🦋 The code style has been fixed
+                    body: The code style has been fixed
+                    labels: code-style
 ```
 
 ### Other CI/CD
@@ -256,41 +272,6 @@ the [File | Settings | Editor | Code Style](jetbrains://PhpStorm/settings?name=E
 
 You can also use the `codestyle phpstorm` console command to publish the schema xml file to phpStorm.
 You can import this file into the IDE.
-
-## Configuration
-
-By default, the linter scans all files in the current launch folder, except for folders such as `vendor`, `node_modules`
-and `.github`.
-
-```yaml
--   uses: TheDragonCode/codestyler@v4
-```
-
-By default, the linter only checks the code-style. If you want to apply the changes, then you need to activate this
-option:
-
-```yaml
--   uses: TheDragonCode/codestyler@v4
-    with:
-        github_token: ${{ secrets.CODE_STYLE_TOKEN }}
-        fix: true
-```
-
-By default, GitHub Action does not allow versioning, so our project will create a configuration file for it, which will
-check for new versions once a day.
-
-When Dependabot detects new versions of containers, it will automatically create a PR to your repository. So you don't
-need to keep track of updates - Dependabot will do everything
-for you 💪😎
-
-If the `.github/dependabot.yml` file has already been created, we will check it and add the necessary rules. So don't be
-afraid, nothing will be deleted 😎
-
-> Note
->
-> Files will be created only if you have specified `fix: true`.
->
-> Or you can manually run the Dependabot rule creation script by executing the `codestyle dependabot` command.
 
 ## License
 
