@@ -54,6 +54,7 @@
         "ext-xml": "*"
     },
     "require-dev": {
+        "archtechx/enums": "^1.0",
         "dragon-code/pretty-array": "^4.1",
         "dragon-code/support": "^6.12.0",
         "friendsofphp/php-cs-fixer": "^3.49.0",

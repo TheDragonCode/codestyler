@@ -6,6 +6,7 @@ namespace DragonCode\CodeStyler\Factories;
 
 use App\Project;
 use ArrayIterator;
+use DragonCode\CodeStyler\Enums\PhpVersion;
 use DragonCode\CodeStyler\Repositories\ConfigurationJsonRepository;
 use PhpCsFixer\Config;
 use PhpCsFixer\Console\ConfigurationResolver;
@@ -29,13 +30,6 @@ use function sys_get_temp_dir;
 
 class ConfigurationResolverFactory
 {
-    public static array $presets = [
-        '8.1',
-        '8.1-risky',
-        '8.2',
-        '8.2-risky',
-    ];
-
     public static function fromIO(InputInterface $input, OutputInterface $output): array
     {
         $path          = static::paths($input);
@@ -43,7 +37,7 @@ class ConfigurationResolverFactory
 
         $preset = $configuration->preset();
 
-        abort_unless(in_array($preset, static::$presets), 1, 'Preset not found.');
+        abort_unless(in_array($preset, static::presets()), 1, 'Preset not found.');
 
         $resolver = static::resolver($input, $output, $path, $configuration, $preset);
 
@@ -112,5 +106,10 @@ class ConfigurationResolverFactory
     protected static function allowRisky(InputInterface $input): string
     {
         return $input->getOption('risky') ? 'yes' : 'no';
+    }
+
+    protected static function presets(): array
+    {
+        return PhpVersion::values();
     }
 }
