@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-act -W '.github/workflows/code-style-dev.yml'
+act -W '.github/workflows/code-style.yml'
