@@ -238,7 +238,7 @@ jobs:
                     codestyle dependabot
 
                     # Provides a composer plugin for normalizing `composer.json`.
-                    composer update && composer normalize
+                    composer normalize
 
                     # The main script for fixing the project code style
                     codestyle
