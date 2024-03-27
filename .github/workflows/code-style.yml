@@ -61,8 +61,8 @@ jobs:
                 run: |
                     codestyle
                     codestyle dependabot
-                    codestyle normalize
 
+                    composer normalize
                     composer thanks
 
             -   name: Create a Pull Request
