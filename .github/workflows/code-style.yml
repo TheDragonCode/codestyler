@@ -77,7 +77,7 @@ jobs:
                     branch: code-style
                     branch-suffix: random
                     delete-branch: true
-                    title: "[code-style]: 🦋 The code style has been fixed"
+                    title: "🦋 The code style has been fixed"
                     commit-message: 🦋 The code style has been fixed
                     body: The code style has been fixed
                     labels: code-style
