@@ -42,13 +42,18 @@ jobs:
                     coverage: none
 
             -   name: Install dependency
-                run: composer global require dragon-code/codestyler
+                run: |
+                    composer global require dragon-code/codestyler
+                    composer global require ergebnis/composer-normalize
+                    composer global require symfony/thanks
 
             -   name: Fix the code-style
                 run: |
                     codestyle
                     codestyle dependabot
                     codestyle normalize
+
+                    composer thanks
 
             -   name: Create a Pull Request
                 uses: peter-evans/create-pull-request@v6
