@@ -239,11 +239,11 @@ jobs:
                     # Creates or updates the `dependabot.yml` file for GitHub Actions.
                     codestyle dependabot
 
-                    # Provides a composer plugin for normalizing `composer.json`.
-                    composer normalize
-
                     # The main script for fixing the project code style
                     codestyle
+
+                    # Provides a composer plugin for normalizing `composer.json`.
+                    composer normalize
 
                     # The easiest and free way to say “thank you” to the developers whose packages
                     you use is to “star” the GitHub repository.

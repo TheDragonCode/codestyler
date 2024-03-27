@@ -65,8 +65,8 @@ jobs:
 
             -   name: Fix the code-style
                 run: |
-                    codestyle
                     codestyle dependabot
+                    codestyle
 
                     composer normalize
                     composer thanks
