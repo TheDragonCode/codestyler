@@ -288,7 +288,8 @@ on: [ push, pull_request ]
 permissions: write-all
 
 jobs:
-    check:
+    style:
+        name: Code Style
         uses: TheDragonCode/.github/.github/workflows/code-style.yml@main
 ```
 
