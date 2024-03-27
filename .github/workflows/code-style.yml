@@ -41,6 +41,16 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
                     coverage: none
 
+            -   name: Setup Dependencies
+                run: |
+                    composer global config --no-plugins allow-plugins.dragon-code/codestyler true
+                    composer global config --no-plugins allow-plugins.ergebnis/composer-normalize true
+                    composer global config --no-plugins allow-plugins.symfony/thanks true
+                    
+                    composer config --no-plugins allow-plugins.dragon-code/codestyler true
+                    composer config --no-plugins allow-plugins.ergebnis/composer-normalize true
+                    composer config --no-plugins allow-plugins.symfony/thanks true
+
             -   name: Install dependency
                 run: |
                     composer global require dragon-code/codestyler
