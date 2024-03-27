@@ -208,8 +208,10 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
                     coverage: none
 
-            -   name: Setup Dependencies
+            -   name: Setup Composer
                 run: |
+                    composer global config github-oauth.github.com ${{ secrets.COMPOSER_TOKEN }}
+
                     composer global config --no-plugins allow-plugins.dragon-code/codestyler true
                     composer global config --no-plugins allow-plugins.ergebnis/composer-normalize true
                     composer global config --no-plugins allow-plugins.symfony/thanks true
@@ -218,7 +220,7 @@ jobs:
                     composer config --no-plugins allow-plugins.ergebnis/composer-normalize true
                     composer config --no-plugins allow-plugins.symfony/thanks true
 
-            -   name: Install dependency
+            -   name: Install dependencies
                 run: |
                     composer global require dragon-code/codestyler
                     composer global require ergebnis/composer-normalize
