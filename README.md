@@ -208,6 +208,16 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
                     coverage: none
 
+            -   name: Setup Dependencies
+                run: |
+                    composer global config --no-plugins allow-plugins.dragon-code/codestyler true
+                    composer global config --no-plugins allow-plugins.ergebnis/composer-normalize true
+                    composer global config --no-plugins allow-plugins.symfony/thanks true
+
+                    composer config --no-plugins allow-plugins.dragon-code/codestyler true
+                    composer config --no-plugins allow-plugins.ergebnis/composer-normalize true
+                    composer config --no-plugins allow-plugins.symfony/thanks true
+
             -   name: Install dependency
                 run: |
                     composer global require dragon-code/codestyler
@@ -248,6 +258,36 @@ jobs:
                     commit-message: 🦋 The code style has been fixed
                     body: The code style has been fixed
                     labels: code-style
+```
+
+You can also use a simplified version of the configuration by linking to our settings.
+
+In this case, the following settings will be applied:
+
+- Always checks if the event is not equal to `push` or the branch is not equal to `main`
+- Correcting the code style will take the following steps:
+    - Will add the following plugins to the list
+      of [allowed plugins](https://getcomposer.org/doc/06-config.md#allow-plugins)
+      in your `composer.json` file:
+        - `dragon-code/codestyler`
+        - `ergebnis/composer-normalize`
+        - `symfony/thanks`
+    - Updates the `.github/dependabot.yml` file
+    - Updates the `.editorconfig` file
+    - Will correct the order of elements in the `composer.json` file to match
+      the [official schema](https://github.com/composer/composer/blob/main/res/composer-schema.json).
+    - Corrects the code style of your project.
+
+```yml
+name: Code Style
+
+on: [ push, pull_request ]
+
+permissions: write-all
+
+jobs:
+    check:
+        uses: TheDragonCode/.github/.github/workflows/code-style.yml@main
 ```
 
 ### Other CI/CD
