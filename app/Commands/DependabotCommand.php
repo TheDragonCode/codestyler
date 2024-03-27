@@ -28,6 +28,10 @@ class DependabotCommand extends BaseCommand
         'schedule' => [
             'interval' => 'daily',
         ],
+        
+        'labels' => [
+            'dependabot',
+        ],
     ];
 
     protected function targetPath(): ?string
