@@ -47,21 +47,16 @@ jobs:
 
             -   name: Setup Composer
                 run: |
-                    composer global config github-oauth.github.com ${{ secrets.COMPOSER_TOKEN }}
-
                     composer global config --no-plugins allow-plugins.dragon-code/codestyler true
                     composer global config --no-plugins allow-plugins.ergebnis/composer-normalize true
-                    composer global config --no-plugins allow-plugins.symfony/thanks true
                     
                     composer config --no-plugins allow-plugins.dragon-code/codestyler true
                     composer config --no-plugins allow-plugins.ergebnis/composer-normalize true
-                    composer config --no-plugins allow-plugins.symfony/thanks true
 
             -   name: Install dependencies
                 run: |
                     composer global require dragon-code/codestyler
                     composer global require ergebnis/composer-normalize
-                    composer global require symfony/thanks
 
             -   name: Fix the code-style
                 run: |
@@ -69,7 +64,6 @@ jobs:
                     codestyle
 
                     composer normalize
-                    composer thanks
 
             -   name: Create a Pull Request
                 uses: peter-evans/create-pull-request@v6

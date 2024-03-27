@@ -18,6 +18,13 @@ By default, `Codestyler` does not require any configuration and will fix code st
 the opinionated coding style of `The Dragon Code` based on the [`PER`](https://www.php-fig.org/per/coding-style/) rule
 set.
 
+
+> The easiest and free way to say “thank you” to the developers whose packages
+> you use is to “star” the GitHub repository.
+>
+> See more at https://github.com/symfony/thanks
+
+
 ## Installation
 
 ### Required
@@ -210,21 +217,16 @@ jobs:
 
             -   name: Setup Composer
                 run: |
-                    composer global config github-oauth.github.com ${{ secrets.COMPOSER_TOKEN }}
-
                     composer global config --no-plugins allow-plugins.dragon-code/codestyler true
                     composer global config --no-plugins allow-plugins.ergebnis/composer-normalize true
-                    composer global config --no-plugins allow-plugins.symfony/thanks true
 
                     composer config --no-plugins allow-plugins.dragon-code/codestyler true
                     composer config --no-plugins allow-plugins.ergebnis/composer-normalize true
-                    composer config --no-plugins allow-plugins.symfony/thanks true
 
             -   name: Install dependencies
                 run: |
                     composer global require dragon-code/codestyler
                     composer global require ergebnis/composer-normalize
-                    composer global require symfony/thanks
 
             -   name: Fix the code-style
                 run: |
@@ -244,11 +246,6 @@ jobs:
 
                     # Provides a composer plugin for normalizing `composer.json`.
                     composer normalize
-
-                    # The easiest and free way to say “thank you” to the developers whose packages
-                    you use is to “star” the GitHub repository.
-                    # See more at https://github.com/symfony/thanks
-                    composer thanks
 
             -   name: Create a Pull Request
                 uses: peter-evans/create-pull-request@v6
@@ -273,7 +270,6 @@ In this case, the following settings will be applied:
       in your `composer.json` file:
         - `dragon-code/codestyler`
         - `ergebnis/composer-normalize`
-        - `symfony/thanks`
     - Updates the `.github/dependabot.yml` file
     - Updates the `.editorconfig` file
     - Will correct the order of elements in the `composer.json` file to match
