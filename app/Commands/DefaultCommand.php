@@ -66,6 +66,13 @@ class DefaultCommand extends Command
                     ),
 
                     new InputOption(
+                        'bail',
+                        '',
+                        InputOption::VALUE_NONE,
+                        'Test for code style errors without fixing them and stop on first error'
+                    ),
+
+                    new InputOption(
                         'format',
                         '',
                         InputOption::VALUE_REQUIRED,
