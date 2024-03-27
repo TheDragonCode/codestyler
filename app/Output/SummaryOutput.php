@@ -6,6 +6,7 @@ namespace DragonCode\CodeStyler\Output;
 
 use App\Output\SummaryOutput as BaseOutput;
 
+/** @see \DragonCode\CodeStyler\Enums\PhpVersion */
 class SummaryOutput extends BaseOutput
 {
     protected $presets = [

@@ -11,13 +11,15 @@ it('outputs checkstyle format', function () {
         ->toContain('<?xml version="1.0" encoding="UTF-8"?>')
         ->toContain('<checkstyle>')
         ->toContain('</checkstyle>')
-        ->not->toContain(sprintf('⨯ %s',
+        ->not->toContain(sprintf(
+            '⨯ %s',
             implode(DIRECTORY_SEPARATOR, [
                 'tests',
                 'Fixtures',
                 'with-fixable-issues',
                 'file.php',
-            ])));
+            ])
+        ));
 });
 
 it('outputs json format', function () {
@@ -30,13 +32,15 @@ it('outputs json format', function () {
         ->and($output)
         ->toBeJson()
         ->toContain('appliedFixers')
-        ->not->toContain(sprintf('⨯ %s',
+        ->not->toContain(sprintf(
+            '⨯ %s',
             implode(DIRECTORY_SEPARATOR, [
                 'tests',
                 'Fixtures',
                 'with-fixable-issues',
                 'file.php',
-            ])));
+            ])
+        ));
 });
 
 it('outputs xml format', function () {
@@ -48,13 +52,15 @@ it('outputs xml format', function () {
     expect($statusCode)->toBe(1)
         ->and($output)
         ->toContain('<?xml version="1.0" encoding="UTF-8"?>')
-        ->not->toContain(sprintf('⨯ %s',
+        ->not->toContain(sprintf(
+            '⨯ %s',
             implode(DIRECTORY_SEPARATOR, [
                 'tests',
                 'Fixtures',
                 'with-fixable-issues',
                 'file.php',
-            ])));
+            ])
+        ));
 });
 
 it('outputs junit format', function () {
@@ -67,13 +73,15 @@ it('outputs junit format', function () {
         ->and($output)
         ->toContain('<?xml version="1.0" encoding="UTF-8"?>')
         ->toContain('CDATA')
-        ->not->toContain(sprintf('⨯ %s',
+        ->not->toContain(sprintf(
+            '⨯ %s',
             implode(DIRECTORY_SEPARATOR, [
                 'tests',
                 'Fixtures',
                 'with-fixable-issues',
                 'file.php',
-            ])));
+            ])
+        ));
 });
 
 it('outputs gitlab format', function () {
@@ -86,11 +94,13 @@ it('outputs gitlab format', function () {
         ->and($output)
         ->toBeJson()
         ->toContain('fingerprint')
-        ->not->toContain(sprintf('⨯ %s',
+        ->not->toContain(sprintf(
+            '⨯ %s',
             implode(DIRECTORY_SEPARATOR, [
                 'tests',
                 'Fixtures',
                 'with-fixable-issues',
                 'file.php',
-            ])));
+            ])
+        ));
 });

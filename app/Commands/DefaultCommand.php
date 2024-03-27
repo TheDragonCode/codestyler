@@ -27,58 +27,57 @@ class DefaultCommand extends Command
 
     protected function configure(): void
     {
-        $this
-            ->setDefinition(
-                [
-                    new InputArgument(
-                        'path',
-                        InputArgument::IS_ARRAY,
-                        'The path to fix',
-                        [(string) getcwd()]
-                    ),
+        $this->setDefinition(
+            [
+                new InputArgument(
+                    'path',
+                    InputArgument::IS_ARRAY,
+                    'The path to fix',
+                    [(string) getcwd()]
+                ),
 
-                    new InputOption(
-                        'config',
-                        '',
-                        InputOption::VALUE_REQUIRED,
-                        'The configuration that should be used'
-                    ),
+                new InputOption(
+                    'config',
+                    '',
+                    InputOption::VALUE_REQUIRED,
+                    'The configuration that should be used'
+                ),
 
-                    new InputOption(
-                        'test',
-                        '',
-                        InputOption::VALUE_NONE,
-                        'Test for code style errors without fixing them'
-                    ),
+                new InputOption(
+                    'test',
+                    '',
+                    InputOption::VALUE_NONE,
+                    'Test for code style errors without fixing them'
+                ),
 
-                    new InputOption(
-                        'risky',
-                        '',
-                        InputOption::VALUE_NONE,
-                        'Allows the application of risky rules'
-                    ),
+                new InputOption(
+                    'risky',
+                    '',
+                    InputOption::VALUE_NONE,
+                    'Allows the application of risky rules'
+                ),
 
-                    new InputOption(
-                        'dirty',
-                        '',
-                        InputOption::VALUE_NONE,
-                        'Only fix files that have uncommitted changes'
-                    ),
+                new InputOption(
+                    'dirty',
+                    '',
+                    InputOption::VALUE_NONE,
+                    'Only fix files that have uncommitted changes'
+                ),
 
-                    new InputOption(
-                        'bail',
-                        '',
-                        InputOption::VALUE_NONE,
-                        'Test for code style errors without fixing them and stop on first error'
-                    ),
+                new InputOption(
+                    'bail',
+                    '',
+                    InputOption::VALUE_NONE,
+                    'Test for code style errors without fixing them and stop on first error'
+                ),
 
-                    new InputOption(
-                        'format',
-                        '',
-                        InputOption::VALUE_REQUIRED,
-                        'The output format that should be used'
-                    ),
-                ]
-            );
+                new InputOption(
+                    'format',
+                    '',
+                    InputOption::VALUE_REQUIRED,
+                    'The output format that should be used'
+                ),
+            ]
+        );
     }
 }
