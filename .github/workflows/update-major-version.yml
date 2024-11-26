@@ -10,9 +10,11 @@ on:
             - v1.*
             - v2.*
             - v3.*
+            - v4.*
             - 1.*
             - 2.*
             - 3.*
+            - 4.*
     workflow_dispatch:
         inputs:
             target:
@@ -22,7 +24,7 @@ on:
                 type: choice
                 description: The major version to update
                 options:
-                    - "4"
+                    - "5"
 
 permissions: write-all
 
