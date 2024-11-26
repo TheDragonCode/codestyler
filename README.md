@@ -15,7 +15,7 @@ and [PHP-CS-Fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer), and makes it s
 stays clean and consistent.
 
 By default, `Codestyler` does not require any configuration and will fix code style issues in your code by following
-the opinionated coding style of `The Dragon Code` based on the [`PER`](https://www.php-fig.org/per/coding-style/) rule
+the opinionated coding style of `The Dragon Code` based on the [`PER-2.0`](https://www.php-fig.org/per/coding-style/) rule
 set.
 
 
