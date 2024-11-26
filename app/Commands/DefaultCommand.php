@@ -72,6 +72,13 @@ class DefaultCommand extends Command
                 ),
 
                 new InputOption(
+                    'repair',
+                    '',
+                    InputOption::VALUE_NONE,
+                    'Fix code style errors but exit with status 1 if there were any changes made'
+                ),
+
+                new InputOption(
                     'format',
                     '',
                     InputOption::VALUE_REQUIRED,
