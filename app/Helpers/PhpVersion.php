@@ -13,8 +13,8 @@ use function realpath;
 
 class PhpVersion
 {
-    public const DEFAULT = '8.3';
-    public const MIN     = '8.1';
+    public const DEFAULT = '8.4';
+    public const MIN     = '8.2';
 
     public static function get(): string
     {

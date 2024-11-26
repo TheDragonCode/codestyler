@@ -18,7 +18,7 @@ it('determines dirty files', function () {
 
     expect($statusCode)->toBe(0)
         ->and($output)
-        ->toContain('── PHP 8.1', ' 1 file');
+        ->toContain('── PHP 8.2', ' 1 file');
 });
 
 it('ignores the path argument', function () {
@@ -40,7 +40,7 @@ it('ignores the path argument', function () {
 
     expect($statusCode)->toBe(0)
         ->and($output)
-        ->toContain('── PHP 8.1', ' 1 file');
+        ->toContain('── PHP 8.2', ' 1 file');
 });
 
 it('does not abort when there are no dirty files', function () {
@@ -59,5 +59,5 @@ it('does not abort when there are no dirty files', function () {
 
     expect($statusCode)->toBe(0)
         ->and($output)
-        ->toContain('── PHP 8.1', ' 0 files');
+        ->toContain('── PHP 8.2', ' 0 files');
 });

@@ -10,6 +10,8 @@ $risky   = require base_path('resources/presets/risky.php');
 
 return ConfigurationFactory::preset(
     array_merge($default, $risky, [
+        '@PHP84Migration' => true,
+
         (new JsonRiskyFixer())->getName() => true,
     ])
 );

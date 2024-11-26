@@ -9,7 +9,7 @@ it('outputs checkstyle format', function () {
     expect($statusCode)->toBe(1)
         ->and($output)
         ->toContain('<?xml version="1.0" encoding="UTF-8"?>')
-        ->toContain('<checkstyle>')
+        ->toContain('<checkstyle')
         ->toContain('</checkstyle>')
         ->not->toContain(sprintf(
             '⨯ %s',
