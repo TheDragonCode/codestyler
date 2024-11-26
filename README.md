@@ -15,7 +15,7 @@ and [PHP-CS-Fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer), and makes it s
 stays clean and consistent.
 
 By default, `Codestyler` does not require any configuration and will fix code style issues in your code by following
-the opinionated coding style of `The Dragon Code` based on the [`PER`](https://www.php-fig.org/per/coding-style/) rule
+the opinionated coding style of `The Dragon Code` based on the [`PER-2.0`](https://www.php-fig.org/per/coding-style/) rule
 set.
 
 
@@ -29,8 +29,10 @@ set.
 
 ### Required
 
-- PHP: ^8.1
-- Composer: ^2.0
+| Package | PHP       |
+|---------|-----------|
+| `^5.0`  | 8.2 - 8.4 |
+| `^4.0`  | 8.1 - 8.3 |
 
 ### Locally
 
@@ -160,136 +162,7 @@ codestyle dependabot --help
 codestyle editorconfig --help
 ```
 
-### GitHub Action
-
-> ATTENTION
->
-> Starting with code styler version 4.2.0, we will no longer support
-> a [container](https://github.com/marketplace/actions/the-dragon-code-styler) for GitHub Actions.
->
-> Instead, use direct dependency installation using the examples below.
-
-Create a new `.github/workflows/code-style.yml` file and add the content to it:
-
-```yaml
-name: Code Style
-
-on: [ push, pull_request ]
-
-permissions: write-all
-
-jobs:
-    check:
-        runs-on: ubuntu-latest
-
-        if: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
-
-        steps:
-            -   name: Checkout code
-                uses: actions/checkout@v4
-
-            -   name: Setup PHP
-                uses: shivammathur/setup-php@v2
-                with:
-                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
-                    coverage: none
-
-            -   name: Install dependency
-                run: composer global require dragon-code/codestyler
-
-            -   name: Check the code-style
-                run: codestyle --test
-
-    fix:
-        runs-on: ubuntu-latest
-
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-
-        steps:
-            -   name: Checkout code
-                uses: actions/checkout@v4
-
-            -   name: Setup PHP
-                uses: shivammathur/setup-php@v2
-                with:
-                    extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, json
-                    coverage: none
-
-            -   name: Setup Composer
-                run: |
-                    composer global config --no-plugins allow-plugins.dragon-code/codestyler true
-                    composer global config --no-plugins allow-plugins.ergebnis/composer-normalize true
-
-                    composer config --no-plugins allow-plugins.dragon-code/codestyler true
-                    composer config --no-plugins allow-plugins.ergebnis/composer-normalize true
-
-            -   name: Install dependencies
-                run: |
-                    composer global require dragon-code/codestyler
-                    composer global require ergebnis/composer-normalize
-
-            -   name: Fix the code-style
-                run: |
-                    # Copies the `.editorconfig` file to the folder from which the command is run.
-                    # The file contains a complete set of instructions for the IDE that supports EditorConfig.
-                    codestyle editorconfig
-
-                    # Copies the `The_Dragon_Code_phpStorm.xml` file to the folder from which the command is run.
-                    # The file contains a complete set of instructions for JetBrains PhpStorm.
-                    codestyle phpstorm
-
-                    # Creates or updates the `dependabot.yml` file for GitHub Actions.
-                    codestyle dependabot
-
-                    # The main script for fixing the project code style
-                    codestyle
-
-                    # Provides a composer plugin for normalizing `composer.json`.
-                    composer normalize
-
-            -   name: Create a Pull Request
-                uses: peter-evans/create-pull-request@v6
-                with:
-                    branch: code-style
-                    branch-suffix: random
-                    delete-branch: true
-                    title: "🦋 The code style has been fixed"
-                    commit-message: 🦋 The code style has been fixed
-                    body: The code style has been fixed
-                    labels: code-style
-```
-
-You can also use a simplified version of the configuration by linking to our settings.
-
-In this case, the following settings will be applied:
-
-- Always checks if the event is not equal to `push` or the branch is not equal to `main`
-- Correcting the code style will take the following steps:
-    - Will add the following plugins to the list
-      of [allowed plugins](https://getcomposer.org/doc/06-config.md#allow-plugins)
-      in your `composer.json` file:
-        - `dragon-code/codestyler`
-        - `ergebnis/composer-normalize`
-    - Updates the `.github/dependabot.yml` file
-    - Updates the `.editorconfig` file
-    - Will correct the order of elements in the `composer.json` file to match
-      the [official schema](https://github.com/composer/composer/blob/main/res/composer-schema.json).
-    - Corrects the code style of your project.
-
-```yml
-name: Code Style
-
-on: [ push, pull_request ]
-
-permissions: write-all
-
-jobs:
-    style:
-        name: Code Style
-        uses: TheDragonCode/.github/.github/workflows/code-style.yml@main
-```
-
-### Other CI/CD
+### CI/CD
 
 ```bash
 composer global require dragon-code/codestyler

@@ -12,6 +12,7 @@ return [
     '@PHP71Migration:risky' => true,
     '@PHP74Migration:risky' => true,
     '@PHP80Migration:risky' => true,
+    '@PHP82Migration:risky' => true,
     '@PER:risky'            => true,
     '@Symfony:risky'        => true,
 
