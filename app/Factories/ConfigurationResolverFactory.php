@@ -57,7 +57,7 @@ class ConfigurationResolverFactory
         OutputInterface $output,
         array $path,
         ConfigurationJsonRepository $configuration,
-        string $preset
+        string $preset,
     ) {
         return new ConfigurationResolver(
             new Config('default'),
