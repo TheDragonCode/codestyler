@@ -9,12 +9,12 @@ permissions: read-all
 
 jobs:
     unit:
-        runs-on: ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}-latest
 
         strategy:
             fail-fast: true
             matrix:
-                os: [ "ubuntu-latest", "windows-latest" ]
+                os: [ "ubuntu", "windows" ]
                 php: [ "8.2", "8.3", "8.4" ]
 
         name: PHP ${{ matrix.php }} - ${{ matrix.os }}
