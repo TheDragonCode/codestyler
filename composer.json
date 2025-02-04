@@ -50,19 +50,19 @@
         "ext-xml": "*"
     },
     "require-dev": {
-        "archtechx/enums": "^1.1",
+        "archtechx/enums": "^1.1.1",
         "dragon-code/pretty-array": "^4.1",
-        "dragon-code/support": "^6.15.0",
-        "friendsofphp/php-cs-fixer": "^3.65.0",
-        "illuminate/view": "^11.33.2",
+        "dragon-code/support": "^6.15.1",
+        "friendsofphp/php-cs-fixer": "^3.68.5",
+        "illuminate/view": "^11.41.3",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.22.0",
-        "laravel-zero/framework": "^11.0.3",
+        "laravel-zero/framework": "^11.36.1",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/termwind": "^2.3",
         "pedrotroller/php-cs-custom-fixer": "^2.33.2",
-        "pestphp/pest": "^3.5.1",
+        "pestphp/pest": "^3.7.4",
         "seld/jsonlint": "^1.11.0",
-        "symfony/yaml": "^6.4.3 || ^7.1.6"
+        "symfony/yaml": "^6.4.3 || ^7.2.3"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
