@@ -58,6 +58,15 @@ class DefaultCommand extends Command
                 ),
 
                 new InputOption(
+                    'diff',
+                    '',
+                    InputOption::VALUE_REQUIRED,
+                    'Only fix files that have changed since branching off from the given branch',
+                    null,
+                    ['main', 'master', 'origin/main', 'origin/master']
+                ),
+
+                new InputOption(
                     'dirty',
                     '',
                     InputOption::VALUE_NONE,
