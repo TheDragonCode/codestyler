@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 it('displays the code diff', function () {
     [$statusCode, $output] = run('default', [
         'path' => base_path('tests/Fixtures/with-fixable-issues'),

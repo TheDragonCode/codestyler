@@ -94,7 +94,8 @@ return [
         'position' => 'next_line',
     ],
 
-    'declare_parentheses' => true,
+    'declare_parentheses'  => true,
+    'declare_strict_types' => true,
 
     'escape_implicit_backslashes' => [
         'double_quoted'  => true,

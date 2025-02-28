@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 it('fixes the code', function () {
     [$statusCode, $output] = run('default', [
         'path' => base_path('tests/Fixtures/fixers/single_line_empty_object.php'),

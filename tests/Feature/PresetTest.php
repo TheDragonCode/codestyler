@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 it('uses the laravel preset by default', function () {
     [$statusCode, $output] = run('default', [
         'path' => base_path('tests/Fixtures/without-issues'),

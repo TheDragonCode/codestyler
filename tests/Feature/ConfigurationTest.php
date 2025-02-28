@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use LaravelZero\Framework\Exceptions\ConsoleException;
 
 it('ensures configuration file is valid', function () {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Contracts\PathsRepository;
 
 it('determines dirty files', function () {

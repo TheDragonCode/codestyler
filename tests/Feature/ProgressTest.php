@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 it('display progress when fixing issues', function () {
     [$statusCode, $output] = run('default', [
         'path' => base_path('tests/Fixtures/with-fixable-issues'),

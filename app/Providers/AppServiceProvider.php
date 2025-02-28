@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DragonCode\CodeStyler\Providers;
 
 use App\Repositories\ConfigurationJsonRepository as ConfigurationJsonRepositoryConcern;

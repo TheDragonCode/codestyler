@@ -37,7 +37,7 @@ class ConfigurationResolverFactory
 
         $preset = $configuration->preset();
 
-        abort_unless(in_array($preset, static::presets()), 1, 'Preset not found.');
+        abort_unless(in_array($preset, static::presets(), true), 1, 'Preset not found.');
 
         $resolver = static::resolver($input, $output, $path, $configuration, $preset);
 
@@ -58,11 +58,11 @@ class ConfigurationResolverFactory
         array $path,
         ConfigurationJsonRepository $configuration,
         string $preset,
-    ) {
+    ): ConfigurationResolver {
         return new ConfigurationResolver(
             new Config('default'),
             [
-                'allow-risky' => static::allowRisky($input),
+                'allow-risky' => 'yes',
                 'config'      => implode(DIRECTORY_SEPARATOR, [
                     dirname(__DIR__, 2),
                     'resources',
@@ -98,14 +98,9 @@ class ConfigurationResolverFactory
         return Project::paths($input);
     }
 
-    protected static function configuration()
+    protected static function configuration(): ConfigurationJsonRepository
     {
         return resolve(ConfigurationJsonRepository::class);
-    }
-
-    protected static function allowRisky(InputInterface $input): string
-    {
-        return $input->getOption('risky') ? 'yes' : 'no';
     }
 
     protected static function presets(): array
