@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 it('fixes the xml', function () {
     [$statusCode, $output] = run('default', [
         'path' => base_path('tests/Fixtures/fixers/file.xml'),

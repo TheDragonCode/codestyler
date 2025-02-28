@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use DragonCode\CodeStyler\Helpers\PhpVersion;
 use DragonCode\CodeStyler\Repositories\ConfigurationJsonRepository;
 

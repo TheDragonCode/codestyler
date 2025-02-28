@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\ValueObjects\Issue;
 
 it('has a description', function () {

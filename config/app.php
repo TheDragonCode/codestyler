@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use DragonCode\CodeStyler\Providers\ActionsServiceProvider;
 use DragonCode\CodeStyler\Providers\AppServiceProvider;
 use DragonCode\CodeStyler\Providers\CommandsServiceProvider;
