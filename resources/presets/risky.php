@@ -20,6 +20,7 @@ return [
     'date_time_immutable'   => true,
     'mb_str_functions'      => true,
     'regular_callable_call' => true,
+    'modernize_strpos'      => true,
 
     'phpdoc_to_param_type' => [
         'scalar_types' => true,
