@@ -3,7 +3,6 @@
 ![the dragon code code styler](https://preview.dragon-code.pro/the-dragon-code/code-styler.svg?brand=php&mode=dark)
 
 [![Stable Version][badge_stable]][link_repo]
-[![Unstable Version][badge_unstable]][link_repo]
 [![Total Downloads][badge_downloads]][link_packagist]
 [![License][badge_license]][link_license]
 
@@ -195,8 +194,6 @@ This package is licensed under the [MIT License](LICENSE).
 [badge_license]:    https://img.shields.io/badge/license-MIT-green?style=flat-square
 
 [badge_stable]:     https://img.shields.io/github/v/release/TheDragonCode/codestyler?label=stable&style=flat-square
-
-[badge_unstable]:   https://img.shields.io/badge/unstable-dev--main-orange?style=flat-square
 
 [link_license]:     LICENSE
 
