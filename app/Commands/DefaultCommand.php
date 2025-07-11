@@ -104,9 +104,8 @@ class DefaultCommand extends Command
                 new InputOption(
                     'parallel',
                     'p',
-                    InputOption::VALUE_REQUIRED,
-                    'Runs the linter in parallel (Experimental)',
-                    true
+                    InputOption::VALUE_NONE,
+                    'Runs the linter in parallel (Experimental)'
                 ),
             ]
         );
