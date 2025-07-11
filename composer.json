@@ -54,9 +54,9 @@
         "dragon-code/pretty-array": "^4.2",
         "dragon-code/support": "^6.16.0",
         "friendsofphp/php-cs-fixer": "^3.72.0",
-        "illuminate/view": "^11.44.2",
+        "illuminate/view": "^12.20",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.23.0",
-        "laravel-zero/framework": "^11.36.1",
+        "laravel-zero/framework": "^12.0",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/termwind": "^2.3",
         "pedrotroller/php-cs-custom-fixer": "^2.33.2",
@@ -93,5 +93,8 @@
         },
         "preferred-install": "dist",
         "sort-packages": true
+    },
+    "scripts": {
+        "test": "vendor/bin/pest --parallel"
     }
 }

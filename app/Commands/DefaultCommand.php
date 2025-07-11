@@ -88,10 +88,25 @@ class DefaultCommand extends Command
                 ),
 
                 new InputOption(
+                    'output-to-file',
+                    '',
+                    InputOption::VALUE_REQUIRED,
+                    'Output the test results to a file at this path'
+                ),
+
+                new InputOption(
                     'format',
                     '',
                     InputOption::VALUE_REQUIRED,
                     'The output format that should be used'
+                ),
+
+                new InputOption(
+                    'parallel',
+                    'p',
+                    InputOption::VALUE_REQUIRED,
+                    'Runs the linter in parallel (Experimental)',
+                    true
                 ),
             ]
         );
