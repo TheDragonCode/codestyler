@@ -35,7 +35,7 @@ composer config scripts.style "vendor/bin/pint --config vendor/dragon-code/codes
 
 ### Laravel Pint
 
-> ![NOTE]
+> [!NOTE]
 >
 > [Laravel Pint](https://laravel.com/docs/pint) documentation can be found [here](https://laravel.com/docs/pint).
 
@@ -45,7 +45,7 @@ Just run the console command:
 composer style
 ```
 
-> ![WARNING]
+> [!WARNING]
 >
 > Since version 1.24, Laravel Pint has learned to fix styles in multi-threaded mode,
 > but this option conflicts with the `--config` parameter.
