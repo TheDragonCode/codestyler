@@ -2,7 +2,7 @@
     "name": "dragon-code/codestyler",
     "description": "A tool to automatically fix Coding Style Standards issues by The Dragon Code.",
     "license": "MIT",
-    "type": "project",
+    "type": "library",
     "keywords": [
         "php",
         "json",
@@ -41,60 +41,13 @@
         }
     ],
     "require": {
-        "php": "^8.2",
-        "ext-dom": "*",
-        "ext-json": "*",
-        "ext-libxml": "*",
-        "ext-mbstring": "*",
-        "ext-tokenizer": "*",
-        "ext-xml": "*"
-    },
-    "require-dev": {
-        "archtechx/enums": "^1.1.1",
-        "dragon-code/pretty-array": "^4.2",
-        "dragon-code/support": "^6.16.0",
-        "friendsofphp/php-cs-fixer": "^3.72.0",
-        "illuminate/view": "^12.20",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^3.23.0",
-        "laravel-zero/framework": "^12.0",
-        "mockery/mockery": "^1.6.12",
-        "nunomaduro/termwind": "^2.3",
-        "pedrotroller/php-cs-custom-fixer": "^2.33.2",
-        "pestphp/pest": "^3.7.4",
-        "seld/jsonlint": "^1.11.0",
-        "symfony/yaml": "^6.4.3 || ^7.2.3"
+        "php": "^8.2"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "autoload": {
-        "psr-4": {
-            "App\\": "modules/laravel/pint/app/",
-            "DragonCode\\CodeStyler\\": "app/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
-    "bin": [
-        "builds/codestyle"
-    ],
     "config": {
-        "allow-plugins": {
-            "dragon-code/codestyler": true,
-            "ergebnis/composer-normalize": true,
-            "pestphp/pest-plugin": true,
-            "symfony/thanks": true
-        },
         "optimize-autoloader": true,
-        "platform": {
-            "php": "8.2.26"
-        },
         "preferred-install": "dist",
         "sort-packages": true
-    },
-    "scripts": {
-        "test": "vendor/bin/pest --parallel"
     }
 }
