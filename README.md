@@ -57,8 +57,6 @@ then you can make the following changes to the `composer.json` file:
  {
      "scripts": {
          "post-update-cmd": [
-             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-             "@php artisan package:discover --ansi",
              "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig",
 +            "cp vendor/dragon-code/codestyler/presets/pint/8.4.json pint.json",
              "composer normalize"
@@ -78,8 +76,6 @@ But we recommend automating this process by adding automatic copying to the `com
 {
     "scripts": {
         "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi",
             "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig"
         ]
     }
@@ -104,8 +100,6 @@ To use this feature, add a call parameter to the `post-update-cmd` block of the 
 {
     "scripts": {
         "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi",
             "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig"
         ]
     }
@@ -134,8 +128,6 @@ After completing all the steps, the `composer.json` file will have the following
     },
     "scripts": {
         "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi",
             "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig",
             "composer normalize"
         ],
