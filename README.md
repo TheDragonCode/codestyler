@@ -6,6 +6,12 @@
 [![Total Downloads][badge_downloads]][link_packagist]
 [![License][badge_license]][link_license]
 
+> [!NOTE]
+>
+> `Codestyler 5` is the last version that runs on its own code and includes a mechanism for publishing files via command parameters. It is also the last version installed globally via Composer.
+>
+> Starting with `Codestyler 6`, the project will contain `pint.json` and `.editorconfig` files, and adding them to the project will be done by calling a console command.
+
 ## Introduction
 
 `The Dragon Code Styler` is an opinionated PHP code style fixer for minimalists.
