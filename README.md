@@ -63,6 +63,9 @@ codestyle --test
 # Fix code-style
 codestyle
 
+# Also you can run parallel styling
+codestyle --parallel
+
 # Update `.editorconfig`
 codestyle editorconfig
 
