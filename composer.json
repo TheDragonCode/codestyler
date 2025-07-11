@@ -41,11 +41,16 @@
         }
     ],
     "require": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "ergebnis/composer-normalize": "^2.47",
+        "laravel/pint": "^1.24"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        },
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
