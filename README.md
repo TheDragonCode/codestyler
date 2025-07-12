@@ -20,57 +20,50 @@ You can install the package using [Composer](https://getcomposer.org):
 
 ```bash
 composer require dragon-code/codestyler --dev
+
+composer config scripts.style "vendor/bin/pint --parallel"
 ```
 
-After installing the dependency, run the console command using the link to the preset file corresponding to the PHP
-version used in your application:
+After installing the dependency, add a file copy command to the `scripts.post-update-cmd` section.
+This will automatically copy the `pint.json` file to the project root.
 
-```bash
-composer config scripts.style "vendor/bin/pint --config vendor/dragon-code/codestyler/presets/pint/8.2.json"
-composer config scripts.style "vendor/bin/pint --config vendor/dragon-code/codestyler/presets/pint/8.3.json"
-composer config scripts.style "vendor/bin/pint --config vendor/dragon-code/codestyler/presets/pint/8.4.json"
+When adding the command, replace `8.4` with the minimum PHP version your application works with.
+Available presets: `8.2`, `8.3` and `8.4`.
+
+You can also add copying the `.editorconfig` file to help the IDE and calling normalize the `composer.json` file:
+
+```json
+{
+    "scripts": {
+        "post-update-cmd": [
+            "cp vendor/dragon-code/codestyler/presets/pint/8.4.json pint.json",
+            "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig",
+            "composer normalize"
+        ]
+    }
+}
 ```
 
 ## Usage
 
-### Laravel Pint
+### Linter
 
-> [!NOTE]
->
-> [Laravel Pint](https://laravel.com/docs/pint) documentation can be found [here](https://laravel.com/docs/pint).
+Laravel Pint is used as the linker. Documentation for working with it can be
+found [here](https://laravel.com/docs/pint).
 
-Just run the console command:
+The linter is invoked by a console command:
 
 ```bash
 composer style
 ```
 
-> [!WARNING]
->
-> Since version 1.24, Laravel Pint has learned to fix styles in multi-threaded mode,
-> but this option conflicts with the `--config` parameter.
-
-If you don't mind updating the `pint.json` file directly in the repository instead of accessing it via a link,
-then you can make the following changes to the `composer.json` file:
-
-```diff
- {
-     "scripts": {
-         "post-update-cmd": [
-             "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig",
-+            "cp vendor/dragon-code/codestyler/presets/pint/8.4.json pint.json",
-             "composer normalize"
-         ],
--        "style": "vendor/bin/pint --config vendor/dragon-code/codestyler/presets/pint/8.4.json",
-+        "style": "vendor/bin/pint --parallel"
-     }
- }
-```
-
 ### EditorConfig
 
-You can also copy the `.editorconfig` file to the root of the project.
-But we recommend automating this process by adding automatic copying to the `composer.json` file:
+The `.editorconfig` file helps your IDE to work according to certain rules.
+
+To do this, make sure the file is in the root of the project.
+You can also automate this process by adding a call to the file copy function in the `scripts.post-update-cmd`
+section of the `composer.json` file.
 
 ```JSON
 {
@@ -100,7 +93,7 @@ To use this feature, add a call parameter to the `post-update-cmd` block of the 
 {
     "scripts": {
         "post-update-cmd": [
-            "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig"
+            "composer normalize"
         ]
     }
 }
@@ -109,7 +102,7 @@ To use this feature, add a call parameter to the `post-update-cmd` block of the 
 Now you can just a run console command:
 
 ```bash
-composer normalize
+composer update
 ```
 
 ### Finalized `composer.json`
@@ -128,12 +121,14 @@ After completing all the steps, the `composer.json` file will have the following
     },
     "scripts": {
         "post-update-cmd": [
+            "cp vendor/dragon-code/codestyler/presets/pint/8.4.json pint.json",
             "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig",
             "composer normalize"
         ],
-        "style": "vendor/bin/pint --config vendor/dragon-code/codestyler/presets/pint/8.4.json"
+        "style": "vendor/bin/pint --parallel"
     }
 }
+
 ```
 
 ### IDE
