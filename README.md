@@ -48,7 +48,7 @@ You can also add copying the `.editorconfig` file to help the IDE and calling no
 
 ### Linter
 
-Laravel Pint is used as the linker. Documentation for working with it can be
+[`Laravel Pint`](https://laravel.com/docs/pint) is used as the linker. Documentation for working with it can be
 found [here](https://laravel.com/docs/pint).
 
 The linter is invoked by a console command:
