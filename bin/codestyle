@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use DragonCode\Codestyler\Console\PintCommand;
+use Symfony\Component\Console\Application;
+
+if (PHP_SAPI !== 'cli' || (PHP_MAJOR_VERSION < 8 && PHP_MINOR_VERSION < 2)) {
+    echo 'Warning: should be invoked via the CLI minimum version of PHP 8.2, not the '
+        . PHP_SAPI . ' '
+        . PHP_MAJOR_VERSION . '.'
+        . PHP_MINOR_VERSION;
+
+    exit(1);
+}
+
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
+$possibleFiles = [
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../../autoload.php',
+    __DIR__ . '/../vendor/autoload.php',
+];
+
+$file = null;
+
+foreach ($possibleFiles as $possibleFile) {
+    if (file_exists($possibleFile)) {
+        $file = $possibleFile;
+        break;
+    }
+}
+
+if (is_null($file)) {
+    throw new RuntimeException('Unable to locate autoload.php file.');
+}
+
+require_once $file;
+
+$application = new Application('The Dragon Code: Styler', '6.x');
+
+$application->add(new PintCommand());
+
+$application->run();

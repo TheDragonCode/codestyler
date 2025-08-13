@@ -36,8 +36,8 @@ You can also add copying the `.editorconfig` file to help the IDE and calling no
 {
     "scripts": {
         "post-update-cmd": [
-            "cp vendor/dragon-code/codestyler/presets/pint/8.4.json pint.json",
-            "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig",
+            "vendor/bin/codestyle pint 8.4",
+            "vendor/bin/codestyle editorconfig",
             "composer normalize"
         ]
     }
@@ -69,7 +69,7 @@ section of the `composer.json` file.
 {
     "scripts": {
         "post-update-cmd": [
-            "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig"
+            "vendor/bin/codestyle editorconfig"
         ]
     }
 }
@@ -121,8 +121,8 @@ After completing all the steps, the `composer.json` file will have the following
     },
     "scripts": {
         "post-update-cmd": [
-            "cp vendor/dragon-code/codestyler/presets/pint/8.4.json pint.json",
-            "cp vendor/dragon-code/codestyler/.editorconfig .editorconfig",
+            "vendor/bin/codestyle pint 8.4",
+            "vendor/bin/codestyle editorconfig",
             "composer normalize"
         ],
         "style": "vendor/bin/pint --parallel"
