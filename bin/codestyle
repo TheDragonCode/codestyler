@@ -3,6 +3,7 @@
 
 declare(strict_types=1);
 
+use DragonCode\Codestyler\Console\EditorConfigCommand;
 use DragonCode\Codestyler\Console\PintCommand;
 use Symfony\Component\Console\Application;
 
@@ -40,6 +41,7 @@ require_once $file;
 
 $application = new Application('The Dragon Code: Styler', '6.x');
 
+$application->add(new EditorConfigCommand());
 $application->add(new PintCommand());
 
 $application->run();
