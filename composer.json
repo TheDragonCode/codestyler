@@ -67,5 +67,12 @@
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "php bin/codestyle pint 8.2",
+            "composer normalize"
+        ],
+        "style": "vendor/bin/pint"
     }
 }

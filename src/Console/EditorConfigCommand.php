@@ -49,7 +49,7 @@ class EditorConfigCommand extends Command
 
     protected function sourcePath(): string
     {
-        return __DIR__ . "/../../.editorconfig";
+        return __DIR__ . '/../../.editorconfig';
     }
 
     protected function targetPath(string $path): string

@@ -1,6 +1,8 @@
 .idea/
 vendor/
 
+pint.json
+
 *.bak
 *.cache
 *.clover
