@@ -24,6 +24,12 @@ composer require dragon-code/codestyler --dev
 composer config scripts.style "vendor/bin/pint --parallel"
 ```
 
+It is also possible to establish dependence in the global area of visibility:
+
+```bash
+composer global require dragon-code/codestyler
+```
+
 After installing the dependency, add a file copy command to the `scripts.post-update-cmd` section.
 This will automatically copy the `pint.json` file to the project root.
 
