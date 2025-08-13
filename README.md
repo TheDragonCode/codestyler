@@ -50,6 +50,20 @@ You can also add copying the `.editorconfig` file to help the IDE and calling no
 }
 ```
 
+When using a globally established dependence, the call call must be replaced with the following:
+
+```json
+{
+    "scripts": {
+        "post-update-cmd": [
+            "codestyle pint 8.4",
+            "codestyle editorconfig",
+            "composer normalize"
+        ]
+    }
+}
+```
+
 ## Usage
 
 ### Linter
