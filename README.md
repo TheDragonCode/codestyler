@@ -94,7 +94,7 @@ After that, write the commands in the `package.json` file:
 
 [`Laravel Pint`](https://laravel.com/docs/pint) is used as the linter for PHP.
 
-The linter is invoked by a console commands:
+The linter is invoked by a console command:
 
 ```bash
 composer style
