@@ -9,13 +9,12 @@ class ConstructorClass
     public const First  = 0;
     public const Second = 1;
 
-public int $firstValue = 1;
+    public int $firstValue = 1;
 
-    public int  $secondValue = 1;
+    public int $secondValue = 1;
 
     public function __construct(
-        
-        protected int | string      $value
+        protected int|string $value
     ) {}
 }
 
