@@ -32,7 +32,7 @@ jobs:
                     codestyle npm
 
             -   name: PHP code-style
-                run: vendor/bin/pint --parallel --test
+                run: pint --parallel --test
 
             -   name: Node code-style
                 run: |
@@ -75,7 +75,7 @@ jobs:
                 run: composer normalize
 
             -   name: PHP code-style
-                run: vendor/bin/pint --parallel
+                run: pint --parallel
 
             -   name: Node code-style
                 run: |
