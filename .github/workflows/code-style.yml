@@ -43,6 +43,9 @@ jobs:
         runs-on: ubuntu-latest
         
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        
+        env:
+            HAS_PACKAGE_JSON: ${{ hashFiles('package.json') != '' && '1' || '0' }}
 
         steps:
             -   uses: actions/checkout@v5
@@ -54,10 +57,10 @@ jobs:
 
             -   name: Setup Composer
                 run: |
-                    composer global config --no-plugins allow-plugins.dragon-code/codestyler true
+                    composer global config --no-plugins allow-plugins.laravel/pint true
                     composer global config --no-plugins allow-plugins.ergebnis/composer-normalize true
                     
-                    composer config --no-plugins allow-plugins.dragon-code/codestyler true
+                    composer config --no-plugins allow-plugins.laravel/pint true
                     composer config --no-plugins allow-plugins.ergebnis/composer-normalize true
 
             -   name: Install Composer dependencies
@@ -81,6 +84,13 @@ jobs:
                 run: |
                     npx @biomejs/biome lint --write
                     npx @biomejs/biome format --write
+
+            -   name: Remove node_modules
+                run: rm -rf node_modules
+
+            -   name: Remove package.json
+                if: ${{ env.HAS_PACKAGE_JSON == '0' }}
+                run: rm package.json
 
             -   name: Create a Pull Request
                 uses: peter-evans/create-pull-request@v7
