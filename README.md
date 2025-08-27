@@ -209,6 +209,25 @@ After completing all the steps, the `package.json` file will have the following 
 }
 ```
 
+### GitHub Actions
+
+To use the Linter with GitHub Actions, just create a file `.github/workflows/code-style.yml` and insert this content
+into it:
+
+```yaml
+name: Code Style
+
+on:
+    push:
+    pull_request:
+
+permissions: write-all
+
+jobs:
+    Styler:
+        uses: TheDragonCode/.github/.github/workflows/code-style.yml@main
+```
+
 ### IDE
 
 After executing the `composer update` console command, a `.editorconfig` file will be added to your application.
