@@ -46,3 +46,9 @@ class ValueClass
 }
 
 $newClass = new ValueClass;
+
+$possibleFiles = [
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../../autoload.php',
+    __DIR__ . '/../vendor/autoload.php',
+];

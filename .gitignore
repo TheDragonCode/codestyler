@@ -1,5 +1,6 @@
 .idea/
 vendor/
+node_modules/
 
 pint.json
 
@@ -9,3 +10,4 @@ pint.json
 *.orig
 
 composer.lock
+package-lock.json

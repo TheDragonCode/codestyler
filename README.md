@@ -30,6 +30,25 @@ It is also possible to establish dependence in the global area of visibility:
 composer global require dragon-code/codestyler
 ```
 
+If you need to apply code-style to JS, TS, CSS, JSON, and other files, you also need to install an additional dependency
+in your project:
+
+```bash
+npm i -D @biomejs/biome
+```
+
+Next, write the commands in the `package.json` file:
+
+```json
+{
+    "scripts": {
+        "lint": "npx @biomejs/biome lint --write",
+        "format": "npx @biomejs/biome format --write",
+        "style": "npm run lint && npm run format"
+    }
+}
+```
+
 After installing the dependency, add a file copy command to the `scripts.post-update-cmd` section.
 This will automatically copy the `pint.json` file to the project root.
 
@@ -44,6 +63,7 @@ You can also add copying the `.editorconfig` file to help the IDE and calling no
         "post-update-cmd": [
             "vendor/bin/codestyle pint 8.4",
             "vendor/bin/codestyle editorconfig",
+            "vendor/bin/codestyle npm",
             "composer normalize"
         ]
     }
@@ -58,6 +78,7 @@ When using a globally established dependence, the call call must be replaced wit
         "post-update-cmd": [
             "codestyle pint 8.4",
             "codestyle editorconfig",
+            "codestyle npm",
             "composer normalize"
         ]
     }
@@ -74,7 +95,11 @@ found [here](https://laravel.com/docs/pint).
 The linter is invoked by a console command:
 
 ```bash
+# For PHP
 composer style
+
+# For JS, TS, CSS, JSON, etc.
+npm run style
 ```
 
 ### EditorConfig
@@ -125,6 +150,24 @@ Now you can just a run console command:
 composer update
 ```
 
+### Npm Linter
+
+[Biome](https://biomejs.dev) - format, lint, and more in a fraction of a second.
+
+To do this, make sure the `biome.json` file is in the root of the project.
+You can also automate this process by adding a call to the file copy function in the `scripts.post-update-cmd`
+section of the `composer.json` file.
+
+```JSON
+{
+    "scripts": {
+        "post-update-cmd": [
+            "vendor/bin/codestyle npm"
+        ]
+    }
+}
+```
+
 ### Finalized `composer.json`
 
 After completing all the steps, the `composer.json` file will have the following changes:
@@ -143,12 +186,29 @@ After completing all the steps, the `composer.json` file will have the following
         "post-update-cmd": [
             "vendor/bin/codestyle pint 8.4",
             "vendor/bin/codestyle editorconfig",
+            "vendor/bin/codestyle npm",
             "composer normalize"
         ],
         "style": "vendor/bin/pint --parallel"
     }
 }
+```
 
+### Finalized `package.json`
+
+After completing all the steps, the `package.json` file will have the following changes:
+
+```json
+{
+    "scripts": {
+        "lint": "npx @biomejs/biome lint --write",
+        "format": "npx @biomejs/biome format --write",
+        "style": "npm run lint && npm run format"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.2.2"
+    }
+}
 ```
 
 ### IDE
