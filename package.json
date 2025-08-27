@@ -1,0 +1,22 @@
+{
+    "name": "dragon-code-codestyler",
+    "description": "A tool to automatically fix Coding Style Standards issues by The Dragon Code.",
+    "homepage": "https://github.com/TheDragonCode/codestyler#readme",
+    "bugs": {
+        "url": "https://github.com/TheDragonCode/codestyler/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TheDragonCode/codestyler.git"
+    },
+    "license": "MIT",
+    "author": "Andrey Helldar <helldar@dragon-code.pro>",
+    "scripts": {
+        "lint": "npx @biomejs/biome lint --write",
+        "format": "npx @biomejs/biome format --write",
+        "style": "npm run lint && npm run format"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.2.2"
+    }
+}

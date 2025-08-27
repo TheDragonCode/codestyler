@@ -4,14 +4,15 @@
 declare(strict_types=1);
 
 use DragonCode\Codestyler\Console\EditorConfigCommand;
+use DragonCode\Codestyler\Console\NpmCommand;
 use DragonCode\Codestyler\Console\PintCommand;
 use Symfony\Component\Console\Application;
 
 if (PHP_SAPI !== 'cli' || (PHP_MAJOR_VERSION < 8 && PHP_MINOR_VERSION < 2)) {
     echo 'Warning: should be invoked via the CLI minimum version of PHP 8.2, not the '
-        . PHP_SAPI . ' '
-        . PHP_MAJOR_VERSION . '.'
-        . PHP_MINOR_VERSION;
+            . PHP_SAPI . ' '
+            . PHP_MAJOR_VERSION . '.'
+            . PHP_MINOR_VERSION;
 
     exit(1);
 }
@@ -41,7 +42,8 @@ require_once $file;
 
 $application = new Application('The Dragon Code: Styler', '6.x');
 
-$application->add(new EditorConfigCommand());
-$application->add(new PintCommand());
+$application->add(new EditorConfigCommand);
+$application->add(new PintCommand);
+$application->add(new NpmCommand);
 
 $application->run();
