@@ -30,32 +30,14 @@ It is also possible to establish dependence in the global area of visibility:
 composer global require dragon-code/codestyler
 ```
 
-If you need to apply code-style to JS, TS, CSS, JSON, and other files, you also need to install an additional dependency
-in your project:
-
-```bash
-npm i -D @biomejs/biome
-```
-
-Next, write the commands in the `package.json` file:
-
-```json
-{
-    "scripts": {
-        "lint": "npx @biomejs/biome lint --write",
-        "format": "npx @biomejs/biome format --write",
-        "style": "npm run lint && npm run format"
-    }
-}
-```
-
 After installing the dependency, add a file copy command to the `scripts.post-update-cmd` section.
 This will automatically copy the `pint.json` file to the project root.
 
 When adding the command, replace `8.4` with the minimum PHP version your application works with.
 Available presets: `8.2`, `8.3` and `8.4`.
 
-You can also add copying the `.editorconfig` file to help the IDE and calling normalize the `composer.json` file:
+You can also add copying the `.editorconfig` file to help the IDE and calling normalize the `composer.json` file
+and `biome.json` file for [Biome Linter](https://biomejs.dev):
 
 ```json
 {
@@ -70,7 +52,7 @@ You can also add copying the `.editorconfig` file to help the IDE and calling no
 }
 ```
 
-When using a globally established dependence, the call call must be replaced with the following:
+When using a globally established dependence, the call must be replaced with the following:
 
 ```json
 {
@@ -85,21 +67,55 @@ When using a globally established dependence, the call call must be replaced wit
 }
 ```
 
-## Usage
+### For JS, CSS, JSON
 
-### Linter
-
-[`Laravel Pint`](https://laravel.com/docs/pint) is used as the linter for PHP and [Biome](https://biomejs.dev) for others. Documentation for working with it can be
-found [here](https://laravel.com/docs/pint).
-
-The linter is invoked by a console command:
+If it is necessary to correct the code style for JS, CSS and JSON, you need to separately set the dependence through
+the NPM package manager (or any other):
 
 ```bash
-# For PHP
-composer style
+npm i -D @biomejs/biome
+```
 
-# For JS, TS, CSS, JSON, etc.
-npm run style
+After that, write the commands in the `package.json` file:
+
+```json
+{
+    "scripts": {
+        "lint": "npx @biomejs/biome lint --write",
+        "format": "npx @biomejs/biome format --write",
+        "style": "npm run lint && npm run format"
+    }
+}
+```
+
+## Usage
+
+### PHP Linter
+
+[`Laravel Pint`](https://laravel.com/docs/pint) is used as the linter for PHP.
+
+The linter is invoked by a console commands:
+
+```bash
+composer style
+```
+
+### Node Linter
+
+[Biome](https://biomejs.dev) is used as the linter for JS, CSS and JSON.
+
+Make sure the `biome.json` file is in the root of the project.
+You can also automate this process by adding a call to the file copy function in the `scripts.post-update-cmd`
+section of the `composer.json` file:
+
+```JSON
+{
+    "scripts": {
+        "post-update-cmd": [
+            "vendor/bin/codestyle npm"
+        ]
+    }
+}
 ```
 
 ### EditorConfig
@@ -148,24 +164,6 @@ Now you can just a run console command:
 
 ```bash
 composer update
-```
-
-### Npm Linter
-
-[Biome](https://biomejs.dev) - format, lint, and more in a fraction of a second.
-
-To do this, make sure the `biome.json` file is in the root of the project.
-You can also automate this process by adding a call to the file copy function in the `scripts.post-update-cmd`
-section of the `composer.json` file.
-
-```JSON
-{
-    "scripts": {
-        "post-update-cmd": [
-            "vendor/bin/codestyle npm"
-        ]
-    }
-}
 ```
 
 ### Finalized `composer.json`
