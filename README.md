@@ -89,7 +89,7 @@ When using a globally established dependence, the call call must be replaced wit
 
 ### Linter
 
-[`Laravel Pint`](https://laravel.com/docs/pint) is used as the linker. Documentation for working with it can be
+[`Laravel Pint`](https://laravel.com/docs/pint) is used as the linter for PHP and [Biome](https://biomejs.dev) for others. Documentation for working with it can be
 found [here](https://laravel.com/docs/pint).
 
 The linter is invoked by a console command:
