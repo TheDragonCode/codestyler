@@ -7,5 +7,5 @@ on:
 permissions: write-all
 
 jobs:
-    styler:
+    Styler:
         uses: TheDragonCode/.github/.github/workflows/code-style.yml@main
