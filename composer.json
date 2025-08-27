@@ -73,6 +73,6 @@
             "php bin/codestyle pint 8.2",
             "composer normalize"
         ],
-        "style": "vendor/bin/pint --parallel ./bin/codestyle ./src/ ./tests"
+        "style": "vendor/bin/pint ./bin/codestyle ./src/ ./tests"
     }
 }
