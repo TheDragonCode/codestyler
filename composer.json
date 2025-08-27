@@ -62,7 +62,8 @@
     ],
     "config": {
         "allow-plugins": {
-            "ergebnis/composer-normalize": true
+            "ergebnis/composer-normalize": true,
+            "laravel/pint": true
         },
         "optimize-autoloader": true,
         "preferred-install": "dist",
