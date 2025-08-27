@@ -33,6 +33,8 @@ class ValueClass
 
     public function alignment(): array
     {
+        $foo = 'value';
+
         return [
             'foo'    => 'Foo',
             'bar'    => 'Bar',
