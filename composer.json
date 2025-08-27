@@ -62,6 +62,7 @@
     ],
     "config": {
         "allow-plugins": {
+            "dragon-code/codestyler": true,
             "ergebnis/composer-normalize": true
         },
         "optimize-autoloader": true,
