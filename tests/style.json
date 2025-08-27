@@ -1,16 +1,11 @@
 {
     "preset": "laravel",
     "rules": {
-        "@PHP83Migration": true,
+"@PHP83Migration": true,
         "concat_space": {
-            "spacing": "one"
-        },
+            "spacing": "one"        },
         "blank_line_before_statement": {
-            "statements": [
-                "declare",
-                "phpdoc",
-                "continue",
-                "return"
+            "statements": [                "declare",                "phpdoc",                "continue",                "return"
             ]
         }
     },
