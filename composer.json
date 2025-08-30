@@ -45,6 +45,7 @@
         "ext-json": "*",
         "ergebnis/composer-normalize": "^2.47",
         "laravel/pint": "^1.24",
+        "localheinz/diff": "1.3.0",
         "symfony/console": "^7.3"
     },
     "require-dev": {
