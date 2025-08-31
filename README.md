@@ -226,6 +226,9 @@ permissions: write-all
 jobs:
     Styler:
         uses: TheDragonCode/.github/.github/workflows/code-style.yml@main
+        with:
+            php: true   # By default, true
+            node: true  # By default, true
 ```
 
 ### IDE
