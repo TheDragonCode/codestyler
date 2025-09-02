@@ -224,12 +224,17 @@ on:
 permissions: write-all
 
 jobs:
-    Styler:
+    Checks:
         uses: TheDragonCode/.github/.github/workflows/code-style.yml@main
         with:
-            php: true   # By default, true
-            node: true  # By default, true
+            php: true
+            node: true
 ```
+
+Defaults:
+
+- php: true
+- node: true
 
 ### IDE
 
