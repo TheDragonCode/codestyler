@@ -6,6 +6,7 @@ declare(strict_types=1);
 use DragonCode\Codestyler\Console\EditorConfigCommand;
 use DragonCode\Codestyler\Console\NpmCommand;
 use DragonCode\Codestyler\Console\PintCommand;
+use DragonCode\Codestyler\Console\RectorCommand;
 use Symfony\Component\Console\Application;
 
 if (PHP_SAPI !== 'cli' || (PHP_MAJOR_VERSION < 8 && PHP_MINOR_VERSION < 2)) {
@@ -44,6 +45,7 @@ $application = new Application('The Dragon Code: Styler', '6.x');
 
 $application->add(new EditorConfigCommand);
 $application->add(new PintCommand);
+$application->add(new RectorCommand);
 $application->add(new NpmCommand);
 
 $application->run();
