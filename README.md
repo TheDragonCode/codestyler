@@ -220,8 +220,8 @@ After completing all the steps, the `composer.json` file will have the following
             "composer normalize"
         ],
         "style": [
-            "vendor/bin/pint --parallel",
-            "vendor/bin/rector"
+            "vendor/bin/rector",
+            "vendor/bin/pint --parallel"
         ]
     }
 }
