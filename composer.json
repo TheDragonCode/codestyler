@@ -43,6 +43,7 @@
     "require": {
         "php": "^8.2",
         "ext-json": "*",
+        "driftingly/rector-laravel": "^2.1",
         "ergebnis/composer-normalize": "^2.48",
         "laravel/pint": "^1.24",
         "symfony/console": "^7.3"
@@ -74,6 +75,9 @@
             "php bin/codestyle pint 8.2",
             "composer normalize"
         ],
-        "style": "vendor/bin/pint ./bin/codestyle ./src/ ./tests"
+        "style": [
+            "vendor/bin/rector",
+            "vendor/bin/pint ./bin/codestyle ./src/ ./tests"
+        ]
     }
 }

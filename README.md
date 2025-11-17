@@ -21,7 +21,7 @@ You can install the package using [Composer](https://getcomposer.org):
 ```bash
 composer require dragon-code/codestyler --dev
 
-composer config scripts.style "vendor/bin/pint --parallel"
+composer config scripts.style "vendor/bin/rector && vendor/bin/pint --parallel"
 ```
 
 It is also possible to establish dependence in the global area of visibility:
@@ -44,6 +44,7 @@ and `biome.json` file for [Biome Linter](https://biomejs.dev):
     "scripts": {
         "post-update-cmd": [
             "vendor/bin/codestyle pint 8.4",
+            "vendor/bin/codestyle rector laravel",
             "vendor/bin/codestyle editorconfig",
             "vendor/bin/codestyle npm",
             "composer normalize"
@@ -59,6 +60,7 @@ When using a globally established dependence, the call must be replaced with the
     "scripts": {
         "post-update-cmd": [
             "codestyle pint 8.4",
+            "codestyle rector laravel",
             "codestyle editorconfig",
             "codestyle npm",
             "composer normalize"
@@ -99,6 +101,35 @@ The linter is invoked by a console command:
 ```bash
 composer style
 ```
+
+### Rector
+
+[`Rector`](https://getrector.com) is uses as the code rector for PHP.
+
+The Rector is invoked by a console command:
+
+```bash
+composer style
+```
+
+To do this, make sure the file is in the root of the project.
+You can also automate this process by adding a call to the file copy function in the `scripts.post-update-cmd`
+section of the `composer.json` file.
+
+```JSON
+{
+    "scripts": {
+        "post-update-cmd": [
+            "vendor/bin/codestyle rector laravel"
+        ]
+    }
+}
+```
+
+Available presets:
+
+- `laravel`
+- `default`
 
 ### Node Linter
 
@@ -183,11 +214,15 @@ After completing all the steps, the `composer.json` file will have the following
     "scripts": {
         "post-update-cmd": [
             "vendor/bin/codestyle pint 8.4",
+            "vendor/bin/codestyle rector laravel",
             "vendor/bin/codestyle editorconfig",
             "vendor/bin/codestyle npm",
             "composer normalize"
         ],
-        "style": "vendor/bin/pint --parallel"
+        "style": [
+            "vendor/bin/pint --parallel",
+            "vendor/bin/rector"
+        ]
     }
 }
 ```
