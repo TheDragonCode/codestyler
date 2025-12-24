@@ -17,6 +17,6 @@
         "style": "npm run lint && npm run format"
     },
     "devDependencies": {
-        "@biomejs/biome": "^2.3.6"
+        "@biomejs/biome": "^2.3.10"
     }
 }
