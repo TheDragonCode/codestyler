@@ -43,9 +43,9 @@ require_once $file;
 
 $application = new Application('The Dragon Code: Styler', '6.x');
 
-$application->add(new EditorConfigCommand);
-$application->add(new PintCommand);
-$application->add(new RectorCommand);
-$application->add(new NpmCommand);
+$application->addCommand(new EditorConfigCommand);
+$application->addCommand(new PintCommand);
+$application->addCommand(new RectorCommand);
+$application->addCommand(new NpmCommand);
 
 $application->run();
