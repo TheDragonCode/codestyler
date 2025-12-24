@@ -43,13 +43,13 @@
     "require": {
         "php": "^8.2",
         "ext-json": "*",
-        "driftingly/rector-laravel": "^2.1",
-        "ergebnis/composer-normalize": "^2.48",
-        "laravel/pint": "^1.24",
-        "symfony/console": "^7.3"
+        "driftingly/rector-laravel": "^2.1.8",
+        "ergebnis/composer-normalize": "^2.48.2",
+        "laravel/pint": "^1.26",
+        "symfony/console": "^7.4.1"
     },
     "require-dev": {
-        "symfony/var-dumper": "^7.3"
+        "symfony/var-dumper": "^7.4"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
