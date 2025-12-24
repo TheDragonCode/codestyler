@@ -14,9 +14,7 @@
             "!composer.json",
             "!composer.lock",
             "!package.json",
-            "!package-lock.json",
-            "!analytics.*",
-            "!metrics.*"
+            "!package-lock.json"
         ]
     },
     "formatter": {
