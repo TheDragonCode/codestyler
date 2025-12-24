@@ -33,8 +33,8 @@ composer global require dragon-code/codestyler
 After installing the dependency, add a file copy command to the `scripts.post-update-cmd` section.
 This will automatically copy the `pint.json` file to the project root.
 
-When adding the command, replace `8.4` with the minimum PHP version your application works with.
-Available presets: `8.2`, `8.3` and `8.4`.
+When adding the command, replace `8.5` with the minimum PHP version your application works with.
+Available presets: `8.2`, `8.3`, `8.4` and `8.5.
 
 You can also add copying the `.editorconfig` file to help the IDE and calling normalize the `composer.json` file
 and `biome.json` file for [Biome Linter](https://biomejs.dev):
@@ -43,7 +43,7 @@ and `biome.json` file for [Biome Linter](https://biomejs.dev):
 {
     "scripts": {
         "post-update-cmd": [
-            "vendor/bin/codestyle pint 8.4",
+            "vendor/bin/codestyle pint 8.5",
             "vendor/bin/codestyle rector laravel",
             "vendor/bin/codestyle editorconfig",
             "vendor/bin/codestyle npm",
@@ -59,7 +59,7 @@ When using a globally established dependence, the call must be replaced with the
 {
     "scripts": {
         "post-update-cmd": [
-            "codestyle pint 8.4",
+            "codestyle pint 8.5",
             "codestyle rector laravel",
             "codestyle editorconfig",
             "codestyle npm",
@@ -213,7 +213,7 @@ After completing all the steps, the `composer.json` file will have the following
     },
     "scripts": {
         "post-update-cmd": [
-            "vendor/bin/codestyle pint 8.4",
+            "vendor/bin/codestyle pint 8.5",
             "vendor/bin/codestyle rector laravel",
             "vendor/bin/codestyle editorconfig",
             "vendor/bin/codestyle npm",
