@@ -1,6 +1,6 @@
 # The Dragon Code Styler
 
-![the dragon code code styler](https://preview.dragon-code.pro/the-dragon-code/code-styler.svg?brand=php&mode=dark)
+![the dragon code code styler](https://banners.beyondco.de/Code%20Styler.png?theme=light&packageManager=composer+require&packageName=dragon-code%2Fcodestyler+--dev&pattern=topography&style=style_2&description=by+The+Dragon+Code&md=1&showWatermark=1&fontSize=100px&images=https%3A%2F%2Fwww.php.net%2Fimages%2Flogos%2Fnew-php-logo.svg)
 
 [![Stable Version][badge_stable]][link_repository]
 [![Total Downloads][badge_downloads]][link_packagist]
