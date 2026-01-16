@@ -1,8 +1,8 @@
 # The Dragon Code Styler
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://banners.beyondco.de/Codestyler.png?theme=dark&pattern=topography&style=style_2&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg&packageManager=composer+require&packageName=dragon-code%2Fcodestyler&description=A+tool+to+automatically+fix+Coding+Style+Standards+issues+by+The+Dragon+Code.&md=1&showWatermark=1">
-    <img src="https://banners.beyondco.de/Codestyler.png?theme=light&pattern=topography&style=style_2&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg&packageManager=composer+require&packageName=dragon-code%2Fcodestyler&description=A+tool+to+automatically+fix+Coding+Style+Standards+issues+by+The+Dragon+Code.&md=1&showWatermark=1" alt="Codestyler">
+    <source media="(prefers-color-scheme: dark)" srcset="https://banners.beyondco.de/Codestyler.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=dark&packageManager=composer+require&packageName=dragon-code%2Fcodestyler&description=A+tool+to+automatically+fix+Coding+Style+Standards+issues+by+The+Dragon+Code.&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg">
+    <img src="https://banners.beyondco.de/Codestyler.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=light&packageManager=composer+require&packageName=dragon-code%2Fcodestyler&description=A+tool+to+automatically+fix+Coding+Style+Standards+issues+by+The+Dragon+Code.&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg" alt="Codestyler">
 </picture>
 
 [![Stable Version][badge_stable]][link_repository]
