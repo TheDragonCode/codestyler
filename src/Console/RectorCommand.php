@@ -12,9 +12,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class RectorCommand extends Command
 {
-    protected function configure(): Command
+    protected function configure(): void
     {
-        return $this
+        $this
             ->setName('rector')
             ->setDescription('Publishes presets for the Rector')
             ->addArgument('preset', InputArgument::REQUIRED, 'The name of the preset')

@@ -16,9 +16,9 @@ use function realpath;
 
 class PintCommand extends Command
 {
-    protected function configure(): Command
+    protected function configure(): void
     {
-        return $this
+        $this
             ->setName('pint')
             ->setDescription('Publishes presets for the Laravel Pint')
             ->addArgument('preset', InputArgument::REQUIRED, 'The name of the preset')
