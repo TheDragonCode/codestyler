@@ -15,9 +15,9 @@ use function realpath;
 
 class NpmCommand extends Command
 {
-    protected function configure(): Command
+    protected function configure(): void
     {
-        return $this
+        $this
             ->setName('npm')
             ->setDescription('Publishes the biome.json file')
             ->addOption('path', 'p', InputOption::VALUE_OPTIONAL, 'Path to publish files', realpath('.'));

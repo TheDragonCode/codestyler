@@ -15,9 +15,9 @@ use function realpath;
 
 class EditorConfigCommand extends Command
 {
-    protected function configure(): Command
+    protected function configure(): void
     {
-        return $this
+        $this
             ->setName('editorconfig')
             ->setDescription('Publishes the .editorconfig file')
             ->addOption('path', 'p', InputOption::VALUE_OPTIONAL, 'Path to publish files', realpath('.'));
