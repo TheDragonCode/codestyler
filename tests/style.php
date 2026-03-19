@@ -20,9 +20,7 @@ class ConstructorClass
 
 class ValueClass
 {
-    /**
-     * @param  int|string  $item  Some Value
-     */
+    /** @param  int|string  $item  Some Value */
     public function value(int|string $item): int|string
     {
         $result = static fn () => $item;
