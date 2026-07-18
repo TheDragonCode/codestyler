@@ -43,9 +43,7 @@ return RectorConfig::configure()
     )
     ->withPhpSets()
     ->withSetProviders(LaravelSetProvider::class)
-    ->withImportNames(
-        removeUnusedImports: true,
-    )
+    ->withImportNames()
     ->withComposerBased(
         phpunit: true,
         laravel: true
