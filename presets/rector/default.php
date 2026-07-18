@@ -26,9 +26,7 @@ return RectorConfig::configure()
         typeDeclarations: true,
     )
     ->withPhpSets()
-    ->withImportNames(
-        removeUnusedImports: true,
-    )
+    ->withImportNames()
     ->withComposerBased(
         phpunit: true
     )
