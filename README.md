@@ -290,15 +290,9 @@ the [File | Settings | Editor | Code Style](jetbrains://PhpStorm/settings?name=E
 
 This package is licensed under the [MIT License](LICENSE).
 
-
-[badge_downloads]:  https://img.shields.io/packagist/dt/dragon-code/codestyler.svg?style=flat-square
-
-[badge_license]:    https://img.shields.io/badge/license-MIT-green?style=flat-square
-
-[badge_stable]:     https://img.shields.io/github/v/release/TheDragonCode/codestyler?label=stable&style=flat-square
-
-[link_license]:     LICENSE
-
-[link_packagist]:   https://packagist.org/packages/dragon-code/codestyler
-
-[link_repository]:  https://github.com/TheDragonCode/codestyler
+[badge_downloads]: https://img.shields.io/packagist/dt/dragon-code/codestyler.svg?style=flat-square
+[badge_license]: https://img.shields.io/badge/license-MIT-green?style=flat-square
+[badge_stable]: https://img.shields.io/github/v/release/TheDragonCode/codestyler?label=stable&style=flat-square
+[link_license]: LICENSE
+[link_packagist]: https://packagist.org/packages/dragon-code/codestyler
+[link_repository]: https://github.com/TheDragonCode/codestyler
