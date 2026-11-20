@@ -11,7 +11,6 @@ use RectorLaravel\Rector\MethodCall\EloquentWhereTypeHintClosureParameterRector;
 use RectorLaravel\Rector\MethodCall\UseComponentPropertyWithinCommandsRector;
 use RectorLaravel\Rector\MethodCall\WhereToWhereLikeRector;
 use RectorLaravel\Set\LaravelSetList;
-use RectorLaravel\Set\LaravelSetProvider;
 
 $paths = static fn (array $paths): array => array_filter($paths, fn (string $path): bool => realpath($path) !== false);
 
@@ -42,7 +41,6 @@ return RectorConfig::configure()
         typeDeclarations: true,
     )
     ->withPhpSets()
-    ->withSetProviders(LaravelSetProvider::class)
     ->withImportNames()
     ->withComposerBased(
         phpunit: true,
