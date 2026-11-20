@@ -41,7 +41,7 @@ if (is_null($file)) {
 
 require_once $file;
 
-$application = new Application('The Dragon Code: Styler', '6.x');
+$application = new Application('The Dragon Code: Styler', 'v6');
 
 $application->addCommand(new EditorConfigCommand);
 $application->addCommand(new PintCommand);
